@@ -1,5 +1,5 @@
 # AppDash
-AppDash is a free to general use dashhboard
+AppDash is a free to general use dashhboard.
 
 ## Project setup
 ```

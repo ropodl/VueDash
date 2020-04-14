@@ -1,40 +1,29 @@
 <template>
     <nav>
-        <v-app-bar color="primary accent-4" dark elevate-on-scroll dense app>
+        <v-app-bar elevate-on-scroll app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
-            <!-- <v-divider vertical inset v-if="currentRoute != `Home`"></v-divider> -->
-            <!-- <v-btn icon @click="$router.go(-1)" v-if="currentRoute != `Home`">
-                <v-icon>arrow_back</v-icon>
-            </v-btn> -->
-            <v-toolbar-title>Lie</v-toolbar-title>
-            <!-- <v-toolbar-title>{{currentPageName}}</v-toolbar-title> -->
-            <v-spacer></v-spacer>
+            <v-autocomplete label="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data hide-details></v-autocomplete>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on: tooltip }">
-                    <v-btn icon v-on="{ ...tooltip }">
-                        <v-icon>mdi-magnify</v-icon>
+                    <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
+                        <v-badge small color="success" :overlap="true">
+                            <template v-slot:badge>10</template>
+                        <v-icon>message</v-icon>
+                        </v-badge>
                     </v-btn>
                 </template>
-                <span>Search</span>
+                <span>Message</span>
             </v-tooltip>
             <v-btn icon class="hidden-sm-and-down" @click="darkmodemethod">
                 <v-icon>invert_colors</v-icon>
             </v-btn>
-            <v-tooltip bottom>
-                <template v-slot:activator="{ on: tooltip }">
-                    <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
-                        <v-icon>help</v-icon>
-                    </v-btn>
-                </template>
-                <span>Help</span>
-            </v-tooltip>
             <v-menu left offset-y transition="slide-y-transition" bottom>
                 <template v-slot:activator="{ on: menu }">
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on: tooltip }">
                             <v-btn icon v-on="{ ...tooltip, ...menu }">
-                                <v-badge small color="red" :overlap="true">
+                                <v-badge small color="warning" :overlap="true">
                                     <template v-slot:badge>{{ numberofmessages }}</template>
                                     <v-icon>notifications</v-icon>
                                 </v-badge>
@@ -99,14 +88,7 @@
         </v-app-bar>
         <v-card tile>
             <v-navigation-drawer v-model="drawer" app>
-                <v-img color="primary" class="profile" :aspect-ratio="16/9"
-                    src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
                     <v-list>
-                        <v-list-item>
-                            <v-list-item-avatar>
-                                <v-img src="https://www.thispersondoesnotexist.com/"></v-img>
-                            </v-list-item-avatar>
-                        </v-list-item>
                         <v-list-item link two-line>
                             <v-list-item-content>
                                 <v-list-item-title class="title">Name</v-list-item-title>
@@ -117,8 +99,7 @@
                             </v-list-item-action>
                         </v-list-item>
                     </v-list>
-                </v-img>
-                <v-divider></v-divider>
+                <!-- <v-divider></v-divider> -->
                 <v-list rounded dense>
                     <div v-for="item in items" :key="item.action">
                         <div v-if="item.items != false ">
@@ -190,25 +171,25 @@
                             name: 'Analytics',
                             title: 'Analytics',
                             active: false,
-                            routes: '/',
+                            routes: '/dashboardanalytics',
                             items: false
                         },{
                             name: 'Ecommerce',
                             title: 'Ecommerce',
                             active: false,
-                            routes: '/',
+                            routes: '/dashboardecommerce',
                             items: false
                         },{
                             name: 'Social',
                             title: 'Social',
                             active: false,
-                            routes: '/',
+                            routes: '/dashboardsocial',
                             items: false
                         },{
                             name: 'Crypto',
                             title: 'Crypto',
                             active: false,
-                            routes: '/',
+                            routes: '/dashboardCrypto',
                             items: false
                         }],
                     },

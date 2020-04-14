@@ -3,9 +3,7 @@
         <v-container fluid>
             <v-row>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12" class="pb-0">
-                    <p class="headline">
-                        Welcome back, John Doe!
-                    </p>
+                    <p class="headline">Welcome back, John Doe!</p>
                 </v-col>
                 <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails"
                     :key="carddetail.id">
@@ -20,6 +18,32 @@
                                     <v-card-text>{{ carddetail.text }}</v-card-text>
                                 </v-col>
                             </v-row>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Total Revenue
+                            <v-chip small color="primary">Monthly</v-chip>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text>
+                            Insert line chart jokes here
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Daily Feed
+                            <v-chip small color="info">Today</v-chip>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text>
+                            Insert feed jokes here
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -74,7 +98,7 @@
                         </v-card-title>
                         <v-divider></v-divider>
                         <v-card-text>
-
+                            Insert pie chart jokes here
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -97,7 +121,7 @@
                         </v-card-title>
                         <v-divider></v-divider>
                         <v-card-text>
-
+                            Insert timeline jokes here
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -146,7 +170,9 @@
                             </v-menu>
                         </v-card-title>
                         <v-divider></v-divider>
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <v-card-text>
+                            Insert bar chart jokes here
+                        </v-card-text>
                     </v-card>
                 </v-col>
             </v-row>
@@ -154,12 +180,10 @@
     </div>
 </template>
 <script>
-    // import canvas from 'chart.js'
     export default {
         name: 'DefaultDashboard',
         data() {
             return {
-                msg: 'Lie',
                 carddetails: [{
                     id: '1',
                     icon: 'fas fa-shopping-cart',
@@ -316,8 +340,7 @@
             }
         },
         methods: {},
-        mounted(){
-            
+        mounted() {
         }
     }
 </script>

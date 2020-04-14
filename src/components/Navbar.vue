@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar color="primary accent-4" dark elevate-on-scroll app>
+        <v-app-bar color="primary accent-4" dark elevate-on-scroll dense app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
             <!-- <v-divider vertical inset v-if="currentRoute != `Home`"></v-divider> -->
             <!-- <v-btn icon @click="$router.go(-1)" v-if="currentRoute != `Home`">
@@ -181,52 +181,83 @@
                         active: true,
                         routes: '',
                         items: [{
-                          // action: ''
-                          name: 'Default',
-                          title: 'Default',
-                          active: true,
-                          routes: '/',
-                          items: false
+                            name: 'Default',
+                            title: 'Default',
+                            active: true,
+                            routes: '/',
+                            items: false
+                        },{
+                            name: 'Analytics',
+                            title: 'Analytics',
+                            active: false,
+                            routes: '/',
+                            items: false
+                        },{
+                            name: 'Ecommerce',
+                            title: 'Ecommerce',
+                            active: false,
+                            routes: '/',
+                            items: false
+                        },{
+                            name: 'Social',
+                            title: 'Social',
+                            active: false,
+                            routes: '/',
+                            items: false
+                        },{
+                            name: 'Crypto',
+                            title: 'Crypto',
+                            active: false,
+                            routes: '/',
+                            items: false
                         }],
                     },
                     //LIST DRAWER *******************************************************
                     {
                         action: 'account_balance',
-                        name: 'Academics',
-                        title: 'Academics',
+                        name: 'Pages',
+                        title: 'Pages',
                         active: false,
                         routes: '',
                         items: [{
-                                action: 'mdi-spade',
-                                name: 'Academic Year',
-                                title: 'Academic Year',
+                                name: 'Profile',
+                                title: 'Profile',
                                 active: true,
-                                routes: '/academic-years',
+                                routes: '/',
                                 items: false,
                             },
                             {
-                                action: 'class',
-                                title: 'Class',
-                                name: 'Class',
+                                title: 'Settings',
+                                name: 'Settings',
                                 active: true,
-                                routes: '/classes',
+                                routes: '/',
                                 items: false,
                             },
                             {
-                                action: 'edit',
-                                title: 'Section',
-                                name: 'All Section',
+                                title: 'Clients',
+                                name: 'Clients',
                                 active: true,
-                                routes: '/sections',
+                                routes: '/',
                                 items: false,
                             },
                             {
-                                action: 'import_export',
-                                title: 'Link Section',
-                                name: 'Link Section',
+                                title: 'Projects',
+                                name: 'Projects',
                                 active: true,
                                 routes: '/class-rel-sections',
-                                items: false,
+                                items: [{
+                                    title: 'List',
+                                    name: 'List',
+                                    active: false,
+                                    routes: '/',
+                                    items: false
+                                },{
+                                    title: 'Detail',
+                                    name: 'Detail',
+                                    active: false,
+                                    routes: '/',
+                                    items: false
+                                }],
                             },
                             {
                                 action: 'person',
@@ -513,8 +544,8 @@
                 });
             },
             handleMini() {
-              // this.mini = false
-              this.drawer = !this.drawer
+                // this.mini = false
+                this.drawer = !this.drawer
                 // var a = window.innerWidth;
                 // if (a <= 600) {
                 //     (this.mini = false), (this.drawer = true);
@@ -551,7 +582,6 @@
             },
         }
     };
-
 </script>
 <style scoped>
 

@@ -24,11 +24,102 @@
                     </v-card>
                 </v-col>
 
+                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Calendar
+                            <span>
+                                <v-btn icon @click="$refs.calendar.prev()">
+                                    <v-icon>mdi-chevron-left</v-icon>
+                                </v-btn>
+                                <v-btn icon @click="$refs.calendar.next()">
+                                    <v-icon>mdi-chevron-right</v-icon>
+                                </v-btn>
+                            </span>
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text class="pa-0">
+                            <v-calendar ref="calendar"></v-calendar>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Weekly Sales
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text>
+
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Appointments
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text>
+
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
                 <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
                     <v-card>
-                        <v-card-subtitle>Latest Projects</v-card-subtitle>
+                        <v-card-title class="d-flex justify-space-between">Latest Projects <v-spacer></v-spacer>
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
                         <v-divider></v-divider>
-                        <v-data-table :headers="header" :items="project">
+                        <v-data-table :headers="header" :items="project" items-per-page="5">
                             <template v-slot:item.status="{ item }">
                                 <v-chip>{{ item.status }}</v-chip>
                             </template>
@@ -36,11 +127,34 @@
                     </v-card>
                 </v-col>
 
+                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">Sales / Revenue<v-spacer></v-spacer>
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title link router :to="item.route">
+                                            {{ item.title }}
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </v-card>
+                </v-col>
             </v-row>
         </v-container>
     </div>
 </template>
 <script>
+    // import canvas from 'chart.js'
     export default {
         name: 'DefaultDashboard',
         data() {
@@ -78,33 +192,133 @@
                     },
                     {
                         text: 'Start Date',
+                        align: 'center',
                         value: 'startdate'
                     },
                     {
                         text: 'End Date',
+                        align: 'center',
                         value: 'enddate'
                     },
                     {
                         text: 'Status',
+                        align: 'center',
                         value: 'status'
                     },
                     {
                         text: 'Assignee',
+                        align: 'center',
                         value: 'assignee'
                     }
                 ],
                 project: [{
-                    name: 'Project Apollo',
-                    startdate: '01/01/2018',
-                    enddate: '31/06/2018',
-                    status: 'Done',
-                    assignee: 'Carl Jenkins',
-                    badgecolor: ''
-                }]
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Pending',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'In Progess',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Cancelled',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    },
+                    {
+                        name: 'Project Apollo',
+                        startdate: '01/01/2018',
+                        enddate: '31/06/2018',
+                        status: 'Done',
+                        assignee: 'Carl Jenkins',
+                        badgecolor: ''
+                    }
+                ],
+                items: [{
+                        title: 'Action',
+                        route: '/'
+                    },
+                    {
+                        title: 'Another Action',
+                        route: '/'
+                    },
+                    {
+                        title: 'Something else here',
+                        route: '/'
+                    }
+                ],
             }
         },
-        computed: {},
-        watch: {}
+        methods: {},
+        mounted(){
+            
+        }
     }
 </script>
 <style scoped>

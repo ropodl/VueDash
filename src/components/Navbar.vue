@@ -1,15 +1,16 @@
 <template>
     <nav>
-        <v-app-bar elevate-on-scroll app>
+        <v-app-bar elevate-on-scroll dense app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
-            <v-autocomplete label="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data hide-details></v-autocomplete>
+            <v-autocomplete label="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data
+                hide-details></v-autocomplete>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on: tooltip }">
                     <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
                         <v-badge small color="success" :overlap="true">
                             <template v-slot:badge>10</template>
-                        <v-icon>message</v-icon>
+                            <v-icon>message</v-icon>
                         </v-badge>
                     </v-btn>
                 </template>
@@ -32,7 +33,7 @@
                         <span>Notifications</span>
                     </v-tooltip>
                 </template>
-                <v-card :max-width="500">
+                <v-card :max-width="400">
                     <v-list three-line>
                         <template v-for="(notification, index) in notifications">
                             <v-subheader v-if="notification.header" :key="notification.header"
@@ -58,19 +59,69 @@
                     <v-tooltip slot="activator" bottom>
                         <template v-slot:activator="{ on: tooltip }">
                             <v-btn icon v-on="{ ...tooltip, ...menu }">
-                                <v-icon>mdi-dots-vertical</v-icon>
+                                <v-avatar size="25">
+                                    <v-img src="https://appstack.bootlab.io/img/flags/us.png"></v-img>
+                                </v-avatar>
+                                <!-- <v-icon>mdi-dots-vertical</v-icon> -->
+                            </v-btn>
+                        </template>
+                        <span>Language</span>
+                    </v-tooltip>
+                </template>
+                <v-list dense>
+                    <v-list-item>
+                        <v-list-item-avatar size="25">
+                            <v-img src="https://appstack.bootlab.io/img/flags/us.png"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-title>
+                            English
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-avatar size="25">
+                            <v-img src="https://appstack.bootlab.io/img/flags/es.png"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-title>
+                            Spanish
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-avatar size="25">
+                            <v-img src="https://appstack.bootlab.io/img/flags/de.png"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-title>
+                            German
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-avatar size="25">
+                            <v-img src="https://appstack.bootlab.io/img/flags/nl.png"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-title>
+                            Dutch
+                        </v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <v-menu left offset-y transition="slide-y-transition" bottom>
+                <template v-slot:activator="{ on: menu }">
+                    <v-tooltip slot="activator" bottom>
+                        <template v-slot:activator="{ on: tooltip }">
+                            <v-btn text v-on="{ ...tooltip, ...menu }">
+                                <v-avatar size="30" class="mr-2">
+                                    <v-img src="https://appstack.bootlab.io/img/avatars/avatar.jpg"></v-img>
+                                </v-avatar>
+                                <span>
+                                    Chris Wood
+                                </span>
+                                <v-icon small class="ml-1">mdi-chevron-down</v-icon>
+                                <!-- <v-icon>mdi-dots-vertical</v-icon> -->
                             </v-btn>
                         </template>
                         <span>More</span>
                     </v-tooltip>
                 </template>
-                <v-list>
-                    <v-list-item class="hidden-md-and-up">
-                        <v-list-item-title>
-                            <v-icon class="mr-2">help</v-icon>
-                            Help
-                        </v-list-item-title>
-                    </v-list-item>
+                <v-list dense>
                     <v-list-item>
                         <v-list-item-title>
                             <v-icon class="mr-2">account_circle</v-icon>
@@ -86,19 +137,19 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
-        <v-card tile>
+        <v-card tile color="primary">
             <v-navigation-drawer v-model="drawer" app>
-                    <v-list>
-                        <v-list-item link two-line>
-                            <v-list-item-content>
-                                <v-list-item-title class="title">Name</v-list-item-title>
-                                <v-list-item-subtitle>sarox14</v-list-item-subtitle>
-                            </v-list-item-content>
-                            <v-list-item-action>
-                                <v-icon>mdi-menu-down</v-icon>
-                            </v-list-item-action>
-                        </v-list-item>
-                    </v-list>
+                <v-list>
+                    <v-list-item link two-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="title">Name</v-list-item-title>
+                            <v-list-item-subtitle>sarox14</v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-action>
+                            <v-icon>mdi-menu-down</v-icon>
+                        </v-list-item-action>
+                    </v-list-item>
+                </v-list>
                 <!-- <v-divider></v-divider> -->
                 <v-list rounded dense>
                     <div v-for="item in items" :key="item.action">
@@ -167,25 +218,25 @@
                             active: true,
                             routes: '/',
                             items: false
-                        },{
+                        }, {
                             name: 'Analytics',
                             title: 'Analytics',
                             active: false,
                             routes: '/dashboardanalytics',
                             items: false
-                        },{
+                        }, {
                             name: 'Ecommerce',
                             title: 'Ecommerce',
                             active: false,
                             routes: '/dashboardecommerce',
                             items: false
-                        },{
+                        }, {
                             name: 'Social',
                             title: 'Social',
                             active: false,
                             routes: '/dashboardsocial',
                             items: false
-                        },{
+                        }, {
                             name: 'Crypto',
                             title: 'Crypto',
                             active: false,
@@ -232,7 +283,7 @@
                                     active: false,
                                     routes: '/',
                                     items: false
-                                },{
+                                }, {
                                     title: 'Detail',
                                     name: 'Detail',
                                     active: false,

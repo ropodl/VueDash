@@ -7,7 +7,7 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="py-0">
                     <v-row>
-                        <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" v-for="carddetail in carddetails"
+                        <v-col cols="12" xs="12" sm="6" md="6" lg="6" xl="6" v-for="carddetail in carddetails"
                             :key="carddetail.id">
                             <v-card>
                                 <v-card-title class="d-flex justify-space-between">{{ carddetail.title }} <v-chip small
@@ -179,7 +179,7 @@
                             <v-data-table :headers="trafficheader" :items="traffic">
                                 <template v-slot:item.bouncerate="{ item }">
                                     <span class="error--text">
-                                    {{ item.bouncerate }}%
+                                        {{ item.bouncerate }}%
                                     </span>
                                 </template>
                             </v-data-table>
@@ -269,19 +269,19 @@
                     text: 'Source',
                     align: 'start',
                     value: 'source'
-                },{
+                }, {
                     text: 'Users',
                     align: 'center',
                     value: 'users'
-                },{
+                }, {
                     text: 'Sessions',
                     align: 'center',
                     value: 'sessions'
-                },{
+                }, {
                     text: 'Bounce Rate',
                     align: 'center',
                     value: 'bouncerate'
-                },{
+                }, {
                     text: 'Avg. Session Duration',
                     align: 'end',
                     value: 'sessionduration'

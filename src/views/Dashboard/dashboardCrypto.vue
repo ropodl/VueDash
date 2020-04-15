@@ -75,6 +75,62 @@
                         </v-card-text>
                     </v-card>
                 </v-col>
+                <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Sell Orders
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text class="pa-0">
+                            <v-data-table :headers="sellorderheader" :items="sellorder">
+                                <template v-slot:item.tech="{ item }">
+                                    <v-chip color="error" small>{{ item.tech }}</v-chip>
+                                </template>
+                            </v-data-table>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+                    <v-card>
+                        <v-card-title class="d-flex justify-space-between">
+                            Buy Orders
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon>
+                                        <v-icon>more_vert</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in items" :key="index">
+                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text class="pa-0">
+                            <v-data-table :headers="buyorderheader" :items="buyorder">
+                                <template v-slot:item.tech="{ item }">
+                                    <v-chip color="error" small>{{ item.tech }}</v-chip>
+                                </template>
+                            </v-data-table>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
             </v-row>
         </v-container>
     </div>
@@ -206,6 +262,52 @@
                     price: '0.00000229',
                     currency: '0.04',
                     vol: '6,836.31'
+                }],
+                sellorderheader: [{
+                    text: 'Price',
+                    align: 'start',
+                    value: 'price'
+                },{
+                    text: 'ETH',
+                    align: 'center',
+                    value: 'eth'
+                },{
+                    text: 'BTC',
+                    align: 'center',
+                    value: 'btc'
+                },{
+                    text: 'Sum (BTC)',
+                    align: 'end',
+                    value: 'sum'
+                }],
+                sellorder: [{
+                    price: '0.03892501',
+                    eth: '32.07831558',
+                    btc: '1.24864875',
+                    sum: '1.26329659'
+                }],
+                buyorderheader: [{
+                    text: 'Price',
+                    align: 'start',
+                    value: 'price'
+                },{
+                    text: 'ETH',
+                    align: 'center',
+                    value: 'eth'
+                },{
+                    text: 'BTC',
+                    align: 'center',
+                    value: 'btc'
+                },{
+                    text: 'Sum (BTC)',
+                    align: 'end',
+                    value: 'sum'
+                }],
+                buyorder: [{
+                    price: '0.03892501',
+                    eth: '32.07831558',
+                    btc: '1.24864875',
+                    sum: '1.26329659'
                 }],
                 items: [{
                         title: 'Action',

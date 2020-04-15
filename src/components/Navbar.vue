@@ -130,6 +130,25 @@
                     </v-list-item>
                     <v-list-item>
                         <v-list-item-title>
+                            <v-icon class="mr-2">bar_chart</v-icon>
+                            Analytics
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-divider></v-divider>
+                    <v-list-item>
+                        <v-list-item-title>
+                            <v-icon class="mr-2">settings</v-icon>
+                            Setting & Privacy
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-title>
+                            <v-icon class="mr-2">help</v-icon>
+                            Help
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-title>
                             <v-icon class="mr-2">power_settings_new</v-icon>
                             Sign Out
                         </v-list-item-title>
@@ -140,17 +159,21 @@
         <v-card tile color="primary">
             <v-navigation-drawer v-model="drawer" app>
                 <v-list>
-                    <v-list-item link two-line>
+                    <v-list-item two-line>
                         <v-list-item-content>
-                            <v-list-item-title class="title">Name</v-list-item-title>
-                            <v-list-item-subtitle>sarox14</v-list-item-subtitle>
+                            <v-list-item-title class="title d-flex align-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="#41B883" stroke="#34495E"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" mr-3">
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg> <span style="color: #34495E;">Vue</span><span style="color: #41B883;">App</span><span>Stack</span></v-list-item-title>
                         </v-list-item-content>
-                        <v-list-item-action>
-                            <v-icon>mdi-menu-down</v-icon>
-                        </v-list-item-action>
                     </v-list-item>
                 </v-list>
-                <!-- <v-divider></v-divider> -->
+                <v-divider></v-divider>
                 <v-list rounded dense>
                     <div v-for="item in items" :key="item.action">
                         <div v-if="item.items != false ">

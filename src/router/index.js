@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// Dashboard
 import DashboardDefault from '../views/Dashboard/dashboardDefault'
 import DashboardAnalytics from '../views/Dashboard/dashboardAnalytics'
 import DashboardEcommerce from '../views/Dashboard/dashboardEcommerce'
 import DashboardSocial from '../views/Dashboard/dashboardSocial'
 import DashboardCrypto from '../views/Dashboard/dashboardCrypto'
+// Pages
+import Profile from '../views/Pages/Profile'
+import Settings from '../views/Pages/Settings'
 
 Vue.use(VueRouter)
 
@@ -30,6 +34,14 @@ Vue.use(VueRouter)
     path: '/dashboardcrypto',
     name: 'DashboardCrypto',
     component: DashboardCrypto
+  },{
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },{
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   }
 ]
 

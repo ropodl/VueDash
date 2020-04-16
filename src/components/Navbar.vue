@@ -2,7 +2,7 @@
     <nav>
         <v-app-bar elevate-on-scroll dense app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
-            <v-autocomplete label="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data
+            <v-autocomplete placeholder="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data
                 hide-details></v-autocomplete>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
@@ -175,6 +175,7 @@
                 </v-list>
                 <v-divider></v-divider>
                 <v-list rounded dense>
+                    <v-subheader>Pages</v-subheader>
                     <div v-for="item in items" :key="item.action">
                         <div v-if="item.items != false ">
                             <v-list-group :key="item.title" v-model="item.active" :prepend-icon="item.action" dense
@@ -186,10 +187,9 @@
                                 </template>
                                 <v-list-item v-for="subItem in item.items" :key="subItem.title" link router dense
                                     :to="subItem.routes">
-                                    <!--                                    <v-list-item-action>-->
+                                    <!--<v-list-item-action>-->
                                     <v-icon>{{subItem.action}}</v-icon>
-                                    <!--                                    </v-list-item-action>-->
-
+                                    <!--</v-list-item-action>-->
                                     <v-list-item-content>
                                         <v-list-item-title v-text="subItem.title"></v-list-item-title>
                                     </v-list-item-content>
@@ -220,7 +220,6 @@
         name: "Navbar",
         data() {
             return {
-                // numberofsmessages: ,
                 dark: true,
                 currentPageName: '',
                 pagetitle: 'Home',
@@ -278,14 +277,14 @@
                                 name: 'Profile',
                                 title: 'Profile',
                                 active: true,
-                                routes: '/',
+                                routes: '/profile',
                                 items: false,
                             },
                             {
                                 title: 'Settings',
                                 name: 'Settings',
                                 active: true,
-                                routes: '/',
+                                routes: '/settings',
                                 items: false,
                             },
                             {

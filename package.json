@@ -11,6 +11,7 @@
     "apexcharts": "^3.18.1",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
+    "jsvectormap": "^1.0.4",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuetify": "^2.2.11"

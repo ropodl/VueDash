@@ -122,7 +122,7 @@
                     </v-tooltip>
                 </template>
                 <v-list dense>
-                    <v-list-item>
+                    <v-list-item router link to="/profile">
                         <v-list-item-title>
                             <v-icon class="mr-2">account_circle</v-icon>
                             Profile

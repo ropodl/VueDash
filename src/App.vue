@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <Navbar></Navbar>
+      <Navbar v-if="!$route.meta.hidenav"></Navbar>
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -14,7 +14,9 @@
       Navbar
     },
     data() {
-      return {}
+      return {
+
+      }
     }
   }
 </script>

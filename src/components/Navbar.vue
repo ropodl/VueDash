@@ -169,7 +169,8 @@
                                     </path>
                                     <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                                     <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg> <span style="color: #34495E;">Vue</span><span style="color: #41B883;">App</span><span>Stack</span></v-list-item-title>
+                                </svg> <span style="color: #34495E;">Vue</span><span
+                                    style="color: #41B883;">App</span><span>Stack</span></v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
                 </v-list>
@@ -187,9 +188,6 @@
                                 </template>
                                 <v-list-item v-for="subItem in item.items" :key="subItem.title" link router dense
                                     :to="subItem.routes">
-                                    <!--<v-list-item-action>-->
-                                    <v-icon>{{subItem.action}}</v-icon>
-                                    <!--</v-list-item-action>-->
                                     <v-list-item-content>
                                         <v-list-item-title v-text="subItem.title"></v-list-item-title>
                                     </v-list-item-content>
@@ -200,9 +198,6 @@
                         <div v-else>
                             <v-list-item-group v-model="item.active">
                                 <v-list-item link router :to="item.routes" @click="currentPageName=$route.name">
-                                    <v-list-item-icon>
-                                        <v-icon>{{item.action}}</v-icon>
-                                    </v-list-item-icon>
                                     <v-list-item-content>
                                         <v-list-item-title v-text="item.title"></v-list-item-title>
                                     </v-list-item-content>
@@ -223,7 +218,7 @@
                 dark: true,
                 currentPageName: '',
                 pagetitle: 'Home',
-                link: 'somwehee',
+                link: 'somwehere',
                 routes: [],
                 drawer: true,
                 mini: false,
@@ -268,7 +263,7 @@
                     },
                     //LIST DRAWER *******************************************************
                     {
-                        action: 'account_balance',
+                        action: 'library_books',
                         name: 'Pages',
                         title: 'Pages',
                         active: false,
@@ -291,14 +286,14 @@
                                 title: 'Clients',
                                 name: 'Clients',
                                 active: true,
-                                routes: '/',
+                                routes: '/clients',
                                 items: false,
                             },
                             {
                                 title: 'Projects',
                                 name: 'Projects',
                                 active: true,
-                                routes: '/class-rel-sections',
+                                routes: '',
                                 items: [{
                                     title: 'List',
                                     name: 'List',
@@ -314,58 +309,73 @@
                                 }],
                             },
                             {
-                                action: 'person',
-                                title: 'Student',
-                                name: 'Student',
-                                routes: '/students',
+                                title: 'Invoice',
+                                name: 'Invoice',
+                                routes: '/invoice',
                                 active: true,
                                 items: false,
                             },
                             {
-                                action: 'house',
-                                title: 'House Type',
-                                name: 'House Type',
-                                routes: '/house-types',
+                                title: 'Pricing',
+                                name: 'Pricing',
+                                routes: '/pricing',
                                 active: true,
                                 items: false,
                             },
                             {
-                                action: 'money_off',
-                                title: 'Discount Type',
-                                name: 'Discount Type',
-                                routes: '/discount-types',
+                                title: 'Tasks',
+                                name: 'Tasks',
+                                routes: '/tasks',
+                                active: true,
+                                items: false,
+                            },
+                            {
+                                title: 'Blank Page',
+                                name: 'Blank Page',
+                                routes: '/blank-page',
                                 active: true,
                                 items: false,
                             },
                         ],
                     },
                     {
-                        action: 'copyright',
-                        name: 'Class & Section',
-                        title: 'Subject',
+                        action: 'group',
+                        name: 'Auth',
+                        title: 'Auth',
                         active: false,
                         routes: '',
                         items: [{
-                                action: 'import_contacts',
-                                title: 'Subject',
-                                name: 'Subject',
-                                routes: '/subjects',
+                                title: 'Sign In',
+                                name: 'SignIn',
+                                routes: '/signin',
                                 active: true,
                                 items: false,
                             },
                             {
-                                action: 'book',
-                                title: 'Link Subject',
-                                name: 'Link Subject',
-                                routes: '/set-subjects',
+                                title: 'Sign Up',
+                                name: 'SignUp',
+                                routes: '/signup',
                                 active: true,
                                 items: false,
                             },
                             {
-                                action: 'vertical_split',
-                                title: 'Routine',
-                                name: 'Routine',
-                                routes: '/routines',
+                                title: 'Reset Password',
+                                name: 'ResetPassword',
+                                routes: '/reset-password',
+                                active: true,
+                                items: false,
+                            },
+                            {
+                                title: '404 Page',
+                                name: 'fourofourpage',
+                                routes: '/404',
+                                active: true,
+                                items: false,
+                            },
+                            {
+                                title: '500 Page',
+                                name: 'fiveoopage',
+                                routes: '/500',
                                 active: true,
                                 items: false,
                             },
@@ -373,22 +383,32 @@
                     },
                     {
                         action: 'supervised_user_circle',
-                        name: 'HR / Payroll',
-                        title: 'HR / Payroll',
+                        name: 'Documentation',
+                        title: 'Documentation',
                         active: false,
                         routes: '',
                         items: [{
-                                action: 'person_add',
-                                title: 'Teacher',
-                                name: 'Teacher',
-                                routes: '/teachers',
+                                title: 'Introduction',
+                                name: 'Introduction',
+                                routes: '/introduction',
                                 items: false
                             },
                             {
-                                action: 'person_pin',
-                                title: 'Employee',
-                                name: 'Employee',
-                                routes: '/employees',
+                                title: 'Getting Started',
+                                name: 'Getting Started',
+                                routes: '/getting-started',
+                                active: true,
+                                items: false,
+                            }, {
+                                title: 'Plugins',
+                                name: 'Plugins',
+                                routes: '/plugins',
+                                active: true,
+                                items: false,
+                            }, {
+                                title: 'Changelog',
+                                name: 'Changelog',
+                                routes: '/changelog',
                                 active: true,
                                 items: false,
                             }
@@ -567,27 +587,21 @@
         created() {
             this.dark = localStorage.getItem('darkmode') === 'true';
             this.$vuetify.theme.dark = this.dark
-            // this.currentPageName = this.currentRoute;
         },
         watch: {
             darkmodemethod() {
                 this.dark = !this.dark
                 localStorage.setItem('darkmode', this.dark);
-                //this.dark = !this.dark
                 this.$vuetify.theme.dark = this.dark
             },
         },
         methods: {
-            // ...mapActions({
-            //     signoutAction: "auth/signout"
-            // }),
             toggle() {
                 this.$root.fullscreen = !this.$root.fullscreen
             },
             darkmodemethod() {
                 this.dark = !this.dark
                 localStorage.setItem('darkmode', this.dark);
-                //this.dark = !this.dark
                 this.$vuetify.theme.dark = this.dark
             },
             signout() {
@@ -598,34 +612,10 @@
                 });
             },
             handleMini() {
-                // this.mini = false
                 this.drawer = !this.drawer
-                // var a = window.innerWidth;
-                // if (a <= 600) {
-                //     (this.mini = false), (this.drawer = true);
-                // } else if (a >= 601 && a <= 960) {
-                //     (this.mini = false), (this.drawer = true);
-                // } else if (a >= 961 && a <= 1264) {
-                //     (this.mini = false), (this.drawer = true);
-                // } else {
-                //     if (this.mini == true) {
-                //         this.mini = false;
-                //         this.drawer = true;
-                //     } else {
-                //         this.mini = true;
-                //         this.drawer = true;
-                //     }
-                // }
             }
         },
         computed: {
-            // ...mapGetters({
-            //     authenticated: "auth/authenticated",
-            //     user: "auth/user"
-            // }),
-            // ...mapState({
-            //     roles: state => state.auth.roles
-            // }),
             numberofmessages() {
                 return this.notifications.length;
             },

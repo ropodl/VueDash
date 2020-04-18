@@ -32,7 +32,7 @@
                         </v-tab>
 
                         <v-tab-item>
-                            <v-card class="mb-3">
+                            <v-card flat class="mb-3">
                                 <v-card-title class="d-flex justify-space-between">
                                     Public Info
                                     <v-menu offset-y>
@@ -75,7 +75,7 @@
                                 </v-card-text>
                             </v-card>
 
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Private Info
                                     <v-menu offset-y>
@@ -125,7 +125,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Password
                                     <v-menu offset-y>
@@ -164,7 +164,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Privacy and Safety
                                     <v-menu offset-y>
@@ -193,7 +193,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Email and Notifications
                                     <v-menu offset-y>
@@ -222,7 +222,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Web Notifications
                                     <v-menu offset-y>
@@ -251,7 +251,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Widgets
                                     <v-menu offset-y>
@@ -280,7 +280,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Your Data
                                     <v-menu offset-y>
@@ -309,7 +309,7 @@
                             </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                            <v-card>
+                            <v-card flat>
                                 <v-card-title class="d-flex justify-space-between">
                                     Delete Account
                                     <v-menu offset-y>

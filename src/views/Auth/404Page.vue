@@ -23,12 +23,12 @@
     </div>
 </template>
 <script>
-export default {
-    name: '404Page',
-    data(){
-        return{
-
+    export default {
+        name: '404Page',
+        data() {
+            return {
+                
+            }
         }
     }
-}
 </script>

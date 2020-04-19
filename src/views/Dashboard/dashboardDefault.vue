@@ -206,7 +206,7 @@
                             </v-menu>
                         </v-card-title>
                         <v-divider></v-divider>
-                        <v-data-table :headers="header" :items="project" items-per-page="5">
+                        <v-data-table :headers="header" :items="project">
                             <template v-slot:item.status="{ item }">
                                 <v-chip>{{ item.status }}</v-chip>
                             </template>

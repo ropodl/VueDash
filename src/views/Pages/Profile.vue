@@ -25,6 +25,7 @@
                         <v-divider></v-divider>
                         <v-card-text class="px-0">
                             <v-btn small class="ml-2 mb-2" color="primary" v-for="skill in skills" :key="skill.id">
+                                <v-icon class="mr-2" small>{{ skill.icon }}</v-icon>
                                 {{ skill.name }}</v-btn>
                         </v-card-text>
                         <!-- <v-divider inset></v-divider> -->
@@ -99,31 +100,36 @@
             return {
                 skills: [{
                     id: '1',
-                    name: 'HTML'
+                    name: 'HTML',
+                    icon: 'fab fa-html5'
                 }, {
                     id: '2',
-                    name: 'JavaScript'
+                    name: 'JavaScript',
+                    icon: 'fab fa-js'
                 }, {
                     id: '3',
-                    name: 'Sass'
+                    name: 'Sass',
+                    icon: 'fab fa-sass'
                 }, {
                     id: '4',
-                    name: 'Angular'
+                    name: 'Angular',
+                    icon: 'fab fa-angular'
                 }, {
                     id: '5',
-                    name: 'Vue'
+                    name: 'Vue',
+                    icon: 'fab fa-vuejs'
                 }, {
                     id: '6',
-                    name: 'React'
+                    name: 'React',
+                    icon: 'fab fa-react'
                 }, {
                     id: '7',
-                    name: 'Redux'
+                    name: 'UI',
+                    icon: 'fas fa-pencil-alt'
                 }, {
                     id: '8',
-                    name: 'UI'
-                }, {
-                    id: '9',
-                    name: 'UX'
+                    name: 'UX',
+                    icon: 'fas fa-pencil-alt'
                 }],
                 items: [{
                         title: 'Action',

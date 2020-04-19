@@ -21,6 +21,9 @@ import SignUp from '../views/Auth/SignUp'
 import ResetPassword from '../views/Auth/ResetPassword'
 import fourofourPage from '../views/Auth/404Page'
 import fiveooPage from '../views/Auth/500Page'
+//Documentation
+import Introduction from '../views/Documentation/Introduction'
+import GettingStarted from '../views/Documentation/GettingStarted'
 
 Vue.use(VueRouter)
 
@@ -107,8 +110,15 @@ const routes = [{
   meta: {
     hidenav: true
   }
-}
-]
+}, {
+  path: '/introduction',
+  name: 'Introduction',
+  component: Introduction
+}, {
+  path: '/getting-started',
+  name: 'GettingStarted',
+  component: GettingStarted
+}]
 
 const router = new VueRouter({
   mode: 'history',

@@ -115,7 +115,6 @@
                                     Chris Wood
                                 </span>
                                 <v-icon small class="ml-1">mdi-chevron-down</v-icon>
-                                <!-- <v-icon>mdi-dots-vertical</v-icon> -->
                             </v-btn>
                         </template>
                         <span>More</span>
@@ -128,26 +127,26 @@
                             Profile
                         </v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
+                    <v-list-item router link to="/dashboardanalytics">
                         <v-list-item-title>
                             <v-icon class="mr-2">bar_chart</v-icon>
                             Analytics
                         </v-list-item-title>
                     </v-list-item>
                     <v-divider></v-divider>
-                    <v-list-item>
+                    <v-list-item router link to="/settings">
                         <v-list-item-title>
                             <v-icon class="mr-2">settings</v-icon>
                             Setting & Privacy
                         </v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
+                    <v-list-item router link to="/introduction">
                         <v-list-item-title>
                             <v-icon class="mr-2">help</v-icon>
                             Help
                         </v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
+                    <v-list-item router link to="/signin">
                         <v-list-item-title>
                             <v-icon class="mr-2">power_settings_new</v-icon>
                             Sign Out
@@ -167,37 +166,59 @@
                     </v-list-item>
                 </v-list>
                 <v-divider></v-divider>
-                <v-list rounded dense>
-                    <v-subheader>Pages</v-subheader>
-                    <div v-for="item in items" :key="item.action">
-                        <div v-if="item.items != false ">
-                            <v-list-group :key="item.title" v-model="item.active" :prepend-icon="item.action" dense
-                                no-action>
+                <v-list dense>
+                    <span v-for="navitem in navitems" :key="navitem.subtitle">
+                        <v-subheader v-if="navitem.subtitle">{{ navitem.subtitle }}</v-subheader>
+                        <span v-if="navitem.subitem">
+                            <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
                                 <template v-slot:activator>
-                                    <v-list-item-content>
-                                        <v-list-item-title v-text="item.title"></v-list-item-title>
-                                    </v-list-item-content>
+                                    <v-list-item-title>{{ navitem.title }}</v-list-item-title>
                                 </template>
-                                <v-list-item v-for="subItem in item.items" :key="subItem.title" link router dense
-                                    :to="subItem.routes">
-                                    <v-list-item-content>
-                                        <v-list-item-title v-text="subItem.title"></v-list-item-title>
-                                    </v-list-item-content>
+                                <span v-for="subitem in navitem.subitems" :key="subitem">
+                                    <span v-if="subitem.miniitems">
+                                        <v-list-group sub-group>
+                                            <template v-slot:activator>
+                                                <v-list-item-content>
+                                                    <v-list-item-title style="margin-left:10px">{{ subitem.title }}
+                                                    </v-list-item-title>
+                                                </v-list-item-content>
+                                            </template>
 
-                                </v-list-item>
+
+                                            <span v-if="subitem.mini">
+                                                <span v-for="mini in subitem.miniitems" :key="mini">
+                                                    <v-list-item router link :to="mini.routes">
+                                                        <v-list-item-icon>
+                                                            <!-- <v-icon>{{ mini.name }}</v-icon> -->
+                                                        </v-list-item-icon>
+                                                        <v-list-item-title v-text="mini.title"></v-list-item-title>
+                                                    </v-list-item>
+                                                </span>
+                                            </span>
+                                        </v-list-group>
+                                    </span>
+                                    <span v-else>
+                                        <v-list-item sub-group router link :to="subitem.routes">
+                                            <v-list-item-content>
+                                                <v-list-item-title v-text="subitem.title" style="margin-left: 57px;">
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </span>
+                                </span>
                             </v-list-group>
-                        </div>
-                        <div v-else>
-                            <v-list-item-group v-model="item.active">
-                                <v-list-item link router :to="item.routes" @click="currentPageName=$route.name">
-                                    <v-list-item-content>
-                                        <v-list-item-title v-text="item.title"></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                            </v-list-item-group>
-                        </div>
-                    </div>
+                        </span>
+                        <span v-else>
+                            <v-list-item router link :to="navitem.routes">
+                                <v-list-item-icon>
+                                    <v-icon>{{ navitem.icon }}</v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>{{ navitem.title }}</v-list-item-title>
+                            </v-list-item>
+                        </span>
+                    </span>
                 </v-list>
+                <v-divider></v-divider>
             </v-navigation-drawer>
         </v-card>
     </nav>
@@ -214,316 +235,223 @@
                 routes: [],
                 drawer: true,
                 mini: false,
-                //LIST DRAWER *******************************************************
-                items: [{
-                        action: 'dashboard',
-                        name: 'Home',
-                        title: 'Dashboard',
+                navitems: [{
+                    icon: 'dashboard',
+                    title: 'Dashboard',
+                    subtitle: 'Pages',
+                    active: false,
+                    subitem: true,
+                    routes: '',
+                    subitems: [{
+                        title: 'Default',
+                        active: true,
+                        mini: true,
+                        routes: '/',
+                    }, {
+                        title: 'Analytics',
+                        active: true,
+                        routes: '/dashboardanalytics',
+                    }, {
+                        title: 'Ecommerce',
+                        active: true,
+                        routes: '/dashboardecommerce',
+                    }, {
+                        title: 'Social',
+                        active: true,
+                        routes: '/dashboardsocial',
+                    }, {
+                        title: 'Crypto',
+                        active: true,
+                        routes: '/dashboardcrypto',
+                    }]
+                }, {
+                    icon: 'library_books',
+                    title: 'Pages',
+                    active: false,
+                    subitem: true,
+                    subitems: [{
+                        title: 'Profile',
+                        routes: '/profile'
+                    }, {
+                        title: 'Settings',
+                        routes: '/settings'
+                    }, {
+                        title: 'Clients',
+                        routes: '/clients'
+                    }, {
+                        title: 'Projects',
                         active: true,
                         routes: '',
-                        items: [{
-                            name: 'Default',
-                            title: 'Default',
-                            active: true,
-                            routes: '/',
-                            items: false
+                        mini: true,
+                        miniitems: [{
+                            title: 'List',
+                            routes: '/'
                         }, {
-                            name: 'Analytics',
-                            title: 'Analytics',
-                            active: false,
-                            routes: '/dashboardanalytics',
-                            items: false
+                            title: 'Detail',
+                            routes: '/'
+                        }]
+
+                    }, {
+                        title: 'Invoice',
+                        active: true,
+                        routes: '/invoice'
+                    }, {
+                        title: 'Pricing',
+                        active: true,
+                        routes: '/pricing'
+                    }, {
+                        title: 'Tasks',
+                        active: true,
+                        routes: '/tasks'
+                    }, {
+                        title: 'Chat',
+                        active: true,
+                        routes: '/chat'
+                    }, {
+                        title: 'Blank Page',
+                        active: true,
+                        routes: '/blank-page'
+                    }]
+                }, {
+                    icon: 'group',
+                    title: 'Auth',
+                    active: false,
+                    subitem: true,
+                    routes: '',
+                    subitems: [{
+                            title: 'Sign In',
+                            routes: '/signin',
+                            active: true
+                        },
+                        {
+                            title: 'Sign Up',
+                            routes: '/signup',
+                            active: true
+                        },
+                        {
+                            title: 'Reset Password',
+                            routes: '/reset-password',
+                            active: true
+                        },
+                        {
+                            title: '404 Page',
+                            routes: '/404',
+                            active: true
+                        },
+                        {
+                            title: '500 Page',
+                            routes: '/500',
+                            active: true
+                        },
+                    ],
+                }, {
+                    icon: 'import_contacts',
+                    title: 'Documentation',
+                    active: false,
+                    subitem: true,
+                    subitems: [{
+                            title: 'Introduction',
+                            routes: '/introduction',
+                        },
+                        {
+                            title: 'Getting Started',
+                            routes: '/getting-started',
                         }, {
-                            name: 'Ecommerce',
-                            title: 'Ecommerce',
-                            active: false,
-                            routes: '/dashboardecommerce',
-                            items: false
+                            title: 'Plugins',
+                            routes: '/plugins'
                         }, {
-                            name: 'Social',
-                            title: 'Social',
-                            active: false,
-                            routes: '/dashboardsocial',
-                            items: false
-                        }, {
-                            name: 'Crypto',
-                            title: 'Crypto',
-                            active: false,
-                            routes: '/dashboardCrypto',
-                            items: false
-                        }],
-                    },
-                    //LIST DRAWER *******************************************************
-                    {
-                        action: 'library_books',
-                        name: 'Pages',
-                        title: 'Pages',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                name: 'Profile',
-                                title: 'Profile',
-                                active: true,
-                                routes: '/profile',
-                                items: false,
-                            },
-                            {
-                                title: 'Settings',
-                                name: 'Settings',
-                                active: true,
-                                routes: '/settings',
-                                items: false,
-                            },
-                            {
-                                title: 'Clients',
-                                name: 'Clients',
-                                active: true,
-                                routes: '/clients',
-                                items: false,
-                            },
-                            {
-                                title: 'Projects',
-                                name: 'Projects',
-                                active: true,
-                                routes: '',
-                                items: [{
-                                    title: 'List',
-                                    name: 'List',
-                                    active: false,
-                                    routes: '/',
-                                    items: false
-                                }, {
-                                    title: 'Detail',
-                                    name: 'Detail',
-                                    active: false,
-                                    routes: '/',
-                                    items: false
-                                }],
-                            },
-                            {
-                                title: 'Invoice',
-                                name: 'Invoice',
-                                routes: '/invoice',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: 'Pricing',
-                                name: 'Pricing',
-                                routes: '/pricing',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: 'Tasks',
-                                name: 'Tasks',
-                                routes: '/tasks',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: 'Blank Page',
-                                name: 'Blank Page',
-                                routes: '/blank-page',
-                                active: true,
-                                items: false,
-                            },
-                        ],
-                    },
-                    {
-                        action: 'group',
-                        name: 'Auth',
-                        title: 'Auth',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                title: 'Sign In',
-                                name: 'SignIn',
-                                routes: '/signin',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: 'Sign Up',
-                                name: 'SignUp',
-                                routes: '/signup',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: 'Reset Password',
-                                name: 'ResetPassword',
-                                routes: '/reset-password',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: '404 Page',
-                                name: 'fourofourpage',
-                                routes: '/404',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                title: '500 Page',
-                                name: 'fiveoopage',
-                                routes: '/500',
-                                active: true,
-                                items: false,
-                            },
-                        ],
-                    },
-                    {
-                        action: 'supervised_user_circle',
-                        name: 'Documentation',
-                        title: 'Documentation',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                title: 'Introduction',
-                                name: 'Introduction',
-                                routes: '/introduction',
-                                items: false
-                            },
-                            {
-                                title: 'Getting Started',
-                                name: 'Getting Started',
-                                routes: '/getting-started',
-                                active: true,
-                                items: false,
-                            }, {
-                                title: 'Plugins',
-                                name: 'Plugins',
-                                routes: '/plugins',
-                                active: true,
-                                items: false,
-                            }, {
-                                title: 'Changelog',
-                                name: 'Changelog',
-                                routes: '/changelog',
-                                active: true,
-                                items: false,
-                            }
-                        ],
-                    },
-                    {
-                        action: 'dynamic_feed',
-                        name: 'Examination',
-                        title: 'Examination',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                action: 'menu_book',
-                                title: 'Exam Group',
-                                name: 'Exam Group',
-                                routes: '/exam-groups',
-                                items: false
-                            },
-                            {
-                                action: 'grade',
-                                title: 'Grade',
-                                name: 'Grade',
-                                routes: '/grades',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                action: '360',
-                                title: 'Grade Mapping',
-                                name: 'Grade Mapping',
-                                routes: '/grade-mappings',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                action: 'post_add',
-                                title: 'Marks',
-                                name: 'Marks',
-                                routes: '/markses',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                action: 'bar_chart',
-                                title: 'Result',
-                                name: 'Result',
-                                routes: '/results',
-                                active: true,
-                                items: false,
-                            },
-                        ],
-                    },
-                    {
-                        action: 'launch',
-                        name: 'Activities',
-                        title: 'Activities',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                action: 'calendar_today',
-                                title: 'Calendar',
-                                name: 'Calendar',
-                                routes: '/calendar',
-                                items: false
-                            },
-                            {
-                                action: 'note',
-                                title: 'Blog',
-                                name: 'Blog',
-                                routes: '/blog',
-                                items: false
-                            },
-                            {
-                                action: 'whatshot',
-                                title: 'Notice',
-                                name: 'Notice',
-                                routes: '/notices',
-                                active: true,
-                                items: false,
-                            },
-                            {
-                                action: 'today',
-                                title: 'Event',
-                                name: 'Event',
-                                routes: '/events',
-                                active: true,
-                                items: false,
-                            },
-                        ],
-                    },
-                    {
-                        action: 'settings',
-                        name: 'Settings',
-                        title: 'Settings',
-                        active: false,
-                        routes: '',
-                        items: [{
-                                action: 'class',
-                                title: 'General Settings',
-                                name: 'General Settings',
-                                active: true,
-                                routes: '/general-setting',
-                                items: false,
-                            },
-                            {
-                                action: 'color_lens',
-                                title: 'Appearance Settings',
-                                name: 'Appearance Settings',
-                                active: true,
-                                routes: '/section',
-                                items: false,
-                            },
-                            {
-                                action: 'import_export',
-                                title: 'Class & Section',
-                                name: 'All Class & Section',
-                                active: true,
-                                routes: '/class-rel-section',
-                                items: false,
-                            },
-                        ],
-                    },
-                ],
+                            title: 'Changelog',
+                            routes: '/changelog'
+                        }
+                    ],
+                }, {
+                    icon: 'layers',
+                    title: 'UI Elements',
+                    subtitle: 'Tool & Components',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Alerts',
+                        routes: '/alerts'
+                    }, {
+                        title: 'Buttons',
+                        routes: '/buttons'
+                    }, {
+                        title: 'Cards',
+                        routes: '/cards'
+                    }, {
+                        title: 'Carousel',
+                        routes: '/carousel'
+                    }, {
+                        title: 'Embed Video',
+                        routes: '/embed-video'
+                    }, {
+                        title: 'General',
+                        routes: '/general'
+                    }, {
+                        title: 'Grid',
+                        routes: '/grid'
+                    }, {
+                        title: 'Modals',
+                        routes: '/modals'
+                    }, {
+                        title: 'Tabs',
+                        routes: '/tabs'
+                    }, {
+                        title: 'Typography',
+                        routes: '/typography'
+                    }]
+                }, {
+                    icon: 'favorite',
+                    title: 'Icons',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Matrial Design Icon',
+                        routes: '/mtd'
+                    }, {
+                        title: 'Font Awesome 5',
+                        routes: '/FA5'
+                    }]
+                }, {
+                    icon: 'done',
+                    title: 'Forms',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Layouts',
+                        routes: '/layouts'
+                    }, {
+                        title: 'Basic Inputs',
+                        routes: '/basic-inputs'
+                    }, {
+                        title: 'Input Groups',
+                        routes: '/input-groups'
+                    }]
+                }, {
+                    icon: 'table_chart',
+                    title: 'Tables',
+                    routes: '/table'
+                }, {
+                    icon: 'check_box',
+                    title: 'Form Plugins',
+                    subtitle: 'Plugin & Addons',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Advanced Inputs',
+                        routes: '/advanced-inputs'
+                    },{
+                        title: 'Editors',
+                        routes: '/editors'
+                    },{
+                        title: 'Validation',
+                        routes: '/validation'
+                    },{
+                        title: 'Wizard',
+                        routes: '/wizard'
+                    }]
+                }],
                 notifications: [{
                         header: 'Notifications'
                     },

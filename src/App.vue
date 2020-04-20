@@ -2,7 +2,9 @@
   <v-app>
     <v-content>
       <Navbar v-if="!$route.meta.hidenav"></Navbar>
+      <v-fade-transition>
       <router-view></router-view>
+      </v-fade-transition>
     </v-content>
   </v-app>
 </template>

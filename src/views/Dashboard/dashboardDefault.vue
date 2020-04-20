@@ -52,14 +52,6 @@
                     <v-card>
                         <v-card-title class="d-flex justify-space-between">
                             Calendar
-                            <span>
-                                <v-btn icon @click="$refs.calendar.prev()">
-                                    <v-icon>mdi-chevron-left</v-icon>
-                                </v-btn>
-                                <v-btn icon @click="$refs.calendar.next()">
-                                    <v-icon>mdi-chevron-right</v-icon>
-                                </v-btn>
-                            </span>
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on }">
                                     <v-btn v-on="on" icon>
@@ -75,7 +67,9 @@
                         </v-card-title>
                         <v-divider></v-divider>
                         <v-card-text class="pa-0">
-                            <v-calendar ref="calendar"></v-calendar>
+                            <!-- <v-sheet height="600"> -->
+                                <v-calendar ref="calendar"></v-calendar>
+                            <!-- </v-sheet> -->
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -243,7 +237,7 @@
     </div>
 </template>
 <script>
-import Chart from 'chart.js'
+    import Chart from 'chart.js'
     export default {
         name: 'DefaultDashboard',
         data() {
@@ -404,7 +398,7 @@ import Chart from 'chart.js'
             }
         },
         methods: {},
-        mounted(){
+        mounted() {
             var ctx = document.getElementById('totalrevenue');
             var totalrevenue = new Chart(ctx, {
                 type: 'line',
@@ -416,7 +410,7 @@ import Chart from 'chart.js'
                         backgroundColor: "transparent",
                         borderColor: '#d64937', //find what this is
                         data: [2015, 1465, 1487, 1796, 1387, 2123, 2866, 2548, 3902, 4938, 3917, 4927]
-                    },{
+                    }, {
                         label: "Orders",
                         fill: true,
                         backgroundColor: "transparent",
@@ -451,7 +445,7 @@ import Chart from 'chart.js'
                         backgroundColor: 'rgba(255, 99, 132, 0.1)',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 2
-                    },{
+                    }, {
                         options: {}
                     }],
                 }
@@ -459,7 +453,6 @@ import Chart from 'chart.js'
             weeklysales.render();
         }
     }
-    
 </script>
 <style scoped>
     .card-icon {

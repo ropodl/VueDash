@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dashboardDefault">
         <v-container fluid>
             <v-row>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12" class="pb-0">

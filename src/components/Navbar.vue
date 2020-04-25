@@ -1,7 +1,18 @@
 <template>
     <nav>
-        <v-app-bar elevate-on-scroll dense app>
+        <v-app-bar elevate-on-scroll dense clipped-left app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
+            <!-- <v-divider vertical></v-divider> -->
+            <v-list style="background:transparent;">
+                    <v-list-item two-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="title d-flex align-center">
+                                <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+                <v-spacer></v-spacer>
+                <!-- <v-divider vertical></v-divider> -->
             <v-autocomplete placeholder="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data
                 hide-details></v-autocomplete>
             <v-spacer></v-spacer>
@@ -155,17 +166,8 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
-        <v-card tile color="primary">
-            <v-navigation-drawer v-model="drawer" app>
-                <v-list>
-                    <v-list-item two-line>
-                        <v-list-item-content>
-                            <v-list-item-title class="title d-flex align-center">
-                                <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list>
-                <v-divider></v-divider>
+        <!-- <v-card tile color="primary"> -->
+            <v-navigation-drawer v-model="drawer" clipped app flat>
                 <v-list dense>
                     <span v-for="navitem in navitems" :key="navitem.subtitle">
                         <v-subheader v-if="navitem.subtitle">{{ navitem.subtitle }}</v-subheader>
@@ -220,7 +222,7 @@
                 </v-list>
                 <v-divider></v-divider>
             </v-navigation-drawer>
-        </v-card>
+        <!-- </v-card> -->
     </nav>
 </template>
 <script>
@@ -441,13 +443,13 @@
                     subitems: [{
                         title: 'Advanced Inputs',
                         routes: '/advanced-inputs'
-                    },{
+                    }, {
                         title: 'Editors',
                         routes: '/editors'
-                    },{
+                    }, {
                         title: 'Validation',
                         routes: '/validation'
-                    },{
+                    }, {
                         title: 'Wizard',
                         routes: '/wizard'
                     }]

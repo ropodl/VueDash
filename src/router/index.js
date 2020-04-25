@@ -24,6 +24,8 @@ import fiveooPage from '../views/Auth/500Page'
 //Documentation
 import Introduction from '../views/Documentation/Introduction'
 import GettingStarted from '../views/Documentation/GettingStarted'
+import Plugins from '../views/Documentation/Plugins'
+import Changelog from '../views/Documentation/Changelog'
 
 Vue.use(VueRouter)
 
@@ -118,6 +120,14 @@ const routes = [{
   path: '/getting-started',
   name: 'GettingStarted',
   component: GettingStarted
+}, {
+  path: '/plugins',
+  name: 'Plugins',
+  component: Plugins
+}, {
+  path: '/changelog',
+  name: 'Changelog',
+  component: Changelog
 }]
 
 const router = new VueRouter({

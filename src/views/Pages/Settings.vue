@@ -4,6 +4,10 @@
             <v-row>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
                     <v-tabs vertical>
+                        <v-tabs-slider></v-tabs-slider>
+                        <v-tab>
+                            Appearance
+                        </v-tab>
                         <v-tab>
                             Account
                         </v-tab>
@@ -30,6 +34,63 @@
                                 Delete Account
                             </div>
                         </v-tab>
+
+                        <v-tab-item>
+                            <v-card flat>
+                                <v-card-title class="justify-space-between">Appearance Settings
+                                    <v-menu offset-y>
+                                        <template v-slot:activator="{ on }">
+                                            <v-btn v-on="on" icon>
+                                                <v-icon>more_vert</v-icon>
+                                            </v-btn>
+                                        </template>
+                                        <v-list dense>
+                                            <v-list-item v-for="(item, index) in items" :key="index">
+                                                <v-list-item-title @click="alert('awdaw')">{{ item.title }}
+                                                </v-list-item-title>
+                                            </v-list-item>
+                                        </v-list>
+                                    </v-menu>
+                                </v-card-title>
+                                <v-divider></v-divider>
+                                <v-card-text class="py-0">
+                                    <v-list>
+                                        <v-list-item two-line>
+                                            <v-list-item-content>
+                                                <v-list-item-title>Dark Mode</v-list-item-title>
+                                                <v-list-item-subtitle>Give your eye some rest?</v-list-item-subtitle>
+                                            </v-list-item-content>
+                                            <v-list-item-action>
+                                                <v-switch></v-switch>
+                                            </v-list-item-action>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-card-text>
+                                <v-divider></v-divider>
+                                <v-card-text class="py-0">
+                                    <v-list>
+                                        <v-list-item two-line>
+                                            <v-list-item-content class="pt-0">
+                                                <v-list-item-title>Primary Color</v-list-item-title>
+                                                <v-list-item-subtitle>What is your favourite color?
+                                                </v-list-item-subtitle>
+                                            </v-list-item-content>
+                                            <v-list-item-action>
+                                                <div>
+                                                    <v-text-field solo dense rounded v-model="color"
+                                                        style="width:180px;">
+                                                        <template v-slot:prepend-inner>
+                                                            <v-avatar class="mr-2" size="30" :color="color">
+                                                            </v-avatar>
+                                                        </template>
+                                                    </v-text-field>
+                                                </div>
+                                            </v-list-item-action>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-card-text>
+                            </v-card>
+                        </v-tab-item>
 
                         <v-tab-item>
                             <v-card flat class="mb-3">
@@ -147,10 +208,10 @@
                                     <v-row>
                                         <v-col cols="12">
                                             <v-text-field label="Current Password" outlined dense>
-                                                    <a href="https://www.facebook.com">Forgot password?</a>
+                                                <a href="https://www.facebook.com">Forgot password?</a>
                                             </v-text-field>
                                             <div class="d-flex justify-end body-2">
-                                            <router-link to="/">Forgot Password?</router-link>
+                                                <router-link to="/">Forgot Password?</router-link>
                                             </div>
                                         </v-col>
                                         <v-col cols="12" class="py-0">
@@ -348,6 +409,7 @@
         name: 'Settings',
         data() {
             return {
+                color: '#2d2d2d',
                 items: [{
                         title: 'Action',
                         route: '/'

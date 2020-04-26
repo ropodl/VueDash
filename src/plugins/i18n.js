@@ -4,7 +4,8 @@ import VueI18n from 'vue-i18n';
 Vue.use(VueI18n);
 
 const messages = {
-    'en': {
+    'us': {
+        dashboard: 'Dashboard',
         profile: 'Profile',
         analytics: 'Analytics',
         settings: 'Settings',
@@ -12,6 +13,7 @@ const messages = {
         signout: 'Sign Out',
     },
     'np': {
+        dashboard: 'ड्यासबोर्ड',
         profile: 'प्रोफाइल',
         analytics: 'विश्लेषण',
         settings: 'सेटिंग्स',
@@ -21,7 +23,7 @@ const messages = {
 };
 
 const i18n = new VueI18n({
-    locale: 'en', // set locale
+    locale: 'us', // set locale
     fallbackLocale: 'np', // set fallback locale
     messages, // set locale messages
 });

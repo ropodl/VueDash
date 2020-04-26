@@ -5,7 +5,8 @@
             <v-list class="ma-0 pa-0" style="background:transparent;">
                 <v-list-item class="brand" link to="/">
                     <v-list-item-content>
-                        <v-list-item-title class="title d-flex align-center" style="line-height:1em;background:transparent;">
+                        <v-list-item-title class="title d-flex align-center"
+                            style="line-height:1em;background:transparent;">
                             <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -70,7 +71,7 @@
                             <v-btn icon v-on="{ ...tooltip, ...menu }">
                                 <v-avatar size="25">
                                     <!-- <flagicon :iso="" -->
-                                    <v-img src="https://appstack.bootlab.io/img/flags/us.png"></v-img>
+                                    <v-img :src="currentlang"></v-img>
                                 </v-avatar>
                                 <!-- <v-icon>mdi-dots-vertical</v-icon> -->
                             </v-btn>
@@ -166,6 +167,7 @@
                                         <span v-if="subitem.mini">
                                             <span v-for="mini in subitem.miniitems" :key="mini">
                                                 <v-list-item router link :to="mini.routes">
+                                                    <!-- don't remove this -->
                                                     <v-list-item-icon>
                                                         <!-- <v-icon>{{ mini.name }}</v-icon> -->
                                                     </v-list-item-icon>
@@ -198,7 +200,6 @@
             </v-list>
             <v-divider></v-divider>
         </v-navigation-drawer>
-        <!-- </v-card> -->
     </nav>
 </template>
 <script>
@@ -208,10 +209,10 @@
         data() {
             return {
                 dark: true,
-                language: '',
+                currentlang: '',
                 languages: [{
                     text: 'English',
-                    lang: 'en',
+                    lang: 'us',
                     src: 'https://appstack.bootlab.io/img/flags/us.png'
                 }, {
                     text: 'Nepali',
@@ -494,8 +495,10 @@
         created() {
             this.dark = localStorage.getItem('darkmode') === 'true';
             this.$vuetify.theme.dark = this.dark
-            this.language = 'en'
-            i18n.locale = this.language
+            this.currentlang = 'us'
+            this.lang = localStorage.getItem('lang') === 'en'
+            i18n.locale = this.currentlang
+            this.currentlang = "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png"
         },
         watch: {
             darkmodemethod() {
@@ -522,22 +525,19 @@
             },
             switchlanguage(lang) {
                 i18n.locale = lang
+                this.currentlang = "https://appstack.bootlab.io/img/flags/" + lang + ".png"
+
             }
         },
         computed: {
             numberofmessages() {
                 return this.notifications.length;
-            },
-            currentRoute: {
-                get() {
-                    return this.$route.name;
-                }
-            },
+            }
         }
     };
 </script>
 <style scoped>
-.brand.v-list-item--link:before{
-    background: transparent;
-}
+    .brand.v-list-item--link:before {
+        background: transparent;
+    }
 </style>

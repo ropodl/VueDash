@@ -2,17 +2,15 @@
     <nav>
         <v-app-bar elevate-on-scroll dense clipped-left app>
             <v-app-bar-nav-icon @click="handleMini"></v-app-bar-nav-icon>
-            <!-- <v-divider vertical></v-divider> -->
-            <v-list style="background:transparent;">
-                    <v-list-item two-line>
-                        <v-list-item-content>
-                            <v-list-item-title class="title d-flex align-center">
-                                <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list>
-                <v-spacer></v-spacer>
-                <!-- <v-divider vertical></v-divider> -->
+            <v-list class="ma-0 pa-0" style="background:transparent;">
+                <v-list-item class="brand" link to="/">
+                    <v-list-item-content>
+                        <v-list-item-title class="title d-flex align-center" style="line-height:1em;background:transparent;">
+                            <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+            <v-spacer></v-spacer>
             <v-autocomplete placeholder="Search..." append-icon="" prepend-inner-icon="mdi-magnify" rounded hide-no-data
                 hide-details></v-autocomplete>
             <v-spacer></v-spacer>
@@ -71,6 +69,7 @@
                         <template v-slot:activator="{ on: tooltip }">
                             <v-btn icon v-on="{ ...tooltip, ...menu }">
                                 <v-avatar size="25">
+                                    <!-- <flagicon :iso="" -->
                                     <v-img src="https://appstack.bootlab.io/img/flags/us.png"></v-img>
                                 </v-avatar>
                                 <!-- <v-icon>mdi-dots-vertical</v-icon> -->
@@ -80,36 +79,13 @@
                     </v-tooltip>
                 </template>
                 <v-list dense>
-                    <v-list-item>
+                    <v-list-item v-for="language in languages" :key="language" @click="switchlanguage(language.lang)">
                         <v-list-item-avatar size="25">
-                            <v-img src="https://appstack.bootlab.io/img/flags/us.png"></v-img>
+                            <!-- <flag :iso="language.lang" /> -->
+                            <v-img :src="language.src"></v-img>
                         </v-list-item-avatar>
                         <v-list-item-title>
-                            English
-                        </v-list-item-title>
-                    </v-list-item>
-                    <v-list-item>
-                        <v-list-item-avatar size="25">
-                            <v-img src="https://appstack.bootlab.io/img/flags/es.png"></v-img>
-                        </v-list-item-avatar>
-                        <v-list-item-title>
-                            Spanish
-                        </v-list-item-title>
-                    </v-list-item>
-                    <v-list-item>
-                        <v-list-item-avatar size="25">
-                            <v-img src="https://appstack.bootlab.io/img/flags/de.png"></v-img>
-                        </v-list-item-avatar>
-                        <v-list-item-title>
-                            German
-                        </v-list-item-title>
-                    </v-list-item>
-                    <v-list-item>
-                        <v-list-item-avatar size="25">
-                            <v-img src="https://appstack.bootlab.io/img/flags/nl.png"></v-img>
-                        </v-list-item-avatar>
-                        <v-list-item-title>
-                            Dutch
+                            {{ language.text }}
                         </v-list-item-title>
                     </v-list-item>
                 </v-list>
@@ -135,104 +111,113 @@
                     <v-list-item router link to="/profile">
                         <v-list-item-title>
                             <v-icon class="mr-2">account_circle</v-icon>
-                            Profile
+                            {{ $t('profile') }}
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item router link to="/dashboardanalytics">
                         <v-list-item-title>
                             <v-icon class="mr-2">bar_chart</v-icon>
-                            Analytics
+                            {{ $t('analytics') }}
                         </v-list-item-title>
                     </v-list-item>
                     <v-divider></v-divider>
                     <v-list-item router link to="/settings">
                         <v-list-item-title>
                             <v-icon class="mr-2">settings</v-icon>
-                            Setting & Privacy
+                            {{ $t('settings') }}
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item router link to="/introduction">
                         <v-list-item-title>
                             <v-icon class="mr-2">help</v-icon>
-                            Help
+                            {{ $t('help') }}
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item router link to="/signin">
                         <v-list-item-title>
                             <v-icon class="mr-2">power_settings_new</v-icon>
-                            Sign Out
+                            {{ $t('signout') }}
                         </v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
         </v-app-bar>
         <!-- <v-card tile color="primary"> -->
-            <v-navigation-drawer v-model="drawer" clipped app flat>
-                <v-list dense>
-                    <span v-for="navitem in navitems" :key="navitem.subtitle">
-                        <v-subheader v-if="navitem.subtitle">{{ navitem.subtitle }}</v-subheader>
-                        <span v-if="navitem.subitem">
-                            <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
-                                <template v-slot:activator>
-                                    <v-list-item-title>{{ navitem.title }}</v-list-item-title>
-                                </template>
-                                <span v-for="subitem in navitem.subitems" :key="subitem">
-                                    <span v-if="subitem.miniitems">
-                                        <v-list-group sub-group>
-                                            <template v-slot:activator>
-                                                <v-list-item-content>
-                                                    <v-list-item-title style="margin-left:10px">{{ subitem.title }}
-                                                    </v-list-item-title>
-                                                </v-list-item-content>
-                                            </template>
-
-
-                                            <span v-if="subitem.mini">
-                                                <span v-for="mini in subitem.miniitems" :key="mini">
-                                                    <v-list-item router link :to="mini.routes">
-                                                        <v-list-item-icon>
-                                                            <!-- <v-icon>{{ mini.name }}</v-icon> -->
-                                                        </v-list-item-icon>
-                                                        <v-list-item-title v-text="mini.title"></v-list-item-title>
-                                                    </v-list-item>
-                                                </span>
-                                            </span>
-                                        </v-list-group>
-                                    </span>
-                                    <span v-else>
-                                        <v-list-item sub-group router link :to="subitem.routes">
+        <v-navigation-drawer v-model="drawer" clipped app>
+            <v-list dense>
+                <span v-for="navitem in navitems" :key="navitem.subtitle">
+                    <v-subheader v-if="navitem.subtitle">{{ navitem.subtitle }}</v-subheader>
+                    <span v-if="navitem.subitem">
+                        <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
+                            <template v-slot:activator>
+                                <v-list-item-title>{{ navitem.title }}</v-list-item-title>
+                            </template>
+                            <span v-for="subitem in navitem.subitems" :key="subitem">
+                                <span v-if="subitem.miniitems">
+                                    <v-list-group sub-group>
+                                        <template v-slot:activator>
                                             <v-list-item-content>
-                                                <v-list-item-title v-text="subitem.title" style="margin-left: 57px;">
+                                                <v-list-item-title style="margin-left:10px">{{ subitem.title }}
                                                 </v-list-item-title>
                                             </v-list-item-content>
-                                        </v-list-item>
-                                    </span>
+                                        </template>
+
+
+                                        <span v-if="subitem.mini">
+                                            <span v-for="mini in subitem.miniitems" :key="mini">
+                                                <v-list-item router link :to="mini.routes">
+                                                    <v-list-item-icon>
+                                                        <!-- <v-icon>{{ mini.name }}</v-icon> -->
+                                                    </v-list-item-icon>
+                                                    <v-list-item-title v-text="mini.title"></v-list-item-title>
+                                                </v-list-item>
+                                            </span>
+                                        </span>
+                                    </v-list-group>
                                 </span>
-                            </v-list-group>
-                        </span>
-                        <span v-else>
-                            <v-list-item router link :to="navitem.routes">
-                                <v-list-item-icon>
-                                    <v-icon>{{ navitem.icon }}</v-icon>
-                                </v-list-item-icon>
-                                <v-list-item-title>{{ navitem.title }}</v-list-item-title>
-                            </v-list-item>
-                        </span>
+                                <span v-else>
+                                    <v-list-item sub-group router link :to="subitem.routes">
+                                        <v-list-item-content>
+                                            <v-list-item-title v-text="subitem.title" style="margin-left: 57px;">
+                                            </v-list-item-title>
+                                        </v-list-item-content>
+                                    </v-list-item>
+                                </span>
+                            </span>
+                        </v-list-group>
                     </span>
-                </v-list>
-                <v-divider></v-divider>
-            </v-navigation-drawer>
+                    <span v-else>
+                        <v-list-item router link :to="navitem.routes">
+                            <v-list-item-icon>
+                                <v-icon>{{ navitem.icon }}</v-icon>
+                            </v-list-item-icon>
+                            <v-list-item-title>{{ navitem.title }}</v-list-item-title>
+                        </v-list-item>
+                    </span>
+                </span>
+            </v-list>
+            <v-divider></v-divider>
+        </v-navigation-drawer>
         <!-- </v-card> -->
     </nav>
 </template>
 <script>
+    import i18n from '@/plugins/i18n'
     export default {
         name: "Navbar",
         data() {
             return {
                 dark: true,
-                currentPageName: '',
-                pagetitle: 'Home',
+                language: '',
+                languages: [{
+                    text: 'English',
+                    lang: 'en',
+                    src: 'https://appstack.bootlab.io/img/flags/us.png'
+                }, {
+                    text: 'Nepali',
+                    lang: 'np',
+                    src: 'https://appstack.bootlab.io/img/flags/np.png'
+                }],
                 link: 'somwehere',
                 routes: [],
                 drawer: true,
@@ -287,10 +272,10 @@
                         mini: true,
                         miniitems: [{
                             title: 'List',
-                            routes: '/'
+                            routes: '/list'
                         }, {
                             title: 'Detail',
-                            routes: '/'
+                            routes: '/detail'
                         }]
 
                     }, {
@@ -509,6 +494,8 @@
         created() {
             this.dark = localStorage.getItem('darkmode') === 'true';
             this.$vuetify.theme.dark = this.dark
+            this.language = 'en'
+            i18n.locale = this.language
         },
         watch: {
             darkmodemethod() {
@@ -518,9 +505,6 @@
             },
         },
         methods: {
-            toggle() {
-                this.$root.fullscreen = !this.$root.fullscreen
-            },
             darkmodemethod() {
                 this.dark = !this.dark
                 localStorage.setItem('darkmode', this.dark);
@@ -535,6 +519,9 @@
             },
             handleMini() {
                 this.drawer = !this.drawer
+            },
+            switchlanguage(lang) {
+                i18n.locale = lang
             }
         },
         computed: {
@@ -550,5 +537,7 @@
     };
 </script>
 <style scoped>
-
+.brand.v-list-item--link:before{
+    background: transparent;
+}
 </style>

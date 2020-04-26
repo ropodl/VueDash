@@ -2,8 +2,8 @@
     <div>
         <v-container fluid>
             <v-row>
-                <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12" class="pb-0">
-                    <p class="headline">Welcome back, John Doe!</p>
+                <v-col cols="12" class="py-0">
+                    <h1>Welcome back, John Doe!</h1>
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="3" lg="3" xl="3" v-for="carddetail in carddetails"
                     :key="carddetail.id">
@@ -71,7 +71,7 @@
                         </v-card-title>
                         <v-divider></v-divider>
                         <v-card-text>
-                            <div id="ltcbtc"></div>
+                            <div id="ltcbtc" width="100%"></div>
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -468,8 +468,8 @@
             ]
             var options = {
                 chart: {
-                    height: 450,
-                    width: 580,
+                    // height: 450,
+                    // width: 580,
                     type: 'candlestick'
                 },
                 series: [{

@@ -2,6 +2,9 @@
     <div class="invoice">
         <v-container fluid>
             <v-row>
+                <v-col cols="12" class="py-0">
+                    <h1>Invoice</h1>
+                </v-col>
                 <v-col cols="12">
                     <v-card class="pa-12">
                         <v-card-text class="pb-0">Hello <span class="font-weight-bold">Chris Wood</span>,

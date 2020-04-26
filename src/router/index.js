@@ -11,9 +11,12 @@ import DashboardCrypto from '../views/Dashboard/dashboardCrypto'
 import Profile from '../views/Pages/Profile'
 import Settings from '../views/Pages/Settings'
 import Clients from '../views/Pages/Clients'
+import List from '../views/Pages/List'
+import Detail from '../views/Pages/Detail'
 import Invoice from '../views/Pages/Invoice'
 import Pricing from '../views/Pages/Pricing'
 import Tasks from '../views/Pages/Tasks'
+import Chat from '../views/Pages/Chat'
 import BlankPage from '../views/Pages/BlankPage'
 //Auth
 import SignIn from '../views/Auth/SignIn'
@@ -61,6 +64,14 @@ const routes = [{
   path: '/clients',
   name: 'Clients',
   component: Clients
+},{
+  path: '/list',
+  name: 'List',
+  component: List
+}, {
+  path: '/detail',
+  name: 'Detail',
+  component: Detail
 }, {
   path: '/invoice',
   name: 'Invoice',
@@ -73,6 +84,10 @@ const routes = [{
   path: '/tasks',
   name: 'Tasks',
   component: Tasks
+},{
+  path: '/chat',
+  name: 'Chat',
+  component: Chat
 }, {
   path: '/blank-page',
   name: 'Blank Page',

@@ -2,6 +2,9 @@
     <div class="profile">
         <v-container fluid>
             <v-row>
+                <v-col cols="12" class="py-0">
+                    <h1>Profile</h1>
+                </v-col>
                 <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
                     <v-card>
                         <v-card-title>Profile Details</v-card-title>
@@ -148,21 +151,13 @@
         }
     }
 </script>
-<style lang="scss">
+<style scoped>
     ul {
         list-style: none;
         padding-left: 0px !important;
+    }
 
-        li {
-            &:first-child {
-                margin-top: 0px;
-            }
-
-            margin-top: 10px;
-
-            i {
-                margin-right: 10px;
-            }
-        }
+    ul li i{
+        margin-right: 10px;
     }
 </style>

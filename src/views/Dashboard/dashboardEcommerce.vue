@@ -2,8 +2,8 @@
     <div>
         <v-container fluid>
             <v-row>
-                <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12" class="pb-0">
-                    <p class="headline">Welcome back, John Doe!</p>
+                <v-col cols="12" class="py-0">
+                    <h1>Welcome back, John Doe!</h1>
                 </v-col>
                 <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails"
                     :key="carddetail.id">
@@ -14,12 +14,13 @@
                             </v-chip>
                         </v-card-title>
                         <v-card-text>
-                            <v-flex class="d-flex align-center justify-space-between mb-5">
+                            <v-flex class="d-flex align-center justify-space-between">
                                 <span class="headline font-weight-bold"> {{ carddetail.number }} </span>
                                 <span class="title font-weight-light"> {{ carddetail.percentage }}% </span>
                             </v-flex>
-                            <v-progress-linear :color="carddetail.color" height="10" :value="carddetail.percentage"
-                                rounded>
+                        </v-card-text>
+                        <v-card-text class="pa-0">
+                            <v-progress-linear :color="carddetail.color" height="6" :value="carddetail.percentage" rounded striped>
                             </v-progress-linear>
                         </v-card-text>
                     </v-card>

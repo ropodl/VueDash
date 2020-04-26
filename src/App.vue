@@ -3,7 +3,7 @@
     <v-content>
       <Navbar v-if="!$route.meta.hidenav"></Navbar>
       <!-- <v-fade-transition> -->
-      <router-view></router-view>
+      <router-view class="pb-12"></router-view>
       <!-- </v-fade-transition> -->
       <Footer></Footer>
     </v-content>

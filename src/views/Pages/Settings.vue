@@ -2,9 +2,12 @@
     <div class="settings">
         <v-container fluid>
             <v-row>
+                <v-col cols="12" class="py-0">
+                    <h1>Settings</h1>
+                </v-col>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+                    <v-card>
                     <v-tabs vertical>
-                        <v-tabs-slider></v-tabs-slider>
                         <v-tab>
                             Appearance
                         </v-tab>
@@ -29,10 +32,10 @@
                         <v-tab>
                             Your Data
                         </v-tab>
-                        <v-tab>
-                            <div class="error--text">
+                        <v-tab class="error--text">
+                            <!-- <div class="error--text"> -->
                                 Delete Account
-                            </div>
+                            <!-- </div> -->
                         </v-tab>
 
                         <v-tab-item>
@@ -399,6 +402,7 @@
                             </v-card>
                         </v-tab-item>
                     </v-tabs>
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>

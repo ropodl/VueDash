@@ -14,7 +14,7 @@
                                     <v-icon :class="carddetail.class">{{ carddetail.icon }}</v-icon>
                                 </v-col>
                                 <v-col cols="12" xs="7" sm="7" md="7" lg="7" xl="7" class="py-0 px-0">
-                                    <v-card-title class="pb-0">{{ carddetail.title }}</v-card-title>
+                                    <v-card-title class="pb-0 headline">{{ carddetail.title }}</v-card-title>
                                     <v-card-text>{{ carddetail.text }}</v-card-text>
                                 </v-col>
                             </v-row>
@@ -202,7 +202,10 @@
                         <v-divider></v-divider>
                         <v-data-table :headers="header" :items="project">
                             <template v-slot:item.status="{ item }">
-                                <v-chip>{{ item.status }}</v-chip>
+                                <v-chip v-if="item.status == 'Done'" color="success" small>{{ item.status }}</v-chip>
+                                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{ item.status }}</v-chip>
+                                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{ item.status }}</v-chip>
+                                <v-chip v-if="item.status == 'In Progress'" color="warning" small>{{ item.status }}</v-chip>
                             </template>
                         </v-data-table>
                     </v-card>
@@ -353,7 +356,7 @@
                         name: 'Project Apollo',
                         startdate: '01/01/2018',
                         enddate: '31/06/2018',
-                        status: 'In Progess',
+                        status: 'In Progress',
                         assignee: 'Carl Jenkins',
                         badgecolor: ''
                     },
@@ -451,6 +454,12 @@
                 }
             });
             weeklysales.render();
+        },
+        computed:{
+            // latestproject(){
+
+            // }
+
         }
     }
 </script>

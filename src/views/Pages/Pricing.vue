@@ -17,7 +17,7 @@
                         <v-tabs-slider></v-tabs-slider>
                         <v-tab v-for="i in tabs" :key="i" :href="`#tab-${i}`">
                             Tab {{ i }}
-                            <v-icon v-if="icons">mdi-phone</v-icon>
+                            <!-- <v-icon v-if="icons">mdi-phone</v-icon> -->
                         </v-tab>
                     </v-tabs>
                 </v-col>

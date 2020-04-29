@@ -1,5 +1,4 @@
-# AppDash
-AppDash is a free to general use dashhboard.
+# vuedash
 
 ## Project setup
 ```

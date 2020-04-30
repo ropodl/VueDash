@@ -11,7 +11,7 @@
                         <v-card-subtitle>Alerts with contextual background color.</v-card-subtitle>
                         <v-card-text>
                             <v-alert v-for="defaultalert in defaultalerts" :key="defaultalert.id"
-                                :color="defaultalert.color" dismissible> Hello there! A simple {{ defaultalert.color }}
+                                :color="defaultalert.color" dark dismissible> Hello there! A simple {{ defaultalert.color }}
                                 alert—check it out! </v-alert>
                         </v-card-text>
                     </v-card>
@@ -22,7 +22,7 @@
                         <v-card-subtitle>Alerts with icon and background color.</v-card-subtitle>
                         <v-card-text>
                             <v-alert v-for="defaultalert in defaultalerts" :key="defaultalert.id"
-                                :color="defaultalert.color" icon="notifications" dismissible>
+                                :color="defaultalert.color" icon="notifications" dark dismissible>
                                 Hello there! A simple {{ defaultalert.color }} alert—check it
                                 out!
                             </v-alert>
@@ -74,8 +74,8 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
                     <v-card>
-                        <v-card-title>Alerts with additional content</v-card-title>
-                        <v-card-subtitle>Alerts with large contents.</v-card-subtitle>
+                        <v-card-title>Alerts with buttons</v-card-title>
+                        <v-card-subtitle>Alerts with actions.</v-card-subtitle>
                         <v-card-text>
                             <v-alert v-for="defaultalert in defaultalerts" :key="defaultalert.id"
                                 :color="defaultalert.color" outlined dismissible>

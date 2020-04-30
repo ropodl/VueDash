@@ -29,6 +29,17 @@ import Introduction from '../views/Documentation/Introduction'
 import GettingStarted from '../views/Documentation/GettingStarted'
 import Plugins from '../views/Documentation/Plugins'
 import Changelog from '../views/Documentation/Changelog'
+//UI Elements
+import Alerts from '../views/Elements/Alerts'
+import Buttons from '../views/Elements/Buttons'
+import Cards from '../views/Elements/Cards'
+import Carousel from '../views/Elements/Carousel'
+import embedVideo from '../views/Elements/embedVideo'
+import General from '../views/Elements/General'
+import Grid from '../views/Elements/Grid'
+import Modals from '../views/Elements/Modals'
+import Tabs from '../views/Elements/Tabs'
+import Typography from '../views/Elements/Typography'
 
 Vue.use(VueRouter)
 
@@ -143,6 +154,46 @@ const routes = [{
   path: '/changelog',
   name: 'Changelog',
   component: Changelog
+}, {
+  path: '/alerts',
+  name: 'Alerts',
+  component: Alerts
+}, {
+  path: '/buttons',
+  name: 'Buttons',
+  component: Buttons
+}, {
+  path: '/Cards',
+  name: 'Cards',
+  component: Cards
+}, {
+  path: '/carousel',
+  name: 'Carousel',
+  component: Carousel
+}, {
+  path: '/embed-video',
+  name: 'EmbedVideo',
+  component: embedVideo
+}, {
+  path: '/general',
+  name: 'General',
+  component: General
+}, {
+  path: '/grid',
+  name: 'Grid',
+  component: Grid
+}, {
+  path: '/modals',
+  name: 'Modals',
+  component: Modals
+}, {
+  path: '/tabs',
+  name: 'Tabs',
+  component: Tabs
+}, {
+  path: '/typography',
+  name: 'Typography',
+  component: Typography
 }]
 
 const router = new VueRouter({

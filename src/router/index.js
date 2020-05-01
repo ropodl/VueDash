@@ -50,6 +50,28 @@ import InputGroups from '../views/Forms/InputGroups'
 //Table
 import Table from '../views/Tables/Tables'
 //Form Plugins
+import AdvancedInputs from '../views/FormPlugins/AdvancedInputs'
+import Editors from '../views/FormPlugins/Editors'
+import Validation from '../views/FormPlugins/Validation'
+import Wizard from '../views/FormPlugins/Wizard'
+// // //Data Tables
+import ResponsiveTables from '../views/DataTables/ResponsiveTables'
+import TablewButtons from '../views/DataTables/TableWithButtons'
+import ColumnSearch from '../views/DataTables/ColumnSearch'
+import MultiSelection from '../views/DataTables/MultiSelection'
+import AjaxSourcedData from '../views/DataTables/AjaxSourcedData'
+//Chart
+import Chartjs from '../views/Charts/ChartJs'
+import ApexCharts from '../views/Charts/ApexCharts'
+//Notifications
+import Notifications from '../views/Notifications/Notifications'
+//Maps
+import GoogleMaps from '../views/Maps/GoogleMaps'
+import VectorMaps from '../views/Maps/VectorMaps'
+//Calendar
+import Calendar from '../views/Calendar/Calendar'
+//Multi Level
+
 
 Vue.use(VueRouter)
 
@@ -228,6 +250,66 @@ const routes = [{
   path: '/tables',
   name: 'Tables',
   component: Table
+}, {
+  path: '/advanced-inputs',
+  name: 'Advanced Inputs',
+  component: AdvancedInputs
+}, {
+  path: '/editors',
+  name: 'Editors',
+  component: Editors
+}, {
+  path: '/validation',
+  name: 'Validation',
+  component: Validation
+}, {
+  path: '/wizard',
+  name: 'Wizard',
+  component: Wizard
+}, {
+  path: '/responsive-tables',
+  name: 'Responsive Tables',
+  component: ResponsiveTables
+}, {
+  path: '/table-buttons',
+  name: 'Table with Buttons',
+  component: TablewButtons
+}, {
+  path: '/column-search',
+  name: 'Column Search',
+  component: ColumnSearch
+}, {
+  path: '/multi-selection',
+  name: 'Multi Selection',
+  component: MultiSelection
+}, {
+  path: '/ajax-sourced-data',
+  name: 'Ajax Source Data',
+  component: AjaxSourcedData
+}, {
+  path: '/chartjs',
+  name: 'Chart.js',
+  component: Chartjs
+}, {
+  path: '/apexcharts',
+  name: 'ApexCharts',
+  component: ApexCharts
+}, {
+  path: '/notifications',
+  name: 'Notifications',
+  component: Notifications
+}, {
+  path: '/google-maps',
+  name: 'Google Maps',
+  component: GoogleMaps
+}, {
+  path: '/vector-maps',
+  name: 'Vector Maps',
+  component: VectorMaps
+}, {
+  path: '/calendar',
+  name: 'Calendar',
+  component: Calendar
 }]
 
 const router = new VueRouter({

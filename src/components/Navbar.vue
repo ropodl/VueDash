@@ -470,7 +470,7 @@
                         routes: '/chartjs'
                     }, {
                         title: 'ApexCharts',
-                        routes: '/apexchart'
+                        routes: '/apexcharts'
                     }]
                 }, {
                     icon: 'notifications',

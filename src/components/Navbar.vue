@@ -7,7 +7,7 @@
                     <v-list-item-content>
                         <v-list-item-title class="title d-flex align-center"
                             style="line-height:1em;background:transparent;">
-                            <span class="primary--text">App</span><span>Dash</span></v-list-item-title>
+                            <span class="primary--text">Vuetify</span><span>Dash</span></v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>

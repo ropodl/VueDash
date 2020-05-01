@@ -158,7 +158,7 @@
                                     <v-list-group sub-group>
                                         <template v-slot:activator>
                                             <v-list-item-content>
-                                                <v-list-item-title style="margin-left:10px">{{ this.$i18n.$t('subitem.title') }}
+                                                <v-list-item-title style="margin-left:10px">{{ subitem.title }}
                                                 </v-list-item-title>
                                             </v-list-item-content>
                                         </template>

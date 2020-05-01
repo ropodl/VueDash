@@ -11,7 +11,7 @@
                             :key="carddetail.id">
                             <v-card>
                                 <v-card-title class="d-flex justify-space-between">{{ carddetail.title }} <v-chip small
-                                        :color="carddetail.color">
+                                        :color="carddetail.color" dark>
                                         {{ carddetail.badgetext }}
                                     </v-chip>
                                 </v-card-title>

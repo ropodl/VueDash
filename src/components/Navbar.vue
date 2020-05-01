@@ -395,11 +395,11 @@
                     subitem: true,
                     active: false,
                     subitems: [{
-                        title: 'Matrial Design Icon',
-                        routes: '/mtd'
+                        title: 'Material Design Icon',
+                        routes: '/mdi'
                     }, {
                         title: 'Font Awesome 5',
-                        routes: '/FA5'
+                        routes: '/fa5'
                     }]
                 }, {
                     icon: 'done',
@@ -419,7 +419,7 @@
                 }, {
                     icon: 'table_chart',
                     title: 'Tables',
-                    routes: '/table'
+                    routes: '/tables'
                 }, {
                     icon: 'check_box',
                     title: 'Form Plugins',
@@ -438,6 +438,94 @@
                     }, {
                         title: 'Wizard',
                         routes: '/wizard'
+                    }]
+                }, {
+                    icon: 'list',
+                    title: 'Data Tables',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Responsive Tables',
+                        routes: '/responsive-tables'
+                    }, {
+                        title: 'Table with Buttons',
+                        routes: '/table-buttons'
+                    }, {
+                        title: 'Column Search',
+                        routes: '/column-search'
+                    }, {
+                        title: 'Multi Selection',
+                        routes: '/multi-selection'
+                    }, {
+                        title: 'Ajax Sourced Data',
+                        routes: '/ajax-sourced-data'
+                    }]
+                }, {
+                    icon: 'pie_chart',
+                    title: 'Chart',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Chart.js',
+                        routes: '/chartjs'
+                    }, {
+                        title: 'ApexCharts',
+                        routes: '/apexchart'
+                    }]
+                }, {
+                    icon: 'notifications',
+                    title: 'Notifications',
+                    subitem: false,
+                    active: false,
+                    routes: '/notifications'
+                }, {
+                    icon: 'location_on',
+                    title: 'Maps',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Google Maps',
+                        routes: '/google-maps'
+                    }, {
+                        title: 'Vector Maps',
+                        routes: '/vector-maps'
+                    }]
+                }, {
+                    icon: 'calendar_today',
+                    title: 'Calendar',
+                    subitem: false,
+                    active: false,
+                    routes: '/calendar'
+                }, {
+                    icon: 'share',
+                    title: 'Multi Level',
+                    subitem: true,
+                    active: false,
+                    subitems: [{
+                        title: 'Two Levels',
+                        routes: '',
+                        mini: true,
+                        miniitems: [{
+                            title: 'Item 1',
+                            routes: ''
+                        }, {
+                            title: 'Item 2',
+                            routes: ''
+                        }]
+                    }, {
+                        title: 'Three Levels',
+                        routes: '',
+                        mini: true,
+                        miniitems: [{
+                            title: 'Item 1',
+                            routes: ''
+                        }, {
+                            title: 'Item 2',
+                            routes: ''
+                        }, {
+                            title: 'Item 3',
+                            routes: ''
+                        }]
                     }]
                 }],
                 notifications: [{

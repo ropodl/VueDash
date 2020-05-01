@@ -40,6 +40,16 @@ import Grid from '../views/Elements/Grid'
 import Modals from '../views/Elements/Modals'
 import Tabs from '../views/Elements/Tabs'
 import Typography from '../views/Elements/Typography'
+//Icons
+import Mdi from '../views/Icons/Mdi'
+import Fa from '../views/Icons/Fa5'
+//Forms
+import Layouts from '../views/Forms/Layouts'
+import BasicInputs from '../views/Forms/BasicInputs'
+import InputGroups from '../views/Forms/InputGroups'
+//Table
+import Table from '../views/Tables/Tables'
+//Form Plugins
 
 Vue.use(VueRouter)
 
@@ -194,6 +204,30 @@ const routes = [{
   path: '/typography',
   name: 'Typography',
   component: Typography
+}, {
+  path: '/mdi',
+  name: 'Mdi',
+  component: Mdi
+}, {
+  path: '/fa5',
+  name: 'Fa5',
+  component: Fa
+}, {
+  path: '/layouts',
+  name: 'Layouts',
+  component: Layouts
+}, {
+  path: '/basic-inputs',
+  name: 'BasicInputs',
+  component: BasicInputs
+}, {
+  path: '/input-groups',
+  name: 'InputGroups',
+  component: InputGroups
+}, {
+  path: '/tables',
+  name: 'Tables',
+  component: Table
 }]
 
 const router = new VueRouter({

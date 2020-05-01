@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dashboardAnalytics">
         <v-container fluid>
             <v-row>
                 <v-col cols="12" class="py-0">

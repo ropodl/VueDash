@@ -7,8 +7,7 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
                     <v-card>
-                        <v-tabs :vertical="false" right fixed
-                            :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
+                        <v-tabs :vertical="false" :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
                             :next-icon="nextIcon ? 'mdi-arrow-right-bold-box-outline' : undefined">
                             <v-tabs-slider></v-tabs-slider>
                             <v-tab>
@@ -92,6 +91,23 @@
                                                                 </v-avatar>
                                                             </template>
                                                         </v-text-field>
+                                                    </div>
+                                                </v-list-item-action>
+                                            </v-list-item>
+                                        </v-list>
+                                    </v-card-text>
+                                    <v-divider></v-divider>
+                                    <v-card-text class="py-0">
+                                        <v-list>
+                                            <v-list-item two-line>
+                                                <v-list-item-content class="pt-0">
+                                                    <v-list-item-title>Language</v-list-item-title>
+                                                    <v-list-item-subtitle>What is your language preference?
+                                                    </v-list-item-subtitle>
+                                                </v-list-item-content>
+                                                <v-list-item-action>
+                                                    <div>
+                                                        <v-select :items="language" value="Nepali" solo style="max-width:200px;"></v-select>
                                                     </div>
                                                 </v-list-item-action>
                                             </v-list-item>
@@ -418,6 +434,7 @@
         name: 'Settings',
         data() {
             return {
+                language: ['English','Nepali'],
                 color: '#2d2d2d',
                 items: [{
                         title: 'Action',

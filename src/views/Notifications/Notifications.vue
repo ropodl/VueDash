@@ -9,7 +9,7 @@
                     <v-card>
                         <v-card-title>Snackbar Notifications</v-card-title>
                         <v-card-subtitle>Simple JavaScript toast notifications</v-card-subtitle>
-                        <v-form @submit.prevent="showsnackbar">
+                        <v-form ref="form" @submit.prevent="showsnackbar">
                         <v-row>
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="py-0">
 
@@ -47,7 +47,7 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-snackbar v-model="snackbar" multi-line timeout="">
+        <v-snackbar v-model="snackbar" multi-line :timeout="timeout">
             a
             <v-divider></v-divider>
             b
@@ -71,6 +71,7 @@
         methods: {
             showsnackbar(){
                 this.snackbar = true
+                // console.log(this.$refs.form);
             }
         }
     }

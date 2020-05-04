@@ -581,25 +581,25 @@
             }
         },
         created() {
-            this.dark = localStorage.getItem('darkmode') === 'true';
-            this.$vuetify.theme.dark = this.dark
-            this.currentlang = 'us'
-            this.lang = localStorage.getItem('lang') === 'en'
-            i18n.locale = this.currentlang
-            this.currentlang = "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png"
+            // this.dark = localStorage.getItem('darkmode') === 'true';
+            // this.$vuetify.theme.dark = this.dark
+            // this.currentlang = 'us'
+            // this.lang = localStorage.getItem('lang') === 'en'
+            // i18n.locale = this.currentlang
+            // this.currentlang = "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png"
         },
         watch: {
             darkmodemethod() {
-                this.dark = !this.dark
-                localStorage.setItem('darkmode', this.dark);
-                this.$vuetify.theme.dark = this.dark
+                // this.dark = !this.dark
+                // localStorage.setItem('darkmode', this.dark);
+                // this.$vuetify.theme.dark = this.dark
             },
         },
         methods: {
             darkmodemethod() {
-                this.dark = !this.dark
-                localStorage.setItem('darkmode', this.dark);
-                this.$vuetify.theme.dark = this.dark
+                // this.dark = !this.dark
+                // localStorage.setItem('darkmode', this.dark);
+                // this.$vuetify.theme.dark = this.dark
             },
             signout() {
                 this.signoutAction().then(() => {

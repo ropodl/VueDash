@@ -68,7 +68,8 @@
                                                     </v-list-item-subtitle>
                                                 </v-list-item-content>
                                                 <v-list-item-action>
-                                                    <v-switch></v-switch>
+                                                    <v-switch v-model="dark"></v-switch>
+                                                    {{ darkmode }}
                                                 </v-list-item-action>
                                             </v-list-item>
                                         </v-list>
@@ -107,7 +108,8 @@
                                                 </v-list-item-content>
                                                 <v-list-item-action>
                                                     <div>
-                                                        <v-select :items="language" value="Nepali" solo style="max-width:200px;"></v-select>
+                                                        <v-select :items="language" value="Nepali" solo
+                                                            style="max-width:200px;"></v-select>
                                                     </div>
                                                 </v-list-item-action>
                                             </v-list-item>
@@ -434,7 +436,8 @@
         name: 'Settings',
         data() {
             return {
-                language: ['English','Nepali'],
+                dark: false,
+                language: ['English', 'Nepali'],
                 color: '#2d2d2d',
                 items: [{
                         title: 'Action',
@@ -450,7 +453,25 @@
                     }
                 ]
             }
+        },
+        computed: {
+            darkmode(){
+                if(this.dark == false){
+                    // this.$vuetify.theme.dark = false
+                    return this.dark
+                } else {
+                    // this.$vuetify.theme.dark = true
+                    return this.dark
+                }
+            }
+        },
+        watch:{
+            darkmodemethod() {
+                this.dark = !this.dark
+                this.$vuetify.theme.dark = this.dark
+            }
         }
+        // computed
     }
 </script>
 <style scoped>

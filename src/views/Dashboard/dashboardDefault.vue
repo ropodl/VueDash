@@ -7,6 +7,7 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails"
                     :key="carddetail.id">
+                    <v-fade-transition>
                     <v-card>
                         <v-card-text>
                             <v-row>
@@ -20,6 +21,7 @@
                             </v-row>
                         </v-card-text>
                     </v-card>
+                    </v-fade-transition>
                 </v-col>
 
                 <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">

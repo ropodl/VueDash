@@ -7,7 +7,7 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="6" md="6" lg="4" xl="4">
                     <v-card>
-                        <v-list-item>
+                        <!-- <v-list-item>
                             <v-list-item-avatar>
                                 <img src="https://appstack.bootlab.io/img/photos/unsplash-1.jpg">
                             </v-list-item-avatar>
@@ -15,7 +15,7 @@
                                 <v-list-item-title class="headline">The Mountains</v-list-item-title>
                                 <v-list-item-subtitle>by Bibas Wagner</v-list-item-subtitle>
                             </v-list-item-content>
-                        </v-list-item>
+                        </v-list-item> -->
 
                         <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
 
@@ -36,9 +36,9 @@
                             <v-btn icon>
                                 <v-icon>mdi-heart</v-icon>
                             </v-btn>
-                            <v-btn icon>
+                            <!-- <v-btn icon>
                                 <v-icon>mdi-share-variant</v-icon>
-                            </v-btn>
+                            </v-btn> -->
                         </v-card-actions>
                     </v-card>
                 </v-col>

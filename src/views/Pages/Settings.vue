@@ -1,14 +1,15 @@
 <template>
     <div class="settings">
         <v-container fluid>
-            <v-row>
+            <v-row v-resize="onResize">
                 <v-col cols="12" class="py-0">
                     <h1>Settings</h1>
                 </v-col>
                 <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
                     <v-card>
-                        <v-tabs :vertical="false" :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
-                            :next-icon="nextIcon ? 'mdi-arrow-right-bold-box-outline' : undefined">
+                        <v-tabs :vertical="windowSize.x <= 700 ? false : true"
+                            :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
+                            :next-icon="nextIcon ? 'mdi-arrow-right-bold-box-outline' : undefined" >
                             <v-tabs-slider></v-tabs-slider>
                             <v-tab>
                                 Appearance
@@ -34,13 +35,7 @@
                             <v-tab>
                                 Your Data
                             </v-tab>
-                            <v-tab class="error--text">
-                                <!-- <div class="error--text"> -->
-                                Delete Account
-                                <!-- </div> -->
-                            </v-tab>
-                            <!-- <v-divider></v-divider> -->
-
+                            <v-tab class="error--text">Delete Account</v-tab>
                             <v-tab-item>
                                 <v-card flat>
                                     <v-card-title class="justify-space-between">Appearance Settings
@@ -436,7 +431,12 @@
         name: 'Settings',
         data() {
             return {
+                windowSize: {
+                    x: 0,
+                    y: 0,
+                },
                 dark: false,
+                width: 0,
                 language: ['English', 'Nepali'],
                 color: '#2d2d2d',
                 items: [{
@@ -455,23 +455,43 @@
             }
         },
         computed: {
-            darkmode(){
-                if(this.dark == false){
-                    // this.$vuetify.theme.dark = false
-                    return this.dark
-                } else {
-                    // this.$vuetify.theme.dark = true
-                    return this.dark
-                }
+            // darkmode() {
+            //     if (this.dark == false) {
+            //         // this.$vuetify.theme.dark = false
+            //         return this.dark
+            //     } else {
+            //         // this.$vuetify.theme.dark = true
+            //         return this.dark
+            //     }
+            // },
+            // iswidth(){
+            //     if( window.innerWidth <= 600 ){
+            //         return true
+            //     } else ( window.innerWidth >= 601 )
+            //         return false
+            // }
+            mobile() {
+                const width = window.innerWidth
+                return width
             }
         },
-        watch:{
+        watch: {
             darkmodemethod() {
                 this.dark = !this.dark
                 this.$vuetify.theme.dark = this.dark
+            },
+        },
+        mounted() {
+            this.onResize()
+        },
+        methods: {
+            onResize() {
+                this.windowSize = {
+                    x: window.innerWidth,
+                    y: window.innerHeight
+                }
             }
         }
-        // computed
     }
 </script>
 <style scoped>

@@ -143,7 +143,6 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
-        <!-- <v-card tile color="primary"> -->
         <v-navigation-drawer v-model="drawer" clipped app>
             <v-list dense>
                 <span v-for="navitem in navitems" :key="navitem.subtitle">
@@ -162,14 +161,10 @@
                                                 </v-list-item-title>
                                             </v-list-item-content>
                                         </template>
-
-
                                         <span v-if="subitem.mini">
                                             <span v-for="mini in subitem.miniitems" :key="mini">
                                                 <v-list-item router link :to="mini.routes">
-                                                    <!-- don't remove this -->
                                                     <v-list-item-icon>
-                                                        <!-- <v-icon>{{ mini.name }}</v-icon> -->
                                                     </v-list-item-icon>
                                                     <v-list-item-title v-text="mini.title"></v-list-item-title>
                                                 </v-list-item>
@@ -577,30 +572,30 @@
                         subtitle: "<span class='text--primary'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
                         routes: '/'
                     },
-                ],
+                ]
             }
         },
         created() {
             // this.dark = localStorage.getItem('darkmode') === 'true';
             // this.$vuetify.theme.dark = this.dark
-            // this.currentlang = 'us'
-            // this.lang = localStorage.getItem('lang') === 'en'
-            // i18n.locale = this.currentlang
-            // this.currentlang = "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png"
+            this.currentlang = 'us'
+            this.lang = localStorage.getItem('lang') === 'en'
+            i18n.locale = this.currentlang
+            this.currentlang = "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png"
         },
         watch: {
-            darkmodemethod() {
-                // this.dark = !this.dark
-                // localStorage.setItem('darkmode', this.dark);
-                // this.$vuetify.theme.dark = this.dark
-            },
+            // darkmodemethod() {
+            //     this.dark = !this.dark
+            //     localStorage.setItem('darkmode', this.dark);
+            //     this.$vuetify.theme.dark = this.dark
+            // },
         },
         methods: {
-            darkmodemethod() {
-                // this.dark = !this.dark
-                // localStorage.setItem('darkmode', this.dark);
-                // this.$vuetify.theme.dark = this.dark
-            },
+            // darkmodemethod() {
+            //     this.dark = !this.dark
+            //     localStorage.setItem('darkmode', this.dark);
+            //     this.$vuetify.theme.dark = this.dark
+            // },
             signout() {
                 this.signoutAction().then(() => {
                     this.$router.replace({
@@ -614,7 +609,6 @@
             switchlanguage(lang) {
                 i18n.locale = lang
                 this.currentlang = "https://appstack.bootlab.io/img/flags/" + lang + ".png"
-
             }
         },
         computed: {
@@ -622,7 +616,7 @@
                 return this.notifications.length;
             }
         }
-    };
+    }
 </script>
 <style scoped>
     .brand.v-list-item--link:before {

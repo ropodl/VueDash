@@ -7,7 +7,7 @@ import DashboardAnalytics from '../views/Dashboard/dashboardAnalytics'
 import DashboardEcommerce from '../views/Dashboard/dashboardEcommerce'
 import DashboardSocial from '../views/Dashboard/dashboardSocial'
 import DashboardCrypto from '../views/Dashboard/dashboardCrypto'
-// Pages
+// // Pages
 import Profile from '../views/Pages/Profile'
 import Settings from '../views/Pages/Settings'
 import Clients from '../views/Pages/Clients'
@@ -80,19 +80,19 @@ const routes = [{
   name: 'DashboardDefault',
   component: DashboardDefault
 }, {
-  path: '/dashboardanalytics',
+  path: '/analytics',
   name: 'DashboardAnalytics',
   component: DashboardAnalytics
 }, {
-  path: '/dashboardecommerce',
+  path: '/ecommerce',
   name: 'DashboardEcommerce',
   component: DashboardEcommerce
 }, {
-  path: '/dashboardsocial',
+  path: '/social',
   name: 'DashboardSocial',
   component: DashboardSocial
 }, {
-  path: '/dashboardcrypto',
+  path: '/crypto',
   name: 'DashboardCrypto',
   component: DashboardCrypto
 }, {

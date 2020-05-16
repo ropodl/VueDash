@@ -5,10 +5,7 @@
       <v-list class="ma-0 pa-0" style="background:transparent;">
         <v-list-item class="brand" link to="/">
           <v-list-item-content>
-            <v-list-item-title
-              class="title d-flex align-center"
-              style="line-height:1em;background:transparent;"
-            >
+            <v-list-item-title class="title d-flex align-center" style="background:transparent;">
               <span class="primary--text">Vuetify</span>
               <span>Dash</span>
             </v-list-item-title>
@@ -111,9 +108,9 @@
             <template v-slot:activator="{ on: tooltip }">
               <v-btn text v-on="{ ...tooltip, ...menu }">
                 <v-avatar size="30" class="mr-2">
-                  <v-img src="https://appstack.bootlab.io/img/avatars/avatar.jpg"></v-img>
+                  <v-img src="https://erskull.now.sh/avatar.png"></v-img>
                 </v-avatar>
-                <span>Chris Wood</span>
+                <span>erskull</span>
                 <v-icon small class="ml-1">mdi-chevron-down</v-icon>
               </v-btn>
             </template>
@@ -365,45 +362,45 @@ export default {
         },
         {
           icon: "import_contacts",
-          title: "Documentation",
+          title: "documentation",
           active: false,
           subitem: true,
           subitems: [
             {
-              title: "Introduction",
+              title: "introduction",
               routes: "/introduction"
             },
             {
-              title: "Getting Started",
+              title: "gettingstarted",
               routes: "/getting-started"
             },
             {
-              title: "Plugins",
+              title: "plugins",
               routes: "/plugins"
             },
             {
-              title: "Changelog",
+              title: "changelog",
               routes: "/changelog"
             }
           ]
         },
         {
           icon: "layers",
-          title: "UI Elements",
-          subtitle: "Tool & Components",
+          title: "uielements",
+          subtitle: "toolsandcomponents",
           subitem: true,
           active: false,
           subitems: [
             {
-              title: "Alerts",
+              title: "alerts",
               routes: "/alerts"
             },
             {
-              title: "Buttons",
+              title: "buttons",
               routes: "/buttons"
             },
             {
-              title: "Cards",
+              title: "cards",
               routes: "/cards"
             },
             {
@@ -411,34 +408,34 @@ export default {
               routes: "/carousel"
             },
             {
-              title: "Embed Video",
+              title: "embedvideo",
               routes: "/embed-video"
             },
             {
-              title: "General",
+              title: "general",
               routes: "/general"
             },
             {
-              title: "Grid",
+              title: "grid",
               routes: "/grid"
             },
             {
-              title: "Modals",
+              title: "modals",
               routes: "/modals"
             },
             {
-              title: "Tabs",
+              title: "tabs",
               routes: "/tabs"
             },
             {
-              title: "Typography",
+              title: "typography",
               routes: "/typography"
             }
           ]
         },
         {
           icon: "favorite",
-          title: "Icons",
+          title: "icons",
           subitem: true,
           active: false,
           subitems: [
@@ -454,27 +451,27 @@ export default {
         },
         {
           icon: "done",
-          title: "Forms",
+          title: "forms",
           subitem: true,
           active: false,
           subitems: [
             {
-              title: "Layouts",
+              title: "layouts",
               routes: "/layouts"
             },
             {
-              title: "Basic Inputs",
+              title: "basicinputs",
               routes: "/basic-inputs"
             },
             {
-              title: "Input Groups",
+              title: "inputgroups",
               routes: "/input-groups"
             }
           ]
         },
         {
           icon: "table_chart",
-          title: "Tables",
+          title: "tables",
           routes: "/tables"
         },
         {

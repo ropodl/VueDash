@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-row v-resize="onResize">
         <v-col cols="12" class="py-0">
-          <h1>Settings</h1>
+          <h1>{{ $t('Settings') }}</h1>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
           <v-card>
@@ -49,7 +49,6 @@
                         </v-list-item-content>
                         <v-list-item-action>
                           <v-switch v-model="dark"></v-switch>
-                          {{ dark }}
                         </v-list-item-action>
                       </v-list-item>
                     </v-list>
@@ -445,7 +444,7 @@ export default {
       } else {
         this.$vuetify.theme.dark = false;
       }
-    },
+    }
     // darkmodemethod() {
     //   this.dark = !this.dark;
     //   this.$vuetify.theme.dark = this.dark;

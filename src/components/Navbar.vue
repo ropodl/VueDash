@@ -91,7 +91,7 @@
         <v-list dense>
           <v-list-item
             v-for="language in languages"
-            :key="language"
+            :key="language.id"
             @click="switchlanguage(language.lang)"
           >
             <v-list-item-avatar size="25">
@@ -118,32 +118,32 @@
           </v-tooltip>
         </template>
         <v-list dense>
-          <v-list-item router link to="/profile">
+          <v-list-item router link :to="{ name:'Profile' }">
             <v-list-item-title>
               <v-icon class="mr-2">account_circle</v-icon>
               {{ $t('profile') }}
             </v-list-item-title>
           </v-list-item>
-          <v-list-item router link to="/dashboardanalytics">
+          <v-list-item router link :to="{ name:'Analytics' }">
             <v-list-item-title>
               <v-icon class="mr-2">bar_chart</v-icon>
               {{ $t('analytics') }}
             </v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item router link to="/settings">
+          <v-list-item router link :to="{ name:'Settings' }">
             <v-list-item-title>
               <v-icon class="mr-2">settings</v-icon>
               {{ $t('settings') }}
             </v-list-item-title>
           </v-list-item>
-          <v-list-item router link to="/introduction">
+          <v-list-item router link :to="{ name:'Introduction' }">
             <v-list-item-title>
               <v-icon class="mr-2">help</v-icon>
               {{ $t('help') }}
             </v-list-item-title>
           </v-list-item>
-          <v-list-item router link to="/signin">
+          <v-list-item router link :to="{ name:'SignIn' }">
             <v-list-item-title>
               <v-icon class="mr-2">power_settings_new</v-icon>
               {{ $t('signout') }}
@@ -156,7 +156,7 @@
     <!-- mutation -->
     <v-navigation-drawer v-model="drawer" clipped app>
       <v-list dense>
-        <span v-for="navitem in navitems" :key="navitem.subtitle">
+        <span v-for="navitem in navitems" :key="navitem.id">
           <v-subheader v-if="navitem.subtitle">{{ $t(navitem.subtitle) }}</v-subheader>
           <span v-if="navitem.subitem">
             <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
@@ -164,18 +164,20 @@
                 <!-- main like dashboard -->
                 <v-list-item-title>{{ $t(navitem.title) }}</v-list-item-title>
               </template>
-              <span v-for="subitem in navitem.subitems" :key="subitem">
+              <span v-for="subitem in navitem.subitems" :key="subitem.id">
                 <span v-if="subitem.miniitems">
                   <v-list-group sub-group>
                     <template v-slot:activator>
                       <v-list-item-content>
+                        <!-- child's option -->
                         <v-list-item-title style="margin-left:10px">{{ $t(subitem.title) }}</v-list-item-title>
                       </v-list-item-content>
                     </template>
                     <span v-if="subitem.mini">
-                      <span v-for="mini in subitem.miniitems" :key="mini">
+                      <span v-for="mini in subitem.miniitems" :key="mini.id">
                         <v-list-item router link :to="mini.routes">
                           <v-list-item-icon></v-list-item-icon>
+                          <!-- grand child -->
                           <v-list-item-title>{{ $t(mini.title) }}</v-list-item-title>
                         </v-list-item>
                       </span>
@@ -185,6 +187,7 @@
                 <span v-else>
                   <v-list-item sub-group router link :to="subitem.routes">
                     <v-list-item-content>
+                      <!-- child -->
                       <v-list-item-title style="margin-left: 57px;">{{ $t(subitem.title) }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -216,11 +219,13 @@ export default {
       currentlang: "",
       languages: [
         {
+          id: "1",
           text: "English",
           lang: "us"
           //   src: "https://appstack.bootlab.io/img/flags/us.png"
         },
         {
+          id: "2",
           text: "Nepali",
           lang: "np"
           //   src: "https://appstack.bootlab.io/img/flags/np.png"
@@ -232,35 +237,40 @@ export default {
       mini: false,
       navitems: [
         {
+          id: "1",
           icon: "dashboard",
           title: "dashboard",
           subtitle: "pages",
           active: false,
           subitem: true,
-          routes: "",
           subitems: [
             {
+              id: "1",
               title: "default",
               active: true,
               mini: true,
               routes: "/"
             },
             {
+              id: "2",
               title: "analytics",
               active: true,
               routes: "/analytics"
             },
             {
+              id: "3",
               title: "ecommerce",
               active: true,
               routes: "/ecommerce"
             },
             {
+              id: "4",
               title: "social",
               active: true,
               routes: "/dashboardsocial"
             },
             {
+              id: "5",
               title: "crypto",
               active: true,
               routes: "/cashboardcrypto"
@@ -268,59 +278,71 @@ export default {
           ]
         },
         {
+          id: "2",
           icon: "library_books",
           title: "pages",
           active: false,
           subitem: true,
           subitems: [
             {
+              id: "1",
               title: "profile",
               routes: "/profile"
             },
             {
+              id: "2",
               title: "settings",
               routes: "/settings"
             },
             {
+              id: "3",
               title: "clients",
               routes: "/clients"
             },
             {
+              id: "4",
               title: "projects",
               active: true,
               mini: true,
               miniitems: [
                 {
+                  id: "1",
                   title: "list",
                   routes: "/list"
                 },
                 {
+                  id: "2",
                   title: "detail",
                   routes: "/detail"
                 }
               ]
             },
             {
+              id: "5",
               title: "invoice",
               active: true,
               routes: "/invoice"
             },
             {
+              id: "6",
               title: "pricing",
               active: true,
               routes: "/pricing"
             },
             {
+              id: "7",
               title: "tasks",
               active: true,
               routes: "/tasks"
             },
             {
+              id: "8",
               title: "chat",
               active: true,
               routes: "/chat"
             },
             {
+              id: "9",
               title: "blankpage",
               active: true,
               routes: "/blank-page"
@@ -328,32 +350,38 @@ export default {
           ]
         },
         {
+          id: "3",
           icon: "group",
           title: "auth",
           active: false,
           subitem: true,
           subitems: [
             {
+              id: "1",
               title: "signin",
               routes: "/signin",
               active: true
             },
             {
+              id: "2",
               title: "signup",
               routes: "/signup",
               active: true
             },
             {
+              id: "3",
               title: "resetpassword",
               routes: "/reset-password",
               active: true
             },
             {
+              id: "4",
               title: "fourofour",
               routes: "/404",
               active: true
             },
             {
+              id: "5",
               title: "fiveoo",
               routes: "/500",
               active: true
@@ -361,30 +389,36 @@ export default {
           ]
         },
         {
+          id: "4",
           icon: "import_contacts",
           title: "documentation",
           active: false,
           subitem: true,
           subitems: [
             {
+              id: "1",
               title: "introduction",
               routes: "/introduction"
             },
             {
+              id: "2",
               title: "gettingstarted",
               routes: "/getting-started"
             },
             {
+              id: "3",
               title: "plugins",
               routes: "/plugins"
             },
             {
+              id: "4",
               title: "changelog",
               routes: "/changelog"
             }
           ]
         },
         {
+          id: "5",
           icon: "layers",
           title: "uielements",
           subtitle: "toolsandcomponents",
@@ -392,89 +426,108 @@ export default {
           active: false,
           subitems: [
             {
+              id: "1",
               title: "alerts",
               routes: "/alerts"
             },
             {
+              id: "2",
               title: "buttons",
               routes: "/buttons"
             },
             {
+              id: "3",
               title: "cards",
               routes: "/cards"
             },
             {
-              title: "Carousel",
+              id: "4",
+              title: "carousel",
               routes: "/carousel"
             },
             {
+              id: "5",
               title: "embedvideo",
               routes: "/embed-video"
             },
             {
+              id: "6",
               title: "general",
               routes: "/general"
             },
             {
+              id: "7",
               title: "grid",
               routes: "/grid"
             },
             {
+              id: "8",
               title: "modals",
               routes: "/modals"
             },
             {
+              id: "9",
               title: "tabs",
               routes: "/tabs"
             },
             {
+              id: "10",
               title: "typography",
               routes: "/typography"
             }
           ]
         },
         {
+          id: "6",
           icon: "favorite",
           title: "icons",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Material Design Icon",
               routes: "/mdi"
             },
             {
+              id: "2",
               title: "Font Awesome 5",
               routes: "/fa5"
             }
           ]
         },
         {
+          id: "7",
           icon: "done",
           title: "forms",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "layouts",
               routes: "/layouts"
             },
             {
+              id: "2",
               title: "basicinputs",
               routes: "/basic-inputs"
             },
             {
+              id: "3",
               title: "inputgroups",
               routes: "/input-groups"
             }
           ]
         },
         {
+          id: "8",
           icon: "table_chart",
           title: "tables",
           routes: "/tables"
         },
         {
+          id: "9",
           icon: "check_box",
           title: "Form Plugins",
           subtitle: "Plugin & Addons",
@@ -482,68 +535,82 @@ export default {
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Advanced Inputs",
               routes: "/advanced-inputs"
             },
             {
+              id: "2",
               title: "Editors",
               routes: "/editors"
             },
             {
+              id: "3",
               title: "Validation",
               routes: "/validation"
             },
             {
+              id: "4",
               title: "Wizard",
               routes: "/wizard"
             }
           ]
         },
         {
+          id: "10",
           icon: "list",
           title: "Data Tables",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Responsive Tables",
               routes: "/responsive-tables"
             },
             {
+              id: "2",
               title: "Table with Buttons",
               routes: "/table-buttons"
             },
             {
+              id: "3",
               title: "Column Search",
               routes: "/column-search"
             },
             {
+              id: "4",
               title: "Multi Selection",
               routes: "/multi-selection"
             },
             {
+              id: "5",
               title: "Ajax Sourced Data",
               routes: "/ajax-sourced-data"
             }
           ]
         },
         {
+          id: "11",
           icon: "pie_chart",
           title: "Chart",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Chart.js",
               routes: "/chartjs"
             },
             {
+              id: "2",
               title: "ApexCharts",
               routes: "/apexcharts"
             }
           ]
         },
         {
+          id: "12",
           icon: "notifications",
           title: "Notifications",
           subitem: false,
@@ -551,22 +618,26 @@ export default {
           routes: "/notifications"
         },
         {
+          id: "13",
           icon: "location_on",
           title: "Maps",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Google Maps",
               routes: "/google-maps"
             },
             {
+              id: "2",
               title: "Vector Maps",
               routes: "/vector-maps"
             }
           ]
         },
         {
+          id: "14",
           icon: "calendar_today",
           title: "Calendar",
           subitem: false,
@@ -574,40 +645,48 @@ export default {
           routes: "/calendar"
         },
         {
+          id: "15",
           icon: "share",
           title: "Multi Level",
           subitem: true,
           active: false,
           subitems: [
             {
+              id: "1",
               title: "Two Levels",
               routes: "",
               mini: true,
               miniitems: [
                 {
+                  id: "1",
                   title: "Item 1",
                   routes: ""
                 },
                 {
+                  id: "2",
                   title: "Item 2",
                   routes: ""
                 }
               ]
             },
             {
+              id: "2",
               title: "Three Levels",
               routes: "",
               mini: true,
               miniitems: [
                 {
+                  id: "1",
                   title: "Item 1",
                   routes: ""
                 },
                 {
+                  id: "2",
                   title: "Item 2",
                   routes: ""
                 },
                 {
+                  id: "3",
                   title: "Item 3",
                   routes: ""
                 }
@@ -707,7 +786,7 @@ export default {
       this.drawer = !this.drawer;
     },
     switchlanguage(lang) {
-      i18n.locale = lang;
+      this.$i18n.locale = lang;
       this.currentlang =
         "https://appstack.bootlab.io/img/flags/" + lang + ".png";
     }

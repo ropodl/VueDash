@@ -1,3 +1,30 @@
+//alpha
+// import Vue from 'vue'
+// import VueI18n from 'vue-i18n'
+
+// Vue.use(VueI18n);
+// Vue.config.lang = 'en' // or whatever language
+
+// const DEFAULT_LANG = 'en'
+// const FALLBACK_LANG = 'np'
+
+// const messages = {
+//     en: require('./lang/en.json'),
+//     np: require('./lang/np.json'),
+// }
+
+// const i18n = new VueI18n({
+//     locale: DEFAULT_LANG, // set locale
+//     fallbackLocale: FALLBACK_LANG, // set fallback locale
+//     // formatFallbackMessages: false,
+//     silentFallbackWarn: true,
+//     messages, // set locale messages
+// })
+
+// export default i18n
+
+
+// stable
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
@@ -136,6 +163,8 @@ const i18n = new VueI18n({
     locale: 'us', // set locale
     fallbackLocale: 'np', // set fallback locale
     messages, // set locale messages
+    silentFallbackWarn: true,
+    formatFallbackMessages: false,
 });
 
 export default i18n;

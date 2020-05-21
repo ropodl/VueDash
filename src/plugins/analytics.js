@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueAnalytics from 'vue-analytics'
 
+import routes from '../router/'
+
 Vue.use(VueAnalytics, {
-    id: 'UA-167286605-1'
+    id: 'UA-167286605-1',
+    routes
 })
 
 export default VueAnalytics

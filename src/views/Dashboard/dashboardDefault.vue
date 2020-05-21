@@ -414,9 +414,9 @@ export default {
     };
   },
   methods: {
-    track() {
-      this.$ga.page("/");
-    }
+    // track() {
+    //   this.$ga.page("/");
+    // }
   },
   mounted() {
     var ctx = document.getElementById("totalrevenue");

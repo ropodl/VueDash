@@ -5,7 +5,11 @@ import routes from '../router/'
 
 Vue.use(VueAnalytics, {
     id: 'UA-167286605-1',
-    routes
+    checkDuplicatedScript: true,
+    routes,
+    autoTracking: {
+        screenview: true
+    }
 })
 
 export default VueAnalytics

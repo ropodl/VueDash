@@ -3,9 +3,11 @@
     <v-content>
       <Navbar v-if="!$route.meta.hidenav"></Navbar>
       <!-- <v-fade-transition> -->
+        <!-- <transition name="fade"> -->
 
       <router-view class="mb-12"></router-view>
       <!-- </v-fade-transition> -->
+        <!-- </transition> -->
 
       <Footer></Footer>
     </v-content>
@@ -27,4 +29,5 @@ export default {
 };
 </script>
 <style scoped>
+
 </style>

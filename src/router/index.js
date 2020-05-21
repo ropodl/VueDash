@@ -382,7 +382,7 @@ router.beforeResolve((to, from, next) => {
   next();
 });
 
-router.afterEach((  ) => {
+router.afterEach(() => {
   NProgress.done();
 });
 

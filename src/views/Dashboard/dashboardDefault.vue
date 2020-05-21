@@ -7,7 +7,6 @@
                 </v-col>
                 <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails"
                     :key="carddetail.id">
-                    <v-fade-transition>
                     <v-card>
                         <v-card-text>
                             <v-row>
@@ -21,7 +20,6 @@
                             </v-row>
                         </v-card-text>
                     </v-card>
-                    </v-fade-transition>
                 </v-col>
 
                 <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
@@ -44,9 +42,7 @@
                             <v-chip small color="info">Today</v-chip>
                         </v-card-title>
                         <v-divider></v-divider>
-                        <v-card-text>
-                            Insert feed jokes here
-                        </v-card-text>
+                        <v-card-text>Insert feed jokes here</v-card-text>
                     </v-card>
                 </v-col>
 
@@ -70,7 +66,7 @@
                         <v-divider></v-divider>
                         <v-card-text class="pa-0">
                             <!-- <v-sheet height="600"> -->
-                                <v-calendar ref="calendar"></v-calendar>
+                            <v-calendar ref="calendar"></v-calendar>
                             <!-- </v-sheet> -->
                         </v-card-text>
                     </v-card>
@@ -144,7 +140,6 @@
                                                 </v-img>
                                             </v-avatar>
                                             <v-avatar>
-
                                                 <v-img
                                                     src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned">
                                                 </v-img>
@@ -187,7 +182,9 @@
 
                 <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
                     <v-card>
-                        <v-card-title class="d-flex justify-space-between">Latest Projects <v-spacer></v-spacer>
+                        <v-card-title class="d-flex justify-space-between">
+                            Latest Projects
+                            <v-spacer></v-spacer>
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on }">
                                     <v-btn v-on="on" icon>
@@ -207,7 +204,8 @@
                                 <v-chip v-if="item.status == 'Done'" color="success" small>{{ item.status }}</v-chip>
                                 <v-chip v-if="item.status == 'Pending'" color="primary" small>{{ item.status }}</v-chip>
                                 <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{ item.status }}</v-chip>
-                                <v-chip v-if="item.status == 'In Progress'" color="warning" small>{{ item.status }}</v-chip>
+                                <v-chip v-if="item.status == 'In Progress'" color="warning" small>{{ item.status }}
+                                </v-chip>
                             </template>
                         </v-data-table>
                     </v-card>
@@ -215,7 +213,9 @@
 
                 <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
                     <v-card>
-                        <v-card-title class="d-flex justify-space-between">Sales / Revenue<v-spacer></v-spacer>
+                        <v-card-title class="d-flex justify-space-between">
+                            Sales / Revenue
+                            <v-spacer></v-spacer>
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on }">
                                     <v-btn v-on="on" icon>
@@ -224,17 +224,14 @@
                                 </template>
                                 <v-list dense>
                                     <v-list-item v-for="(item, index) in items" :key="index">
-                                        <v-list-item-title link router :to="item.route">
-                                            {{ item.title }}
+                                        <v-list-item-title link router :to="item.route">{{ item.title }}
                                         </v-list-item-title>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
                         </v-card-title>
                         <v-divider></v-divider>
-                        <v-card-text>
-                            Insert bar chart jokes here
-                        </v-card-text>
+                        <v-card-text>Insert bar chart jokes here</v-card-text>
                     </v-card>
                 </v-col>
             </v-row>
@@ -242,193 +239,237 @@
     </div>
 </template>
 <script>
-    import Chart from 'chart.js'
+    import Chart from "chart.js";
     export default {
-        name: 'DefaultDashboard',
+        name: "DefaultDashboard",
         data() {
             return {
                 carddetails: [{
-                    id: '1',
-                    icon: 'fas fa-shopping-cart',
-                    title: '2.562',
-                    text: 'Sales Today',
-                    class: 'card-icon primary--text pl-3'
-                }, {
-                    id: '2',
-                    icon: 'fas fa-heartbeat',
-                    title: '17.212',
-                    text: 'Visitors Today',
-                    class: 'card-icon warning--text pl-3'
-                }, {
-                    id: '3',
-                    icon: 'fas fa-dollar-sign',
-                    title: '$ 24.300',
-                    text: 'Total Earnings',
-                    class: 'card-icon success--text pl-3'
-                }, {
-                    id: '4',
-                    icon: 'fas fa-shopping-bag',
-                    title: '43',
-                    text: 'Pending Orders',
-                    class: 'card-icon error--text pl-3'
-                }],
+                        id: "1",
+                        icon: "fas fa-shopping-cart",
+                        title: "2.562",
+                        text: "Sales Today",
+                        class: "card-icon primary--text pl-3"
+                    },
+                    {
+                        id: "2",
+                        icon: "fas fa-heartbeat",
+                        title: "17.212",
+                        text: "Visitors Today",
+                        class: "card-icon warning--text pl-3"
+                    },
+                    {
+                        id: "3",
+                        icon: "fas fa-dollar-sign",
+                        title: "$ 24.300",
+                        text: "Total Earnings",
+                        class: "card-icon success--text pl-3"
+                    },
+                    {
+                        id: "4",
+                        icon: "fas fa-shopping-bag",
+                        title: "43",
+                        text: "Pending Orders",
+                        class: "card-icon error--text pl-3"
+                    }
+                ],
                 header: [{
-                        text: 'Name',
-                        align: 'start',
-                        value: 'name',
+                        text: "Name",
+                        align: "start",
+                        value: "name"
                     },
                     {
-                        text: 'Start Date',
-                        align: 'center',
-                        value: 'startdate'
+                        text: "Start Date",
+                        align: "center",
+                        value: "startdate"
                     },
                     {
-                        text: 'End Date',
-                        align: 'center',
-                        value: 'enddate'
+                        text: "End Date",
+                        align: "center",
+                        value: "enddate"
                     },
                     {
-                        text: 'Status',
-                        align: 'center',
-                        value: 'status'
+                        text: "Status",
+                        align: "center",
+                        value: "status"
                     },
                     {
-                        text: 'Assignee',
-                        align: 'center',
-                        value: 'assignee'
+                        text: "Assignee",
+                        align: "center",
+                        value: "assignee"
                     }
                 ],
                 project: [{
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Pending',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Pending",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'In Progress',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "In Progress",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Cancelled',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Cancelled",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     },
                     {
-                        name: 'Project Apollo',
-                        startdate: '01/01/2018',
-                        enddate: '31/06/2018',
-                        status: 'Done',
-                        assignee: 'Carl Jenkins',
-                        badgecolor: ''
+                        name: "Project Apollo",
+                        startdate: "01/01/2018",
+                        enddate: "31/06/2018",
+                        status: "Done",
+                        assignee: "Carl Jenkins",
+                        badgecolor: ""
                     }
                 ],
                 items: [{
-                        title: 'Action',
-                        route: '/'
+                        title: "Action",
+                        route: "/"
                     },
                     {
-                        title: 'Another Action',
-                        route: '/'
+                        title: "Another Action",
+                        route: "/"
                     },
                     {
-                        title: 'Something else here',
-                        route: '/'
+                        title: "Something else here",
+                        route: "/"
                     }
-                ],
-            }
+                ]
+            };
         },
         methods: {},
         mounted() {
-            var ctx = document.getElementById('totalrevenue');
+            var ctx = document.getElementById("totalrevenue");
             var totalrevenue = new Chart(ctx, {
-                type: 'line',
+                type: "line",
                 data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    labels: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
                     datasets: [{
-                        label: 'Sales ($)',
-                        fill: true,
-                        backgroundColor: "transparent",
-                        borderColor: '#d64937', //find what this is
-                        data: [2015, 1465, 1487, 1796, 1387, 2123, 2866, 2548, 3902, 4938, 3917, 4927]
-                    }, {
-                        label: "Orders",
-                        fill: true,
-                        backgroundColor: "transparent",
-                        borderColor: '#2d2d2d',
-                        borderDash: [4, 4],
-                        data: [928, 734, 626, 893, 921, 1202, 1396, 1232, 1524, 2102, 1506, 1887]
-                    }],
+                            label: "Sales ($)",
+                            fill: true,
+                            backgroundColor: "transparent",
+                            borderColor: "#d64937", //find what this is
+                            data: [
+                                2015,
+                                1465,
+                                1487,
+                                1796,
+                                1387,
+                                2123,
+                                2866,
+                                2548,
+                                3902,
+                                4938,
+                                3917,
+                                4927
+                            ]
+                        },
+                        {
+                            label: "Orders",
+                            fill: true,
+                            backgroundColor: "transparent",
+                            borderColor: "#2d2d2d",
+                            borderDash: [4, 4],
+                            data: [
+                                928,
+                                734,
+                                626,
+                                893,
+                                921,
+                                1202,
+                                1396,
+                                1232,
+                                1524,
+                                2102,
+                                1506,
+                                1887
+                            ]
+                        }
+                    ]
                 },
                 options: {
                     maintainAspectRatio: true,
                     legend: {
                         display: true,
-                        position: 'bottom'
+                        position: "bottom"
                     },
                     tooltips: {
                         intersect: false
@@ -439,34 +480,54 @@
                 }
             });
             totalrevenue.render();
-            var ctx2 = document.getElementById('weeklysales');
+            var ctx2 = document.getElementById("weeklysales");
             var weeklysales = new Chart(ctx2, {
-                type: 'pie',
+                type: "pie",
                 data: {
-                    labels: ['Section A', 'Section B', 'Section C', 'Section D', 'Section E', 'Section F'],
+                    labels: [
+                        "Section A",
+                        "Section B",
+                        "Section C",
+                        "Section D",
+                        "Section E",
+                        "Section F"
+                    ],
                     datasets: [{
-                        label: '# of Students',
-                        data: [120, 190, 30, 50, 59, 30],
-                        backgroundColor: 'rgba(255, 99, 132, 0.1)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2
-                    }, {
-                        options: {}
-                    }],
+                            label: "# of Students",
+                            data: [120, 190, 30, 50, 59, 30],
+                            backgroundColor: "rgba(255, 99, 132, 0.1)",
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            borderWidth: 2
+                        },
+                        {
+                            options: {}
+                        }
+                    ]
                 }
             });
             weeklysales.render();
         },
-        computed:{
+        computed: {
             // latestproject(){
-
             // }
-
         }
-    }
+    };
 </script>
 <style scoped>
     .card-icon {
         font-size: 50px;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active below version 2.1.8 */
+        {
+        opacity: 0;
     }
 </style>

@@ -102,7 +102,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-menu left offset-y transition="slide-y-transition" bottom>
+      <!-- <v-menu left offset-y transition="slide-y-transition" bottom>
         <template v-slot:activator="{ on: menu }">
           <v-tooltip slot="activator" bottom>
             <template v-slot:activator="{ on: tooltip }">
@@ -150,7 +150,7 @@
             </v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu>-->
     </v-app-bar>
 
     <!-- mutation -->
@@ -221,7 +221,7 @@ export default {
         {
           id: "1",
           text: "English",
-          lang: "us"
+          lang: "en"
           //   src: "https://appstack.bootlab.io/img/flags/us.png"
         },
         {
@@ -239,461 +239,461 @@ export default {
         {
           id: "1",
           icon: "dashboard",
-          title: "dashboard",
-          subtitle: "pages",
+          title: "nav.dashboard",
+          subtitle: "nav.pages",
           active: false,
           subitem: true,
           subitems: [
             {
               id: "1",
-              title: "default",
+              title: "nav.default",
               active: true,
               mini: true,
               routes: "/"
             },
             {
               id: "2",
-              title: "analytics",
+              title: "nav.analytics",
               active: true,
               routes: "/analytics"
             },
             {
               id: "3",
-              title: "ecommerce",
+              title: "nav.ecommerce",
               active: true,
               routes: "/ecommerce"
             },
             {
               id: "4",
-              title: "social",
+              title: "nav.social",
               active: true,
               routes: "/dashboardsocial"
             },
             {
               id: "5",
-              title: "crypto",
+              title: "nav.crypto",
               active: true,
               routes: "/cashboardcrypto"
             }
           ]
-        },
-        {
-          id: "2",
-          icon: "library_books",
-          title: "pages",
-          active: false,
-          subitem: true,
-          subitems: [
-            {
-              id: "1",
-              title: "profile",
-              routes: "/profile"
-            },
-            {
-              id: "2",
-              title: "settings",
-              routes: "/settings"
-            },
-            {
-              id: "3",
-              title: "clients",
-              routes: "/clients"
-            },
-            {
-              id: "4",
-              title: "projects",
-              active: true,
-              mini: true,
-              miniitems: [
-                {
-                  id: "1",
-                  title: "list",
-                  routes: "/list"
-                },
-                {
-                  id: "2",
-                  title: "detail",
-                  routes: "/detail"
-                }
-              ]
-            },
-            {
-              id: "5",
-              title: "invoice",
-              active: true,
-              routes: "/invoice"
-            },
-            {
-              id: "6",
-              title: "pricing",
-              active: true,
-              routes: "/pricing"
-            },
-            {
-              id: "7",
-              title: "tasks",
-              active: true,
-              routes: "/tasks"
-            },
-            {
-              id: "8",
-              title: "chat",
-              active: true,
-              routes: "/chat"
-            },
-            {
-              id: "9",
-              title: "blankpage",
-              active: true,
-              routes: "/blank-page"
-            }
-          ]
-        },
-        {
-          id: "3",
-          icon: "group",
-          title: "auth",
-          active: false,
-          subitem: true,
-          subitems: [
-            {
-              id: "1",
-              title: "signin",
-              routes: "/signin",
-              active: true
-            },
-            {
-              id: "2",
-              title: "signup",
-              routes: "/signup",
-              active: true
-            },
-            {
-              id: "3",
-              title: "resetpassword",
-              routes: "/reset-password",
-              active: true
-            },
-            {
-              id: "4",
-              title: "fourofour",
-              routes: "/404",
-              active: true
-            },
-            {
-              id: "5",
-              title: "fiveoo",
-              routes: "/500",
-              active: true
-            }
-          ]
-        },
-        {
-          id: "4",
-          icon: "import_contacts",
-          title: "documentation",
-          active: false,
-          subitem: true,
-          subitems: [
-            {
-              id: "1",
-              title: "introduction",
-              routes: "/introduction"
-            },
-            {
-              id: "2",
-              title: "gettingstarted",
-              routes: "/getting-started"
-            },
-            {
-              id: "3",
-              title: "plugins",
-              routes: "/plugins"
-            },
-            {
-              id: "4",
-              title: "changelog",
-              routes: "/changelog"
-            }
-          ]
-        },
-        {
-          id: "5",
-          icon: "layers",
-          title: "uielements",
-          subtitle: "toolsandcomponents",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "alerts",
-              routes: "/alerts"
-            },
-            {
-              id: "2",
-              title: "buttons",
-              routes: "/buttons"
-            },
-            {
-              id: "3",
-              title: "cards",
-              routes: "/cards"
-            },
-            {
-              id: "4",
-              title: "carousel",
-              routes: "/carousel"
-            },
-            {
-              id: "5",
-              title: "embedvideo",
-              routes: "/embed-video"
-            },
-            {
-              id: "6",
-              title: "general",
-              routes: "/general"
-            },
-            {
-              id: "7",
-              title: "grid",
-              routes: "/grid"
-            },
-            {
-              id: "8",
-              title: "modals",
-              routes: "/modals"
-            },
-            {
-              id: "9",
-              title: "tabs",
-              routes: "/tabs"
-            },
-            {
-              id: "10",
-              title: "typography",
-              routes: "/typography"
-            }
-          ]
-        },
-        {
-          id: "6",
-          icon: "favorite",
-          title: "icons",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Material Design Icon",
-              routes: "/mdi"
-            },
-            {
-              id: "2",
-              title: "Font Awesome 5",
-              routes: "/fa5"
-            }
-          ]
-        },
-        {
-          id: "7",
-          icon: "done",
-          title: "forms",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "layouts",
-              routes: "/layouts"
-            },
-            {
-              id: "2",
-              title: "basicinputs",
-              routes: "/basic-inputs"
-            },
-            {
-              id: "3",
-              title: "inputgroups",
-              routes: "/input-groups"
-            }
-          ]
-        },
-        {
-          id: "8",
-          icon: "table_chart",
-          title: "tables",
-          routes: "/tables"
-        },
-        {
-          id: "9",
-          icon: "check_box",
-          title: "Form Plugins",
-          subtitle: "Plugin & Addons",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Advanced Inputs",
-              routes: "/advanced-inputs"
-            },
-            {
-              id: "2",
-              title: "Editors",
-              routes: "/editors"
-            },
-            {
-              id: "3",
-              title: "Validation",
-              routes: "/validation"
-            },
-            {
-              id: "4",
-              title: "Wizard",
-              routes: "/wizard"
-            }
-          ]
-        },
-        {
-          id: "10",
-          icon: "list",
-          title: "Data Tables",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Responsive Tables",
-              routes: "/responsive-tables"
-            },
-            {
-              id: "2",
-              title: "Table with Buttons",
-              routes: "/table-buttons"
-            },
-            {
-              id: "3",
-              title: "Column Search",
-              routes: "/column-search"
-            },
-            {
-              id: "4",
-              title: "Multi Selection",
-              routes: "/multi-selection"
-            },
-            {
-              id: "5",
-              title: "Ajax Sourced Data",
-              routes: "/ajax-sourced-data"
-            }
-          ]
-        },
-        {
-          id: "11",
-          icon: "pie_chart",
-          title: "Chart",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Chart.js",
-              routes: "/chartjs"
-            },
-            {
-              id: "2",
-              title: "ApexCharts",
-              routes: "/apexcharts"
-            }
-          ]
-        },
-        {
-          id: "12",
-          icon: "notifications",
-          title: "Notifications",
-          subitem: false,
-          active: false,
-          routes: "/notifications"
-        },
-        {
-          id: "13",
-          icon: "location_on",
-          title: "Maps",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Google Maps",
-              routes: "/google-maps"
-            },
-            {
-              id: "2",
-              title: "Vector Maps",
-              routes: "/vector-maps"
-            }
-          ]
-        },
-        {
-          id: "14",
-          icon: "calendar_today",
-          title: "Calendar",
-          subitem: false,
-          active: false,
-          routes: "/calendar"
-        },
-        {
-          id: "15",
-          icon: "share",
-          title: "Multi Level",
-          subitem: true,
-          active: false,
-          subitems: [
-            {
-              id: "1",
-              title: "Two Levels",
-              routes: "",
-              mini: true,
-              miniitems: [
-                {
-                  id: "1",
-                  title: "Item 1",
-                  routes: ""
-                },
-                {
-                  id: "2",
-                  title: "Item 2",
-                  routes: ""
-                }
-              ]
-            },
-            {
-              id: "2",
-              title: "Three Levels",
-              routes: "",
-              mini: true,
-              miniitems: [
-                {
-                  id: "1",
-                  title: "Item 1",
-                  routes: ""
-                },
-                {
-                  id: "2",
-                  title: "Item 2",
-                  routes: ""
-                },
-                {
-                  id: "3",
-                  title: "Item 3",
-                  routes: ""
-                }
-              ]
-            }
-          ]
         }
+        // {
+        //   id: "2",
+        //   icon: "library_books",
+        //   title: "pages",
+        //   active: false,
+        //   subitem: true,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "profile",
+        //       routes: "/profile"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "settings",
+        //       routes: "/settings"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "clients",
+        //       routes: "/clients"
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "projects",
+        //       active: true,
+        //       mini: true,
+        //       miniitems: [
+        //         {
+        //           id: "1",
+        //           title: "list",
+        //           routes: "/list"
+        //         },
+        //         {
+        //           id: "2",
+        //           title: "detail",
+        //           routes: "/detail"
+        //         }
+        //       ]
+        //     },
+        //     {
+        //       id: "5",
+        //       title: "invoice",
+        //       active: true,
+        //       routes: "/invoice"
+        //     },
+        //     {
+        //       id: "6",
+        //       title: "pricing",
+        //       active: true,
+        //       routes: "/pricing"
+        //     },
+        //     {
+        //       id: "7",
+        //       title: "tasks",
+        //       active: true,
+        //       routes: "/tasks"
+        //     },
+        //     {
+        //       id: "8",
+        //       title: "chat",
+        //       active: true,
+        //       routes: "/chat"
+        //     },
+        //     {
+        //       id: "9",
+        //       title: "blankpage",
+        //       active: true,
+        //       routes: "/blank-page"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "3",
+        //   icon: "group",
+        //   title: "auth",
+        //   active: false,
+        //   subitem: true,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "signin",
+        //       routes: "/signin",
+        //       active: true
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "signup",
+        //       routes: "/signup",
+        //       active: true
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "resetpassword",
+        //       routes: "/reset-password",
+        //       active: true
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "fourofour",
+        //       routes: "/404",
+        //       active: true
+        //     },
+        //     {
+        //       id: "5",
+        //       title: "fiveoo",
+        //       routes: "/500",
+        //       active: true
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "4",
+        //   icon: "import_contacts",
+        //   title: "documentation",
+        //   active: false,
+        //   subitem: true,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "introduction",
+        //       routes: "/introduction"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "gettingstarted",
+        //       routes: "/getting-started"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "plugins",
+        //       routes: "/plugins"
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "changelog",
+        //       routes: "/changelog"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "5",
+        //   icon: "layers",
+        //   title: "uielements",
+        //   subtitle: "toolsandcomponents",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "alerts",
+        //       routes: "/alerts"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "buttons",
+        //       routes: "/buttons"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "cards",
+        //       routes: "/cards"
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "carousel",
+        //       routes: "/carousel"
+        //     },
+        //     {
+        //       id: "5",
+        //       title: "embedvideo",
+        //       routes: "/embed-video"
+        //     },
+        //     {
+        //       id: "6",
+        //       title: "general",
+        //       routes: "/general"
+        //     },
+        //     {
+        //       id: "7",
+        //       title: "grid",
+        //       routes: "/grid"
+        //     },
+        //     {
+        //       id: "8",
+        //       title: "modals",
+        //       routes: "/modals"
+        //     },
+        //     {
+        //       id: "9",
+        //       title: "tabs",
+        //       routes: "/tabs"
+        //     },
+        //     {
+        //       id: "10",
+        //       title: "typography",
+        //       routes: "/typography"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "6",
+        //   icon: "favorite",
+        //   title: "icons",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Material Design Icon",
+        //       routes: "/mdi"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "Font Awesome 5",
+        //       routes: "/fa5"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "7",
+        //   icon: "done",
+        //   title: "forms",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "layouts",
+        //       routes: "/layouts"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "basicinputs",
+        //       routes: "/basic-inputs"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "inputgroups",
+        //       routes: "/input-groups"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "8",
+        //   icon: "table_chart",
+        //   title: "tables",
+        //   routes: "/tables"
+        // },
+        // {
+        //   id: "9",
+        //   icon: "check_box",
+        //   title: "Form Plugins",
+        //   subtitle: "Plugin & Addons",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Advanced Inputs",
+        //       routes: "/advanced-inputs"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "Editors",
+        //       routes: "/editors"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "Validation",
+        //       routes: "/validation"
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "Wizard",
+        //       routes: "/wizard"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "10",
+        //   icon: "list",
+        //   title: "Data Tables",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Responsive Tables",
+        //       routes: "/responsive-tables"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "Table with Buttons",
+        //       routes: "/table-buttons"
+        //     },
+        //     {
+        //       id: "3",
+        //       title: "Column Search",
+        //       routes: "/column-search"
+        //     },
+        //     {
+        //       id: "4",
+        //       title: "Multi Selection",
+        //       routes: "/multi-selection"
+        //     },
+        //     {
+        //       id: "5",
+        //       title: "Ajax Sourced Data",
+        //       routes: "/ajax-sourced-data"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "11",
+        //   icon: "pie_chart",
+        //   title: "Chart",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Chart.js",
+        //       routes: "/chartjs"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "ApexCharts",
+        //       routes: "/apexcharts"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "12",
+        //   icon: "notifications",
+        //   title: "Notifications",
+        //   subitem: false,
+        //   active: false,
+        //   routes: "/notifications"
+        // },
+        // {
+        //   id: "13",
+        //   icon: "location_on",
+        //   title: "Maps",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Google Maps",
+        //       routes: "/google-maps"
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "Vector Maps",
+        //       routes: "/vector-maps"
+        //     }
+        //   ]
+        // },
+        // {
+        //   id: "14",
+        //   icon: "calendar_today",
+        //   title: "Calendar",
+        //   subitem: false,
+        //   active: false,
+        //   routes: "/calendar"
+        // },
+        // {
+        //   id: "15",
+        //   icon: "share",
+        //   title: "Multi Level",
+        //   subitem: true,
+        //   active: false,
+        //   subitems: [
+        //     {
+        //       id: "1",
+        //       title: "Two Levels",
+        //       routes: "",
+        //       mini: true,
+        //       miniitems: [
+        //         {
+        //           id: "1",
+        //           title: "Item 1",
+        //           routes: ""
+        //         },
+        //         {
+        //           id: "2",
+        //           title: "Item 2",
+        //           routes: ""
+        //         }
+        //       ]
+        //     },
+        //     {
+        //       id: "2",
+        //       title: "Three Levels",
+        //       routes: "",
+        //       mini: true,
+        //       miniitems: [
+        //         {
+        //           id: "1",
+        //           title: "Item 1",
+        //           routes: ""
+        //         },
+        //         {
+        //           id: "2",
+        //           title: "Item 2",
+        //           routes: ""
+        //         },
+        //         {
+        //           id: "3",
+        //           title: "Item 3",
+        //           routes: ""
+        //         }
+        //       ]
+        //     }
+        //   ]
+        // }
       ],
       notifications: [
         {
@@ -756,7 +756,7 @@ export default {
   created() {
     // this.dark = localStorage.getItem('darkmode') === 'true';
     // this.$vuetify.theme.dark = this.dark
-    this.currentlang = "us";
+    this.currentlang = "en";
     this.lang = localStorage.getItem("lang") === "en";
     i18n.locale = this.currentlang;
     this.currentlang =
@@ -786,9 +786,18 @@ export default {
       this.drawer = !this.drawer;
     },
     switchlanguage(lang) {
-      this.$i18n.locale = lang;
-      this.currentlang =
-        "https://appstack.bootlab.io/img/flags/" + lang + ".png";
+      import(`../plugins/langs/${lang}.json`).then(msgs => {
+        this.$i18n.setLocaleMessage(lang, msgs);
+        this.$i18n.locale = lang;
+        if (lang == "en") {
+          this.currentlang =
+            "https://appstack.bootlab.io/img/flags/" + "us" + ".png";
+        } else {
+          this.currentlang =
+            "https://appstack.bootlab.io/img/flags/" + "np" + ".png";
+        }
+      });
+      // this.$i18n.locale = lang;
     }
   },
   computed: {

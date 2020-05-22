@@ -759,8 +759,8 @@ export default {
     this.currentlang = "en";
     this.lang = localStorage.getItem("lang") === "en";
     i18n.locale = this.currentlang;
-    this.currentlang =
-      "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png";
+    // this.currentlang =
+    //   "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png";
   },
   watch: {
     darkmodemethod() {
@@ -789,13 +789,13 @@ export default {
       import(`../plugins/langs/${lang}.json`).then(msgs => {
         this.$i18n.setLocaleMessage(lang, msgs);
         this.$i18n.locale = lang;
-        if (lang == "en") {
-          this.currentlang =
-            "https://appstack.bootlab.io/img/flags/" + "us" + ".png";
-        } else {
-          this.currentlang =
-            "https://appstack.bootlab.io/img/flags/" + "np" + ".png";
-        }
+        // if (lang == "en") {
+        //   this.currentlang =
+        //     "https://appstack.bootlab.io/img/flags/" + "us" + ".png";
+        // } else {
+        //   this.currentlang =
+        //     "https://appstack.bootlab.io/img/flags/" + "np" + ".png";
+        // }
       });
       // this.$i18n.locale = lang;
     }

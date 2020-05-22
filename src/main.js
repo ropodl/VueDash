@@ -5,6 +5,7 @@ import router from '@/router'
 import i18n from '@/plugins/i18n'
 import analytics from '@/plugins/analytics'
 
+
 Vue.config.productionTip = false
 
 new Vue({

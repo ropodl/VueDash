@@ -3,6 +3,7 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="py-0">
+          <adsense></adsense>
           <h1>Welcome back, John Doe!</h1>
         </v-col>
         <v-col
@@ -239,6 +240,7 @@
             <v-divider></v-divider>
             <v-card-text>Insert bar chart jokes here</v-card-text>
           </v-card>
+
         </v-col>
       </v-row>
     </v-container>
@@ -246,8 +248,13 @@
 </template>
 <script>
 import Chart from "chart.js";
+import adsense from '../../components/Ads'
+
 export default {
   name: "DefaultDashboard",
+  components: {
+    adsense
+  },
   data() {
     return {
       carddetails: [

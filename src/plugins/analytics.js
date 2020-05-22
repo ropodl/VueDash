@@ -1,15 +1,14 @@
 import Vue from 'vue'
-import VueAnalytics from 'vue-analytics'
+import VueGtag from "vue-gtag"
 
-// import routes from '../router/'
+import routes from '../router/'
 
-Vue.use(VueAnalytics, {
-    id: 'UA-167286605-1',
-    // checkDuplicatedScript: true,
-    // routes,
-    autoTracking: {
-        screenview: true
-    }
-})
+Vue.use(VueGtag, {
+    config: {
+        id: 'UA-167286605-1',
+    },
+    appName: 'VuetifyDash',
+    pageTrackerScreenviewEnabled: true,
+}, routes)
 
-export default VueAnalytics
+export default VueGtag

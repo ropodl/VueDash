@@ -76,8 +76,7 @@ import Calendar from "../views/Calendar/Calendar";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "Default",
     component: DashboardDefault,

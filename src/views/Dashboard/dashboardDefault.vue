@@ -6,16 +6,7 @@
           <adsense></adsense>
           <h1>Welcome back, John Doe!</h1>
         </v-col>
-        <v-col
-          cols="12"
-          xs="12"
-          sm="6"
-          md="3"
-          lg="3"
-          xl="3"
-          v-for="carddetail in carddetails"
-          :key="carddetail.id"
-        >
+        <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails" :key="carddetail.id">
           <v-card>
             <v-card-text>
               <v-row>
@@ -145,18 +136,18 @@
                       <div class="caption mb-2">Hangouts</div>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
-                        ></v-img>
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown">
+                        </v-img>
                       </v-avatar>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
-                        ></v-img>
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned">
+                        </v-img>
                       </v-avatar>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
-                        ></v-img>
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale">
+                        </v-img>
                       </v-avatar>
                     </v-col>
                   </v-row>
@@ -240,7 +231,6 @@
             <v-divider></v-divider>
             <v-card-text>Insert bar chart jokes here</v-card-text>
           </v-card>
-
         </v-col>
       </v-row>
     </v-container>
@@ -248,7 +238,7 @@
 </template>
 <script>
 import Chart from "chart.js";
-import adsense from '../../components/Ads'
+import adsense from "../../components/Ads";
 
 export default {
   name: "DefaultDashboard",

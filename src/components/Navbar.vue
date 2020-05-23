@@ -420,59 +420,59 @@ export default {
         {
           id: "5",
           icon: "layers",
-          title: "nav.tools.ui.uielements",
-          subtitle: "nav.tools.toolsandcomponents",
+          title: "nav.tool.ui.uielements",
+          subtitle: "nav.tool.toolsandcomponents",
           subitem: true,
           active: false,
           subitems: [
             {
               id: "1",
-              title: "nav.tools.ui.alerts",
+              title: "nav.tool.ui.alerts",
               routes: "/alerts"
             },
             {
               id: "2",
-              title: "nav.tools.ui.buttons",
+              title: "nav.tool.ui.buttons",
               routes: "/buttons"
             },
             {
               id: "3",
-              title: "nav.tools.ui.cards",
+              title: "nav.tool.ui.cards",
               routes: "/cards"
             },
             {
               id: "4",
-              title: "nav.tools.ui.carousel",
+              title: "nav.tool.ui.carousel",
               routes: "/carousel"
             },
             {
               id: "5",
-              title: "nav.tools.ui.embedvideo",
+              title: "nav.tool.ui.embedvideo",
               routes: "/embed-video"
             },
             {
               id: "6",
-              title: "nav.tools.ui.general",
+              title: "nav.tool.ui.general",
               routes: "/general"
             },
             {
               id: "7",
-              title: "nav.tools.ui.grid",
+              title: "nav.tool.ui.grid",
               routes: "/grid"
             },
             {
               id: "8",
-              title: "nav.tools.ui.modals",
+              title: "nav.tool.ui.modals",
               routes: "/modals"
             },
             {
               id: "9",
-              title: "nav.tools.ui.tabs",
+              title: "nav.tool.ui.tabs",
               routes: "/tabs"
             },
             {
               id: "10",
-              title: "nav.tools.ui.typography",
+              title: "nav.tool.ui.typography",
               routes: "/typography"
             }
           ]
@@ -480,7 +480,7 @@ export default {
         {
           id: "6",
           icon: "favorite",
-          title: "icons",
+          title: "nav.tool.icon.icons",
           subitem: true,
           active: false,
           subitems: [
@@ -499,23 +499,23 @@ export default {
         {
           id: "7",
           icon: "done",
-          title: "forms",
+          title: "nav.tool.form.forms",
           subitem: true,
           active: false,
           subitems: [
             {
               id: "1",
-              title: "layouts",
+              title: "nav.tool.form.layouts",
               routes: "/layouts"
             },
             {
               id: "2",
-              title: "basicinputs",
+              title: "nav.tool.form.basicinputs",
               routes: "/basic-inputs"
             },
             {
               id: "3",
-              title: "inputgroups",
+              title: "nav.tool.form.inputgroups",
               routes: "/input-groups"
             }
           ]

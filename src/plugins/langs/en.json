@@ -40,7 +40,7 @@
                 "changelog": "Changelog"
             }
         },
-        "tools": {
+        "tool": {
             "toolsandcomponents": "Tools and Components",
             "ui": {
                 "uielements": "UI Elements",
@@ -55,12 +55,18 @@
                 "tabs": "Tabs",
                 "typography": "Typography"
             },
-            "icons": "Icons",
-            "forms": "Forms",
-            "layouts": "Layouts",
-            "basicinputs": "Basic Inputs",
-            "inputgroups": "Input Groups",
-            "tables": "Tables"
+            "icon": {
+                "icons": "Icons"
+            },
+            "form": {
+                "forms": "Forms",
+                "layouts": "Layouts",
+                "basicinputs": "Basic Inputs",
+                "inputgroups": "Input Groups"
+            },
+            "table": {
+                "tables": "Tables"
+            }
         },
         "help": "Help",
         "signout": "Sign Out"

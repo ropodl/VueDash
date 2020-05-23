@@ -14,8 +14,10 @@ new Vue({
   i18n,
   analytics,
   render: h => h(App),
-  // created() {
-  // Prevent blank screen in Electron builds
-  // this.$router.push('/')
-  // }
+  created() {
+    // Prevent blank screen in Electron builds
+    // this.$router.push('/')
+    this.lang = localStorage.getItem("lang") === "en"
+    this.$i18n.locale = "en"
+  }
 }).$mount('#app')

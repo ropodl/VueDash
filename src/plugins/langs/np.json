@@ -54,19 +54,19 @@
                 "modals": "मोडल",
                 "tabs": "ट्याब",
                 "typography": "टाइपोग्राफी"
+            },
+            "icon": {
+                "icons": "आइकन"
+            },
+            "form": {
+                "forms": "फारम",
+                "layouts": "लेआउट",
+                "basicinputs": "आधारभूत इनपुट",
+                "inputgroups": "इनपुट समूह"
+            },
+            "table": {
+                "tables": "तालिका"
             }
-        },
-        "icon": {
-            "icons": "आइकन"
-        },
-        "form": {
-            "forms": "फारम",
-            "layouts": "लेआउट",
-            "basicinputs": "आधारभूत इनपुट",
-            "inputgroups": "इनपुट समूह"
-        },
-        "table": {
-            "tables": "तालिका"
         },
         "help": "मद्दत",
         "signout": "साइन आउट गर्नुहोस्"

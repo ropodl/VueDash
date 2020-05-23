@@ -3,6 +3,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
 import en from './langs/en.json'
+// import np from './langs/np.json'
 
 Vue.use(VueI18n);
 

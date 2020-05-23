@@ -66,7 +66,7 @@
             <v-divider></v-divider>
             <v-card-text class="pa-0">
               <!-- <v-sheet height="600"> -->
-              <v-calendar ref="calendar"></v-calendar>
+              <!-- <v-calendar ref="calendar"></v-calendar> -->
               <!-- </v-sheet> -->
             </v-card-text>
           </v-card>
@@ -409,11 +409,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    // track() {
-    //   this.$ga.page("/");
-    // }
   },
   mounted() {
     var ctx = document.getElementById("totalrevenue");

@@ -71,7 +71,7 @@
               <v-btn icon v-on="{ ...tooltip, ...menu }">
                 <v-avatar size="25">
                   <!-- <flagicon :iso="" -->
-                  <v-img :src="currentlang"></v-img>
+                  <v-img :src=" $i18n.locale == 'en' ? 'https://appstack.bootlab.io/img/flags/us.png' : 'https://appstack.bootlab.io/img/flags/np.png' "></v-img>
                 </v-avatar>
                 <!-- <v-icon>mdi-dots-vertical</v-icon> -->
               </v-btn>
@@ -197,13 +197,13 @@
   </nav>
 </template>
 <script>
-  import i18n from "@/plugins/i18n";
+  // import i18n from "@/plugins/i18n";
   export default {
     name: "Navbar",
     data() {
       return {
         dark: true,
-        currentlang: "",
+        // lang: "",
         languages: [{
             id: "1",
             text: "English",
@@ -500,7 +500,7 @@
           {
             id: "8",
             icon: "table_chart",
-            title: "tables",
+            title: "nav.tool.table.tables",
             routes: "/tables"
           },
           {
@@ -720,9 +720,9 @@
     created() {
       // this.dark = localStorage.getItem('darkmode') === 'true';
       // this.$vuetify.theme.dark = this.dark
-      this.currentlang = "en";
-      this.lang = localStorage.getItem("lang") === "en";
-      i18n.locale = this.currentlang;
+      // this.currentlang = "en";
+      // this.lang = localStorage.getItem("lang") === "en";
+      // i18n.locale = this.lang;
       // this.currentlang =
       //   "https://appstack.bootlab.io/img/flags/" + this.currentlang + ".png";
     },
@@ -731,7 +731,15 @@
         this.dark = !this.dark;
         localStorage.setItem("darkmode", this.dark);
         this.$vuetify.theme.dark = this.dark;
-      }
+      },
+      // currentlang() {
+      //   if (this.$i18n.locale == 'en') {
+      //     this.currentlang = "https://appstack.bootlab.io/img/flags/us.png"
+      //   }
+      //   else {
+      //     this.currentlang = "https://appstack.bootlab.io/img/flags/np.png"
+      //   }
+      // }
     },
     methods: {
       darkmodemethod() {
@@ -755,19 +763,28 @@
           this.$i18n.locale = lang;
           // if (lang == "en") {
           //   this.currentlang =
-          //     "https://appstack.bootlab.io/img/flags/" + "us" + ".png";
+          //     "https://appstack.bootlab.io/img/flags/us.png"
           // } else {
           //   this.currentlang =
-          //     "https://appstack.bootlab.io/img/flags/" + "np" + ".png";
+          //     "https://appstack.bootlab.io/img/flags/np.png";
           // }
-        });
-        // this.$i18n.locale = lang;
+        })
       }
     },
     computed: {
       numberofmessages() {
         return this.notifications.length;
-      }
+      },
+      // currentlang(){
+      //   let lang = ""
+      //   if( this.i18n.currentlang == "us" ){
+      //     this.lang = "https://appstack.bootlab.io/img/flags/us.png"
+      //     return lang
+      //   } else if ( this.i18n.currentlang == "np" ) {
+      //     this.lang = "https://appstack.bootlab.io/img/flags/np.png"
+      //     // return lang
+      //   } return lang
+      // }
     }
   };
 </script>

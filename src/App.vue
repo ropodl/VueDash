@@ -2,31 +2,27 @@
   <v-app>
     <v-content>
       <Navbar v-if="!$route.meta.hidenav"></Navbar>
-      <!-- <v-fade-transition> -->
-        <!-- <transition name="fade"> -->
-
-      <router-view class="mb-12"></router-view>
-      <!-- </v-fade-transition> -->
-        <!-- </transition> -->
-
+      <keep-alive>
+        <router-view class="mb-12"></router-view>
+      </keep-alive>
       <Footer></Footer>
     </v-content>
   </v-app>
 </template>
 <script>
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-export default {
-  name: "App",
-  components: {
-    Navbar,
-    Footer
-  },
-  data() {
-    // this.$i18n.locale = "en";
-    return {};
-  }
-};
+  import Navbar from "./components/Navbar";
+  import Footer from "./components/Footer";
+  export default {
+    name: "App",
+    components: {
+      Navbar,
+      Footer
+    },
+    data() {
+      // this.$i18n.locale = "en";
+      return {};
+    }
+  };
 </script>
 <style scoped>
 

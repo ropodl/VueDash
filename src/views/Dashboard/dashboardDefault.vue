@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="py-0">
-          <adsense></adsense>
+          <!-- <adsense></adsense> -->
           <h1>Welcome back, John Doe!</h1>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails" :key="carddetail.id">
@@ -238,12 +238,12 @@
 </template>
 <script>
 import Chart from "chart.js";
-import adsense from "../../components/Ads";
+// import adsense from "../../components/Ads";
 
 export default {
   name: "DefaultDashboard",
   components: {
-    adsense
+    // adsense
   },
   data() {
     return {

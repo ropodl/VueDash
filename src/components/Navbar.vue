@@ -5,7 +5,7 @@
       <v-list class="ma-0 pa-0" style="background:transparent;">
         <v-list-item class="brand" link to="/">
           <v-list-item-content>
-            <v-list-item-title class="title d-flex align-center" style="background:transparent;">
+            <v-list-item-title class="title d-flex align-center" style="background:transparent;line-height:1.2rem;">
               <span class="primary--text">Vuetify</span>
               <span>Dash</span>
             </v-list-item-title>
@@ -791,6 +791,10 @@
 <style scoped>
   .brand.v-list-item--link:before {
     background: transparent;
+  }
+
+  .nav{
+    overflow: hidden !important;
   }
 
   .nav .v-list--dense .v-list-item .v-list-item__subtitle,

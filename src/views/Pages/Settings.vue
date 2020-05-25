@@ -7,12 +7,8 @@
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
           <v-card>
-            <v-tabs
-              :vertical="windowSize.x <= 700 ? false : true"
-              :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
-              :next-icon="nextIcon ? 'mdi-arrow-right-bold-box-outline' : undefined"
-            >
-              <v-tabs-slider></v-tabs-slider>
+            <v-tabs :vertical="windowSize.x <= 700 ? false : true">
+              <!-- <v-tabs-slider></v-tabs-slider> -->
               <v-tab>Appearance</v-tab>
               <v-tab>Account</v-tab>
               <v-tab>Password</v-tab>
@@ -48,7 +44,7 @@
                           <v-list-item-subtitle>Give your eye some rest?</v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
-                          <v-switch v-model="dark"></v-switch>
+                          <v-switch v-model="dark" @change="changethememode"></v-switch>
                         </v-list-item-action>
                       </v-list-item>
                     </v-list>
@@ -83,12 +79,7 @@
                         </v-list-item-content>
                         <v-list-item-action>
                           <div>
-                            <v-select
-                              :items="language"
-                              value="Nepali"
-                              solo
-                              style="max-width:200px;"
-                            ></v-select>
+                            <v-select :items="language" value="Nepali" solo style="max-width:200px;"></v-select>
                           </div>
                         </v-list-item-action>
                       </v-list-item>
@@ -403,68 +394,78 @@
   </div>
 </template>
 <script>
-export default {
-  name: "Settings",
-  data() {
-    return {
-      windowSize: {
-        x: 0,
-        y: 0
-      },
-      dark: false,
-      width: 0,
-      language: ["English", "Nepali"],
-      color: "#2d2d2d",
-      items: [
-        {
-          title: "Action",
-          route: "/"
+  export default {
+    name: "Settings",
+    data() {
+      return {
+        windowSize: {
+          x: 0,
+          y: 0
         },
-        {
-          title: "Another Action",
-          route: "/"
-        },
-        {
-          title: "Something else here",
-          route: "/"
+        width: 0,
+        dark: null,
+        color: "#2d2d2d",
+        language: ["English", "Nepali"],
+        items: [{
+            title: "Action",
+            route: "/"
+          },
+          {
+            title: "Another Action",
+            route: "/"
+          },
+          {
+            title: "Something else here",
+            route: "/"
+          }
+        ]
+      };
+    },
+    computed: {
+      mobile() {
+        const width = window.innerWidth;
+        return width;
+      }
+    },
+    watch: {
+      
+    },
+    mounted() {
+      this.onResize();
+      this.checkifdark();
+    },
+    methods: {
+      onResize() {
+        this.windowSize = {
+          x: window.innerWidth,
+          y: window.innerHeight
         }
-      ]
-    };
-  },
-  computed: {
-    mobile() {
-      const width = window.innerWidth;
-      return width;
-    }
-  },
-  watch: {
-    dark() {
-      if (this.dark) {
-        this.$vuetify.theme.dark = true;
-      } else {
-        this.$vuetify.theme.dark = false;
+      },
+      changethememode(){
+        if( this.dark ){
+          this.$vuetify.theme.dark = true
+          localStorage.setItem('dark',true)
+        } else {
+          this.$vuetify.theme.dark = false
+          localStorage.setItem('dark',false)
+        }
+      },
+      checkifdark(){
+        let isdark = localStorage.getItem('dark')
+        // console.log(isdark)
+        if( isdark ){
+          this.dark = isdark
+          this.$vuetify.theme.dark = isdark
+        } else {
+          this.dark = isdark
+          this.$vuetify.theme.dark = isdark
+        }
       }
     }
-    // darkmodemethod() {
-    //   this.dark = !this.dark;
-    //   this.$vuetify.theme.dark = this.dark;
-    // }
-  },
-  mounted() {
-    this.onResize();
-  },
-  methods: {
-    onResize() {
-      this.windowSize = {
-        x: window.innerWidth,
-        y: window.innerHeight
-      };
-    }
   }
-};
 </script>
 <style scoped>
-.v-tab {
-  justify-content: start !important;
-}
+  .v-tab {
+    justify-content: start !important;
+  }
 </style>

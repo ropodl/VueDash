@@ -56,7 +56,7 @@
                         </v-card-subtitle>
                         <v-card-text class="pa-0">
                             <v-breadcrumbs :items="items"></v-breadcrumbs>
-                            <v-breadcrumbs :items="items" divider=" accordion flat>"></v-breadcrumbs>
+                            <v-breadcrumbs :items="items" divider="-"></v-breadcrumbs>
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -90,7 +90,6 @@
         }
     }
 </script>
-
 <style>
 
 </style>

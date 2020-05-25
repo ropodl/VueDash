@@ -48,9 +48,7 @@
             </v-row>
         </v-container>
         <v-snackbar v-model="snackbar" multi-line :timeout="timeout">
-            a
-            <v-divider></v-divider>
-            b
+            Hello world
         </v-snackbar>
     </div>
 </template>

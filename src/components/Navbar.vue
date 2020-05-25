@@ -6,8 +6,8 @@
         <v-list-item class="brand" link to="/">
           <v-list-item-content>
             <v-list-item-title class="title d-flex align-center" style="background:transparent;line-height:1.2rem;">
-              <span class="primary--text">Vuetify</span>
-              <span>Dash</span>
+              <span class="primary--text">V<span class="hidden-sm-and-down">uetify</span></span>
+              <span>D<span class="hidden-sm-and-down">Dash</span></span>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

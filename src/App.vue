@@ -19,10 +19,32 @@
       Footer
     },
     data() {
-      // this.$i18n.locale = "en";
-      return {};
+      return {
+        dark: null
+        }
+    },
+    mounted() {
+      this.checkifdark();
+    },
+    methods: {
+      checkifdark(){
+        let isdark = localStorage.getItem('dark')
+        // console.log(isdark)
+        if( isdark ){
+          // this.dark = isdark
+          this.$vuetify.theme.dark = isdark
+        } else {
+          // this.dark = isdark
+          this.$vuetify.theme.dark = isdark
+        }
+      }
+    },
+    watch: {
+      dark(){
+        this
+      }
     }
-  };
+  }
 </script>
 <style scoped>
 

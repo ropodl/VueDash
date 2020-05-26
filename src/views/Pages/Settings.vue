@@ -201,7 +201,6 @@
                     <v-row>
                       <v-col cols="12">
                         <v-text-field label="Current Password" outlined dense>
-                          <!-- <a href="https://www.facebook.com">Forgot password?</a> -->
                         </v-text-field>
                         <div class="d-flex justify-end body-2">
                           <router-link to="/">Forgot Password?</router-link>
@@ -432,7 +431,6 @@
     },
     mounted() {
       this.onResize();
-      this.checkifdark();
     },
     methods: {
       onResize() {
@@ -442,24 +440,13 @@
         }
       },
       changethememode(){
-        if( this.dark ){
-          this.$vuetify.theme.dark = true
-          localStorage.setItem('dark',true)
-        } else {
-          this.$vuetify.theme.dark = false
-          localStorage.setItem('dark',false)
-        }
-      },
-      checkifdark(){
-        let isdark = localStorage.getItem('dark')
-        // console.log(isdark)
-        if( isdark ){
-          this.dark = isdark
-          this.$vuetify.theme.dark = isdark
-        } else {
-          this.dark = isdark
-          this.$vuetify.theme.dark = isdark
-        }
+        // if( this.dark ){
+          // localStorage.setItem('dark',true)
+          // this.$vuetify.theme.dark = true
+        // } else {
+        //   localStorage.setItem('dark',false)
+        //   this.$vuetify.theme.dark = false
+        // }
       }
     }
   }

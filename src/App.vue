@@ -20,30 +20,35 @@
     },
     data() {
       return {
-        dark: null
-        }
+        dark: localStorage.getItem('dark')
+      }
+    },
+    created() {
+      // const dark = localStorage.getItem('dark')
+      // console.log(dark)
+      // this.$vuetify.theme.dark = this.dark
     },
     mounted() {
-      this.checkifdark();
+      // this.checkifdark();
     },
     methods: {
-      checkifdark(){
-        let isdark = localStorage.getItem('dark')
-        // console.log(isdark)
-        if( isdark ){
-          // this.dark = isdark
-          this.$vuetify.theme.dark = isdark
-        } else {
-          // this.dark = isdark
-          this.$vuetify.theme.dark = isdark
-        }
-      }
+      // checkifdark(){
+      //   let isdark = localStorage.getItem('dark')
+      //   // console.log(isdark)
+      //   if( isdark ){
+      //     // this.dark = isdark
+      //     this.$vuetify.theme.dark = isdark
+      //   } else {
+      //     // this.dark = isdark
+      //     this.$vuetify.theme.dark = isdark
+      //   }
+      // }
     },
-    watch: {
-      dark(){
-        this
-      }
-    }
+    // watch: {
+    //   dark(){
+    //     this
+    //   }
+    // }
   }
 </script>
 <style scoped>

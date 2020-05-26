@@ -68,6 +68,54 @@
                 "tables": "तालिका"
             }
         },
+        "plugin": {
+            "plugins": "Plugins & Addons",
+            "form": {
+                "formplugins": "Form Plugins",
+                "advancedinputs": "Advanced Inputs",
+                "editors": "Editors",
+                "validation": "validation",
+                "wizard": "Wizard"
+            },
+            "datatable": {
+                "datatables": "Data Tables",
+                "responsivetables": "Responsive Tables",
+                "tablebuttons": "Table with Buttons",
+                "columnsearch": "Column Search",
+                "multiselection": "Multi Selection",
+                "ajaxsourceddata": "Ajax Sourced Data"
+            },
+            "chart": {
+                "chart": "Chart",
+                "chartjs": "chartjs",
+                "apexcharts": "ApexCharts"
+            },
+            "notification": {
+                "notifications": "Notifications"
+            },
+            "map": {
+                "maps": "Maps",
+                "googlemaps": "googlemaps",
+                "vectormaps": "Vector Maps"
+            },
+            "calendar": {
+                "calendar": "Calendar"
+            },
+            "multilevel": {
+                "multilevel": "Multi Level",
+                "twolevel": {
+                    "twolevels": "Two Levels",
+                    "item1": "Item 1",
+                    "item2": "Item 2"
+                },
+                "threelevel": {
+                    "threelevels": "Three Levels",
+                    "item1": "Item 1",
+                    "item2": "Item 2",
+                    "item3": "Item 3"
+                }
+            }
+        },
         "help": "मद्दत",
         "signout": "साइन आउट गर्नुहोस्"
     }

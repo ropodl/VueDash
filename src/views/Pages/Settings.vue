@@ -79,7 +79,7 @@
                         </v-list-item-content>
                         <v-list-item-action>
                           <div>
-                            <v-select :items="language" value="Nepali" solo style="max-width:200px;"></v-select>
+                            <v-select :items="language" value="Nepali" dense solo style="max-width:200px;"></v-select>
                           </div>
                         </v-list-item-action>
                       </v-list-item>
@@ -402,7 +402,7 @@
           y: 0
         },
         width: 0,
-        dark: null,
+        dark: localStorage.getItem('dark'),
         color: "#2d2d2d",
         language: ["English", "Nepali"],
         items: [{

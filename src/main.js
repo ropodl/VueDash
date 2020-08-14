@@ -19,7 +19,7 @@ new Vue({
   created() {
     // Prevent blank screen in Electron builds
     // this.$router.push('/')
-    this.lang = localStorage.getItem("lang") === "en"
-    this.$i18n.locale = "en"
+    this.lang = localStorage.getItem("lang") === "en_us"
+    this.$i18n.locale = "en_us"
   }
 }).$mount('#app')

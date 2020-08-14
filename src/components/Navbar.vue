@@ -144,12 +144,12 @@
     <v-navigation-drawer v-model="drawer" clipped app>
       <v-list class="nav" dense>
         <span v-for="navitem in navitems" :key="navitem.id">
-          <v-subheader v-if="navitem.subtitle">{{ $t(navitem.subtitle) }}</v-subheader>
+          <v-subheader v-if="navitem.subtitle">{{ navitem.subtitle }}</v-subheader>
           <span v-if="navitem.subitem">
             <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
               <template v-slot:activator>
                 <!-- main like dashboard -->
-                <v-list-item-title>{{ $t(navitem.title) }}</v-list-item-title>
+                <v-list-item-title>{{ navitem.title }}</v-list-item-title>
               </template>
               <span v-for="subitem in navitem.subitems" :key="subitem.id">
                 <span v-if="subitem.miniitems">
@@ -157,7 +157,7 @@
                     <template v-slot:activator>
                       <v-list-item-content>
                         <!-- child's option -->
-                        <v-list-item-title style="margin-left:10px">{{ $t(subitem.title) }}</v-list-item-title>
+                        <v-list-item-title style="margin-left:10px">{{ subitem.title }}</v-list-item-title>
                       </v-list-item-content>
                     </template>
                     <span v-if="subitem.mini">
@@ -165,7 +165,7 @@
                         <v-list-item router link :to="mini.routes">
                           <v-list-item-icon></v-list-item-icon>
                           <!-- grand child -->
-                          <v-list-item-title>{{ $t(mini.title) }}</v-list-item-title>
+                          <v-list-item-title>{{ mini.title }}</v-list-item-title>
                         </v-list-item>
                       </span>
                     </span>
@@ -175,7 +175,7 @@
                   <v-list-item sub-group router link :to="subitem.routes">
                     <v-list-item-content>
                       <!-- child -->
-                      <v-list-item-title style="margin-left: 57px;">{{ $t(subitem.title) }}</v-list-item-title>
+                      <v-list-item-title style="margin-left: 57px;">{{ subitem.title }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </span>
@@ -187,7 +187,7 @@
               <v-list-item-icon>
                 <v-icon>{{ navitem.icon }}</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>{{ $t(navitem.title) }}</v-list-item-title>
+              <v-list-item-title>{{ navitem.title }}</v-list-item-title>
             </v-list-item>
           </span>
         </span>

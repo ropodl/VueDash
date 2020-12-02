@@ -1,122 +1,131 @@
 {
-    "vuetify": "भ्युटिफाई",
-    "nav": {
-        "pages": {
-            "page": "पृष्ठहरु",
-            "dash": {
-                "dashboard": "ड्यासबोर्ड",
-                "default": "पूर्वनिर्धारित",
-                "analytics": "श्लेषण",
-                "ecommerce": "इ-वाणिज्य",
-                "social": "सामाजिक",
-                "crypto": "क्रिप्टो"
-            },
-            "pages": {
-                "profile": "प्रोफाइल",
-                "settings": "सेटिंग्स",
-                "clients": "ग्राहकहरु",
-                "projects": "प्रोजेक्टहरू",
-                "list": "सूची",
-                "details": "विवरण",
-                "invoice": "चलानी",
-                "pricing": "मूल्य निर्धारण",
-                "tasks": "कार्यहरू",
-                "chat": "कुराकानी",
-                "blankpage": "खाली पृष्ठ"
-            },
-            "auth": {
-                "auth": "प्रामाणिक",
-                "signin": "लग - इन",
-                "signup": "साइन अप",
-                "resetpassword": "पासवर्ड रिसेट",
-                "fourofour": "४०४ पृष्ठ",
-                "fiveoo": "५०० पृष्ठ"
-            },
-            "document": {
-                "documentation": "कागजात",
-                "introduction": "परिचय",
-                "gettingstarted": "सुरु गर्दै",
-                "plugins": "प्लगइनहरू",
-                "changelog": "परिवर्तनहरू"
-            }
-        },
-        "tool": {
-            "toolsandcomponents": "उपकरण र घटकहरू",
-            "ui": {
-                "uielements": "UI तत्वहरु",
-                "alerts": "सुचना",
-                "buttons": "बटन",
-                "cards": "कार्ड",
-                "carousel": "काराउजेल",
-                "embedvideo": "इम्बेड भिडियो",
-                "general": "सामान्य",
-                "grid": "ग्रिड",
-                "modals": "मोडल",
-                "tabs": "ट्याब",
-                "typography": "टाइपोग्राफी"
-            },
-            "icon": {
-                "icons": "आइकन"
-            },
-            "form": {
-                "forms": "फारम",
-                "layouts": "लेआउट",
-                "basicinputs": "आधारभूत इनपुट",
-                "inputgroups": "इनपुट समूह"
-            },
-            "table": {
-                "tables": "तालिका"
-            }
-        },
-        "plugin": {
-            "plugins": "प्लगइन र",
-            "form": {
-                "formplugins": "Form Plugins",
-                "advancedinputs": "Advanced Inputs",
-                "editors": "Editors",
-                "validation": "validation",
-                "wizard": "Wizard"
-            },
-            "datatable": {
-                "datatables": "Data Tables",
-                "responsivetables": "Responsive Tables",
-                "tablebuttons": "Table with Buttons",
-                "columnsearch": "Column Search",
-                "multiselection": "Multi Selection",
-                "ajaxsourceddata": "Ajax Sourced Data"
-            },
-            "chart": {
-                "chart": "Chart",
-                "chartjs": "chartjs",
-                "apexcharts": "ApexCharts"
-            },
-            "notification": {
-                "notifications": "Notifications"
-            },
-            "map": {
-                "maps": "Maps",
-                "googlemaps": "googlemaps",
-                "vectormaps": "Vector Maps"
-            },
-            "calendar": {
-                "calendar": "Calendar"
-            },
-            "multilevel": {
-                "multilevel": "Multi Level",
-                "twolevel": {
-                    "twolevels": "Two Levels",
-                    "item1": "Item 1",
-                    "item2": "Item 2"
-                },
-                "threelevel": {
-                    "threelevels": "Three Levels",
-                    "item1": "Item 1",
-                    "item2": "Item 2",
-                    "item3": "Item 3"
-                }
-            }
-        },
-        "help": "मद्दत",
-        "signout": "साइन आउट गर्नुहोस्"
+  "vuetify": "भ्युटिफाई",
+  "appbar": {
+    "profiledropdown": {
+      "profile": "Profile",
+      "Analytics": "Analytics",
+      "Settings": "Settings",
+      "Help": "Help",
+      "Sign Out": "Sign Out"
     }
+  },
+  "nav": {
+    "pages": {
+      "page": "पृष्ठहरु",
+      "dash": {
+        "dashboard": "ड्यासबोर्ड",
+        "default": "पूर्वनिर्धारित",
+        "analytics": "श्लेषण",
+        "ecommerce": "इ-वाणिज्य",
+        "social": "सामाजिक",
+        "crypto": "क्रिप्टो"
+      },
+      "pages": {
+        "profile": "प्रोफाइल",
+        "settings": "सेटिंग्स",
+        "clients": "ग्राहकहरु",
+        "projects": "प्रोजेक्टहरू",
+        "list": "सूची",
+        "details": "विवरण",
+        "invoice": "चलानी",
+        "pricing": "मूल्य निर्धारण",
+        "tasks": "कार्यहरू",
+        "chat": "कुराकानी",
+        "blankpage": "खाली पृष्ठ"
+      },
+      "auth": {
+        "auth": "प्रामाणिक",
+        "signin": "लग - इन",
+        "signup": "साइन अप",
+        "resetpassword": "पासवर्ड रिसेट",
+        "fourofour": "४०४ पृष्ठ",
+        "fiveoo": "५०० पृष्ठ"
+      },
+      "document": {
+        "documentation": "कागजात",
+        "introduction": "परिचय",
+        "gettingstarted": "सुरु गर्दै",
+        "plugins": "प्लगइनहरू",
+        "changelog": "परिवर्तनहरू"
+      }
+    },
+    "tool": {
+      "toolsandcomponents": "उपकरण र घटकहरू",
+      "ui": {
+        "uielements": "UI तत्वहरु",
+        "alerts": "सुचना",
+        "buttons": "बटन",
+        "cards": "कार्ड",
+        "carousel": "काराउजेल",
+        "embedvideo": "इम्बेड भिडियो",
+        "general": "सामान्य",
+        "grid": "ग्रिड",
+        "modals": "मोडल",
+        "tabs": "ट्याब",
+        "typography": "टाइपोग्राफी"
+      },
+      "icon": {
+        "icons": "आइकन"
+      },
+      "form": {
+        "forms": "फारम",
+        "layouts": "लेआउट",
+        "basicinputs": "आधारभूत इनपुट",
+        "inputgroups": "इनपुट समूह"
+      },
+      "table": {
+        "tables": "तालिका"
+      }
+    },
+    "plugin": {
+      "plugins": "प्लगइन र",
+      "form": {
+        "formplugins": "Form Plugins",
+        "advancedinputs": "Advanced Inputs",
+        "editors": "Editors",
+        "validation": "validation",
+        "wizard": "Wizard"
+      },
+      "datatable": {
+        "datatables": "Data Tables",
+        "responsivetables": "Responsive Tables",
+        "tablebuttons": "Table with Buttons",
+        "columnsearch": "Column Search",
+        "multiselection": "Multi Selection",
+        "ajaxsourceddata": "Ajax Sourced Data"
+      },
+      "chart": {
+        "chart": "Chart",
+        "chartjs": "chartjs",
+        "apexcharts": "ApexCharts"
+      },
+      "notification": {
+        "notifications": "Notifications"
+      },
+      "map": {
+        "maps": "Maps",
+        "googlemaps": "googlemaps",
+        "vectormaps": "Vector Maps"
+      },
+      "calendar": {
+        "calendar": "Calendar"
+      },
+      "multilevel": {
+        "multilevel": "Multi Level",
+        "twolevel": {
+          "twolevels": "Two Levels",
+          "item1": "Item 1",
+          "item2": "Item 2"
+        },
+        "threelevel": {
+          "threelevels": "Three Levels",
+          "item1": "Item 1",
+          "item2": "Item 2",
+          "item3": "Item 3"
+        }
+      }
+    },
+    "help": "मद्दत",
+    "signout": "साइन आउट गर्नुहोस्"
+  }
 }

@@ -1,122 +1,131 @@
 {
-    "vuetify": "Vuetify",
-    "nav": {
-        "pages": {
-            "page": "Pages",
-            "dash": {
-                "dashboard": "Dashboard",
-                "default": "Default",
-                "analytics": "Analytics",
-                "ecommerce": "E-Commerce",
-                "social": "Social",
-                "crypto": "Crypto"
-            },
-            "pages": {
-                "profile": "Profile",
-                "settings": "Settings",
-                "clients": "Clients",
-                "projects": "Projects",
-                "list": "List",
-                "details": "Details",
-                "invoice": "Invoice",
-                "pricing": "Pricing",
-                "tasks": "Tasks",
-                "chat": "Chat",
-                "blankpage": "Blank Page"
-            },
-            "auth": {
-                "auth": "Authentication",
-                "signin": "Log In",
-                "signup": "Sign Up",
-                "resetpassword": "Reset Password",
-                "fourofour": "404 Page",
-                "fiveoo": "500 Page"
-            },
-            "document": {
-                "documentation": "Documentation",
-                "introduction": "Introduction",
-                "gettingstarted": "Getting Started",
-                "plugins": "Plugins",
-                "changelog": "Changelog"
-            }
-        },
-        "tool": {
-            "toolsandcomponents": "Tools and Components",
-            "ui": {
-                "uielements": "UI Elements",
-                "alerts": "Alerts",
-                "buttons": "Buttons",
-                "cards": "Cards",
-                "carousel": "Carousel",
-                "embedvideo": "Embed Video",
-                "general": "General",
-                "grid": "Grid",
-                "modals": "Modals",
-                "tabs": "Tabs",
-                "typography": "Typography"
-            },
-            "icon": {
-                "icons": "Icons"
-            },
-            "form": {
-                "forms": "Forms",
-                "layouts": "Layouts",
-                "basicinputs": "Basic Inputs",
-                "inputgroups": "Input Groups"
-            },
-            "table": {
-                "tables": "Tables"
-            }
-        },
-        "plugin": {
-            "plugins": "Plugins & Addons",
-            "form": {
-                "formplugins": "Form Plugins",
-                "advancedinputs": "Advanced Inputs",
-                "editors": "Editors",
-                "validation": "validation",
-                "wizard": "Wizard"
-            },
-            "datatable": {
-                "datatables": "Data Tables",
-                "responsivetables": "Responsive Tables",
-                "tablebuttons": "Table with Buttons",
-                "columnsearch": "Column Search",
-                "multiselection": "Multi Selection",
-                "ajaxsourceddata": "Ajax Sourced Data"
-            },
-            "chart": {
-                "chart": "Chart",
-                "chartjs": "chartjs",
-                "apexcharts": "ApexCharts"
-            },
-            "notification": {
-                "notifications": "Notifications"
-            },
-            "map": {
-                "maps": "Maps",
-                "googlemaps": "googlemaps",
-                "vectormaps": "Vector Maps"
-            },
-            "calendar": {
-                "calendar": "Calendar"
-            },
-            "multilevel": {
-                "multilevel": "Multi Level",
-                "twolevel": {
-                    "twolevels": "Two Levels",
-                    "item1": "Item 1",
-                    "item2": "Item 2"
-                },
-                "threelevel": {
-                    "threelevels": "Three Levels",
-                    "item1": "Item 1",
-                    "item2": "Item 2",
-                    "item3": "Item 3"
-                }
-            }
-        },
-        "help": "Help",
-        "signout": "Sign Out"
+  "vuetify": "Vuetify",
+  "appbar": {
+    "profiledropdown": {
+      "profile": "Profile",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "help": "Help",
+      "signout": "Sign Out"
     }
+  },
+  "nav": {
+    "pages": {
+      "page": "Pages",
+      "dash": {
+        "dashboard": "Dashboard",
+        "default": "Default",
+        "analytics": "Analytics",
+        "ecommerce": "E-Commerce",
+        "social": "Social",
+        "crypto": "Crypto"
+      },
+      "pages": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "clients": "Clients",
+        "projects": "Projects",
+        "list": "List",
+        "details": "Details",
+        "invoice": "Invoice",
+        "pricing": "Pricing",
+        "tasks": "Tasks",
+        "chat": "Chat",
+        "blankpage": "Blank Page"
+      },
+      "auth": {
+        "auth": "Authentication",
+        "signin": "Log In",
+        "signup": "Sign Up",
+        "resetpassword": "Reset Password",
+        "fourofour": "404 Page",
+        "fiveoo": "500 Page"
+      },
+      "document": {
+        "documentation": "Documentation",
+        "introduction": "Introduction",
+        "gettingstarted": "Getting Started",
+        "plugins": "Plugins",
+        "changelog": "Changelog"
+      }
+    },
+    "tool": {
+      "toolsandcomponents": "Tools and Components",
+      "ui": {
+        "uielements": "UI Elements",
+        "alerts": "Alerts",
+        "buttons": "Buttons",
+        "cards": "Cards",
+        "carousel": "Carousel",
+        "embedvideo": "Embed Video",
+        "general": "General",
+        "grid": "Grid",
+        "modals": "Modals",
+        "tabs": "Tabs",
+        "typography": "Typography"
+      },
+      "icon": {
+        "icons": "Icons"
+      },
+      "form": {
+        "forms": "Forms",
+        "layouts": "Layouts",
+        "basicinputs": "Basic Inputs",
+        "inputgroups": "Input Groups"
+      },
+      "table": {
+        "tables": "Tables"
+      }
+    },
+    "plugin": {
+      "plugins": "Plugins & Addons",
+      "form": {
+        "formplugins": "Form Plugins",
+        "advancedinputs": "Advanced Inputs",
+        "editors": "Editors",
+        "validation": "validation",
+        "wizard": "Wizard"
+      },
+      "datatable": {
+        "datatables": "Data Tables",
+        "responsivetables": "Responsive Tables",
+        "tablebuttons": "Table with Buttons",
+        "columnsearch": "Column Search",
+        "multiselection": "Multi Selection",
+        "ajaxsourceddata": "Ajax Sourced Data"
+      },
+      "chart": {
+        "chart": "Chart",
+        "chartjs": "chartjs",
+        "apexcharts": "ApexCharts"
+      },
+      "notification": {
+        "notifications": "Notifications"
+      },
+      "map": {
+        "maps": "Maps",
+        "googlemaps": "googlemaps",
+        "vectormaps": "Vector Maps"
+      },
+      "calendar": {
+        "calendar": "Calendar"
+      },
+      "multilevel": {
+        "multilevel": "Multi Level",
+        "twolevel": {
+          "twolevels": "Two Levels",
+          "item1": "Item 1",
+          "item2": "Item 2"
+        },
+        "threelevel": {
+          "threelevels": "Three Levels",
+          "item1": "Item 1",
+          "item2": "Item 2",
+          "item3": "Item 3"
+        }
+      }
+    },
+    "help": "Help",
+    "signout": "Sign Out"
+  }
 }

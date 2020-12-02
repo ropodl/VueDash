@@ -3,18 +3,46 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="py-0">
-          <!-- <adsense></adsense> -->
           <h1>Welcome back, John Doe!</h1>
         </v-col>
-        <v-col cols="12" xs="12" sm="6" md="3" lg="3" xl="3" v-for="carddetail in carddetails" :key="carddetail.id">
+        <v-col
+          cols="12"
+          xs="12"
+          sm="6"
+          md="6"
+          lg="3"
+          xl="3"
+          v-for="carddetail in carddetails"
+          :key="carddetail.id"
+        >
           <v-card>
             <v-card-text>
               <v-row>
-                <v-col cols="12" xs="3" sm="3" md="3" lg="3" xl="3" class="d-flex justify-center">
-                  <v-icon :class="carddetail.class">{{ carddetail.icon }}</v-icon>
+                <v-col
+                  cols="12"
+                  xs="3"
+                  sm="3"
+                  md="3"
+                  lg="3"
+                  xl="3"
+                  class="d-flex justify-center"
+                >
+                  <v-icon :class="carddetail.class">{{
+                    carddetail.icon
+                  }}</v-icon>
                 </v-col>
-                <v-col cols="12" xs="7" sm="7" md="7" lg="7" xl="7" class="py-0 px-0">
-                  <v-card-title class="pb-0 headline">{{ carddetail.title }}</v-card-title>
+                <v-col
+                  cols="12"
+                  xs="7"
+                  sm="7"
+                  md="7"
+                  lg="7"
+                  xl="7"
+                  class="py-0 px-0"
+                >
+                  <v-card-title class="pb-0 headline">{{
+                    carddetail.title
+                  }}</v-card-title>
                   <v-card-text>{{ carddetail.text }}</v-card-text>
                 </v-col>
               </v-row>
@@ -58,7 +86,9 @@
                 </template>
                 <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -83,7 +113,9 @@
                 </template>
                 <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -106,7 +138,9 @@
                 </template>
                 <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -136,17 +170,20 @@
                       <div class="caption mb-2">Hangouts</div>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown">
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
+                        >
                         </v-img>
                       </v-avatar>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned">
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
+                        >
                         </v-img>
                       </v-avatar>
                       <v-avatar>
                         <v-img
-                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale">
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
+                        >
                         </v-img>
                       </v-avatar>
                     </v-col>
@@ -193,7 +230,9 @@
                 </template>
                 <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -201,10 +240,21 @@
             <v-divider></v-divider>
             <v-data-table :headers="header" :items="project">
               <template v-slot:item.status="{ item }">
-                <v-chip v-if="item.status == 'Done'" color="success" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'In Progress'" color="warning" small>{{ item.status }}</v-chip>
+                <v-chip v-if="item.status == 'Done'" color="success" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip
+                  v-if="item.status == 'In Progress'"
+                  color="warning"
+                  small
+                  >{{ item.status }}</v-chip
+                >
               </template>
             </v-data-table>
           </v-card>
@@ -223,7 +273,9 @@
                 </template>
                 <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title link router :to="item.route">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title link router :to="item.route">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -253,56 +305,56 @@ export default {
           icon: "fas fa-shopping-cart",
           title: "2.562",
           text: "Sales Today",
-          class: "card-icon primary--text pl-3"
+          class: "card-icon primary--text pl-3",
         },
         {
           id: "2",
           icon: "fas fa-heartbeat",
           title: "17.212",
           text: "Visitors Today",
-          class: "card-icon warning--text pl-3"
+          class: "card-icon warning--text pl-3",
         },
         {
           id: "3",
           icon: "fas fa-dollar-sign",
           title: "$ 24.300",
           text: "Total Earnings",
-          class: "card-icon success--text pl-3"
+          class: "card-icon success--text pl-3",
         },
         {
           id: "4",
           icon: "fas fa-shopping-bag",
           title: "43",
           text: "Pending Orders",
-          class: "card-icon error--text pl-3"
-        }
+          class: "card-icon error--text pl-3",
+        },
       ],
       header: [
         {
           text: "Name",
           align: "start",
-          value: "name"
+          value: "name",
         },
         {
           text: "Start Date",
           align: "center",
-          value: "startdate"
+          value: "startdate",
         },
         {
           text: "End Date",
           align: "center",
-          value: "enddate"
+          value: "enddate",
         },
         {
           text: "Status",
           align: "center",
-          value: "status"
+          value: "status",
         },
         {
           text: "Assignee",
           align: "center",
-          value: "assignee"
-        }
+          value: "assignee",
+        },
       ],
       project: [
         {
@@ -311,7 +363,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -319,7 +371,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -327,7 +379,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -335,7 +387,7 @@ export default {
           enddate: "31/06/2018",
           status: "Pending",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -343,7 +395,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -351,7 +403,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -359,7 +411,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -367,7 +419,7 @@ export default {
           enddate: "31/06/2018",
           status: "In Progress",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -375,7 +427,7 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -383,7 +435,7 @@ export default {
           enddate: "31/06/2018",
           status: "Cancelled",
           assignee: "Carl Jenkins",
-          badgecolor: ""
+          badgecolor: "",
         },
         {
           name: "Project Apollo",
@@ -391,23 +443,23 @@ export default {
           enddate: "31/06/2018",
           status: "Done",
           assignee: "Carl Jenkins",
-          badgecolor: ""
-        }
+          badgecolor: "",
+        },
       ],
       items: [
         {
           title: "Action",
-          route: "/"
+          route: "/",
         },
         {
           title: "Another Action",
-          route: "/"
+          route: "/",
         },
         {
           title: "Something else here",
-          route: "/"
-        }
-      ]
+          route: "/",
+        },
+      ],
     };
   },
   mounted() {
@@ -426,7 +478,7 @@ export default {
           "Sep",
           "Oct",
           "Nov",
-          "Dec"
+          "Dec",
         ],
         datasets: [
           {
@@ -446,8 +498,8 @@ export default {
               3902,
               4938,
               3917,
-              4927
-            ]
+              4927,
+            ],
           },
           {
             label: "Orders",
@@ -467,24 +519,24 @@ export default {
               1524,
               2102,
               1506,
-              1887
-            ]
-          }
-        ]
+              1887,
+            ],
+          },
+        ],
       },
       options: {
         maintainAspectRatio: true,
         legend: {
           display: true,
-          position: "bottom"
+          position: "bottom",
         },
         tooltips: {
-          intersect: false
+          intersect: false,
         },
         hover: {
-          intersect: true
-        }
-      }
+          intersect: true,
+        },
+      },
     });
     totalrevenue.render();
     var ctx2 = document.getElementById("weeklysales");
@@ -497,7 +549,7 @@ export default {
           "Section C",
           "Section D",
           "Section E",
-          "Section F"
+          "Section F",
         ],
         datasets: [
           {
@@ -505,20 +557,20 @@ export default {
             data: [120, 190, 30, 50, 59, 30],
             backgroundColor: "rgba(255, 99, 132, 0.1)",
             borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 2
+            borderWidth: 2,
           },
           {
-            options: {}
-          }
-        ]
-      }
+            options: {},
+          },
+        ],
+      },
     });
     weeklysales.render();
   },
   computed: {
     // latestproject(){
     // }
-  }
+  },
 };
 </script>
 <style scoped>

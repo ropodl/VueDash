@@ -15,37 +15,21 @@
           v-for="carddetail in carddetails"
           :key="carddetail.id"
         >
-          <v-card>
+          <v-card class="py-4" style="overflow:hidden;">
+            <v-icon :class="[carddetail.class]" style="">{{
+              carddetail.icon
+            }}</v-icon>
+            <v-card-title class="text-h4 font-weight-bold">
+              {{ carddetail.title }}
+            </v-card-title>
             <v-card-text>
-              <v-row>
-                <v-col
-                  cols="12"
-                  xs="3"
-                  sm="3"
-                  md="3"
-                  lg="3"
-                  xl="3"
-                  class="d-flex justify-center"
-                >
-                  <v-icon :class="carddetail.class">{{
-                    carddetail.icon
-                  }}</v-icon>
-                </v-col>
-                <v-col
-                  cols="12"
-                  xs="7"
-                  sm="7"
-                  md="7"
-                  lg="7"
-                  xl="7"
-                  class="py-0 px-0"
-                >
-                  <v-card-title class="pb-0 headline">{{
-                    carddetail.title
-                  }}</v-card-title>
-                  <v-card-text>{{ carddetail.text }}</v-card-text>
-                </v-col>
-              </v-row>
+              {{ carddetail.text }}
+            </v-card-text>
+            <v-card-text class="py-0 d-flex align-center">
+              <v-alert type="error" dense text class="mb-0 mr-2">
+                {{ carddetail.summary }}
+              </v-alert>
+              Since last week
             </v-card-text>
           </v-card>
         </v-col>
@@ -70,7 +54,35 @@
               <v-chip small color="info">Today</v-chip>
             </v-card-title>
             <v-divider></v-divider>
-            <v-card-text>Insert feed jokes here</v-card-text>
+            <v-card-text>
+              <v-list three-line>
+                <template v-for="(feed, index) in dailyfeed">
+                  <v-divider
+                    v-if="feed.divider"
+                    :key="index"
+                    :inset="feed.inset"
+                  ></v-divider>
+
+                  <v-list-item v-else :key="feed.title">
+                    <v-list-item-avatar>
+                      <v-img :src="feed.avatar"></v-img>
+                    </v-list-item-avatar>
+
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-html="feed.title"
+                      ></v-list-item-title>
+                      <v-list-item-subtitle
+                        v-html="feed.subtitle"
+                      ></v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action>
+                      <span>3h ago</span>
+                    </v-list-item-action>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-card-text>
           </v-card>
         </v-col>
 
@@ -95,9 +107,7 @@
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text class="pa-0">
-              <!-- <v-sheet height="600"> -->
-              <!-- <v-calendar ref="calendar"></v-calendar> -->
-              <!-- </v-sheet> -->
+              <calendar />
             </v-card-text>
           </v-card>
         </v-col>
@@ -122,7 +132,8 @@
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              <canvas id="weeklysales" height="400px"></canvas>
+              <!-- <canvas id="weeklysales" height="400px"></canvas> -->
+              <piechart />
             </v-card-text>
           </v-card>
         </v-col>
@@ -289,13 +300,16 @@
   </div>
 </template>
 <script>
-import Chart from "chart.js";
+// import Chart from "chart.js";
+import calendar from "@/components/calendar";
+import piechart from "@/components/chartjs/piechart";
 // import adsense from "../../components/Ads";
 
 export default {
   name: "DefaultDashboard",
   components: {
-    // adsense
+    calendar,
+    piechart,
   },
   data() {
     return {
@@ -303,8 +317,9 @@ export default {
         {
           id: "1",
           icon: "fas fa-shopping-cart",
-          title: "2.562",
+          title: "25",
           text: "Sales Today",
+          summary: "-25%",
           class: "card-icon primary--text pl-3",
         },
         {
@@ -312,6 +327,7 @@ export default {
           icon: "fas fa-heartbeat",
           title: "17.212",
           text: "Visitors Today",
+          summary: "35%",
           class: "card-icon warning--text pl-3",
         },
         {
@@ -319,6 +335,7 @@ export default {
           icon: "fas fa-dollar-sign",
           title: "$ 24.300",
           text: "Total Earnings",
+          summary: "15%",
           class: "card-icon success--text pl-3",
         },
         {
@@ -326,6 +343,7 @@ export default {
           icon: "fas fa-shopping-bag",
           title: "43",
           text: "Pending Orders",
+          summary: "25%",
           class: "card-icon error--text pl-3",
         },
       ],
@@ -460,121 +478,81 @@ export default {
           route: "/",
         },
       ],
+      dailyfeed: [
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+          title: "Brunch this weekend?",
+          subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+        },
+        { divider: true, inset: true },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+          title: "Summer BBQ",
+          subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+        },
+        { divider: true, inset: true },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+          title: "Oui oui",
+          subtitle:
+            '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+        },
+        { divider: true, inset: true },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+          title: "Birthday gift",
+          subtitle:
+            '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+        },
+        { divider: true, inset: true },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+          title: "Recipe to try",
+          subtitle:
+            '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+        },
+      ],
+      // Calendar
+      type: "month",
+      modes: ["stack", "column"],
+      weekday: [0, 1, 2, 3, 4, 5, 6],
+      weekdays: [
+        { text: "Sun - Sat", value: [0, 1, 2, 3, 4, 5, 6] },
+        { text: "Mon - Sun", value: [1, 2, 3, 4, 5, 6, 0] },
+        { text: "Mon - Fri", value: [1, 2, 3, 4, 5] },
+        { text: "Mon, Wed, Fri", value: [1, 3, 5] },
+      ],
+      value: "",
+      events: [],
+      colors: [
+        "blue",
+        "indigo",
+        "deep-purple",
+        "cyan",
+        "green",
+        "orange",
+        "grey darken-1",
+      ],
+      names: [
+        "Meeting",
+        "Holiday",
+        "PTO",
+        "Travel",
+        "Event",
+        "Birthday",
+        "Conference",
+        "Party",
+      ],
     };
-  },
-  mounted() {
-    var ctx = document.getElementById("totalrevenue");
-    var totalrevenue = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        datasets: [
-          {
-            label: "Sales ($)",
-            fill: true,
-            backgroundColor: "transparent",
-            borderColor: "#d64937", //find what this is
-            data: [
-              2015,
-              1465,
-              1487,
-              1796,
-              1387,
-              2123,
-              2866,
-              2548,
-              3902,
-              4938,
-              3917,
-              4927,
-            ],
-          },
-          {
-            label: "Orders",
-            fill: true,
-            backgroundColor: "transparent",
-            borderColor: "#2d2d2d",
-            borderDash: [4, 4],
-            data: [
-              928,
-              734,
-              626,
-              893,
-              921,
-              1202,
-              1396,
-              1232,
-              1524,
-              2102,
-              1506,
-              1887,
-            ],
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: true,
-        legend: {
-          display: true,
-          position: "bottom",
-        },
-        tooltips: {
-          intersect: false,
-        },
-        hover: {
-          intersect: true,
-        },
-      },
-    });
-    totalrevenue.render();
-    var ctx2 = document.getElementById("weeklysales");
-    var weeklysales = new Chart(ctx2, {
-      type: "pie",
-      data: {
-        labels: [
-          "Section A",
-          "Section B",
-          "Section C",
-          "Section D",
-          "Section E",
-          "Section F",
-        ],
-        datasets: [
-          {
-            label: "# of Students",
-            data: [120, 190, 30, 50, 59, 30],
-            backgroundColor: "rgba(255, 99, 132, 0.1)",
-            borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 2,
-          },
-          {
-            options: {},
-          },
-        ],
-      },
-    });
-    weeklysales.render();
-  },
-  computed: {
-    // latestproject(){
-    // }
   },
 };
 </script>
 <style scoped>
 .card-icon {
-  font-size: 50px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 100px;
+  transform: skewY(20deg);
 }
 </style>

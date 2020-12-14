@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet tile height="54" class="d-flex">
+    <v-sheet tile height="54" class="d-flex" elevation="0">
       <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
@@ -122,6 +122,6 @@ export default {
     rnd(a, b) {
       return Math.floor((b - a + 1) * Math.random()) + a;
     },
-  }
+  },
 };
 </script>

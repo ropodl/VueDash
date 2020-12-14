@@ -11,7 +11,7 @@
       <!-- Line chart and daily feed -->
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
-          <v-card>
+          <v-card class="mb-5">
             <v-card-title class="d-flex justify-space-between">
               Total Revenue
               <v-chip small color="primary">Monthly</v-chip>
@@ -26,9 +26,59 @@
               />
             </v-card-text>
           </v-card>
+          <v-card class="mb-5">
+            <v-card-title class="d-flex justify-space-between">
+              Calendar
+              <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <calendar elevation="0" />
+          </v-card>
+          <v-card>
+            <v-card-title class="d-flex justify-space-between">
+              Sales / Revenue
+              <v-spacer></v-spacer>
+              <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title link router :to="item.route">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text>
+              <chartjs
+                :id="salesrevenuedata.id"
+                :type="salesrevenuedata.type"
+                :data="salesrevenuedata.data"
+                :options="salesrevenuedata.option"
+              />
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-          <v-card>
+          <v-card class="mb-5">
             <v-card-title class="d-flex justify-space-between">
               Daily Feed
               <v-chip small color="info">Today</v-chip>
@@ -64,222 +114,168 @@
               </v-list>
             </v-card-text>
           </v-card>
+          <v-card class="mb-5">
+            <v-card-title class="d-flex justify-space-between">
+              Weekly Sales
+              <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text style="height:100%;">
+              <chartjs
+                :id="'weeklysales'"
+                :type="'doughnut'"
+                :data="weeklysalesdata.data"
+                :options="weeklysalesdata.option"
+              />
+            </v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-title class="d-flex justify-space-between">
+              Appointments
+              <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text class="pa-0">
+              <v-timeline align-top dense>
+                <v-timeline-item color="pink" small>
+                  <v-row>
+                    <v-col cols="3">
+                      <strong>5pm</strong>
+                    </v-col>
+                    <v-col>
+                      <strong>New Icon</strong>
+                      <div class="caption">Mobile App</div>
+                    </v-col>
+                  </v-row>
+                </v-timeline-item>
+
+                <v-timeline-item color="teal lighten-3" small>
+                  <v-row>
+                    <v-col cols="3">
+                      <strong>3-4pm</strong>
+                    </v-col>
+                    <v-col>
+                      <strong>Design Stand Up</strong>
+                      <div class="caption mb-2">Hangouts</div>
+                      <v-avatar>
+                        <v-img
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
+                        >
+                        </v-img>
+                      </v-avatar>
+                      <v-avatar>
+                        <v-img
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
+                        >
+                        </v-img>
+                      </v-avatar>
+                      <v-avatar>
+                        <v-img
+                          src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
+                        >
+                        </v-img>
+                      </v-avatar>
+                    </v-col>
+                  </v-row>
+                </v-timeline-item>
+
+                <v-timeline-item color="pink" small>
+                  <v-row>
+                    <v-col cols="3">
+                      <strong>12pm</strong>
+                    </v-col>
+                    <v-col>
+                      <strong>Lunch break</strong>
+                    </v-col>
+                  </v-row>
+                </v-timeline-item>
+
+                <v-timeline-item color="teal lighten-3" small>
+                  <v-row class="pt-1">
+                    <v-col cols="3">
+                      <strong>9-11am</strong>
+                    </v-col>
+                    <v-col>
+                      <strong>Finish Home Screen</strong>
+                      <div class="caption">Web App</div>
+                    </v-col>
+                  </v-row>
+                </v-timeline-item>
+              </v-timeline>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
-
-      <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8"> </v-col>
-
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4"> </v-col>
-
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card>
-          <v-card-title class="d-flex justify-space-between">
-            Calendar
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn v-on="on" icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
+      <v-row>
+        <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+          <v-card>
+            <v-card-title class="d-flex justify-space-between">
+              Latest Projects
+              <v-spacer></v-spacer>
+              <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-data-table :headers="header" :items="project">
+              <template v-slot:item.status="{ item }">
+                <v-chip v-if="item.status == 'Done'" color="success" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip
+                  v-if="item.status == 'In Progress'"
+                  color="warning"
+                  small
+                  >{{ item.status }}</v-chip
+                >
               </template>
-              <v-list dense>
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')">{{
-                    item.title
-                  }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text class="pa-0">
-            <calendar />
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card>
-          <v-card-title class="d-flex justify-space-between">
-            Weekly Sales
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn v-on="on" icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
-              </template>
-              <v-list dense>
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')">{{
-                    item.title
-                  }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text>
-            <!-- another chart -->
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card>
-          <v-card-title class="d-flex justify-space-between">
-            Appointments
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn v-on="on" icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
-              </template>
-              <v-list dense>
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')">{{
-                    item.title
-                  }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text class="pa-0">
-            <v-timeline align-top dense>
-              <v-timeline-item color="pink" small>
-                <v-row>
-                  <v-col cols="3">
-                    <strong>5pm</strong>
-                  </v-col>
-                  <v-col>
-                    <strong>New Icon</strong>
-                    <div class="caption">Mobile App</div>
-                  </v-col>
-                </v-row>
-              </v-timeline-item>
-
-              <v-timeline-item color="teal lighten-3" small>
-                <v-row>
-                  <v-col cols="3">
-                    <strong>3-4pm</strong>
-                  </v-col>
-                  <v-col>
-                    <strong>Design Stand Up</strong>
-                    <div class="caption mb-2">Hangouts</div>
-                    <v-avatar>
-                      <v-img
-                        src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
-                      >
-                      </v-img>
-                    </v-avatar>
-                    <v-avatar>
-                      <v-img
-                        src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
-                      >
-                      </v-img>
-                    </v-avatar>
-                    <v-avatar>
-                      <v-img
-                        src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
-                      >
-                      </v-img>
-                    </v-avatar>
-                  </v-col>
-                </v-row>
-              </v-timeline-item>
-
-              <v-timeline-item color="pink" small>
-                <v-row>
-                  <v-col cols="3">
-                    <strong>12pm</strong>
-                  </v-col>
-                  <v-col>
-                    <strong>Lunch break</strong>
-                  </v-col>
-                </v-row>
-              </v-timeline-item>
-
-              <v-timeline-item color="teal lighten-3" small>
-                <v-row class="pt-1">
-                  <v-col cols="3">
-                    <strong>9-11am</strong>
-                  </v-col>
-                  <v-col>
-                    <strong>Finish Home Screen</strong>
-                    <div class="caption">Web App</div>
-                  </v-col>
-                </v-row>
-              </v-timeline-item>
-            </v-timeline>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-      <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
-        <v-card>
-          <v-card-title class="d-flex justify-space-between">
-            Latest Projects
-            <v-spacer></v-spacer>
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn v-on="on" icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
-              </template>
-              <v-list dense>
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')">{{
-                    item.title
-                  }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-data-table :headers="header" :items="project">
-            <template v-slot:item.status="{ item }">
-              <v-chip v-if="item.status == 'Done'" color="success" small>{{
-                item.status
-              }}</v-chip>
-              <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
-                item.status
-              }}</v-chip>
-              <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
-                item.status
-              }}</v-chip>
-              <v-chip
-                v-if="item.status == 'In Progress'"
-                color="warning"
-                small
-                >{{ item.status }}</v-chip
-              >
-            </template>
-          </v-data-table>
-        </v-card>
-      </v-col>
-
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card>
-          <v-card-title class="d-flex justify-space-between">
-            Sales / Revenue
-            <v-spacer></v-spacer>
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn v-on="on" icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
-              </template>
-              <v-list dense>
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title link router :to="item.route">{{
-                    item.title
-                  }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text>Insert bar chart jokes here</v-card-text>
-        </v-card>
-      </v-col>
-      <!-- </v-row> -->
+            </v-data-table>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -288,7 +284,6 @@
 import calendar from "@/components/calendar";
 import chartjs from "@/components/chartjs/chartjs";
 import numberpane from "@/components/default-dash/numberpane";
-// import adsense from "../../components/Ads";
 
 export default {
   name: "DefaultDashboard",
@@ -333,6 +328,76 @@ export default {
           hover: {
             intersect: true,
           },
+        },
+      },
+      weeklysalesdata: {
+        id: "weeklysales",
+        type: "dougnut",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Sales ($)",
+              fill: true,
+              backgroundColor: [
+                "blue",
+                "indigo",
+                "red",
+                "cyan",
+                "green",
+                "orange",
+                "red darken-1",
+              ],
+              // borderColor: "transparent", //find what this is
+              data: [2015, 1465, 1487, 1796, 1387, 2123],
+            },
+            // {
+            //   label: "Orders",
+            //   fill: true,
+            //   backgroundColor: "transparent",
+            //   // borderColor: "#2d2d2d",
+            //   data: [928, 734, 626, 893, 921, 1202],
+            // },
+          ],
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: true,
+            position: "bottom",
+          },
+          tooltips: {
+            intersect: false,
+          },
+          hover: {
+            intersect: true,
+          },
+        },
+      },
+      salesrevenuedata: {
+        id: "salesrevenue",
+        type: "bar",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"],
+          datasets: [
+            {
+              fill: true,
+              backgroundColor: [
+                "blue",
+                "indigo",
+                "red",
+                "cyan",
+                "green",
+                "orange",
+                "red darken-1",
+              ],
+              // barPercentage: 0.5,
+              // barThickness: 6,
+              // maxBarThickness: 8,
+              // minBarLength: 2,
+              data: [10, 20, 30, 40, 50, 60, 70],
+            },
+          ],
         },
       },
       header: [
@@ -533,6 +598,7 @@ export default {
       ],
     };
   },
+  computed: {},
 };
 </script>
 <style scoped></style>

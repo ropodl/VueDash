@@ -24,7 +24,6 @@
           <!-- :type="summaryindex" -->
           <v-alert
             :color="carddetail.summary.includes('-') ? 'error' : 'success'"
-            icon=""
             dense
             text
             class="mb-0 mr-2"

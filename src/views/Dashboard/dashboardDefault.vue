@@ -302,16 +302,16 @@ export default {
           datasets: [
             {
               label: "Sales ($)",
-              fill: true,
-              backgroundColor: "transparent",
+              fill: false,
+              backgroundColor: "#d64937",
               borderColor: "#d64937", //find what this is
               data: [2015, 1465, 1487, 1796, 1387, 2123],
             },
             {
               label: "Orders",
-              fill: true,
-              backgroundColor: "transparent",
-              borderColor: "#2d2d2d",
+              fill: false,
+              backgroundColor: "white",
+              borderColor: "white",
               data: [928, 734, 626, 893, 921, 1202],
             },
           ],
@@ -348,16 +348,9 @@ export default {
                 "orange",
                 "red darken-1",
               ],
-              // borderColor: "transparent", //find what this is
+              borderColor: "transparent", //find what this is
               data: [2015, 1465, 1487, 1796, 1387, 2123],
             },
-            // {
-            //   label: "Orders",
-            //   fill: true,
-            //   backgroundColor: "transparent",
-            //   // borderColor: "#2d2d2d",
-            //   data: [928, 734, 626, 893, 921, 1202],
-            // },
           ],
         },
         options: {

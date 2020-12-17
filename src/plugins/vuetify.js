@@ -5,9 +5,7 @@ Vue.use(Vuetify);
 
 const opts = {
     theme: {
-        themes: {
-            dark: localStorage.getItem('dark')
-        }
+        dark: true
     }
 }
 

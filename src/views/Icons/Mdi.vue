@@ -27,8 +27,14 @@
               >
                 <v-card flat>
                   <v-card-text>
-                    <v-icon class="mr-4">{{ mdicon }}</v-icon
-                    >{{ mdicon }}
+                    <div class="mb-4 d-flex">
+                      <v-icon class="mx-auto">{{ mdicon }}</v-icon>
+                    </div>
+                    <div class="d-flex">
+                      <span class="mx-auto">
+                        {{ mdicon }}
+                      </span>
+                    </div>
                   </v-card-text>
                 </v-card>
               </v-col>

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.13",
-    "apexcharts": "^3.23.0",
+    "apexcharts": "^3.24.0",
     "axios": "^0.21.0",
     "chart.js": "^2.9.4",
     "core-js": "^3.8.1",

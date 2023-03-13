@@ -1,18 +1,17 @@
-//alpha
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import { createI18n } from "vue-i18n";
 
-import en from './langs/en.json'
-// import np from './langs/np.json'
+import en from "./langs/en.json";
+import np from "./langs/np.json";
 
-Vue.use(VueI18n);
+const i18n = createI18n({
+  locale: "np", // set locale
+  legacy: false,
+  allowComposition: true,
+  fallbackLocale: "en", // set fallback locale
+  messages: {
+    en,
+    np,
+  },
+});
 
-const i18n = new VueI18n({
-    locale: 'en', // set locale
-    fallbackLocale: 'np', // set fallback locale
-    messages: {
-        en
-    }
-})
-
-export default i18n
+export default i18n;

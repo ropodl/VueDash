@@ -7,7 +7,7 @@
 <template>
   <v-app>
     <v-main>
-      <!-- <Navbar></Navbar> -->
+      <Navbar />
       <!-- v-if="!$route.meta.hidenav" -->
       <router-view keep-alive class="mb-12"></router-view>
       <Footer />

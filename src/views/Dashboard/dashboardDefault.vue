@@ -1,6 +1,6 @@
 <template>
   <div class="dashboardDefault">
-    <v-container fluid>
+    <v-container>
       <!-- <v-row> -->
       <v-row>
         <v-col cols="12" class="py-0">

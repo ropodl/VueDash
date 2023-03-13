@@ -84,293 +84,293 @@ const routes = [
         name: "Home",
         component: () => import("@/views/Dashboard/dashboardDefault"),
       },
+      {
+        path: "/analytics",
+        name: "Analytics",
+        component: DashboardAnalytics,
+      },
+      {
+        path: "/ecommerce",
+        name: "Ecommerce",
+        component: DashboardEcommerce,
+      },
+      {
+        path: "/social",
+        name: "Social",
+        component: DashboardSocial,
+      },
+      {
+        path: "/crypto",
+        name: "Crypto",
+        component: DashboardCrypto,
+      },
+      {
+        path: "/profile",
+        name: "Profile",
+        component: Profile,
+      },
+      {
+        path: "/settings",
+        name: "Settings",
+        component: Settings,
+      },
+      {
+        path: "/clients",
+        name: "Clients",
+        component: Clients,
+      },
+      {
+        path: "/list",
+        name: "List",
+        component: List,
+      },
+      {
+        path: "/detail",
+        name: "Detail",
+        component: Detail,
+      },
+      {
+        path: "/invoice",
+        name: "Invoice",
+        component: Invoice,
+      },
+      {
+        path: "/pricing",
+        name: "Pricing",
+        component: Pricing,
+      },
+      {
+        path: "/tasks",
+        name: "Tasks",
+        component: Tasks,
+      },
+      {
+        path: "/chat",
+        name: "Chat",
+        component: Chat,
+      },
+      {
+        path: "/blank-page",
+        name: "Blank Page",
+        component: BlankPage,
+      },
+      {
+        path: "/signin",
+        name: "SignIn",
+        component: SignIn,
+        meta: {
+          hidenav: true,
+        },
+      },
+      {
+        path: "/signup",
+        name: "SignUp",
+        component: SignUp,
+        meta: {
+          hidenav: true,
+        },
+      },
+      {
+        path: "/reset-password",
+        name: "Reset Password",
+        component: ResetPassword,
+        meta: {
+          hidenav: true,
+        },
+      },
+      {
+        path: "/404",
+        name: "404",
+        component: fourofourPage,
+        meta: {
+          hidenav: true,
+        },
+      },
+      {
+        path: "/500",
+        name: "500",
+        component: fiveooPage,
+        meta: {
+          hidenav: true,
+        },
+      },
+      {
+        path: "/introduction",
+        name: "Introduction",
+        component: Introduction,
+      },
+      {
+        path: "/getting-started",
+        name: "GettingStarted",
+        component: GettingStarted,
+      },
+      {
+        path: "/plugins",
+        name: "Plugins",
+        component: Plugins,
+      },
+      {
+        path: "/changelog",
+        name: "Changelog",
+        component: Changelog,
+      },
+      {
+        path: "/alerts",
+        name: "Alerts",
+        component: Alerts,
+      },
+      {
+        path: "/buttons",
+        name: "Buttons",
+        component: Buttons,
+      },
+      {
+        path: "/Cards",
+        name: "Cards",
+        component: Cards,
+      },
+      {
+        path: "/carousel",
+        name: "Carousel",
+        component: Carousel,
+      },
+      {
+        path: "/embed-video",
+        name: "EmbedVideo",
+        component: embedVideo,
+      },
+      {
+        path: "/general",
+        name: "General",
+        component: General,
+      },
+      {
+        path: "/grid",
+        name: "Grid",
+        component: Grid,
+      },
+      {
+        path: "/modals",
+        name: "Modals",
+        component: Modals,
+      },
+      {
+        path: "/tabs",
+        name: "Tabs",
+        component: Tabs,
+      },
+      {
+        path: "/typography",
+        name: "Typography",
+        component: Typography,
+      },
+      {
+        path: "/mdi",
+        name: "Mdi",
+        component: Mdi,
+      },
+      {
+        path: "/fa5",
+        name: "Fa5",
+        component: Fa,
+      },
+      {
+        path: "/layouts",
+        name: "Layouts",
+        component: Layouts,
+      },
+      {
+        path: "/basic-inputs",
+        name: "BasicInputs",
+        component: BasicInputs,
+      },
+      {
+        path: "/input-groups",
+        name: "InputGroups",
+        component: InputGroups,
+      },
+      {
+        path: "/tables",
+        name: "Tables",
+        component: Table,
+      },
+      {
+        path: "/advanced-inputs",
+        name: "Advanced Inputs",
+        component: AdvancedInputs,
+      },
+      {
+        path: "/editors",
+        name: "Editors",
+        component: Editors,
+      },
+      {
+        path: "/validation",
+        name: "Validation",
+        component: Validation,
+      },
+      {
+        path: "/wizard",
+        name: "Wizard",
+        component: Wizard,
+      },
+      {
+        path: "/responsive-tables",
+        name: "Responsive Tables",
+        component: ResponsiveTables,
+      },
+      {
+        path: "/table-buttons",
+        name: "Table with Buttons",
+        component: TablewButtons,
+      },
+      {
+        path: "/column-search",
+        name: "Column Search",
+        component: ColumnSearch,
+      },
+      {
+        path: "/multi-selection",
+        name: "Multi Selection",
+        component: MultiSelection,
+      },
+      {
+        path: "/ajax-sourced-data",
+        name: "Ajax Source Data",
+        component: AjaxSourcedData,
+      },
+      {
+        path: "/chartjs",
+        name: "Chart.js",
+        component: Chartjs,
+      },
+      {
+        path: "/apexcharts",
+        name: "ApexCharts",
+        component: ApexCharts,
+      },
+      {
+        path: "/notifications",
+        name: "Notifications",
+        component: Notifications,
+      },
+      {
+        path: "/google-maps",
+        name: "Google Maps",
+        component: GoogleMaps,
+      },
+      {
+        path: "/vector-maps",
+        name: "Vector Maps",
+        component: VectorMaps,
+      },
+      {
+        path: "/calendar",
+        name: "Calendar",
+        component: Calendar,
+      },
     ],
   },
-  // {
-  //   path: "/analytics",
-  //   name: "Analytics",
-  //   component: DashboardAnalytics,
-  // },
-  // {
-  //   path: "/ecommerce",
-  //   name: "Ecommerce",
-  //   component: DashboardEcommerce,
-  // },
-  // {
-  //   path: "/social",
-  //   name: "Social",
-  //   component: DashboardSocial,
-  // },
-  // {
-  //   path: "/crypto",
-  //   name: "Crypto",
-  //   component: DashboardCrypto,
-  // },
-  // {
-  //   path: "/profile",
-  //   name: "Profile",
-  //   component: Profile,
-  // },
-  // {
-  //   path: "/settings",
-  //   name: "Settings",
-  //   component: Settings,
-  // },
-  // {
-  //   path: "/clients",
-  //   name: "Clients",
-  //   component: Clients,
-  // },
-  // {
-  //   path: "/list",
-  //   name: "List",
-  //   component: List,
-  // },
-  // {
-  //   path: "/detail",
-  //   name: "Detail",
-  //   component: Detail,
-  // },
-  // {
-  //   path: "/invoice",
-  //   name: "Invoice",
-  //   component: Invoice,
-  // },
-  // {
-  //   path: "/pricing",
-  //   name: "Pricing",
-  //   component: Pricing,
-  // },
-  // {
-  //   path: "/tasks",
-  //   name: "Tasks",
-  //   component: Tasks,
-  // },
-  // {
-  //   path: "/chat",
-  //   name: "Chat",
-  //   component: Chat,
-  // },
-  // {
-  //   path: "/blank-page",
-  //   name: "Blank Page",
-  //   component: BlankPage,
-  // },
-  // {
-  //   path: "/signin",
-  //   name: "SignIn",
-  //   component: SignIn,
-  //   meta: {
-  //     hidenav: true,
-  //   },
-  // },
-  // {
-  //   path: "/signup",
-  //   name: "SignUp",
-  //   component: SignUp,
-  //   meta: {
-  //     hidenav: true,
-  //   },
-  // },
-  // {
-  //   path: "/reset-password",
-  //   name: "Reset Password",
-  //   component: ResetPassword,
-  //   meta: {
-  //     hidenav: true,
-  //   },
-  // },
-  // {
-  //   path: "/404",
-  //   name: "404",
-  //   component: fourofourPage,
-  //   meta: {
-  //     hidenav: true,
-  //   },
-  // },
-  // {
-  //   path: "/500",
-  //   name: "500",
-  //   component: fiveooPage,
-  //   meta: {
-  //     hidenav: true,
-  //   },
-  // },
-  // {
-  //   path: "/introduction",
-  //   name: "Introduction",
-  //   component: Introduction,
-  // },
-  // {
-  //   path: "/getting-started",
-  //   name: "GettingStarted",
-  //   component: GettingStarted,
-  // },
-  // {
-  //   path: "/plugins",
-  //   name: "Plugins",
-  //   component: Plugins,
-  // },
-  // {
-  //   path: "/changelog",
-  //   name: "Changelog",
-  //   component: Changelog,
-  // },
-  // {
-  //   path: "/alerts",
-  //   name: "Alerts",
-  //   component: Alerts,
-  // },
-  // {
-  //   path: "/buttons",
-  //   name: "Buttons",
-  //   component: Buttons,
-  // },
-  // {
-  //   path: "/Cards",
-  //   name: "Cards",
-  //   component: Cards,
-  // },
-  // {
-  //   path: "/carousel",
-  //   name: "Carousel",
-  //   component: Carousel,
-  // },
-  // {
-  //   path: "/embed-video",
-  //   name: "EmbedVideo",
-  //   component: embedVideo,
-  // },
-  // {
-  //   path: "/general",
-  //   name: "General",
-  //   component: General,
-  // },
-  // {
-  //   path: "/grid",
-  //   name: "Grid",
-  //   component: Grid,
-  // },
-  // {
-  //   path: "/modals",
-  //   name: "Modals",
-  //   component: Modals,
-  // },
-  // {
-  //   path: "/tabs",
-  //   name: "Tabs",
-  //   component: Tabs,
-  // },
-  // {
-  //   path: "/typography",
-  //   name: "Typography",
-  //   component: Typography,
-  // },
-  // {
-  //   path: "/mdi",
-  //   name: "Mdi",
-  //   component: Mdi,
-  // },
-  // {
-  //   path: "/fa5",
-  //   name: "Fa5",
-  //   component: Fa,
-  // },
-  // {
-  //   path: "/layouts",
-  //   name: "Layouts",
-  //   component: Layouts,
-  // },
-  // {
-  //   path: "/basic-inputs",
-  //   name: "BasicInputs",
-  //   component: BasicInputs,
-  // },
-  // {
-  //   path: "/input-groups",
-  //   name: "InputGroups",
-  //   component: InputGroups,
-  // },
-  // {
-  //   path: "/tables",
-  //   name: "Tables",
-  //   component: Table,
-  // },
-  // {
-  //   path: "/advanced-inputs",
-  //   name: "Advanced Inputs",
-  //   component: AdvancedInputs,
-  // },
-  // {
-  //   path: "/editors",
-  //   name: "Editors",
-  //   component: Editors,
-  // },
-  // {
-  //   path: "/validation",
-  //   name: "Validation",
-  //   component: Validation,
-  // },
-  // {
-  //   path: "/wizard",
-  //   name: "Wizard",
-  //   component: Wizard,
-  // },
-  // {
-  //   path: "/responsive-tables",
-  //   name: "Responsive Tables",
-  //   component: ResponsiveTables,
-  // },
-  // {
-  //   path: "/table-buttons",
-  //   name: "Table with Buttons",
-  //   component: TablewButtons,
-  // },
-  // {
-  //   path: "/column-search",
-  //   name: "Column Search",
-  //   component: ColumnSearch,
-  // },
-  // {
-  //   path: "/multi-selection",
-  //   name: "Multi Selection",
-  //   component: MultiSelection,
-  // },
-  // {
-  //   path: "/ajax-sourced-data",
-  //   name: "Ajax Source Data",
-  //   component: AjaxSourcedData,
-  // },
-  // {
-  //   path: "/chartjs",
-  //   name: "Chart.js",
-  //   component: Chartjs,
-  // },
-  // {
-  //   path: "/apexcharts",
-  //   name: "ApexCharts",
-  //   component: ApexCharts,
-  // },
-  // {
-  //   path: "/notifications",
-  //   name: "Notifications",
-  //   component: Notifications,
-  // },
-  // {
-  //   path: "/google-maps",
-  //   name: "Google Maps",
-  //   component: GoogleMaps,
-  // },
-  // {
-  //   path: "/vector-maps",
-  //   name: "Vector Maps",
-  //   component: VectorMaps,
-  // },
-  // {
-  //   path: "/calendar",
-  //   name: "Calendar",
-  //   component: Calendar,
-  // },
 ];
 
 const router = createRouter({

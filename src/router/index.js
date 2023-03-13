@@ -77,8 +77,14 @@ import Calendar from "../views/Calendar/Calendar";
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: () => import("../views/Dashboard/dashboardDefault"),
+    component: () => import("@/layouts/Default.vue"),
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: () => import("@/views/Dashboard/dashboardDefault"),
+      },
+    ],
   },
   // {
   //   path: "/analytics",

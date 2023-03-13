@@ -1,24 +1,5 @@
-# vuedash
+# Vuedash
 
-## Project setup
-```
-npm install
-```
+## This is Vue version 2.7
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Update with Vue 3 is coming soon.. checkout vue3 branch

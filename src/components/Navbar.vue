@@ -171,7 +171,7 @@ const switchlanguage = (lang) => {
 // };
 </script>
 <template>
-  <v-app-bar density="compact">
+  <v-app-bar class="border-b" density="compact">
     <v-container>
       <v-row align="center">
         <v-app-bar-nav-icon

@@ -3,371 +3,285 @@ import { createRouter, createWebHistory } from "vue-router";
 // import NProgress from "nprogress";
 // import "nprogress/nprogress.css";
 
-// Dashboard
-import DashboardDefault from "../views/Dashboard/dashboardDefault";
-import DashboardAnalytics from "../views/Dashboard/dashboardAnalytics";
-import DashboardEcommerce from "../views/Dashboard/dashboardEcommerce";
-import DashboardSocial from "../views/Dashboard/dashboardSocial";
-import DashboardCrypto from "../views/Dashboard/dashboardCrypto";
-// // Pages
-import Profile from "../views/Pages/Profile";
-import Settings from "../views/Pages/Settings";
-import Clients from "../views/Pages/Clients";
-import List from "../views/Pages/List";
-import Detail from "../views/Pages/Detail";
-import Invoice from "../views/Pages/Invoice";
-import Pricing from "../views/Pages/Pricing";
-import Tasks from "../views/Pages/Tasks";
-import Chat from "../views/Pages/Chat";
-import BlankPage from "../views/Pages/BlankPage";
-//Auth
-import SignIn from "../views/Auth/SignIn";
-import SignUp from "../views/Auth/SignUp";
-import ResetPassword from "../views/Auth/ResetPassword";
-import fourofourPage from "../views/Auth/404Page";
-import fiveooPage from "../views/Auth/500Page";
-//Documentation
-import Introduction from "../views/Documentation/Introduction";
-import GettingStarted from "../views/Documentation/GettingStarted";
-import Plugins from "../views/Documentation/Plugins";
-import Changelog from "../views/Documentation/Changelog";
-//UI Elements
-import Alerts from "../views/Elements/Alerts";
-import Buttons from "../views/Elements/Buttons";
-import Cards from "../views/Elements/Cards";
-import Carousel from "../views/Elements/Carousel";
-import embedVideo from "../views/Elements/embedVideo";
-import General from "../views/Elements/General";
-import Grid from "../views/Elements/Grid";
-import Modals from "../views/Elements/Modals";
-import Tabs from "../views/Elements/Tabs";
-import Typography from "../views/Elements/Typography";
-//Icons
-import Mdi from "../views/Icons/Mdi";
-import Fa from "../views/Icons/Fa5";
-//Forms
-import Layouts from "../views/Forms/Layouts";
-import BasicInputs from "../views/Forms/BasicInputs";
-import InputGroups from "../views/Forms/InputGroups";
-//Table
-import Table from "../views/Tables/Tables";
-//Form Plugins
-import AdvancedInputs from "../views/FormPlugins/AdvancedInputs";
-import Editors from "../views/FormPlugins/Editors";
-import Validation from "../views/FormPlugins/Validation";
-import Wizard from "../views/FormPlugins/Wizard";
-// // //Data Tables
-import ResponsiveTables from "../views/DataTables/ResponsiveTables";
-import TablewButtons from "../views/DataTables/TableWithButtons";
-import ColumnSearch from "../views/DataTables/ColumnSearch";
-import MultiSelection from "../views/DataTables/MultiSelection";
-import AjaxSourcedData from "../views/DataTables/AjaxSourcedData";
-//Chart
-import Chartjs from "../views/Charts/ChartJs";
-import ApexCharts from "../views/Charts/ApexCharts";
-//Notifications
-import Notifications from "../views/Notifications/Notifications";
-//Maps
-import GoogleMaps from "../views/Maps/GoogleMaps";
-import VectorMaps from "../views/Maps/VectorMaps";
-//Calendar
-import Calendar from "../views/Calendar/Calendar";
-//Multi Level
-
 const routes = [
   {
-    path: "/",
+    path: "",
     component: () => import("@/layouts/Default.vue"),
     children: [
       {
-        path: "",
+        path: "/",
         name: "Home",
         component: () => import("@/views/Dashboard/dashboardDefault"),
       },
       {
         path: "/analytics",
         name: "Analytics",
-        component: DashboardAnalytics,
+        component: () => import("@/views/Dashboard/dashboardAnalytics"),
       },
       {
         path: "/ecommerce",
         name: "Ecommerce",
-        component: DashboardEcommerce,
+        component: () => import("@/views/Dashboard/dashboardEcommerce"),
       },
       {
         path: "/social",
         name: "Social",
-        component: DashboardSocial,
+        component: () => import("@/views/Dashboard/dashboardSocial"),
       },
       {
         path: "/crypto",
         name: "Crypto",
-        component: DashboardCrypto,
+        component: () => import("@/views/Dashboard/dashboardCrypto"),
       },
       {
         path: "/profile",
         name: "Profile",
-        component: Profile,
+        component: () => import("@/views/Pages/Profile"),
       },
       {
         path: "/settings",
         name: "Settings",
-        component: Settings,
+        component: () => import("@/views/Pages/Settings"),
       },
       {
         path: "/clients",
         name: "Clients",
-        component: Clients,
+        component: () => import("@/views/Pages/Clients"),
       },
       {
         path: "/list",
         name: "List",
-        component: List,
+        component: () => import("@/views/Pages/List"),
       },
       {
         path: "/detail",
         name: "Detail",
-        component: Detail,
+        component: () => import("@/views/Pages/Detail"),
       },
       {
         path: "/invoice",
         name: "Invoice",
-        component: Invoice,
+        component: () => import("@/views/Pages/Invoice"),
       },
       {
         path: "/pricing",
         name: "Pricing",
-        component: Pricing,
+        component: () => import("@/views/Pages/Pricing"),
       },
       {
         path: "/tasks",
         name: "Tasks",
-        component: Tasks,
+        component: () => import("@/views/Pages/Tasks"),
       },
       {
         path: "/chat",
         name: "Chat",
-        component: Chat,
+        component: () => import("@/views/Pages/Chat"),
       },
       {
         path: "/blank-page",
         name: "Blank Page",
-        component: BlankPage,
+        component: () => import("@/views/Pages/BlankPage"),
       },
       {
         path: "/signin",
         name: "SignIn",
-        component: SignIn,
-        meta: {
-          hidenav: true,
-        },
+        component: () => import("@/views/Auth/SignIn"),
       },
       {
         path: "/signup",
         name: "SignUp",
-        component: SignUp,
-        meta: {
-          hidenav: true,
-        },
+        component: () => import("@/views/Auth/SignUp"),
       },
       {
         path: "/reset-password",
         name: "Reset Password",
-        component: ResetPassword,
-        meta: {
-          hidenav: true,
-        },
+        component: () => import("@/views/Auth/ResetPassword"),
       },
       {
         path: "/404",
         name: "404",
-        component: fourofourPage,
-        meta: {
-          hidenav: true,
-        },
+        component: () => import("@/views/Auth/404Page"),
       },
       {
         path: "/500",
         name: "500",
-        component: fiveooPage,
-        meta: {
-          hidenav: true,
-        },
+        component: () => import("@/views/Auth/500Page"),
       },
       {
         path: "/introduction",
         name: "Introduction",
-        component: Introduction,
+        component: () => import("@/views/Documentation/Introduction"),
       },
       {
         path: "/getting-started",
         name: "GettingStarted",
-        component: GettingStarted,
+        component: () => import("@/views/Documentation/GettingStarted"),
       },
       {
         path: "/plugins",
         name: "Plugins",
-        component: Plugins,
+        component: () => import("@/views/Documentation/Plugins"),
       },
       {
         path: "/changelog",
         name: "Changelog",
-        component: Changelog,
+        component: () => import("@/views/Documentation/Changelog"),
       },
       {
         path: "/alerts",
         name: "Alerts",
-        component: Alerts,
+        component: () => import("@/views/Elements/Alerts"),
       },
       {
         path: "/buttons",
         name: "Buttons",
-        component: Buttons,
+        component: () => import("@/views/Elements/Buttons"),
       },
       {
         path: "/Cards",
         name: "Cards",
-        component: Cards,
+        component: () => import("@/views/Elements/Cards"),
       },
       {
         path: "/carousel",
         name: "Carousel",
-        component: Carousel,
+        component: () => import("@/views/Elements/Carousel"),
       },
       {
         path: "/embed-video",
         name: "EmbedVideo",
-        component: embedVideo,
+        component: () => import("@/views/Elements//embedVideo"),
       },
       {
         path: "/general",
         name: "General",
-        component: General,
+        component: () => import("@/views/Elements/General"),
       },
       {
         path: "/grid",
         name: "Grid",
-        component: Grid,
+        component: () => import("@/views/Elements/Grid"),
       },
       {
         path: "/modals",
         name: "Modals",
-        component: Modals,
+        component: () => import("@/views/Elements/Modals"),
       },
       {
         path: "/tabs",
         name: "Tabs",
-        component: Tabs,
+        component: () => import("@/views/Elements/Tabs"),
       },
       {
         path: "/typography",
         name: "Typography",
-        component: Typography,
+        component: () => import("@/views/Elements/Typography"),
       },
       {
         path: "/mdi",
         name: "Mdi",
-        component: Mdi,
+        component: () => import("@/views/Icons/Mdi"),
       },
       {
         path: "/fa5",
         name: "Fa5",
-        component: Fa,
+        component: () => import("@/views/Icons/Fa5"),
       },
       {
         path: "/layouts",
         name: "Layouts",
-        component: Layouts,
+        component: () => import("@/views/Forms/Layouts"),
       },
       {
         path: "/basic-inputs",
         name: "BasicInputs",
-        component: BasicInputs,
+        component: () => import("@/views/Forms/BasicInputs"),
       },
       {
         path: "/input-groups",
         name: "InputGroups",
-        component: InputGroups,
+        component: () => import("@/views/Forms/InputGroups"),
       },
       {
         path: "/tables",
         name: "Tables",
-        component: Table,
+        component: () => import("@/views/Tables/Tables"),
       },
       {
         path: "/advanced-inputs",
         name: "Advanced Inputs",
-        component: AdvancedInputs,
+        component: () => import("@/views/FormPlugins/AdvancedInputs"),
       },
       {
         path: "/editors",
         name: "Editors",
-        component: Editors,
+        component: () => import("@/views/FormPlugins/Editors"),
       },
       {
         path: "/validation",
         name: "Validation",
-        component: Validation,
+        component: () => import("@/views/FormPlugins/Validation"),
       },
       {
         path: "/wizard",
         name: "Wizard",
-        component: Wizard,
+        component: () => import("@/views/FormPlugins/Wizard"),
       },
       {
         path: "/responsive-tables",
         name: "Responsive Tables",
-        component: ResponsiveTables,
+        component: () => import("@/views/DataTables/ResponsiveTables"),
       },
       {
         path: "/table-buttons",
         name: "Table with Buttons",
-        component: TablewButtons,
+        component: () => import("@/views/DataTables/TableWithButtons"),
       },
       {
         path: "/column-search",
         name: "Column Search",
-        component: ColumnSearch,
+        component: () => import("@/views/DataTables/ColumnSearch"),
       },
       {
         path: "/multi-selection",
         name: "Multi Selection",
-        component: MultiSelection,
+        component: () => import("@/views/DataTables/MultiSelection"),
       },
       {
         path: "/ajax-sourced-data",
         name: "Ajax Source Data",
-        component: AjaxSourcedData,
+        component: () => import("@/views/DataTables/AjaxSourcedData"),
       },
       {
         path: "/chartjs",
         name: "Chart.js",
-        component: Chartjs,
+        component: () => import("@/views/Charts/ChartJs"),
       },
       {
         path: "/apexcharts",
         name: "ApexCharts",
-        component: ApexCharts,
+        component: () => import("@/views/Charts/ApexCharts"),
       },
       {
         path: "/notifications",
         name: "Notifications",
-        component: Notifications,
+        component: () => import("@/views/Notifications/Notifications"),
       },
       {
         path: "/google-maps",
         name: "Google Maps",
-        component: GoogleMaps,
+        component: () => import("@/views/Maps/GoogleMaps"),
       },
       {
         path: "/vector-maps",
         name: "Vector Maps",
-        component: VectorMaps,
+        component: () => import("@/views/Maps/VectorMaps"),
       },
       {
         path: "/calendar",
         name: "Calendar",
-        component: Calendar,
+        component: () => import("@/views/Calendar/Calendar"),
       },
     ],
   },

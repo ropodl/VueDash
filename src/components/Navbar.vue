@@ -172,159 +172,155 @@ const switchlanguage = (lang) => {
 </script>
 <template>
   <v-app-bar class="border-b" density="compact">
-    <v-container>
-      <v-row align="center">
-        <v-app-bar-nav-icon
-          rounded="0"
-          height="48"
-          @click="drawer = !drawer"
-        ></v-app-bar-nav-icon>
-        <v-btn class="text-capitalize" rounded="0" height="48">
-          <span class="text-primary"
-            >V<span class="text-white hidden-sm-and-down">ue</span></span
-          >
-          <span>D<span class="text-white hidden-sm-and-down">ash</span></span>
+    <v-app-bar-nav-icon
+      rounded="0"
+      height="48"
+      @click="drawer = !drawer"
+    ></v-app-bar-nav-icon>
+    <v-btn class="text-capitalize" rounded="0" height="48">
+      <span class="text-primary"
+        >V<span class="text-white hidden-sm-and-down">ue</span></span
+      >
+      <span>D<span class="text-white hidden-sm-and-down">ash</span></span>
+    </v-btn>
+    <v-spacer></v-spacer>
+    <v-autocomplete
+      placeholder="Search..."
+      append-icon=""
+      prepend-inner-icon="mdi-magnify"
+      hide-no-data
+      hide-details
+    ></v-autocomplete>
+    <v-spacer></v-spacer>
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on: tooltip }">
+        <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
+          <v-badge small color="success" :overlap="true">
+            <template v-slot:badge>10</template>
+            <v-icon color="white" :icon="mdiMessage"></v-icon>
+          </v-badge>
         </v-btn>
-        <v-spacer></v-spacer>
-        <v-autocomplete
-          placeholder="Search..."
-          append-icon=""
-          prepend-inner-icon="mdi-magnify"
-          hide-no-data
-          hide-details
-        ></v-autocomplete>
-        <v-spacer></v-spacer>
+      </template>
+      <span>Message</span>
+    </v-tooltip>
+    <v-btn icon class="hidden-sm-and-down" @click="darkmodemethod">
+      <v-icon color="white" :icon="mdiInvertColors"></v-icon>
+    </v-btn>
+    <v-menu left offset-y transition="slide-y-transition" bottom>
+      <template v-slot:activator="{ props: menu }">
         <v-tooltip bottom>
-          <template v-slot:activator="{ on: tooltip }">
-            <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
-              <v-badge small color="success" :overlap="true">
-                <template v-slot:badge>10</template>
-                <v-icon color="white" :icon="mdiMessage"></v-icon>
+          <template v-slot:activator="{ props: tooltip }">
+            <v-btn icon v-bind="{ ...tooltip, ...menu }">
+              <v-badge small color="warning" :overlap="true">
+                <template v-slot:badge>{{ notifications.length }}</template>
+                <v-icon color="white" :icon="mdiBell"></v-icon>
               </v-badge>
             </v-btn>
           </template>
-          <span>Message</span>
+          <span>Notifications</span>
         </v-tooltip>
-        <v-btn icon class="hidden-sm-and-down" @click="darkmodemethod">
-          <v-icon color="white" :icon="mdiInvertColors"></v-icon>
-        </v-btn>
-        <v-menu left offset-y transition="slide-y-transition" bottom>
-          <template v-slot:activator="{ props: menu }">
-            <v-tooltip bottom>
-              <template v-slot:activator="{ props: tooltip }">
-                <v-btn icon v-bind="{ ...tooltip, ...menu }">
-                  <v-badge small color="warning" :overlap="true">
-                    <template v-slot:badge>{{ notifications.length }}</template>
-                    <v-icon color="white" :icon="mdiBell"></v-icon>
-                  </v-badge>
-                </v-btn>
-              </template>
-              <span>Notifications</span>
-            </v-tooltip>
-          </template>
-          <v-card width="400">
-            <v-list density="compact" lines="three">
-              <template v-for="(notification, index) in notifications">
-                <v-list-subheader
-                  v-if="notification.header"
-                  :key="notification.header"
-                  v-text="notification.header"
-                >
-                </v-list-subheader>
-                <v-divider
-                  v-else-if="notification.divider"
-                  :key="index"
-                  :inset="notification.inset"
-                ></v-divider>
-                <v-list-item
-                  v-else
-                  :key="notification.title"
-                  router
-                  link
-                  :to="notification.routes"
-                >
-                  <template v-slot:prepend>
-                    <v-avatar>
-                      <v-img :src="notification.avatar"></v-img>
-                    </v-avatar>
-                  </template>
-                  <v-list-item-title
-                    v-html="notification.title"
-                  ></v-list-item-title>
-                  <v-list-item-subtitle
-                    v-html="notification.subtitle"
-                  ></v-list-item-subtitle>
-                </v-list-item>
-              </template>
-            </v-list>
-            <v-btn tile block color="primary">See more</v-btn>
-          </v-card>
-        </v-menu>
-        <v-menu left offset-y transition="slide-y-transition" bottom>
-          <template v-slot:activator="{ props: menu }">
-            <v-tooltip slot="activator" bottom>
-              <template v-slot:activator="{ props: tooltip }">
-                <v-btn icon v-bind="{ ...tooltip, ...menu }">
-                  <v-avatar size="25">
-                    <v-img
-                      cover
-                      :src="
-                        $i18n.locale == 'en'
-                          ? 'https://appstack.bootlab.io/img/flags/us.png'
-                          : 'https://appstack.bootlab.io/img/flags/np.png'
-                      "
-                    ></v-img>
-                  </v-avatar>
-                </v-btn>
-              </template>
-              <span>Language</span>
-            </v-tooltip>
-          </template>
-          <v-list density="compact">
+      </template>
+      <v-card width="400">
+        <v-list density="compact" lines="three">
+          <template v-for="(notification, index) in notifications">
+            <v-list-subheader
+              v-if="notification.header"
+              :key="notification.header"
+              v-text="notification.header"
+            >
+            </v-list-subheader>
+            <v-divider
+              v-else-if="notification.divider"
+              :key="index"
+              :inset="notification.inset"
+            ></v-divider>
             <v-list-item
-              v-for="language in languages"
-              :key="language.id"
-              @click="switchlanguage(language.lang)"
+              v-else
+              :key="notification.title"
+              router
+              link
+              :to="notification.routes"
             >
               <template v-slot:prepend>
-                <v-avatar size="25">
-                  <v-img cover :src="language.src"></v-img>
+                <v-avatar>
+                  <v-img :src="notification.avatar"></v-img>
                 </v-avatar>
               </template>
-              <v-list-item-title>{{ language.text }}</v-list-item-title>
+              <v-list-item-title
+                v-html="notification.title"
+              ></v-list-item-title>
+              <v-list-item-subtitle
+                v-html="notification.subtitle"
+              ></v-list-item-subtitle>
             </v-list-item>
-          </v-list>
-        </v-menu>
-        <v-menu left offset-y transition="slide-y-transition" bottom>
-          <template v-slot:activator="{ props: menu }">
-            <v-tooltip slot="activator" bottom>
-              <template v-slot:activator="{ props: tooltip }">
-                <v-btn
-                  height="48"
-                  rounded="0"
-                  text
-                  v-bind="{ ...tooltip, ...menu }"
-                >
-                  <v-avatar start rounded="0" size="30" class="mr-3">
-                    <v-img src="https://ropodl.vercel.app/icon.png"></v-img>
-                  </v-avatar>
-                  <span class="text-capitalize text-white">ropodl</span>
-                </v-btn>
-              </template>
-              <span>More</span>
-            </v-tooltip>
           </template>
-          <v-list density="compact">
-            <v-list-item router link v-for="dropdownitem in profiledropdown">
-              <v-list-item-title>
-                <v-icon start :icon="dropdownitem['icon']"></v-icon>
-                {{ $t(dropdownitem.title) }}
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-row>
-    </v-container>
+        </v-list>
+        <v-btn tile block color="primary">See more</v-btn>
+      </v-card>
+    </v-menu>
+    <v-menu left offset-y transition="slide-y-transition" bottom>
+      <template v-slot:activator="{ props: menu }">
+        <v-tooltip slot="activator" bottom>
+          <template v-slot:activator="{ props: tooltip }">
+            <v-btn icon v-bind="{ ...tooltip, ...menu }">
+              <v-avatar size="25">
+                <v-img
+                  cover
+                  :src="
+                    $i18n.locale == 'en'
+                      ? 'https://appstack.bootlab.io/img/flags/us.png'
+                      : 'https://appstack.bootlab.io/img/flags/np.png'
+                  "
+                ></v-img>
+              </v-avatar>
+            </v-btn>
+          </template>
+          <span>Language</span>
+        </v-tooltip>
+      </template>
+      <v-list density="compact">
+        <v-list-item
+          v-for="language in languages"
+          :key="language.id"
+          @click="switchlanguage(language.lang)"
+        >
+          <template v-slot:prepend>
+            <v-avatar size="25">
+              <v-img cover :src="language.src"></v-img>
+            </v-avatar>
+          </template>
+          <v-list-item-title>{{ language.text }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+    <v-menu left offset-y transition="slide-y-transition" bottom>
+      <template v-slot:activator="{ props: menu }">
+        <v-tooltip slot="activator" bottom>
+          <template v-slot:activator="{ props: tooltip }">
+            <v-btn
+              height="48"
+              rounded="0"
+              text
+              v-bind="{ ...tooltip, ...menu }"
+            >
+              <v-avatar start rounded="0" size="30" class="mr-3">
+                <v-img src="https://ropodl.vercel.app/icon.png"></v-img>
+              </v-avatar>
+              <span class="text-capitalize text-white">ropodl</span>
+            </v-btn>
+          </template>
+          <span>More</span>
+        </v-tooltip>
+      </template>
+      <v-list density="compact">
+        <v-list-item router link v-for="dropdownitem in profiledropdown">
+          <v-list-item-title>
+            <v-icon start :icon="dropdownitem['icon']"></v-icon>
+            {{ $t(dropdownitem.title) }}
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </v-app-bar>
 
   <!-- mutation -->

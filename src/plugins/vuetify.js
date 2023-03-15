@@ -7,10 +7,15 @@ import { fa } from "vuetify/iconsets/fa";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 // Composables
 import { createVuetify } from "vuetify";
+// Data Tables
+import { VDataTable } from "vuetify/labs/VDataTable";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   blueprint: md3,
+  components: {
+    VDataTable,
+  },
   icons: {
     defaultSet: "mdi",
     aliases,

@@ -351,19 +351,16 @@ const switchlanguage = (lang) => {
                       </v-list-item-title>
                     </v-list-item>
                   </template>
-                  <span v-if="subitem.mini">
+                  <template v-if="subitem.mini">
                     <span v-for="mini in subitem.miniitems" :key="mini.id">
                       <v-list-item :to="mini.routes">
-                        <template v-slot:prepend>
-                          <v-icon></v-icon>
-                        </template>
                         <!-- grand child -->
                         <v-list-item-title>
                           {{ t(mini.title) }}aaaaaa
                         </v-list-item-title>
                       </v-list-item>
                     </span>
-                  </span>
+                  </template>
                 </v-list-group>
               </span>
               <span v-else>

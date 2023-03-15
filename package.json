@@ -1,6 +1,6 @@
 {
   "name": "vuedash",
-  "version": "0.1.0",
+  "version": "2.2.34",
   "private": true,
   "scripts": {
     "dev": "vite",

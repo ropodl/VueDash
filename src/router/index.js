@@ -84,31 +84,6 @@ const routes = [
         component: () => import("@/views/Pages/BlankPage"),
       },
       {
-        path: "/signin",
-        name: "SignIn",
-        component: () => import("@/views/Auth/SignIn"),
-      },
-      {
-        path: "/signup",
-        name: "SignUp",
-        component: () => import("@/views/Auth/SignUp"),
-      },
-      {
-        path: "/reset-password",
-        name: "Reset Password",
-        component: () => import("@/views/Auth/ResetPassword"),
-      },
-      {
-        path: "/404",
-        name: "404",
-        component: () => import("@/views/Auth/404Page"),
-      },
-      {
-        path: "/500",
-        name: "500",
-        component: () => import("@/views/Auth/500Page"),
-      },
-      {
         path: "/introduction",
         name: "Introduction",
         component: () => import("@/views/Documentation/Introduction"),
@@ -282,6 +257,37 @@ const routes = [
         path: "/calendar",
         name: "Calendar",
         component: () => import("@/views/Calendar/Calendar"),
+      },
+    ],
+  },
+  {
+    path: "",
+    component: () => import("@/layouts/NoNav"),
+    children: [
+      {
+        path: "/signin",
+        name: "SignIn",
+        component: () => import("@/views/Auth/SignIn"),
+      },
+      {
+        path: "/signup",
+        name: "SignUp",
+        component: () => import("@/views/Auth/SignUp"),
+      },
+      {
+        path: "/reset-password",
+        name: "Reset Password",
+        component: () => import("@/views/Auth/ResetPassword"),
+      },
+      {
+        path: "/404",
+        name: "404",
+        component: () => import("@/views/Auth/404Page"),
+      },
+      {
+        path: "/500",
+        name: "500",
+        component: () => import("@/views/Auth/500Page"),
       },
     ],
   },

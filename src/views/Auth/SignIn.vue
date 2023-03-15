@@ -21,7 +21,11 @@
                       <router-link to="/signup">Forgot Password</router-link>
                     </template>
                   </v-text-field>
-                  <v-checkbox label="Remember Me"></v-checkbox>
+                  <v-checkbox
+                    hide-details
+                    color="primary"
+                    label="Remember Me"
+                  ></v-checkbox>
                 </v-card-text>
                 <v-btn block size="x-large" class="text-capitalize" rounded="0"
                   >Sign In</v-btn

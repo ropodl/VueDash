@@ -261,7 +261,7 @@ const routes = [
     ],
   },
   {
-    path: "",
+    path: "/",
     component: () => import("@/layouts/NoNav"),
     children: [
       {

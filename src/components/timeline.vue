@@ -2,7 +2,7 @@
 const timeline = [
   {
     color: "teal lighten-3",
-    time: "10am",
+    time: "10am - 11am",
     title: "Meeting",
     desc: "<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>Link here</a>",
     attendee: [
@@ -29,7 +29,7 @@ const timeline = [
   { color: "pink", time: "2pm", title: "Lunch Break" },
   {
     color: "teal lighten-3",
-    time: "3pm",
+    time: "3pm - 4pm",
     title: "Finish Home Screen",
     desc: "Web app",
   },

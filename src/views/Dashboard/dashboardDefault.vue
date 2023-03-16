@@ -11,247 +11,9 @@ const chartjs = defineAsyncComponent(() =>
   import("@/components/chartjs/chartjs")
 );
 </script>
-<template>
-  <div class="dashboardDefault">
-    <v-container>
-      <!-- <v-row> -->
-      <v-row>
-        <v-col cols="12" class="py-0">
-          <h1>Welcome back, John Doe!</h1>
-        </v-col>
-      </v-row>
-      <numberpane />
-      <!-- Line chart and daily feed -->
-      <v-row>
-        <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
-          <v-card border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Total Revenue
-              <v-chip small color="primary">Monthly</v-chip>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <chartjs
-                :id="revenuedata.id"
-                :type="revenuedata.type"
-                :data="revenuedata.data"
-                :options="revenuedata.option"
-              />
-            </v-card-text>
-          </v-card>
-          <v-card border class="mb-3">
-            <v-card-title class="d-flex align-center">
-              Calendar
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-divider></v-divider>
-            <!-- <calendar elevation="0" /> -->
-          </v-card>
-          <v-card border>
-            <v-card-title class="d-flex align-center">
-              Sales / Revenue
-              <v-spacer></v-spacer>
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title link router :to="item.route">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <chartjs
-                :id="salesrevenuedata.id"
-                :type="salesrevenuedata.type"
-                :data="salesrevenuedata.data"
-                :options="salesrevenuedata.option"
-              />
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-          <v-card border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Daily Feed
-              <v-chip small color="info">Today</v-chip>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text class="pa-0">
-              <v-list density="compact" lines="three">
-                <template v-for="feed in dailyfeed">
-                  <v-divider v-if="feed.divider"></v-divider>
-                  <v-list-item v-else :key="feed.title">
-                    <template v-slot:prepend>
-                      <v-avatar size="60">
-                        <v-img :src="feed.avatar"></v-img>
-                      </v-avatar>
-                    </template>
-                    <v-list-item-title v-html="feed.title"></v-list-item-title>
-                    <v-list-item-subtitle
-                      v-html="feed.subtitle"
-                    ></v-list-item-subtitle>
-                    <template v-slot:append>
-                      <span>3h ago</span>
-                    </template>
-                  </v-list-item>
-                </template>
-              </v-list>
-            </v-card-text>
-          </v-card>
-          <v-card border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Weekly Sales
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text style="height: 100%">
-              <chartjs
-                :id="'weeklysales'"
-                :type="'doughnut'"
-                :data="weeklysalesdata.data"
-                :options="weeklysalesdata.option"
-                height="200px"
-              />
-            </v-card-text>
-          </v-card>
-          <v-card border>
-            <v-card-title class="d-flex justify-space-between">
-              Appointments
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title>
-                      {{ item["title"] }}
-                    </v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text class="py-0">
-              <timeline />
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
-          <v-card border>
-            <v-card-title class="d-flex justify-space-between">
-              Latest Projects
-              <v-spacer></v-spacer>
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" icon>
-                    <v-icon>more_vert</v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-data-table
-              :headers="header"
-              :items="project"
-              :items-per-page="6"
-            >
-              <template v-slot:item.status="{ item }">
-                <v-chip v-if="item.status == 'Done'" color="success" small>{{
-                  item.status
-                }}</v-chip>
-                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
-                  item.status
-                }}</v-chip>
-                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
-                  item.status
-                }}</v-chip>
-                <v-chip
-                  v-if="item.status == 'In Progress'"
-                  color="warning"
-                  small
-                  >{{ item.status }}</v-chip
-                >
-              </template>
-            </v-data-table>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
-</template>
 <script>
 // import Chart from "chart.js";
-
+import colors from "vuetify/lib/util/colors";
 export default {
   name: "DefaultDashboard",
   data() {
@@ -302,13 +64,13 @@ export default {
               label: "Sales ($)",
               fill: true,
               backgroundColor: [
-                "blue",
-                "indigo",
-                "red",
-                "cyan",
-                "green",
-                "orange",
-                "red darken-1",
+                colors.red.darken1,
+                colors.pink.darken1,
+                colors.purple.darken1,
+                colors.indigo.darken1,
+                colors.blue.darken1,
+                colors.cyan.darken1,
+                colors.teal.darken1,
               ],
               borderColor: "transparent", //find what this is
               data: [2015, 1465, 1487, 1796, 1387, 2123],
@@ -339,13 +101,13 @@ export default {
               label: "Sales Revenue Data",
               fill: true,
               backgroundColor: [
-                "blue",
-                "indigo",
-                "red",
-                "cyan",
-                "green",
-                "orange",
-                "red darken-1",
+                colors.red.darken1,
+                colors.pink.darken1,
+                colors.purple.darken1,
+                colors.indigo.darken1,
+                colors.blue.darken1,
+                colors.cyan.darken1,
+                colors.teal.darken1,
               ],
               data: [10, 20, 30, 40, 50, 60, 70],
             },
@@ -534,7 +296,253 @@ export default {
       ],
     };
   },
-  computed: {},
+  methods: {
+    getColor(status) {
+      if (status == "done") return "success";
+      else if (status == "Pending") return "primary";
+    },
+  },
 };
 </script>
+<template>
+  <div class="dashboardDefault">
+    <v-container>
+      <!-- <v-row> -->
+      <v-row>
+        <v-col cols="12" class="py-0">
+          <h1>Welcome back, John Doe!</h1>
+        </v-col>
+      </v-row>
+      <numberpane />
+      <!-- Line chart and daily feed -->
+      <v-row>
+        <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
+          <v-card border class="mb-3">
+            <v-card-title class="d-flex justify-space-between">
+              Total Revenue
+              <v-chip small color="primary">Monthly</v-chip>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text>
+              <chartjs
+                :id="revenuedata.id"
+                :type="revenuedata.type"
+                :data="revenuedata.data"
+                :options="revenuedata.option"
+              />
+            </v-card-text>
+          </v-card>
+          <v-card border class="mb-3">
+            <v-card-title class="d-flex align-center">
+              Calendar
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    icon
+                    color="white"
+                    variant="text"
+                    size="small"
+                    v-bind="props"
+                  >
+                    <v-icon :icon="mdiChevronDown"></v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text>Currenly not available</v-card-text>
+            <!-- <calendar elevation="0" /> -->
+          </v-card>
+          <v-card border>
+            <v-card-title class="d-flex align-center">
+              Sales / Revenue
+              <v-spacer></v-spacer>
+              <v-menu offset-y>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    icon
+                    color="white"
+                    variant="text"
+                    size="small"
+                    v-bind="props"
+                  >
+                    <v-icon :icon="mdiChevronDown"></v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title link router :to="item.route">{{
+                      item.title
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text>
+              <chartjs
+                :id="salesrevenuedata.id"
+                :type="salesrevenuedata.type"
+                :data="salesrevenuedata.data"
+                :options="salesrevenuedata.option"
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
+          <v-card border class="mb-3">
+            <v-card-title class="d-flex justify-space-between">
+              Daily Feed
+              <v-chip small color="info">Today</v-chip>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text class="pa-0">
+              <v-list density="compact" lines="three">
+                <template v-for="feed in dailyfeed">
+                  <v-divider v-if="feed.divider"></v-divider>
+                  <v-list-item v-else :key="feed.title">
+                    <template v-slot:prepend>
+                      <v-avatar size="60">
+                        <v-img :src="feed.avatar"></v-img>
+                      </v-avatar>
+                    </template>
+                    <v-list-item-title v-html="feed.title"></v-list-item-title>
+                    <v-list-item-subtitle
+                      v-html="feed.subtitle"
+                    ></v-list-item-subtitle>
+                    <template v-slot:append>
+                      <span>3h ago</span>
+                    </template>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-card-text>
+          </v-card>
+          <v-card border class="mb-3">
+            <v-card-title class="d-flex justify-space-between">
+              Weekly Sales
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    icon
+                    color="white"
+                    variant="text"
+                    size="small"
+                    v-bind="props"
+                  >
+                    <v-icon :icon="mdiChevronDown"></v-icon>
+                  </v-btn>
+                </template>
+                <v-list density="compact">
+                  <v-list-item v-for="item in items">
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text style="height: 100%">
+              <chartjs
+                id="weeklysales"
+                type="doughnut"
+                :data="weeklysalesdata['data']"
+                :options="weeklysalesdata['option']"
+                height="200px"
+              />
+            </v-card-text>
+          </v-card>
+          <v-card border>
+            <v-card-title class="d-flex justify-space-between">
+              Appointments
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    icon
+                    color="white"
+                    variant="text"
+                    size="small"
+                    v-bind="props"
+                  >
+                    <v-icon :icon="mdiChevronDown"></v-icon>
+                  </v-btn>
+                </template>
+                <v-list density="compact">
+                  <v-list-item v-for="item in items">
+                    <v-list-item-title>{{ item["title"] }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-card-text class="py-0">
+              <timeline />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+          <v-card border>
+            <v-card-title class="d-flex justify-space-between">
+              Latest Projects
+              <v-spacer></v-spacer>
+              <v-menu offset-y>
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    icon
+                    color="white"
+                    variant="text"
+                    size="small"
+                    v-bind="props"
+                  >
+                    <v-icon :icon="mdiChevronDown"></v-icon>
+                  </v-btn>
+                </template>
+                <v-list density="compact">
+                  <v-list-item v-for="item in items">
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-data-table
+              :headers="header"
+              :items="project"
+              :items-per-page="6"
+            >
+              <template v-slot:item.status="{ item }">
+                <v-chip color="primary" small>
+                  {{ item.raw.status }}
+                  aa
+                </v-chip>
+              </template>
+            </v-data-table>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+<!-- <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
+  item.status
+}}</v-chip>
+<v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
+  item.status
+}}</v-chip>
+<v-chip
+  v-if="item.status == 'In Progress'"
+  color="warning"
+  small
+  >{{ item.status }}</v-chip
+> -->
+
 <style scoped></style>

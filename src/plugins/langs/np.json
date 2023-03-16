@@ -2,11 +2,11 @@
   "vuetify": "भ्युटिफाई",
   "appbar": {
     "profiledropdown": {
-      "profile": "Profile",
-      "Analytics": "Analytics",
-      "Settings": "Settings",
-      "Help": "Help",
-      "Sign Out": "Sign Out"
+      "profile": "प्रोफाइल",
+      "analytics": "विश्लेषण",
+      "settings": "सेटिङहरू",
+      "help": "मद्दत",
+      "signout": "साइन आउट"
     }
   },
   "nav": {
@@ -97,8 +97,8 @@
         "ajaxsourceddata": "Ajax Sourced Data"
       },
       "chart": {
-        "chart": "Chart",
-        "chartjs": "chartjs",
+        "chart": "चार्ट",
+        "chartjs": "Chart Js",
         "apexcharts": "ApexCharts"
       },
       "notification": {

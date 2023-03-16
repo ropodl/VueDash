@@ -206,7 +206,7 @@ const switchlanguage = (lang) => {
     <v-btn icon class="hidden-sm-and-down" @click="darkmodemethod">
       <v-icon color="white" :icon="mdiInvertColors"></v-icon>
     </v-btn>
-    <v-menu left offset-y transition="slide-y-transition" bottom>
+    <v-menu attach left offset-y transition="slide-y-transition" bottom>
       <template v-slot:activator="{ props: menu }">
         <v-tooltip bottom>
           <template v-slot:activator="{ props: tooltip }">
@@ -222,25 +222,17 @@ const switchlanguage = (lang) => {
       </template>
       <v-card width="400">
         <v-list density="compact" lines="three">
-          <template v-for="(notification, index) in notifications">
+          <template v-for="notification in notifications">
             <v-list-subheader
               v-if="notification.header"
-              :key="notification.header"
               v-text="notification.header"
             >
             </v-list-subheader>
             <v-divider
               v-else-if="notification.divider"
-              :key="index"
               :inset="notification.inset"
             ></v-divider>
-            <v-list-item
-              v-else
-              :key="notification.title"
-              router
-              link
-              :to="notification.routes"
-            >
+            <v-list-item v-else>
               <template v-slot:prepend>
                 <v-avatar>
                   <v-img :src="notification.avatar"></v-img>
@@ -255,7 +247,14 @@ const switchlanguage = (lang) => {
             </v-list-item>
           </template>
         </v-list>
-        <v-btn tile block color="primary">See more</v-btn>
+        <v-btn
+          block
+          size="large"
+          class="text-capitalize"
+          rounded="0"
+          color="primary"
+          >See more</v-btn
+        >
       </v-card>
     </v-menu>
     <v-menu left offset-y transition="slide-y-transition" bottom>
@@ -387,9 +386,16 @@ const switchlanguage = (lang) => {
         </template>
       </template>
     </v-list>
-    <!-- <v-divider></v-divider> -->
   </v-navigation-drawer>
 </template>
+<style scoped>
+header.searchbar {
+  position: sticky !important;
+  top: 0 !important;
+  border-top: 0;
+  overflow: visible;
+}
+</style>
 <script>
 export default {
   data() {
@@ -399,33 +405,25 @@ export default {
           icon: mdiViewDashboard,
           title: "nav.pages.dash.dashboard",
           subtitle: "nav.pages.page",
-          active: false,
-          subitem: true,
           subitems: [
             {
               title: "nav.pages.dash.default",
-              active: true,
-              mini: true,
               routes: "/",
             },
             {
               title: "nav.pages.dash.analytics",
-              active: true,
               routes: "/analytics",
             },
             {
               title: "nav.pages.dash.ecommerce",
-              active: true,
               routes: "/ecommerce",
             },
             {
               title: "nav.pages.dash.social",
-              active: true,
               routes: "/social",
             },
             {
               title: "nav.pages.dash.crypto",
-              active: true,
               routes: "/crypto",
             },
           ],
@@ -433,8 +431,6 @@ export default {
         {
           icon: mdiAccountBoxMultiple,
           title: "nav.pages.page",
-          active: false,
-          subitem: true,
           subitems: [
             {
               title: "nav.pages.pages.profile",
@@ -450,8 +446,6 @@ export default {
             },
             {
               title: "nav.pages.pages.projects",
-              active: true,
-              mini: true,
               miniitems: [
                 {
                   title: "nav.pages.pages.list",
@@ -465,27 +459,22 @@ export default {
             },
             {
               title: "nav.pages.pages.invoice",
-              active: true,
               routes: "/invoice",
             },
             {
               title: "nav.pages.pages.pricing",
-              active: true,
               routes: "/pricing",
             },
             {
               title: "nav.pages.pages.tasks",
-              active: true,
               routes: "/tasks",
             },
             {
               title: "nav.pages.pages.chat",
-              active: true,
               routes: "/chat",
             },
             {
               title: "nav.pages.pages.blankpage",
-              active: true,
               routes: "/blank-page",
             },
           ],
@@ -493,41 +482,32 @@ export default {
         {
           icon: mdiAccountGroup,
           title: "nav.pages.auth.auth",
-          active: false,
-          subitem: true,
           subitems: [
             {
               title: "nav.pages.auth.signin",
               routes: "/signin",
-              active: true,
             },
             {
               title: "nav.pages.auth.signup",
               routes: "/signup",
-              active: true,
             },
             {
               title: "nav.pages.auth.resetpassword",
               routes: "/reset-password",
-              active: true,
             },
             {
               title: "nav.pages.auth.fourofour",
               routes: "/404",
-              active: true,
             },
             {
               title: "nav.pages.auth.fiveoo",
               routes: "/500",
-              active: true,
             },
           ],
         },
         {
           icon: mdiBookOpenPageVariant,
           title: "nav.pages.document.documentation",
-          active: false,
-          subitem: true,
           subitems: [
             {
               title: "nav.pages.document.introduction",
@@ -551,8 +531,6 @@ export default {
           icon: mdiLayers,
           title: "nav.tool.ui.uielements",
           subtitle: "nav.tool.toolsandcomponents",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.tool.ui.alerts",
@@ -599,8 +577,6 @@ export default {
         {
           icon: mdiHeart,
           title: "nav.tool.icon.icons",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.tool.icon.mdi",
@@ -615,8 +591,6 @@ export default {
         {
           icon: mdiFormTextbox,
           title: "nav.tool.form.forms",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.tool.form.layouts",
@@ -641,8 +615,6 @@ export default {
           icon: mdiFormTextarea,
           title: "nav.plugin.form.formplugins",
           subtitle: "nav.plugin.plugins",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.plugin.form.advancedinputs",
@@ -665,7 +637,6 @@ export default {
         {
           icon: mdiTableLarge,
           title: "nav.plugin.datatable.datatables",
-          active: false,
           subitems: [
             {
               title: "nav.plugin.datatable.responsivetables",
@@ -692,8 +663,6 @@ export default {
         {
           icon: mdiChartArc,
           title: "nav.plugin.chart.chart",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.plugin.chart.chartjs",
@@ -708,14 +677,11 @@ export default {
         {
           icon: mdiBell,
           title: "nav.plugin.notification.notifications",
-          active: false,
           routes: "/notifications",
         },
         {
           icon: mdiMapMarker,
           title: "nav.plugin.map.maps",
-          subitem: true,
-          active: false,
           subitems: [
             {
               title: "nav.plugin.map.googlemaps",
@@ -730,43 +696,34 @@ export default {
         {
           icon: mdiCalendar,
           title: "nav.plugin.calendar.calendar",
-          active: false,
           routes: "/calendar",
         },
         {
           icon: mdiShareVariant,
           title: "nav.plugin.multilevel.multilevel",
-          active: false,
           subitems: [
             {
               title: "nav.plugin.multilevel.twolevel.twolevels",
-              mini: true,
               miniitems: [
                 {
                   title: "nav.plugin.multilevel.twolevel.item1",
-                  routes: "",
                 },
                 {
                   title: "nav.plugin.multilevel.twolevel.item2",
-                  routes: "",
                 },
               ],
             },
             {
               title: "nav.plugin.multilevel.threelevel.threelevels",
-              mini: true,
               miniitems: [
                 {
                   title: "nav.plugin.multilevel.threelevel.item1",
-                  routes: "",
                 },
                 {
                   title: "nav.plugin.multilevel.threelevel.item2",
-                  routes: "",
                 },
                 {
                   title: "nav.plugin.multilevel.threelevel.item3",
-                  routes: "",
                 },
               ],
             },

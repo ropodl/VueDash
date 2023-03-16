@@ -65,7 +65,9 @@
         "typography": "टाइपोग्राफी"
       },
       "icon": {
-        "icons": "आइकन"
+        "icons": "आइकन",
+        "mdi": "मटेरिअल डिजाइन आइकन",
+        "fa": "फन्ट अवेसोमे ५"
       },
       "form": {
         "forms": "फारम",
@@ -78,13 +80,13 @@
       }
     },
     "plugin": {
-      "plugins": "प्लगइन र",
+      "plugins": "प्लगइनहरू र addons",
       "form": {
-        "formplugins": "Form Plugins",
+        "formplugins": "फारम प्लगइनहरू",
         "advancedinputs": "Advanced Inputs",
-        "editors": "Editors",
-        "validation": "validation",
-        "wizard": "Wizard"
+        "editors": "एडिटर",
+        "validation": "प्रमाणीकरण",
+        "wizard": "विजार्द"
       },
       "datatable": {
         "datatables": "Data Tables",
@@ -100,28 +102,28 @@
         "apexcharts": "ApexCharts"
       },
       "notification": {
-        "notifications": "Notifications"
+        "notifications": "सूचनाहरू"
       },
       "map": {
-        "maps": "Maps",
-        "googlemaps": "googlemaps",
-        "vectormaps": "Vector Maps"
+        "maps": "नक्सा",
+        "googlemaps": "गुगल नक्सा",
+        "vectormaps": "भेक्टर नक्सा"
       },
       "calendar": {
-        "calendar": "Calendar"
+        "calendar": "क्यालेन्डर"
       },
       "multilevel": {
-        "multilevel": "Multi Level",
+        "multilevel": "मल्टी लेबल",
         "twolevel": {
-          "twolevels": "Two Levels",
-          "item1": "Item 1",
-          "item2": "Item 2"
+          "twolevels": "दुई लेबल",
+          "item1": "वस्तु १",
+          "item2": "वस्तु २"
         },
         "threelevel": {
-          "threelevels": "Three Levels",
-          "item1": "Item 1",
-          "item2": "Item 2",
-          "item3": "Item 3"
+          "threelevels": "तिन लेबल",
+          "item1": "वस्तु १",
+          "item2": "वस्तु २",
+          "item3": "वस्तु ३"
         }
       }
     },

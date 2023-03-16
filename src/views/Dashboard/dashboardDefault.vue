@@ -210,22 +210,39 @@ const chartjs = defineAsyncComponent(() =>
                     <v-icon>more_vert</v-icon>
                   </v-btn>
                 </template>
-                <!-- <v-list dense>
+                <v-list dense>
                   <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{ item.title }}</v-list-item-title>
+                    <v-list-item-title @click="alert('awdaw')">{{
+                      item.title
+                    }}</v-list-item-title>
                   </v-list-item>
-                </v-list> -->
+                </v-list>
               </v-menu>
             </v-card-title>
             <v-divider></v-divider>
-            <!-- <v-data-table :headers="header" :items="project">
+            <v-data-table
+              :headers="header"
+              :items="project"
+              :items-per-page="6"
+            >
               <template v-slot:item.status="{ item }">
-                <v-chip v-if="item.status == 'Done'" color="success" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{ item.status }}</v-chip>
-                <v-chip v-if="item.status == 'In Progress'" color="warning" small>{{ item.status }}</v-chip>
+                <v-chip v-if="item.status == 'Done'" color="success" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
+                  item.status
+                }}</v-chip>
+                <v-chip
+                  v-if="item.status == 'In Progress'"
+                  color="warning"
+                  small
+                  >{{ item.status }}</v-chip
+                >
               </template>
-            </v-data-table> -->
+            </v-data-table>
           </v-card>
         </v-col>
       </v-row>
@@ -337,27 +354,27 @@ export default {
       },
       header: [
         {
-          text: "Name",
+          title: "Name",
           align: "start",
           value: "name",
         },
         {
-          text: "Start Date",
+          title: "Start Date",
           align: "center",
           value: "startdate",
         },
         {
-          text: "End Date",
+          title: "End Date",
           align: "center",
           value: "enddate",
         },
         {
-          text: "Status",
+          title: "Status",
           align: "center",
           value: "status",
         },
         {
-          text: "Assignee",
+          title: "Assignee",
           align: "center",
           value: "assignee",
         },
@@ -372,7 +389,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Fireball",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",
@@ -380,7 +397,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Hades",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",
@@ -388,7 +405,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Nitro",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Pending",
@@ -396,7 +413,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Pheonix",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",
@@ -404,7 +421,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Romeo",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",
@@ -412,7 +429,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project Wombat",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",
@@ -420,7 +437,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
+          name: "Project X",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "In Progress",
@@ -428,23 +445,7 @@ export default {
           badgecolor: "",
         },
         {
-          name: "Project Apollo",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Apollo",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Cancelled",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Apollo",
+          name: "Project Zirco",
           startdate: "01/01/2018",
           enddate: "31/06/2018",
           status: "Done",

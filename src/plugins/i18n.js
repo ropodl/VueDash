@@ -4,7 +4,7 @@ import en from "./langs/en.json";
 import np from "./langs/np.json";
 
 const i18n = createI18n({
-  locale: "en", // set locale
+  locale: "np", // set locale
   legacy: false,
   allowComposition: true,
   fallbackLocale: "en", // set fallback locale

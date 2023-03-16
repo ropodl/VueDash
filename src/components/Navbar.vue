@@ -326,11 +326,11 @@ const switchlanguage = (lang) => {
   <!-- mutation -->
   <v-navigation-drawer v-model="drawer">
     <v-list class="nav" density="compact">
-      <span v-for="navitem in navitems" :key="navitem.id">
+      <template v-for="navitem in navitems">
         <v-list-subheader v-if="navitem.subtitle">
           {{ t(navitem.subtitle) }}
         </v-list-subheader>
-        <span v-if="navitem.subitem">
+        <template v-if="navitem.subitems">
           <v-list-group :prepend-icon="navitem.icon" v-model="navitem.active">
             <template v-slot:activator="{ props }">
               <!-- main like dashboard -->
@@ -340,7 +340,7 @@ const switchlanguage = (lang) => {
                 </v-list-item-title>
               </v-list-item>
             </template>
-            <span v-for="subitem in navitem.subitems" :key="subitem.id">
+            <span v-for="subitem in navitem.subitems">
               <span v-if="subitem.miniitems">
                 <v-list-group>
                   <template v-slot:activator="{ props }">
@@ -351,15 +351,16 @@ const switchlanguage = (lang) => {
                       </v-list-item-title>
                     </v-list-item>
                   </template>
-                  <template v-if="subitem.mini">
-                    <span v-for="mini in subitem.miniitems" :key="mini.id">
-                      <v-list-item :to="mini.routes">
-                        <!-- grand child -->
-                        <v-list-item-title>
-                          {{ t(mini.title) }}aaaaaa
-                        </v-list-item-title>
-                      </v-list-item>
-                    </span>
+                  <template v-if="subitem.miniitems">
+                    <v-list-item
+                      v-for="mini in subitem.miniitems"
+                      :to="mini.routes"
+                    >
+                      <!-- grand child -->
+                      <v-list-item-title>
+                        {{ t(mini.title) }}
+                      </v-list-item-title>
+                    </v-list-item>
                   </template>
                 </v-list-group>
               </span>
@@ -373,8 +374,8 @@ const switchlanguage = (lang) => {
               </span>
             </span>
           </v-list-group>
-        </span>
-        <span v-else>
+        </template>
+        <template v-else>
           <v-list-item :to="navitem.routes">
             <template v-slot:prepend>
               <v-icon :icon="navitem['icon']"></v-icon>
@@ -383,10 +384,10 @@ const switchlanguage = (lang) => {
               {{ t(navitem.title) }}
             </v-list-item-title>
           </v-list-item>
-        </span>
-      </span>
+        </template>
+      </template>
     </v-list>
-    <v-divider></v-divider>
+    <!-- <v-divider></v-divider> -->
   </v-navigation-drawer>
 </template>
 <script>
@@ -602,11 +603,11 @@ export default {
           active: false,
           subitems: [
             {
-              title: "Material Design Icon",
+              title: "nav.tool.icon.mdi",
               routes: "/mdi",
             },
             {
-              title: "Font Awesome 5",
+              title: "nav.tool.icon.fa",
               routes: "/fa5",
             },
           ],
@@ -638,139 +639,133 @@ export default {
         },
         {
           icon: mdiFormTextarea,
-          title: "Form Plugins",
-          subtitle: "Plugin & Addons",
+          title: "nav.plugin.form.formplugins",
+          subtitle: "nav.plugin.plugins",
           subitem: true,
           active: false,
           subitems: [
             {
-              title: "Advanced Inputs",
+              title: "nav.plugin.form.advancedinputs",
               routes: "/advanced-inputs",
             },
             {
-              title: "Editors",
+              title: "nav.plugin.form.editors",
               routes: "/editors",
             },
             {
-              title: "Validation",
+              title: "nav.plugin.form.validation",
               routes: "/validation",
             },
             {
-              title: "Wizard",
+              title: "nav.plugin.form.wizard",
               routes: "/wizard",
             },
           ],
         },
         {
           icon: mdiTableLarge,
-          title: "Data Tables",
-          subitem: true,
+          title: "nav.plugin.datatable.datatables",
           active: false,
           subitems: [
             {
-              title: "Responsive Tables",
+              title: "nav.plugin.datatable.responsivetables",
               routes: "/responsive-tables",
             },
             {
-              title: "Table with Buttons",
+              title: "nav.plugin.datatable.tablebuttons",
               routes: "/table-buttons",
             },
             {
-              title: "Column Search",
+              title: "nav.plugin.datatable.columnsearch",
               routes: "/column-search",
             },
             {
-              title: "Multi Selection",
+              title: "nav.plugin.datatable.multiselection",
               routes: "/multi-selection",
             },
             {
-              title: "Ajax Sourced Data",
+              title: "nav.plugin.datatable.ajaxsourceddata",
               routes: "/ajax-sourced-data",
             },
           ],
         },
         {
           icon: mdiChartArc,
-          title: "Chart",
+          title: "nav.plugin.chart.chart",
           subitem: true,
           active: false,
           subitems: [
             {
-              title: "Chart.js",
+              title: "nav.plugin.chart.chartjs",
               routes: "/chartjs",
             },
             {
-              title: "ApexCharts",
+              title: "nav.plugin.chart.apexcharts",
               routes: "/apexcharts",
             },
           ],
         },
         {
           icon: mdiBell,
-          title: "Notifications",
-          subitem: false,
+          title: "nav.plugin.notification.notifications",
           active: false,
           routes: "/notifications",
         },
         {
           icon: mdiMapMarker,
-          title: "Maps",
+          title: "nav.plugin.map.maps",
           subitem: true,
           active: false,
           subitems: [
             {
-              title: "Google Maps",
+              title: "nav.plugin.map.googlemaps",
               routes: "/google-maps",
             },
             {
-              title: "Vector Maps",
+              title: "nav.plugin.map.vectormaps",
               routes: "/vector-maps",
             },
           ],
         },
         {
           icon: mdiCalendar,
-          title: "Calendar",
-          subitem: false,
+          title: "nav.plugin.calendar.calendar",
           active: false,
           routes: "/calendar",
         },
         {
           icon: mdiShareVariant,
-          title: "Multi Level",
-          subitem: true,
+          title: "nav.plugin.multilevel.multilevel",
           active: false,
           subitems: [
             {
-              title: "Two Levels",
-              routes: "",
+              title: "nav.plugin.multilevel.twolevel.twolevels",
               mini: true,
               miniitems: [
                 {
-                  title: "Item 1",
+                  title: "nav.plugin.multilevel.twolevel.item1",
                   routes: "",
                 },
                 {
-                  title: "Item 2",
+                  title: "nav.plugin.multilevel.twolevel.item2",
                   routes: "",
                 },
               ],
             },
             {
-              title: "Three Levels",
-              routes: "",
+              title: "nav.plugin.multilevel.threelevel.threelevels",
               mini: true,
               miniitems: [
                 {
-                  title: "Item 1",
+                  title: "nav.plugin.multilevel.threelevel.item1",
                   routes: "",
                 },
                 {
-                  title: "Item 2",
+                  title: "nav.plugin.multilevel.threelevel.item2",
                   routes: "",
                 },
                 {
-                  title: "Item 3",
+                  title: "nav.plugin.multilevel.threelevel.item3",
                   routes: "",
                 },
               ],

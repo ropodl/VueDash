@@ -1,27 +1,30 @@
 <template>
-    <div class="resetpassword">
-        <v-container fluid class="ma-0 pa-0">
-            <v-row>
-                <v-col cols="12" class="ma-0 pa-0">
-                    <v-img
-                        src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=100"
-                        class="justify-center align-center" style="height:100vh;min-height:100vh;">
-                        <div class="d-flex justify-center">
-                            <div class="align-center">
-                                <v-card min-width="500px">
-                                        <v-card-title>Reset Password</v-card-title>
-                                        <v-card-subtitle>Enter your email to reset your password.</v-card-subtitle>
-                                        <v-divider></v-divider>
-                                        <v-card-text>
-                                            <v-text-field label="Enter email address"></v-text-field>
-                                            <v-btn class="d-flex ml-auto" color="primary" rounded>Reset Password</v-btn>
-                                        </v-card-text>
-                                </v-card>
-                            </div>
-                        </div>
-                    </v-img>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
+  <div class="signin h-100">
+    <v-container fluid class="h-100">
+      <v-row justify="center" class="h-100">
+        <v-col cols="12" md="4" class="h-100">
+          <div class="d-flex align-center justify-center h-100 w-100">
+            <div class="w-100">
+              <v-card variant="text" class="mb-6">
+                <v-card-title class="text-center text-h4">
+                  Reset password
+                </v-card-title>
+                <v-card-subtitle class="text-center">
+                  Enter your email to reset your password.
+                </v-card-subtitle>
+              </v-card>
+              <v-card border>
+                <v-card-text class="pb-0">
+                  <v-text-field placeholder="Email Address"></v-text-field>
+                </v-card-text>
+                <v-btn block size="x-large" class="text-capitalize" rounded="0">
+                  Reset Password
+                </v-btn>
+              </v-card>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>

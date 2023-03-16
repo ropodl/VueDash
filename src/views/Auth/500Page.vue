@@ -1,35 +1,21 @@
 <template>
-    <div class="500page">
-        <v-container fluid class="ma-0 pa-0">
-            <v-row>
-                <v-col cols="12" class="ma-0 pa-0">
-                    <v-img
-                        src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=100"
-                        class="justify-center align-center" style="height:100vh;min-height:100vh;">
-                        <div class="d-flex justify-center">
-                            <div class="align-center" style="max-width:500px;">
-                                <h1 class="display-4 font-weight-black">500</h1>
-                                <h2>Internal server error.</h2>
-                                <div class="mb-3">
-                                    The server encountered something unexpected that didn't allow it to complete the
-                                    request.
-                                </div>
-                                <v-btn rounded router link to="/">Return to Website</v-btn>
-                            </div>
-                        </div>
-                    </v-img>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
+  <v-container class="h-100">
+    <v-row justify="center" class="h-100">
+      <v-col cols="12" md="4" class="h-100">
+        <div class="d-flex align-center text-center h-100">
+          <div>
+            <div class="text-h1 font-weight-medium">500</div>
+            <div class="text-h4 mb-3">Internal server error.</div>
+            <div class="mb-3">
+              The server encountered something unexpected that didn't allow it
+              to complete the request.
+            </div>
+            <v-btn variant="tonal" size="large" class="text-capitalize" to="/"
+              >Return to Website</v-btn
+            >
+          </div>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-<script>
-    export default {
-        name: '500page',
-        data() {
-            return {
-
-            }
-        }
-    }
-</script>

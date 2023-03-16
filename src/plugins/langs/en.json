@@ -65,7 +65,9 @@
         "typography": "Typography"
       },
       "icon": {
-        "icons": "Icons"
+        "icons": "Icons",
+        "mdi": "Material Design Icons",
+        "fa": "Font Awesome 5"
       },
       "form": {
         "forms": "Forms",

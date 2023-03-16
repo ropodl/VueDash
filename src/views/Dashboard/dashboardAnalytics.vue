@@ -39,17 +39,17 @@ let languageHeader = [
   {
     title: "Language",
     align: "start",
-    value: "language",
+    key: "language",
   },
   {
     title: "Users",
     align: "start",
-    value: "users",
+    key: "users",
   },
   {
     title: "Users in %",
     align: "center",
-    value: "userpercent",
+    key: "userpercent",
   },
 ];
 let languages = [
@@ -134,6 +134,23 @@ let items = [
     route: "/",
   },
 ];
+let sourceHeader = [
+  {
+    title: "Source",
+  },
+  {
+    title: "Revenue",
+  },
+  {
+    title: "Value",
+  },
+];
+// Source 	Revenue 	Value
+// Direct 	$ 2602 	+43%
+// Affiliate 	$ 1253 	+13%
+// E-mail 	$ 541 	+24%
+// Other 	$ 1465 	+11%
+let source = [{}];
 
 var markers = [
   { name: "Egypt", coords: [26.8206, 30.8025] },
@@ -244,9 +261,9 @@ onMounted(() => {
             </v-menu>
           </v-card-title>
           <v-divider></v-divider>
-          <v-card-text class="px-0">
-            <div id="map"></div>
-          </v-card-text>
+          <!-- <v-card-text class="px-0"> -->
+          <div id="map"></div>
+          <!-- </v-card-text> -->
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">

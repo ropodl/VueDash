@@ -1,7 +1,8 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import { mdiChevronDown } from "@mdi/js";
-
+import colors from "vuetify/lib/util/colors";
+// components
 const numberpane = defineAsyncComponent(() =>
   import("@/components/default-dash/numberpane")
 );
@@ -10,311 +11,260 @@ const timeline = defineAsyncComponent(() => import("@/components/timeline"));
 const chartjs = defineAsyncComponent(() =>
   import("@/components/chartjs/chartjs")
 );
-</script>
-<script>
-// import Chart from "chart.js";
-import colors from "vuetify/lib/util/colors";
-export default {
-  name: "DefaultDashboard",
-  data() {
-    return {
-      revenuedata: {
-        id: "totalrevenue",
-        type: "line",
-        data: {
-          labels: ["January", "February", "March", "April", "May", "June"],
-          datasets: [
-            {
-              label: "Sales ($)",
-              fill: false,
-              backgroundColor: "#d64937",
-              borderColor: "#d64937", //find what this is
-              data: [2015, 1465, 1487, 1796, 1387, 2123],
-            },
-            {
-              label: "Orders",
-              fill: false,
-              backgroundColor: "#757575",
-              borderColor: "#757575",
-              data: [928, 734, 626, 893, 921, 1202],
-            },
-          ],
-        },
-        options: {
-          maintainAspectRatio: true,
-          legend: {
-            display: true,
-            position: "bottom",
-          },
-          tooltips: {
-            intersect: false,
-          },
-          hover: {
-            intersect: true,
-          },
-        },
+// data
+let revenuedata = {
+  id: "totalrevenue",
+  type: "line",
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        label: "Sales ($)",
+        fill: false,
+        backgroundColor: "#d64937",
+        borderColor: "#d64937", //find what this is
+        data: [2015, 1465, 1487, 1796, 1387, 2123],
       },
-      weeklysalesdata: {
-        id: "weeklysales",
-        type: "dougnut",
-        data: {
-          labels: ["January", "February", "March", "April", "May", "June"],
-          datasets: [
-            {
-              label: "Sales ($)",
-              fill: true,
-              backgroundColor: [
-                colors.red.darken1,
-                colors.pink.darken1,
-                colors.purple.darken1,
-                colors.indigo.darken1,
-                colors.blue.darken1,
-                colors.cyan.darken1,
-                colors.teal.darken1,
-              ],
-              borderColor: "transparent", //find what this is
-              data: [2015, 1465, 1487, 1796, 1387, 2123],
-            },
-          ],
-        },
-        options: {
-          maintainAspectRatio: true,
-          legend: {
-            display: true,
-            position: "bottom",
-          },
-          tooltips: {
-            intersect: false,
-          },
-          hover: {
-            intersect: true,
-          },
-        },
+      {
+        label: "Orders",
+        fill: false,
+        backgroundColor: "#757575",
+        borderColor: "#757575",
+        data: [928, 734, 626, 893, 921, 1202],
       },
-      salesrevenuedata: {
-        id: "salesrevenue",
-        type: "bar",
-        data: {
-          labels: ["January", "February", "March", "April", "May", "June"],
-          datasets: [
-            {
-              label: "Sales Revenue Data",
-              fill: true,
-              backgroundColor: [
-                colors.red.darken1,
-                colors.pink.darken1,
-                colors.purple.darken1,
-                colors.indigo.darken1,
-                colors.blue.darken1,
-                colors.cyan.darken1,
-                colors.teal.darken1,
-              ],
-              data: [10, 20, 30, 40, 50, 60, 70],
-            },
-          ],
-        },
-      },
-      header: [
-        {
-          title: "Name",
-          align: "start",
-          value: "name",
-        },
-        {
-          title: "Start Date",
-          align: "center",
-          value: "startdate",
-        },
-        {
-          title: "End Date",
-          align: "center",
-          value: "enddate",
-        },
-        {
-          title: "Status",
-          align: "center",
-          value: "status",
-        },
-        {
-          title: "Assignee",
-          align: "center",
-          value: "assignee",
-        },
-      ],
-      project: [
-        {
-          name: "Project Apollo",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Fireball",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Hades",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Nitro",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Pending",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Pheonix",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Romeo",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Wombat",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project X",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "In Progress",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-        {
-          name: "Project Zirco",
-          startdate: "01/01/2018",
-          enddate: "31/06/2018",
-          status: "Done",
-          assignee: "Carl Jenkins",
-          badgecolor: "",
-        },
-      ],
-      items: [
-        {
-          title: "Action",
-          route: "/",
-        },
-        {
-          title: "Another Action",
-          route: "/",
-        },
-        {
-          title: "Something else here",
-          route: "/",
-        },
-      ],
-      dailyfeed: [
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-          title: "Brunch this weekend?",
-          subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-          title: "Summer BBQ",
-          subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-          title: "Oui oui",
-          subtitle:
-            '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-          title: "Birthday gift",
-          subtitle:
-            '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-          title: "Recipe to try",
-          subtitle:
-            '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-        },
-      ],
-      // Calendar
-      type: "month",
-      modes: ["stack", "column"],
-      weekday: [0, 1, 2, 3, 4, 5, 6],
-      weekdays: [
-        { text: "Sun - Sat", value: [0, 1, 2, 3, 4, 5, 6] },
-        { text: "Mon - Sun", value: [1, 2, 3, 4, 5, 6, 0] },
-        { text: "Mon - Fri", value: [1, 2, 3, 4, 5] },
-        { text: "Mon, Wed, Fri", value: [1, 3, 5] },
-      ],
-      value: "",
-      events: [],
-      colors: [
-        "blue",
-        "indigo",
-        "deep-purple",
-        "cyan",
-        "green",
-        "orange",
-        "grey darken-1",
-      ],
-      names: [
-        "Meeting",
-        "Holiday",
-        "PTO",
-        "Travel",
-        "Event",
-        "Birthday",
-        "Conference",
-        "Party",
-      ],
-    };
+    ],
   },
-  methods: {
-    getColor(status) {
-      if (status == "done") return "success";
-      else if (status == "Pending") return "primary";
+  options: {
+    maintainAspectRatio: true,
+    legend: {
+      display: true,
+      position: "bottom",
+    },
+    tooltips: {
+      intersect: false,
+    },
+    hover: {
+      intersect: true,
     },
   },
+};
+let weeklysalesdata = {
+  id: "weeklysales",
+  type: "dougnut",
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        label: "Sales ($)",
+        fill: true,
+        backgroundColor: [
+          colors.red.darken1,
+          colors.pink.darken1,
+          colors.purple.darken1,
+          colors.indigo.darken1,
+          colors.blue.darken1,
+          colors.cyan.darken1,
+          colors.teal.darken1,
+        ],
+        borderColor: "transparent", //find what this is
+        data: [2015, 1465, 1487, 1796, 1387, 2123],
+      },
+    ],
+  },
+  options: {
+    maintainAspectRatio: true,
+    legend: {
+      display: true,
+      position: "bottom",
+    },
+    tooltips: {
+      intersect: false,
+    },
+    hover: {
+      intersect: true,
+    },
+  },
+};
+let salesrevenuedata = {
+  id: "salesrevenue",
+  type: "bar",
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        label: "Sales Revenue Data",
+        fill: true,
+        backgroundColor: [
+          colors.red.darken1,
+          colors.pink.darken1,
+          colors.purple.darken1,
+          colors.indigo.darken1,
+          colors.blue.darken1,
+          colors.cyan.darken1,
+          colors.teal.darken1,
+        ],
+        data: [10, 20, 30, 40, 50, 60, 70],
+      },
+    ],
+  },
+};
+let header = [
+  {
+    title: "Name",
+    align: "start",
+    key: "name",
+  },
+  {
+    title: "Start Date",
+    align: "center",
+    key: "startdate",
+  },
+  {
+    title: "End Date",
+    align: "center",
+    key: "enddate",
+  },
+  {
+    title: "Status",
+    align: "center",
+    key: "status",
+  },
+  {
+    title: "Assignee",
+    align: "center",
+    key: "assignee",
+  },
+];
+let project = [
+  {
+    name: "Project Apollo",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Done",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Fireball",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "In Progress",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Hades",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Cancelled",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Nitro",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Pending",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Pheonix",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Done",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Romeo",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Done",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Wombat",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Done",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project X",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "In Progress",
+    assignee: "Carl Jenkins",
+  },
+  {
+    name: "Project Zirco",
+    startdate: "01/01/2018",
+    enddate: "31/06/2018",
+    status: "Done",
+    assignee: "Carl Jenkins",
+  },
+];
+let items = [
+  {
+    title: "Action",
+    route: "/",
+  },
+  {
+    title: "Another Action",
+    route: "/",
+  },
+  {
+    title: "Something else here",
+    route: "/",
+  },
+];
+let dailyfeed = [
+  {
+    avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+    title: "Brunch this weekend?",
+    subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+  },
+  { divider: true, inset: true },
+  {
+    avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+    title: "Summer BBQ",
+    subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+  },
+  { divider: true, inset: true },
+  {
+    avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+    title: "Oui oui",
+    subtitle:
+      '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+  },
+  { divider: true, inset: true },
+  {
+    avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+    title: "Birthday gift",
+    subtitle:
+      '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+  },
+  { divider: true, inset: true },
+  {
+    avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+    title: "Recipe to try",
+    subtitle:
+      '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+  },
+];
+// methods
+const getColor = (status) => {
+  if (status == "Done") return "success";
+  else if (status == "Pending") return "primary";
+  else if (status == "Cancelled") return "error";
+  else if (status == "In Progress") return "warning";
 };
 </script>
 <template>
   <div class="dashboardDefault">
     <v-container>
-      <!-- <v-row> -->
       <v-row>
         <v-col cols="12" class="py-0">
           <h1>Welcome back, John Doe!</h1>
         </v-col>
       </v-row>
       <numberpane />
-      <!-- Line chart and daily feed -->
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
           <v-card border class="mb-3">
@@ -520,9 +470,8 @@ export default {
               :items-per-page="6"
             >
               <template v-slot:item.status="{ item }">
-                <v-chip color="primary" small>
+                <v-chip :color="getColor(item.raw.status)" small>
                   {{ item.raw.status }}
-                  aa
                 </v-chip>
               </template>
             </v-data-table>
@@ -532,17 +481,3 @@ export default {
     </v-container>
   </div>
 </template>
-<!-- <v-chip v-if="item.status == 'Pending'" color="primary" small>{{
-  item.status
-}}</v-chip>
-<v-chip v-if="item.status == 'Cancelled'" color="error" small>{{
-  item.status
-}}</v-chip>
-<v-chip
-  v-if="item.status == 'In Progress'"
-  color="warning"
-  small
-  >{{ item.status }}</v-chip
-> -->
-
-<style scoped></style>

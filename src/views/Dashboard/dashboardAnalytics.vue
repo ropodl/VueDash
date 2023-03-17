@@ -160,7 +160,7 @@ var markers = [
   { name: "Brazil", coords: [-14.235, -51.9253] },
 ];
 onMounted(() => {
-  new jsVectorMap({
+  jsVectorMap({
     map: "world_merc",
     selector: "#map",
     zoomButtons: false,
@@ -207,7 +207,7 @@ onMounted(() => {
       <v-col cols="12" md="6">
         <v-row>
           <v-col cols="12" sm="6" v-for="carddetail in carddetails">
-            <v-card border>
+            <v-card border flat>
               <v-card-title class="d-flex justify-space-between">
                 {{ carddetail.title }}
                 <v-chip size="small" :color="carddetail['color']">
@@ -238,7 +238,7 @@ onMounted(() => {
         </v-row>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
             Total Revenue
             <v-menu>
@@ -267,7 +267,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
             Languages
             <v-menu offset-y>
@@ -319,7 +319,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
             Mobile / Desktop
             <v-menu offset-y>
@@ -348,7 +348,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
             Interests
             <v-menu offset-y>
@@ -375,7 +375,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
             Source / Medium
             <v-menu>
@@ -402,18 +402,12 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" md="8">
-        <v-card border>
+        <v-card border flat>
           <v-card-title class="d-flex justify-space-between">
-            Traffic
+            Traffic {{ isDark }}
             <v-menu>
               <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="small"
-                  v-bind="props"
-                >
+                <v-btn icon variant="text" size="small" v-bind="props">
                   <v-icon :icon="mdiChevronDown"></v-icon>
                 </v-btn>
               </template>

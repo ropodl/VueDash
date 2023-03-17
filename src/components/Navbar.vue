@@ -24,7 +24,9 @@ import {
   mdiCalendar,
   mdiShareVariant,
 } from "@mdi/js";
+import { useTheme } from "vuetify";
 import { useI18n } from "vue-i18n";
+const theme = useTheme();
 const { t, locale } = useI18n();
 // data
 let dark = ref(true);
@@ -128,20 +130,11 @@ const notifications = [
   },
 ];
 const darkmodemethod = () => {
-  dark.value = !dark.value;
+  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  // dark.value = !dark.value;
   localStorage.setItem("isDarkMode", dark.value);
   // this.$vuetify.theme.dark = dark.value;
 };
-//     signout() {
-//       this.signoutAction().then(() => {
-//         this.$router.replace({
-//           name: "Login",
-//         });
-//       });
-//     },
-//     handleMini() {
-//       this.drawer = !this.drawer;
-//     },
 const switchlanguage = (lang) => {
   console.log(lang);
   locale.value = lang;
@@ -179,9 +172,9 @@ const switchlanguage = (lang) => {
     ></v-app-bar-nav-icon>
     <v-btn class="text-capitalize" rounded="0" height="48">
       <span class="text-primary"
-        >V<span class="text-white hidden-sm-and-down">ue</span></span
+        >V<span class="hidden-sm-and-down">ue</span></span
       >
-      <span>D<span class="text-white hidden-sm-and-down">ash</span></span>
+      <span>D<span class="hidden-sm-and-down">ash</span></span>
     </v-btn>
     <v-spacer></v-spacer>
     <v-autocomplete

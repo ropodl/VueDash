@@ -1,163 +1,229 @@
-<template>
-    <div class="profile">
-        <v-container fluid>
-            <v-row>
-                <v-col cols="12" class="py-0">
-                    <h1>Profile</h1>
-                </v-col>
-                <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-                    <v-card>
-                        <v-card-title>Profile Details</v-card-title>
-                        <v-divider></v-divider>
-                        <v-card-text class="text-center pb-0">
-                            <v-avatar size="100">
-                                <v-img src="https://appstack.bootlab.io/img/avatars/avatar-4.jpg"></v-img>
-                            </v-avatar>
-                            <v-card-title class="d-flex justify-center">Stacie Hall</v-card-title>
-                            <v-card-subtitle>Lead Developer</v-card-subtitle>
-                        </v-card-text>
-                        <v-card-actions class="d-flex justify-center pt-0">
-                            <v-btn small class="px-10" color="primary">Follow</v-btn>
-                            <v-btn small class="px-10" color="primary">
-                                <v-icon small class="mr-2">message</v-icon>
-                                Message
-                            </v-btn>
-                        </v-card-actions>
-                        <!-- <v-divider></v-divider> -->
-                        <v-card-subtitle>Skills</v-card-subtitle>
-                        <v-divider></v-divider>
-                        <v-card-text class="px-0">
-                            <v-btn small class="ml-2 mb-2" color="primary" v-for="skill in skills" :key="skill.id">
-                                <v-icon class="mr-2" small>{{ skill.icon }}</v-icon>
-                                {{ skill.name }}</v-btn>
-                        </v-card-text>
-                        <!-- <v-divider inset></v-divider> -->
-                        <v-card-subtitle>About</v-card-subtitle>
-                        <v-divider></v-divider>
-                        <v-card-text>
-                            <ul>
-                                <li>
-                                    <v-icon small>fa-home</v-icon>Lives in San Fransisco, SA
-                                </li>
-                                <li>
-                                    <v-icon small>fa-briefcase</v-icon>Works at Github
-                                </li>
-                                <li>
-                                    <v-icon small>fa-map-marker-alt</v-icon>From Boston
-                                </li>
-                            </ul>
-                        </v-card-text>
-                        <v-card-subtitle>Elsewhere</v-card-subtitle>
-                        <v-divider></v-divider>
-                        <v-card-text>
-                            <ul>
-                                <li>
-                                    <v-icon small>fa-globe</v-icon>staciehall.co
-                                </li>
-                                <li>
-                                    <v-icon small>fab fa-twitter</v-icon>Twitter
-                                </li>
-                                <li>
-                                    <v-icon small>fab fa-facebook</v-icon>Facebook
-                                </li>
-                                <li>
-                                    <v-icon small>fab fa-instagram</v-icon>Instagram
-                                </li>
-                                <li>
-                                    <v-icon small>fab fa-linkedin</v-icon>LinkedIn
-                                </li>
-                            </ul>
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
-                    <v-card>
-                        <v-card-title class="d-flex justify-space-between">
-                            Activities
-                            <v-menu offset-y>
-                                <template v-slot:activator="{ on }">
-                                    <v-btn v-on="on" icon>
-                                        <v-icon>more_vert</v-icon>
-                                    </v-btn>
-                                </template>
-                                <v-list dense>
-                                    <v-list-item v-for="(item, index) in items" :key="index">
-                                        <v-list-item-title @click="alert('awdaw')">{{ item.title }}
-                                        </v-list-item-title>
-                                    </v-list-item>
-                                </v-list>
-                            </v-menu>
-                        </v-card-title>
-                        <v-divider></v-divider>
-                        <v-card-text></v-card-text>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
-</template>
-<script>
-    export default {
-        name: 'Profile',
-        data() {
-            return {
-                skills: [{
-                    id: '1',
-                    name: 'HTML',
-                    icon: 'fab fa-html5'
-                }, {
-                    id: '2',
-                    name: 'JavaScript',
-                    icon: 'fab fa-js'
-                }, {
-                    id: '3',
-                    name: 'Sass',
-                    icon: 'fab fa-sass'
-                }, {
-                    id: '4',
-                    name: 'Angular',
-                    icon: 'fab fa-angular'
-                }, {
-                    id: '5',
-                    name: 'Vue',
-                    icon: 'fab fa-vuejs'
-                }, {
-                    id: '6',
-                    name: 'React',
-                    icon: 'fab fa-react'
-                }, {
-                    id: '7',
-                    name: 'UI',
-                    icon: 'fas fa-pencil-alt'
-                }, {
-                    id: '8',
-                    name: 'UX',
-                    icon: 'fas fa-pencil-alt'
-                }],
-                items: [{
-                        title: 'Action',
-                        route: '/'
-                    },
-                    {
-                        title: 'Another Action',
-                        route: '/'
-                    },
-                    {
-                        title: 'Something else here',
-                        route: '/'
-                    }
-                ]
-            }
-        }
-    }
+<script setup>
+import {
+  mdiCheckboxMarkedCircle,
+  mdiMessage,
+  mdiChevronDown,
+  mdiPlusCircle,
+} from "@mdi/js";
+let skills = [
+  {
+    name: "HTML",
+    icon: "fa:fa-brands fa-html5",
+  },
+  {
+    name: "JavaScript",
+    icon: "fa:fab fa-js",
+  },
+  {
+    name: "Sass",
+    icon: "fa:fab fa-sass",
+  },
+  {
+    name: "Angular",
+    icon: "fa:fab fa-angular",
+  },
+  {
+    name: "Vue",
+    icon: "fa:fab fa-vuejs",
+  },
+  {
+    name: "React",
+    icon: "fa:fab fa-react",
+  },
+  {
+    name: "UI/UX",
+    icon: "fa:fas fa-pencil-alt",
+  },
+];
+let items = [
+  {
+    title: "Action",
+    route: "/",
+  },
+  {
+    title: "Another Action",
+    route: "/",
+  },
+  {
+    title: "Something else here",
+    route: "/",
+  },
+];
 </script>
-<style scoped>
-    ul {
-        list-style: none;
-        padding-left: 0px !important;
-    }
-
-    ul li i{
-        margin-right: 10px;
-    }
-</style>
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12" class="py-0">
+        <h1>Profile</h1>
+      </v-col>
+      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+        <v-card border flat>
+          <v-card-title>Profile Details</v-card-title>
+          <v-divider></v-divider>
+          <v-list color="transparent" density="compact">
+            <v-list-item>
+              <template v-slot:prepend>
+                <v-avatar size="60">
+                  <v-img
+                    src="https://appstack.bootlab.io/img/avatars/avatar-4.jpg"
+                  ></v-img>
+                </v-avatar>
+              </template>
+              <v-list-item-title>Stacie Hall</v-list-item-title>
+              <v-list-item-subtitle>Lead Developer</v-list-item-subtitle>
+              <template v-slot:append>
+                <v-btn icon variant="text">
+                  <v-icon :icon="mdiCheckboxMarkedCircle"></v-icon>
+                </v-btn>
+              </template>
+            </v-list-item>
+          </v-list>
+          <v-card-actions>
+            <v-row>
+              <v-col cols="6">
+                <v-btn block border class="text-capitalize">
+                  <v-icon start :icon="mdiPlusCircle"></v-icon>
+                  Follow
+                </v-btn>
+              </v-col>
+              <v-col cols="6">
+                <v-btn block border class="text-capitalize">
+                  <v-icon start :icon="mdiMessage"></v-icon>
+                  Message
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card-actions>
+          <v-divider></v-divider>
+          <v-card-title>Skills</v-card-title>
+          <v-card-text>
+            <v-btn
+              size="small"
+              variant="tonal"
+              color="primary"
+              class="text-capitalize mb-2 mr-2"
+              v-for="skill in skills"
+            >
+              <v-icon start :icon="skill['icon']"></v-icon>
+              {{ skill["name"] }}
+            </v-btn>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-title>About</v-card-title>
+          <v-card-text>
+            <ul class="list-style-none pl-0">
+              <li class="mb-3">
+                <v-icon start size="small" icon="fa:fas fa-home"></v-icon>
+                Lives in San Fransisco, SA
+              </li>
+              <li class="mb-3">
+                <v-icon start size="small" icon="fa:fas fa-briefcase"></v-icon>
+                Works at Github
+              </li>
+              <li class="mb-3">
+                <v-icon
+                  start
+                  size="small"
+                  icon="fa:fas fa-map-marker-alt"
+                ></v-icon>
+                From Boston
+              </li>
+            </ul>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-title>Elsewhere</v-card-title>
+          <v-card-text>
+            <ul class="list-style-none pl-0">
+              <li class="mb-3">
+                <a
+                  class="text-decoration-none"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon start size="small" icon="fa:fas fa-globe"></v-icon>
+                  staciehall.co
+                </a>
+              </li>
+              <li class="mb-3">
+                <a
+                  class="text-decoration-none"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon start size="small" icon="fa:fab fa-twitter"></v-icon>
+                  Twitter
+                </a>
+              </li>
+              <li class="mb-3">
+                <a
+                  class="text-decoration-none"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon start size="small" icon="fa:fab fa-facebook"></v-icon>
+                  Facebook
+                </a>
+              </li>
+              <li class="mb-3">
+                <a
+                  class="text-decoration-none"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon
+                    start
+                    size="small"
+                    icon="fa:fab fa-instagram"
+                  ></v-icon>
+                  Instagram
+                </a>
+              </li>
+              <li class="mb-3">
+                <a
+                  class="text-decoration-none"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon start size="small" icon="fa:fab fa-linkedin"></v-icon>
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
+        <v-card border flat>
+          <v-card-title class="d-flex justify-space-between">
+            Activities
+            <v-menu offset-y>
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  icon
+                  color="white"
+                  variant="text"
+                  size="x-small"
+                  v-bind="props"
+                >
+                  <v-icon :icon="mdiChevronDown"></v-icon>
+                </v-btn>
+              </template>
+              <v-list density="compact">
+                <v-list-item v-for="item in items">
+                  <v-list-item-title>{{ item["title"] }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text></v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>

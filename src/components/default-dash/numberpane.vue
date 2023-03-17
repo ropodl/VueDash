@@ -36,17 +36,8 @@ let carddetails = [
 </script>
 <template>
   <v-row>
-    <v-col
-      cols="12"
-      xs="12"
-      sm="6"
-      md="6"
-      lg="3"
-      xl="3"
-      v-for="carddetail in carddetails"
-      :key="carddetail.id"
-    >
-      <v-card border class="py-4">
+    <v-col cols="12" sm="6" lg="3" v-for="carddetail in carddetails">
+      <v-card flat border class="py-4">
         <v-icon :class="[carddetail.class]" style="">{{
           carddetail.icon
         }}</v-icon>

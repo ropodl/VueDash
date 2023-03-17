@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, inject } from "vue";
 import { mdiChevronDown } from "@mdi/js";
 import colors from "vuetify/lib/util/colors";
 // components
@@ -261,13 +261,13 @@ const getColor = (status) => {
     <v-container>
       <v-row>
         <v-col cols="12" class="py-0">
-          <h1>Welcome back, John Doe!</h1>
+          <h1>Welcome back, John Doe! {{ $isDark }}</h1>
         </v-col>
       </v-row>
       <numberpane />
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
-          <v-card border class="mb-3">
+          <v-card flat border class="mb-3">
             <v-card-title class="d-flex justify-space-between">
               Total Revenue
               <v-chip small color="primary">Monthly</v-chip>
@@ -282,7 +282,7 @@ const getColor = (status) => {
               />
             </v-card-text>
           </v-card>
-          <v-card border class="mb-3">
+          <v-card flat border class="mb-3">
             <v-card-title class="d-flex align-center">
               Calendar
               <v-spacer></v-spacer>
@@ -292,7 +292,7 @@ const getColor = (status) => {
                     icon
                     color="white"
                     variant="text"
-                    size="small"
+                    size="x-small"
                     v-bind="props"
                   >
                     <v-icon :icon="mdiChevronDown"></v-icon>
@@ -311,7 +311,7 @@ const getColor = (status) => {
             <v-card-text>Currenly not available</v-card-text>
             <!-- <calendar elevation="0" /> -->
           </v-card>
-          <v-card border>
+          <v-card flat border>
             <v-card-title class="d-flex align-center">
               Sales / Revenue
               <v-spacer></v-spacer>
@@ -321,7 +321,7 @@ const getColor = (status) => {
                     icon
                     color="white"
                     variant="text"
-                    size="small"
+                    size="x-small"
                     v-bind="props"
                   >
                     <v-icon :icon="mdiChevronDown"></v-icon>
@@ -348,7 +348,7 @@ const getColor = (status) => {
           </v-card>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-          <v-card border class="mb-3">
+          <v-card flat border class="mb-3">
             <v-card-title class="d-flex justify-space-between">
               Daily Feed
               <v-chip small color="info">Today</v-chip>
@@ -376,7 +376,7 @@ const getColor = (status) => {
               </v-list>
             </v-card-text>
           </v-card>
-          <v-card border class="mb-3">
+          <v-card flat border class="mb-3">
             <v-card-title class="d-flex justify-space-between">
               Weekly Sales
               <v-menu>
@@ -385,7 +385,7 @@ const getColor = (status) => {
                     icon
                     color="white"
                     variant="text"
-                    size="small"
+                    size="x-small"
                     v-bind="props"
                   >
                     <v-icon :icon="mdiChevronDown"></v-icon>
@@ -409,7 +409,7 @@ const getColor = (status) => {
               />
             </v-card-text>
           </v-card>
-          <v-card border>
+          <v-card flat border>
             <v-card-title class="d-flex justify-space-between">
               Appointments
               <v-menu>
@@ -418,7 +418,7 @@ const getColor = (status) => {
                     icon
                     color="white"
                     variant="text"
-                    size="small"
+                    size="x-small"
                     v-bind="props"
                   >
                     <v-icon :icon="mdiChevronDown"></v-icon>
@@ -440,7 +440,7 @@ const getColor = (status) => {
       </v-row>
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
-          <v-card border>
+          <v-card flat border>
             <v-card-title class="d-flex justify-space-between">
               Latest Projects
               <v-spacer></v-spacer>
@@ -450,7 +450,7 @@ const getColor = (status) => {
                     icon
                     color="white"
                     variant="text"
-                    size="small"
+                    size="x-small"
                     v-bind="props"
                   >
                     <v-icon :icon="mdiChevronDown"></v-icon>

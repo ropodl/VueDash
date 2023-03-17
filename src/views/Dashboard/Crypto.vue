@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
-import axios from "axios";
+// import axios from "axios";
 
 let marketsheader = [
   {
@@ -377,7 +377,7 @@ let options = {
   ],
 };
 onMounted(() => {
-  topPaneCall();
+  // topPaneCall();
 });
 const topPaneCall = async () => {
   await axios

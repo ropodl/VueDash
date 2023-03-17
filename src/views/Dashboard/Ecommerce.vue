@@ -2,6 +2,7 @@
 import { defineAsyncComponent } from "vue";
 
 const timeline = defineAsyncComponent(() => import("@/components/timeline"));
+
 let carddetails = [
   {
     id: "1",
@@ -159,14 +160,14 @@ let salesrevenedata = {
             </v-chip>
           </v-card-title>
           <v-card-text>
-            <v-flex class="d-flex align-center justify-space-between">
+            <div class="d-flex align-center justify-space-between">
               <span class="headline font-weight-bold">
                 {{ carddetail.number }}
               </span>
               <span class="title font-weight-light">
                 {{ carddetail.percentage }}%
               </span>
-            </v-flex>
+            </div>
           </v-card-text>
           <v-card-text class="pa-0">
             <v-progress-linear
@@ -226,13 +227,3 @@ let salesrevenedata = {
     </v-row>
   </v-container>
 </template>
-<script>
-import chartjs from "@/components/chartjs/chartjs";
-export default {
-  name: "EcommerceDashboard",
-  components: { timeline, chartjs },
-  data() {
-    return {};
-  },
-};
-</script>

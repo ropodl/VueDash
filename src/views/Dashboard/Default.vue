@@ -1,6 +1,5 @@
 <script setup>
-import { defineAsyncComponent, inject } from "vue";
-import { mdiChevronDown } from "@mdi/js";
+import { defineAsyncComponent } from "vue";
 import colors from "vuetify/lib/util/colors";
 // components
 const numberpane = defineAsyncComponent(() =>

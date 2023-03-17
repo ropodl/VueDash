@@ -6,7 +6,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    component: () => import("@/layouts/Default.vue"),
+    component: () => import("@/layouts/Default"),
     children: [
       {
         path: "/",
@@ -39,9 +39,64 @@ const routes = [
         component: () => import("@/views/Pages/Profile"),
       },
       {
-        path: "/settings",
-        name: "Settings",
-        component: () => import("@/views/Pages/Settings"),
+        path: "/settings/",
+        component: () => import("@/layouts/Settings"),
+        children: [
+          {
+            path: "/settings/appearance",
+            name: "Appearance Settings",
+            component: () => import("@/views/Pages/Settings/appearance"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/account",
+            name: "Account Settings",
+            component: () => import("@/views/Pages/Settings/account"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/password",
+            name: "Password Settings",
+            component: () => import("@/views/Pages/Settings/password"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/privacy-safety",
+            name: "Privacy Settings",
+            component: () => import("@/views/Pages/Settings/privacy"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/email-notifications",
+            name: "Email Notification Settings",
+            component: () => import("@/views/Pages/Settings/email"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/web-notifications",
+            name: "Web Notification Settings",
+            component: () => import("@/views/Pages/Settings/web"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/widgets",
+            name: "Widget Settings",
+            component: () => import("@/views/Pages/Settings/widget"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/your-data",
+            name: "Data Settings",
+            component: () => import("@/views/Pages/Settings/data"),
+            alias: "/settings/",
+          },
+          {
+            path: "/settings/delete-account",
+            name: "Delete Account",
+            component: () => import("@/views/Pages/Settings/delete"),
+            alias: "/settings/",
+          },
+        ],
       },
       {
         path: "/clients",

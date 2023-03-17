@@ -56,7 +56,7 @@ let items = [
       <v-col cols="12" class="py-0">
         <h1>Profile</h1>
       </v-col>
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+      <v-col cols="12" md="4">
         <v-card border flat>
           <v-card-title>Profile Details</v-card-title>
           <v-divider></v-divider>
@@ -197,31 +197,11 @@ let items = [
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" xs="12" sm="12" md="8" lg="8" xl="8">
+      <v-col cols="12" md="8">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Activities
-            <v-menu offset-y>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="x-small"
-                  v-bind="props"
-                >
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="item in items">
-                  <v-list-item-title>{{ item["title"] }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Activities</v-card-title>
           <v-divider></v-divider>
-          <v-card-text></v-card-text>
+          <v-card-text>News Feed here.</v-card-text>
         </v-card>
       </v-col>
     </v-row>

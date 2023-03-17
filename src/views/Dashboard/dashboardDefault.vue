@@ -268,8 +268,8 @@ const getColor = (status) => {
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
           <v-card flat border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Total Revenue
+            <v-card-title class="d-flex">
+              Total Revenue <v-spacer></v-spacer>
               <v-chip small color="primary">Monthly</v-chip>
             </v-card-title>
             <v-divider></v-divider>
@@ -283,59 +283,13 @@ const getColor = (status) => {
             </v-card-text>
           </v-card>
           <v-card flat border class="mb-3">
-            <v-card-title class="d-flex align-center">
-              Calendar
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="x-small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title @click="alert('awdaw')">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
+            <v-card-title>Calendar</v-card-title>
             <v-divider></v-divider>
             <v-card-text>Currenly not available</v-card-text>
             <!-- <calendar elevation="0" /> -->
           </v-card>
           <v-card flat border>
-            <v-card-title class="d-flex align-center">
-              Sales / Revenue
-              <v-spacer></v-spacer>
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="x-small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title link router :to="item.route">{{
-                      item.title
-                    }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
+            <v-card-title>Sales / Revenue</v-card-title>
             <v-divider></v-divider>
             <v-card-text>
               <chartjs
@@ -349,9 +303,9 @@ const getColor = (status) => {
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
           <v-card flat border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Daily Feed
-              <v-chip small color="info">Today</v-chip>
+            <v-card-title class="d-flex">
+              Daily Feed <v-spacer></v-spacer>
+              <v-chip color="info">Today</v-chip>
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text class="pa-0">
@@ -377,27 +331,7 @@ const getColor = (status) => {
             </v-card-text>
           </v-card>
           <v-card flat border class="mb-3">
-            <v-card-title class="d-flex justify-space-between">
-              Weekly Sales
-              <v-menu>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="x-small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list density="compact">
-                  <v-list-item v-for="item in items">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
+            <v-card-title>Weekly Sales</v-card-title>
             <v-divider></v-divider>
             <v-card-text style="height: 100%">
               <chartjs
@@ -410,27 +344,7 @@ const getColor = (status) => {
             </v-card-text>
           </v-card>
           <v-card flat border>
-            <v-card-title class="d-flex justify-space-between">
-              Appointments
-              <v-menu>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="x-small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list density="compact">
-                  <v-list-item v-for="item in items">
-                    <v-list-item-title>{{ item["title"] }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
+            <v-card-title>Appointments</v-card-title>
             <v-divider></v-divider>
             <v-card-text class="py-0">
               <timeline />
@@ -441,28 +355,7 @@ const getColor = (status) => {
       <v-row>
         <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
           <v-card flat border>
-            <v-card-title class="d-flex justify-space-between">
-              Latest Projects
-              <v-spacer></v-spacer>
-              <v-menu offset-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    icon
-                    color="white"
-                    variant="text"
-                    size="x-small"
-                    v-bind="props"
-                  >
-                    <v-icon :icon="mdiChevronDown"></v-icon>
-                  </v-btn>
-                </template>
-                <v-list density="compact">
-                  <v-list-item v-for="item in items">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
+            <v-card-title>Latest Projects</v-card-title>
             <v-divider></v-divider>
             <v-data-table
               :headers="header"

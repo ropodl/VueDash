@@ -1,5 +1,5 @@
 <template>
-  <canvas :id="id" :type="type" :data="data" style="min-height: 200px"></canvas>
+  <canvas :id="id" :type="type" :data="data"></canvas>
 </template>
 
 <script>

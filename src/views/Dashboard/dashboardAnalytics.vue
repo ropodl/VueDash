@@ -4,6 +4,7 @@ import { mdiChevronDown } from "@mdi/js";
 
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
+import Chartjs from "@/components/chartjs/chartjs";
 
 let carddetails = [
   {
@@ -87,28 +88,23 @@ let languages = [
 let trafficheader = [
   {
     title: "Source",
-    align: "start",
-    value: "source",
+    key: "source",
   },
   {
     title: "Users",
-    align: "center",
-    value: "users",
+    key: "users",
   },
   {
     title: "Sessions",
-    align: "center",
-    value: "sessions",
+    key: "sessions",
   },
   {
     title: "Bounce Rate",
-    align: "center",
-    value: "bouncerate",
+    key: "bounce",
   },
   {
     title: "Avg. Session Duration",
-    align: "end",
-    value: "sessionduration",
+    key: "duration",
   },
 ];
 let traffic = [
@@ -116,42 +112,121 @@ let traffic = [
     source: "Google",
     users: "1023",
     sessions: "1265",
-    bouncerate: "27.23",
-    sessionduration: "00:06:18",
-  },
-];
-let items = [
-  {
-    title: "Action",
-    route: "/",
+    bounce: "27.23%",
+    duration: "00:06:25",
   },
   {
-    title: "Another Action",
-    route: "/",
+    source: "Direct",
+    users: "872",
+    sessions: "1077",
+    bounce: "32.70%",
+    duration: "00:09:18",
   },
   {
-    title: "Something else here",
-    route: "/",
+    source: "Facebook",
+    users: "812",
+    sessions: "1003",
+    bounce: "24.83%",
+    duration: "00:05:56",
+  },
+  {
+    source: "GitHub",
+    users: "713",
+    sessions: "881",
+    bounce: "38.09%",
+    duration: "00:06:19",
+  },
+  {
+    source: "DuckDuckGo",
+    users: "693",
+    sessions: "856",
+    bounce: "37.36%",
+    duration: "00:09:12",
+  },
+  {
+    source: "Pinterest",
+    users: "623",
+    sessions: "770",
+    bounce: "52.81%",
+    duration: "00:03:10",
+  },
+  {
+    source: "Bing",
+    users: "504",
+    sessions: "623",
+    bounce: "66.76%",
+    duration: "00:04:42",
+  },
+  {
+    source: "Twitter",
+    users: "462",
+    sessions: "571",
+    bounce: "31.53%",
+    duration: "00:08:05",
   },
 ];
 let sourceHeader = [
   {
     title: "Source",
+    sortable: false,
+    key: "source",
   },
   {
     title: "Revenue",
+    sortable: false,
+    key: "revenue",
   },
   {
     title: "Value",
+    sortable: false,
+    key: "value",
   },
 ];
-// Source 	Revenue 	Value
-// Direct 	$ 2602 	+43%
-// Affiliate 	$ 1253 	+13%
-// E-mail 	$ 541 	+24%
-// Other 	$ 1465 	+11%
-let source = [{}];
-
+let source = [
+  {
+    source: "Direct",
+    revenue: "$2602",
+    value: "+43%",
+  },
+  { source: "Affiliate", revenue: "$ 1253", value: "+13%" },
+  { source: "E-mail", revenue: "$ 541", value: "+24%" },
+  { source: "Other", revenue: "$ 1465", value: "+11%" },
+];
+let sourceData = {
+  labels: [
+    "Eating",
+    "Drinking",
+    "Sleeping",
+    "Designing",
+    "Coding",
+    "Cycling",
+    "Running",
+  ],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [65, 59, 90, 81, 56, 55, 40],
+      fill: true,
+      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgb(255, 99, 132)",
+      pointBackgroundColor: "rgb(255, 99, 132)",
+      pointBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "rgb(255, 99, 132)",
+    },
+    {
+      label: "My Second Dataset",
+      data: [28, 48, 40, 19, 96, 27, 100],
+      fill: true,
+      backgroundColor: "rgba(54, 162, 235, 0.2)",
+      borderColor: "rgb(54, 162, 235)",
+      pointBackgroundColor: "rgb(54, 162, 235)",
+      pointBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "rgb(54, 162, 235)",
+    },
+  ],
+};
 var markers = [
   { name: "Egypt", coords: [26.8206, 30.8025] },
   { name: "Russia", coords: [61.524, 105.3188] },
@@ -165,6 +240,7 @@ onMounted(() => {
     selector: "#map",
     zoomButtons: false,
     zoomOnScroll: true,
+    showTooltip: false,
     regionStyle: {
       initial: {
         fill: "#d1d5db",
@@ -215,14 +291,14 @@ onMounted(() => {
                 </v-chip>
               </v-card-title>
               <v-card-text>
-                <v-flex class="d-flex align-center justify-space-between">
+                <div class="d-flex align-center justify-space-between">
                   <span class="headline font-weight-bold">
                     {{ carddetail["number"] }}
                   </span>
                   <span class="title font-weight-light">
                     {{ carddetail["percentage"] }}%
                   </span>
-                </v-flex>
+                </div>
               </v-card-text>
               <v-card-text class="pa-0">
                 <v-progress-linear
@@ -268,29 +344,7 @@ onMounted(() => {
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Languages
-            <v-menu offset-y>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="small"
-                  v-bind="props"
-                >
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')"
-                    >{{ item.title }}
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Languages</v-card-title>
           <v-divider></v-divider>
           <v-card-text class="pa-0">
             <v-data-table
@@ -298,21 +352,15 @@ onMounted(() => {
               :headers="languageHeader"
               :items="languages"
             >
-              <!-- <template v-slot:item.userpercent="{ item }">
+              <template v-slot:item.userpercent="{ item }">
                 <v-progress-linear
                   color="primary"
                   height="20"
                   :model-value="item.raw['userpercent']"
                   rounded
                 >
+                  {{ item.raw.userpercent }}%
                 </v-progress-linear>
-                {{ item.userpercent }}%
-              </template> -->
-
-              <template v-slot:item.userpercent="{ item }">
-                <v-chip color="error">
-                  {{ item.raw.calories }}
-                </v-chip>
               </template>
             </v-data-table>
           </v-card-text>
@@ -320,109 +368,38 @@ onMounted(() => {
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Mobile / Desktop
-            <v-menu offset-y>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="small"
-                  v-bind="props"
-                >
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title @click="alert('awdaw')"
-                    >{{ item.title }}
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Mobile / Desktop</v-card-title>
           <v-divider></v-divider>
-          <v-card-text> Insert bar chart jokes here </v-card-text>
+          <v-card-text>Bar chart is WIP</v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Interests
-            <v-menu offset-y>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="small"
-                  v-bind="props"
-                >
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="item in items">
-                  <v-list-item-title>{{ item["title"] }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Interests</v-card-title>
           <v-divider></v-divider>
-          <v-card-text> Insert Radar chart jokes here </v-card-text>
+          <v-card-text>Radar chart is WIP</v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Source / Medium
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon
-                  color="white"
-                  variant="text"
-                  size="small"
-                  v-bind="props"
-                >
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="(item, index) in items" :key="index">
-                  <v-list-item-title v-text="item['title']"></v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Source / Medium</v-card-title>
           <v-divider></v-divider>
-          <v-card-text> Insert Pie chart jokes here </v-card-text>
+          <v-card-text>
+            Radar chart is WIP.
+            <!-- <chartjs id="source" type="radar" :data="items" /> -->
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-data-table :headers="sourceHeader" :items="source"></v-data-table>
         </v-card>
       </v-col>
       <v-col cols="12" md="8">
         <v-card border flat>
-          <v-card-title class="d-flex justify-space-between">
-            Traffic {{ isDark }}
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn icon variant="text" size="small" v-bind="props">
-                  <v-icon :icon="mdiChevronDown"></v-icon>
-                </v-btn>
-              </template>
-              <v-list density="compact">
-                <v-list-item v-for="item in items">
-                  <v-list-item-title v-text="item['title']"></v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-title>
+          <v-card-title>Traffic</v-card-title>
           <v-divider></v-divider>
           <v-card-text class="pa-0">
             <v-data-table :headers="trafficheader" :items="traffic">
               <template v-slot:item.bouncerate="{ item }">
-                <span class="error--text"> {{ item.bouncerate }}% </span>
+                <span class="error--text"> {{ item.raw.bouncerate }}% </span>
               </template>
             </v-data-table>
           </v-card-text>

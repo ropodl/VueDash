@@ -11,27 +11,27 @@ const routes = [
       {
         path: "/",
         name: "Home",
-        component: () => import("@/views/Dashboard/dashboardDefault"),
+        component: () => import("@/views/Dashboard/Default"),
       },
       {
         path: "/analytics",
         name: "Analytics",
-        component: () => import("@/views/Dashboard/dashboardAnalytics"),
+        component: () => import("@/views/Dashboard/Analytics"),
       },
       {
         path: "/ecommerce",
         name: "Ecommerce",
-        component: () => import("@/views/Dashboard/dashboardEcommerce"),
+        component: () => import("@/views/Dashboard/Ecommerce"),
       },
       {
         path: "/social",
         name: "Social",
-        component: () => import("@/views/Dashboard/dashboardSocial"),
+        component: () => import("@/views/Dashboard/Social"),
       },
       {
         path: "/crypto",
         name: "Crypto",
-        component: () => import("@/views/Dashboard/dashboardCrypto"),
+        component: () => import("@/views/Dashboard/Crypto"),
       },
       {
         path: "/profile",

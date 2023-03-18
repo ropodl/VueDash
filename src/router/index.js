@@ -353,7 +353,6 @@ const router = createRouter({
   routes,
 });
 
-
 router.beforeResolve((to, from, next) => {
   if (to.name) {
     NProgress.start();

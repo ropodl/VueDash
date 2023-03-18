@@ -1,6 +1,8 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import colors from "vuetify/lib/util/colors";
+import { useTitle } from "@vueuse/core";
+useTitle("Default Dashboard");
 // components
 const numberpane = defineAsyncComponent(() =>
   import("@/components/default-dash/numberpane")

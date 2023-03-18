@@ -1,9 +1,9 @@
 <script setup>
-import { onMounted, ref } from "vue";
-let windowSize = {
+import { onMounted, ref, reactive } from "vue";
+let windowSize = reactive({
   x: 0,
   y: 0,
-};
+});
 let currentTab = ref("Appearance");
 let tabs = [
   {
@@ -61,7 +61,7 @@ const onResize = () => {
         <v-card border flat>
           <v-tabs
             v-model="currentTab"
-            :direction="windowSize['x'] >= 700 ? 'vertical' : 'horizontal'"
+            :direction="windowSize.x >= 700 ? 'vertical' : 'horizontal'"
           >
             <v-tab
               class="text-capitalize"

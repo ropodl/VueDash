@@ -1,7 +1,7 @@
 // Composables
 import { createRouter, createWebHistory } from "vue-router";
-// import NProgress from "nprogress";
-// import "nprogress/nprogress.css";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 const routes = [
   {
@@ -353,23 +353,17 @@ const router = createRouter({
   routes,
 });
 
-export default router;
 
-// const router = new VueRouter({
-//   mode: "history",
-//   base: process.env.BASE_URL,
-//   routes,
-// });
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    NProgress.start();
+  }
+  next();
+});
 
-// router.beforeResolve((to, from, next) => {
-//   if (to.name) {
-//     NProgress.start();
-//   }
-//   next();
-// });
-
-// router.afterEach(() => {
-//   NProgress.done();
-// });
+router.afterEach(() => {
+  NProgress.done();
+});
 
 // export default router;
+export default router;

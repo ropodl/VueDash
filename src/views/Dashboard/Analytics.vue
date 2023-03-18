@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
 
-// import jsVectorMap from "jsvectormap";
-// import "jsvectormap/dist/maps/world-merc.js";
+import jsVectorMap from "jsvectormap";
+import "jsvectormap/dist/maps/world-merc.js";
 
 let carddetails = [
   {
@@ -233,43 +233,43 @@ var markers = [
   { name: "Brazil", coords: [-14.235, -51.9253] },
 ];
 onMounted(() => {
-  // jsVectorMap({
-  //   map: "world_merc",
-  //   selector: "#map",
-  //   zoomButtons: false,
-  //   zoomOnScroll: true,
-  //   showTooltip: false,
-  //   regionStyle: {
-  //     initial: {
-  //       fill: "#d1d5db",
-  //     },
-  //   },
-  //   labels: {
-  //     markers: {
-  //       render: (marker) => marker.name,
-  //     },
-  //   },
-  //   markersSelectable: true,
-  //   selectedMarkers: markers.map((marker, index) => {
-  //     var name = marker.name;
+  jsVectorMap({
+    map: "world_merc",
+    selector: "#map",
+    zoomButtons: false,
+    zoomOnScroll: true,
+    showTooltip: false,
+    regionStyle: {
+      initial: {
+        fill: "#d1d5db",
+      },
+    },
+    labels: {
+      markers: {
+        render: (marker) => marker.name,
+      },
+    },
+    markersSelectable: true,
+    selectedMarkers: markers.map((marker, index) => {
+      var name = marker.name;
 
-  //     if (name === "Russia" || name === "Brazil") {
-  //       return index;
-  //     }
-  //   }),
-  //   markers: markers,
-  //   markerStyle: {
-  //     initial: { fill: "#5c5cff" },
-  //     selected: { fill: "#ff5050" },
-  //   },
-  //   markerLabelStyle: {
-  //     initial: {
-  //       fontFamily: "Roboto",
-  //       fontWeight: 400,
-  //       fontSize: 13,
-  //     },
-  //   },
-  // });
+      if (name === "Russia" || name === "Brazil") {
+        return index;
+      }
+    }),
+    markers: markers,
+    markerStyle: {
+      initial: { fill: "#5c5cff" },
+      selected: { fill: "#ff5050" },
+    },
+    markerLabelStyle: {
+      initial: {
+        fontFamily: "Roboto",
+        fontWeight: 400,
+        fontSize: 13,
+      },
+    },
+  });
 });
 </script>
 <template>

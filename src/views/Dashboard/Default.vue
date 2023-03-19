@@ -297,7 +297,11 @@ const getColor = (status) => {
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              <Line :data="revenue.data" :options="revenue.options" />
+              <Line
+                :data="revenue.data"
+                :options="revenue.options"
+                style="height: 400px"
+              />
             </v-card-text>
           </v-card>
           <v-card flat border class="mb-3">
@@ -310,7 +314,11 @@ const getColor = (status) => {
             <v-card-title>Sales / Revenue</v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              <Bar :data="sales['data']" :options="sales['options']" />
+              <Bar
+                :data="sales['data']"
+                :options="sales['options']"
+                style="height: 400px"
+              />
             </v-card-text>
           </v-card>
         </v-col>
@@ -350,6 +358,7 @@ const getColor = (status) => {
               <Doughnut
                 :data="weeklySales['data']"
                 :options="weeklySales['options']"
+                style="height: 300px"
               />
             </v-card-text>
           </v-card>

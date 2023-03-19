@@ -22,7 +22,29 @@ export default defineConfig({
         configFile: "src/styles/settings.scss",
       },
     }),
-    VitePWA({ registerType: "autoUpdate", injectRegister: "auto" }),
+    VitePWA({
+      registerType: "autoUpdate",
+      injectRegister: "auto",
+      includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
+      manifest: {
+        name: "VueDash",
+        short_name: "VueDash",
+        description: "Vue UI Dashboard with  Vuetify",
+        theme_color: "#ffffff",
+        icons: [
+          {
+            src: "favicon.ico",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "favicon.ico",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
+      },
+    }),
   ],
   define: { "process.env": {} },
   resolve: {

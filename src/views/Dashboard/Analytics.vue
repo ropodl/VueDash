@@ -315,7 +315,6 @@ onMounted(() => {
         <v-card border flat>
           <v-card-title>Total Revenue</v-card-title>
           <v-divider></v-divider>
-          <!-- refactor jsVectorMap is WIP. -->
           <div id="map"></div>
         </v-card>
       </v-col>

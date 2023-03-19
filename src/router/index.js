@@ -3,6 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
+NProgress.configure({
+  showSpinner: false,
+});
+
 const routes = [
   {
     path: "/",

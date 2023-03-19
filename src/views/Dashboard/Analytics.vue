@@ -1,8 +1,8 @@
 <script setup>
-import { onMounted } from "vue";
+// import { onMounted } from "vue";
 
-import jsVectorMap from "jsvectormap";
-import "jsvectormap/dist/maps/world-merc.js";
+// import jsVectorMap from "jsvectormap";
+// import "jsvectormap/dist/maps/world-merc.js";
 
 let carddetails = [
   {
@@ -232,45 +232,45 @@ var markers = [
   { name: "Greenland", coords: [71.7069, -42.6043] },
   { name: "Brazil", coords: [-14.235, -51.9253] },
 ];
-onMounted(() => {
-  jsVectorMap({
-    map: "world_merc",
-    selector: "#map",
-    zoomButtons: false,
-    zoomOnScroll: true,
-    showTooltip: false,
-    regionStyle: {
-      initial: {
-        fill: "#d1d5db",
-      },
-    },
-    labels: {
-      markers: {
-        render: (marker) => marker.name,
-      },
-    },
-    markersSelectable: true,
-    selectedMarkers: markers.map((marker, index) => {
-      var name = marker.name;
+// onMounted(() => {
+//   jsVectorMap({
+//     map: "world_merc",
+//     selector: "#map",
+//     zoomButtons: false,
+//     zoomOnScroll: true,
+//     showTooltip: false,
+//     regionStyle: {
+//       initial: {
+//         fill: "#d1d5db",
+//       },
+//     },
+//     labels: {
+//       markers: {
+//         render: (marker) => marker.name,
+//       },
+//     },
+//     markersSelectable: true,
+//     selectedMarkers: markers.map((marker, index) => {
+//       var name = marker.name;
 
-      if (name === "Russia" || name === "Brazil") {
-        return index;
-      }
-    }),
-    markers: markers,
-    markerStyle: {
-      initial: { fill: "#5c5cff" },
-      selected: { fill: "#ff5050" },
-    },
-    markerLabelStyle: {
-      initial: {
-        fontFamily: "Roboto",
-        fontWeight: 400,
-        fontSize: 13,
-      },
-    },
-  });
-});
+//       if (name === "Russia" || name === "Brazil") {
+//         return index;
+//       }
+//     }),
+//     markers: markers,
+//     markerStyle: {
+//       initial: { fill: "#5c5cff" },
+//       selected: { fill: "#ff5050" },
+//     },
+//     markerLabelStyle: {
+//       initial: {
+//         fontFamily: "Roboto",
+//         fontWeight: 400,
+//         fontSize: 13,
+//       },
+//     },
+//   });
+// });
 </script>
 <template>
   <v-container>
@@ -315,7 +315,8 @@ onMounted(() => {
         <v-card border flat>
           <v-card-title>Total Revenue</v-card-title>
           <v-divider></v-divider>
-          <div id="map"></div>
+          refactor jsVectorMap is WIP.
+          <!-- <div id="map"></div> -->
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">

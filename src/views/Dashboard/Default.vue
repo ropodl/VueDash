@@ -13,9 +13,6 @@ const numberpane = defineAsyncComponent(() =>
 );
 // const calendar = defineAsyncComponent(() => import("@/components/calendar"));
 const timeline = defineAsyncComponent(() => import("@/components/timeline"));
-const chartjs = defineAsyncComponent(() =>
-  import("@/components/chartjs/chartjs")
-);
 // data
 let revenue = {
   data: {

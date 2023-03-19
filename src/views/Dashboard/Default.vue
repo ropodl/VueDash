@@ -2,7 +2,11 @@
 import { defineAsyncComponent } from "vue";
 import colors from "vuetify/lib/util/colors";
 import { useTitle } from "@vueuse/core";
+import { Bar, Doughnut, Line } from "vue-chartjs";
+import "chart.js/auto";
+
 useTitle("Default Dashboard");
+
 // components
 const numberpane = defineAsyncComponent(() =>
   import("@/components/default-dash/numberpane")
@@ -13,9 +17,7 @@ const chartjs = defineAsyncComponent(() =>
   import("@/components/chartjs/chartjs")
 );
 // data
-let revenuedata = {
-  id: "totalrevenue",
-  type: "line",
+let revenue = {
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
@@ -37,21 +39,22 @@ let revenuedata = {
   },
   options: {
     maintainAspectRatio: true,
-    legend: {
-      display: true,
-      position: "bottom",
-    },
-    tooltips: {
-      intersect: false,
-    },
-    hover: {
-      intersect: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+      tooltips: {
+        position: "average",
+        intersect: false,
+      },
+      hover: {
+        intersect: false,
+      },
     },
   },
 };
-let weeklysalesdata = {
-  id: "weeklysales",
-  type: "dougnut",
+let weeklySales = {
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
@@ -74,21 +77,21 @@ let weeklysalesdata = {
   },
   options: {
     maintainAspectRatio: true,
-    legend: {
-      display: true,
-      position: "bottom",
-    },
-    tooltips: {
-      intersect: false,
-    },
-    hover: {
-      intersect: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+      tooltips: {
+        intersect: false,
+      },
+      hover: {
+        intersect: true,
+      },
     },
   },
 };
-let salesrevenuedata = {
-  id: "salesrevenue",
-  type: "bar",
+let sales = {
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
@@ -107,6 +110,22 @@ let salesrevenuedata = {
         data: [10, 20, 30, 40, 50, 60, 70],
       },
     ],
+  },
+  options: {
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+      tooltips: {
+        position: "average",
+        intersect: false,
+      },
+      hover: {
+        intersect: false,
+      },
+    },
   },
 };
 let header = [
@@ -275,14 +294,7 @@ const getColor = (status) => {
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              ChartJS is WIP.
-              <!-- <Bar id="my-chart-id" :options="chartOptions" :data="chartData" /> -->
-              <!-- <chartjs
-                :id="revenuedata.id"
-                :type="revenuedata.type"
-                :data="revenuedata.data"
-                :options="revenuedata.option"
-              /> -->
+              <Line :data="revenue.data" :options="revenue.options" />
             </v-card-text>
           </v-card>
           <v-card flat border class="mb-3">
@@ -295,13 +307,7 @@ const getColor = (status) => {
             <v-card-title>Sales / Revenue</v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              ChartJS is WIP.
-              <!-- <chartjs
-                :id="salesrevenuedata.id"
-                :type="salesrevenuedata.type"
-                :data="salesrevenuedata.data"
-                :options="salesrevenuedata.option"
-              /> -->
+              <Bar :data="sales['data']" :options="sales['options']" />
             </v-card-text>
           </v-card>
         </v-col>
@@ -338,14 +344,10 @@ const getColor = (status) => {
             <v-card-title>Weekly Sales</v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              ChartJS is WIP.
-              <!-- <chartjs
-                id="weeklysales"
-                type="doughnut"
-                :data="weeklysalesdata['data']"
-                :options="weeklysalesdata['option']"
-                height="200px"
-              /> -->
+              <Doughnut
+                :data="weeklySales['data']"
+                :options="weeklySales['options']"
+              />
             </v-card-text>
           </v-card>
           <v-card flat border>

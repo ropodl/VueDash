@@ -4,10 +4,10 @@ import en from "./langs/en.json";
 import np from "./langs/np.json";
 
 const i18n = createI18n({
-  locale: "np", // set locale
+  locale: "en",
   legacy: false,
   allowComposition: true,
-  fallbackLocale: "en", // set fallback locale
+  fallbackLocale: "np",
   messages: {
     en,
     np,

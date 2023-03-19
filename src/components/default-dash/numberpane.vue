@@ -1,36 +1,32 @@
 <script setup>
 let carddetails = [
   {
-    id: "1",
-    icon: "fas fa-shopping-cart",
+    icon: "fa:fas fa-shopping-cart",
     title: "25",
     text: "Sales Today",
     summary: "-25",
-    class: "card-icon primary--text pl-3",
+    class: "card-icon text-primary pl-3",
   },
   {
-    id: "2",
-    icon: "fas fa-heartbeat",
+    icon: "fa:fas fa-heartbeat",
     title: "17.212",
     text: "Visitors Today",
     summary: "+35",
-    class: "card-icon warning--text pl-3",
+    class: "card-icon text-warning pl-3",
   },
   {
-    id: "3",
-    icon: "fas fa-dollar-sign",
+    icon: "fa:fas fa-dollar-sign",
     title: "$ 24.300",
     text: "Total Earnings",
     summary: "+15",
-    class: "card-icon success--text pl-3",
+    class: "card-icon text-success pl-3",
   },
   {
-    id: "4",
-    icon: "fas fa-shopping-bag",
+    icon: "fa:fas fa-shopping-bag",
     title: "43",
     text: "Pending Orders",
     summary: "+22",
-    class: "card-icon error--text pl-3",
+    class: "card-icon text-error pl-3",
   },
 ];
 </script>

@@ -262,7 +262,7 @@ const getColor = (status) => {
     <v-container>
       <v-row>
         <v-col cols="12" class="py-0">
-          <h1>Welcome back, John Doe! {{ $isDark }}</h1>
+          <h1>Welcome back, John Doe!</h1>
         </v-col>
       </v-row>
       <numberpane />
@@ -275,12 +275,14 @@ const getColor = (status) => {
             </v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              <chartjs
+              ChartJS is WIP.
+              <!-- <Bar id="my-chart-id" :options="chartOptions" :data="chartData" /> -->
+              <!-- <chartjs
                 :id="revenuedata.id"
                 :type="revenuedata.type"
                 :data="revenuedata.data"
                 :options="revenuedata.option"
-              />
+              /> -->
             </v-card-text>
           </v-card>
           <v-card flat border class="mb-3">
@@ -293,12 +295,13 @@ const getColor = (status) => {
             <v-card-title>Sales / Revenue</v-card-title>
             <v-divider></v-divider>
             <v-card-text>
-              <chartjs
+              ChartJS is WIP.
+              <!-- <chartjs
                 :id="salesrevenuedata.id"
                 :type="salesrevenuedata.type"
                 :data="salesrevenuedata.data"
                 :options="salesrevenuedata.option"
-              />
+              /> -->
             </v-card-text>
           </v-card>
         </v-col>
@@ -334,14 +337,15 @@ const getColor = (status) => {
           <v-card flat border class="mb-3">
             <v-card-title>Weekly Sales</v-card-title>
             <v-divider></v-divider>
-            <v-card-text style="height: 100%">
-              <chartjs
+            <v-card-text>
+              ChartJS is WIP.
+              <!-- <chartjs
                 id="weeklysales"
                 type="doughnut"
                 :data="weeklysalesdata['data']"
                 :options="weeklysalesdata['option']"
                 height="200px"
-              />
+              /> -->
             </v-card-text>
           </v-card>
           <v-card flat border>

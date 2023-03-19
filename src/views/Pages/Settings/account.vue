@@ -1,5 +1,8 @@
 <script setup>
-import { mdiCloudUpload, mdiHelpCircle, mdiOpenInNew } from "@mdi/js";
+import { ref } from "vue";
+import { mdiClose, mdiCloudUpload, mdiHelpCircle, mdiOpenInNew } from "@mdi/js";
+
+let changePasswordDialog = ref(false)
 </script>
 
 <template>
@@ -50,9 +53,7 @@ import { mdiCloudUpload, mdiHelpCircle, mdiOpenInNew } from "@mdi/js";
       <v-card border flat>
         <v-card-title>Download your data</v-card-title>
         <v-card-text>
-          We believe one's personal data is personal.
-          <br />
-          <strong class="text-error"> It should not be for sale.</strong>
+          We believe your data is personal. Accessing it is easy.
         </v-card-text>
         <v-btn block rounded="0" variant="tonal" class="text-capitalize">
           Download Data
@@ -121,14 +122,58 @@ import { mdiCloudUpload, mdiHelpCircle, mdiOpenInNew } from "@mdi/js";
               unlock sudo?
             </v-list-item-subtitle>
             <template v-slot:append>
-              <v-btn
-                border
-                color="error"
-                variant="text"
-                class="text-capitalize"
-              >
-                Change Password
-              </v-btn>
+              <v-dialog v-model="changePasswordDialog" persistent width="400" scrim="black">
+                <template v-slot:activator="{ props }">
+                  <v-btn
+                    border
+                    color="error"
+                    variant="text"
+                    class="text-capitalize"
+                    v-bind="props"
+                  >
+                    Change Password
+                  </v-btn>
+                </template>
+                <v-card>
+                  <v-card-title class="d-flex">
+                    Change Password
+                    <v-spacer></v-spacer>
+                    <v-btn icon variant="tonal" size="x-small" @click="changePasswordDialog=false">
+                      <v-icon :icon="mdiClose"></v-icon>
+                    </v-btn>
+                  </v-card-title>
+                  <v-container class="py-0">
+                    <v-row>
+                      <v-col cols="12" class="pb-0">
+                        <v-text-field
+                          type="password"
+                          placeholder="Current Password"
+                        >
+                          <template v-slot:details>
+                            <router-link :to="{ name: 'Reset Password' }">
+                              Forgot Password?
+                            </router-link>
+                          </template>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12" class="py-0">
+                        <v-text-field
+                          type="password"
+                          placeholder="New Password"
+                        ></v-text-field> </v-col
+                      ><v-col cols="12" class="pt-0">
+                        <v-text-field
+                          type="password"
+                          placeholder="Confirm New Password"
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                  <v-btn class="text-capitalize" rounded="0" size="large"
+                    >Submit</v-btn
+                  >
+                </v-card>
+              </v-dialog>
             </template>
           </v-list-item>
           <v-divider></v-divider>

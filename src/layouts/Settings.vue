@@ -14,10 +14,10 @@ let tabs = [
     title: "Account",
     link: "/settings/account",
   },
-  {
-    title: "Password",
-    link: "/settings/password",
-  },
+  // {
+  //   title: "Password",
+  //   link: "/settings/password",
+  // },
   {
     title: "Privacy and Safety",
     link: "/settings/privacy-safety",
@@ -34,14 +34,14 @@ let tabs = [
     title: "Widgets",
     link: "/settings/widgets",
   },
-  {
-    title: "Your Data",
-    link: "/settings/your-data",
-  },
-  {
-    title: "Delete Account",
-    link: "/settings/delete-account",
-  },
+  // {
+  //   title: "Your Data",
+  //   link: "/settings/your-data",
+  // },
+  // {
+  //   title: "Delete Account",
+  //   link: "/settings/delete-account",
+  // },
 ];
 onMounted(() => {
   onResize();

@@ -1,11 +1,6 @@
 <script setup>
-import {
-  mdiCheckboxMarkedCircle,
-  mdiMessage,
-  mdiChevronDown,
-  mdiPlusCircle,
-} from "@mdi/js";
-let skills = [
+import { mdiCheckboxMarkedCircle, mdiMessage, mdiPlusCircle } from "@mdi/js";
+const skills = [
   {
     name: "HTML",
     icon: "fa:fa-brands fa-html5",
@@ -35,18 +30,32 @@ let skills = [
     icon: "fa:fas fa-pencil-alt",
   },
 ];
-let items = [
+const elsewhere = [
   {
-    title: "Action",
-    route: "/",
+    title: "staciehall.co",
+    link: "https://staciehall.co",
+    icon: "fa:fas fa-globe",
+  },
+
+  {
+    title: "Twitter",
+    link: "https://twitter.com",
+    icon: "fa:fab fa-twitter",
   },
   {
-    title: "Another Action",
-    route: "/",
+    title: " Facebook",
+    link: "https://",
+    icon: "fa:fab fa-facebook",
   },
   {
-    title: "Something else here",
-    route: "/",
+    title: "Instagram",
+    link: "https://",
+    icon: "fa:fab fa-instagram",
+  },
+  {
+    title: "LinkedIn",
+    link: "https://",
+    icon: "fa:fab fa-linkedin",
   },
 ];
 </script>
@@ -60,7 +69,7 @@ let items = [
         <v-card border flat>
           <v-card-title>Profile Details</v-card-title>
           <v-divider></v-divider>
-          <v-list color="transparent" density="compact">
+          <v-list class="pb-0" color="transparent" density="compact">
             <v-list-item>
               <template v-slot:prepend>
                 <v-avatar size="60">
@@ -94,7 +103,7 @@ let items = [
               </v-col>
             </v-row>
           </v-card-actions>
-          <v-divider></v-divider>
+          <!-- <v-divider></v-divider> -->
           <v-card-title>Skills</v-card-title>
           <v-card-text>
             <v-btn
@@ -133,65 +142,16 @@ let items = [
           <v-divider></v-divider>
           <v-card-title>Elsewhere</v-card-title>
           <v-card-text>
-            <ul class="list-style-none pl-0">
-              <li class="mb-3">
-                <a
-                  class="text-decoration-none"
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <ul class="list-style-none">
+              <li class="mb-1" v-for="item in elsewhere">
+                <v-btn
+                  block
+                  variant="text"
+                  class="text-capitalize d-flex justify-start"
                 >
-                  <v-icon start size="small" icon="fa:fas fa-globe"></v-icon>
-                  staciehall.co
-                </a>
-              </li>
-              <li class="mb-3">
-                <a
-                  class="text-decoration-none"
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <v-icon start size="small" icon="fa:fab fa-twitter"></v-icon>
-                  Twitter
-                </a>
-              </li>
-              <li class="mb-3">
-                <a
-                  class="text-decoration-none"
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <v-icon start size="small" icon="fa:fab fa-facebook"></v-icon>
-                  Facebook
-                </a>
-              </li>
-              <li class="mb-3">
-                <a
-                  class="text-decoration-none"
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <v-icon
-                    start
-                    size="small"
-                    icon="fa:fab fa-instagram"
-                  ></v-icon>
-                  Instagram
-                </a>
-              </li>
-              <li class="mb-3">
-                <a
-                  class="text-decoration-none"
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <v-icon start size="small" icon="fa:fab fa-linkedin"></v-icon>
-                  LinkedIn
-                </a>
+                  <v-icon start :icon="item['icon']"></v-icon>
+                  {{ item["title"] }}
+                </v-btn>
               </li>
             </ul>
           </v-card-text>

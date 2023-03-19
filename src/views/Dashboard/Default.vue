@@ -280,116 +280,110 @@ const getColor = (status) => {
 };
 </script>
 <template>
-  <div class="dashboardDefault">
-    <v-container>
-      <v-row>
-        <v-col cols="12" class="py-0">
-          <h1>Welcome back, John Doe!</h1>
-        </v-col>
-      </v-row>
-      <numberpane />
-      <v-row>
-        <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
-          <v-card flat border class="mb-3">
-            <v-card-title class="d-flex">
-              Total Revenue <v-spacer></v-spacer>
-              <v-chip small color="primary">Monthly</v-chip>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <Line
-                :data="revenue.data"
-                :options="revenue.options"
-                style="height: 400px"
-              />
-            </v-card-text>
-          </v-card>
-          <v-card flat border class="mb-3">
-            <v-card-title>Calendar</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>Currenly not available</v-card-text>
-            <!-- <calendar elevation="0" /> -->
-          </v-card>
-          <v-card flat border>
-            <v-card-title>Sales / Revenue</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <Bar
-                :data="sales['data']"
-                :options="sales['options']"
-                style="height: 400px"
-              />
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-          <v-card flat border class="mb-3">
-            <v-card-title class="d-flex">
-              Daily Feed <v-spacer></v-spacer>
-              <v-chip color="info">Today</v-chip>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text class="pa-0">
-              <v-list density="compact" lines="three">
-                <template v-for="feed in dailyfeed">
-                  <v-divider v-if="feed.divider"></v-divider>
-                  <v-list-item v-else :key="feed.title">
-                    <template v-slot:prepend>
-                      <v-avatar size="60">
-                        <v-img :src="feed.avatar"></v-img>
-                      </v-avatar>
-                    </template>
-                    <v-list-item-title v-html="feed.title"></v-list-item-title>
-                    <v-list-item-subtitle
-                      v-html="feed.subtitle"
-                    ></v-list-item-subtitle>
-                    <template v-slot:append>
-                      <span>3h ago</span>
-                    </template>
-                  </v-list-item>
-                </template>
-              </v-list>
-            </v-card-text>
-          </v-card>
-          <v-card flat border class="mb-3">
-            <v-card-title>Weekly Sales</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <Doughnut
-                :data="weeklySales['data']"
-                :options="weeklySales['options']"
-                style="height: 300px"
-              />
-            </v-card-text>
-          </v-card>
-          <v-card flat border>
-            <v-card-title>Appointments</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text class="py-0">
-              <timeline />
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
-          <v-card flat border>
-            <v-card-title>Latest Projects</v-card-title>
-            <v-divider></v-divider>
-            <v-data-table
-              :headers="header"
-              :items="project"
-              :items-per-page="6"
-            >
-              <template v-slot:item.status="{ item }">
-                <v-chip :color="getColor(item.raw.status)" small>
-                  {{ item.raw.status }}
-                </v-chip>
+  <v-container>
+    <v-row>
+      <v-col cols="12" class="py-0">
+        <h1>Welcome back, John Doe!</h1>
+      </v-col>
+    </v-row>
+    <numberpane />
+    <v-row>
+      <v-col cols="12" xs="12" sm="12" md="7" lg="7" xl="7">
+        <v-card flat border class="mb-3">
+          <v-card-title class="d-flex">
+            Total Revenue <v-spacer></v-spacer>
+            <v-chip small color="primary">Monthly</v-chip>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <Line
+              :data="revenue.data"
+              :options="revenue.options"
+              style="height: 400px"
+            />
+          </v-card-text>
+        </v-card>
+        <v-card flat border class="mb-3">
+          <v-card-title>Calendar</v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>Currenly not available</v-card-text>
+          <!-- <calendar elevation="0" /> -->
+        </v-card>
+        <v-card flat border>
+          <v-card-title>Sales / Revenue</v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <Bar
+              :data="sales['data']"
+              :options="sales['options']"
+              style="height: 400px"
+            />
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
+        <v-card flat border class="mb-3">
+          <v-card-title class="d-flex">
+            Daily Feed <v-spacer></v-spacer>
+            <v-chip color="info">Today</v-chip>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text class="pa-0">
+            <v-list density="compact" lines="three">
+              <template v-for="feed in dailyfeed">
+                <v-divider v-if="feed.divider"></v-divider>
+                <v-list-item v-else :key="feed.title">
+                  <template v-slot:prepend>
+                    <v-avatar size="60">
+                      <v-img :src="feed.avatar"></v-img>
+                    </v-avatar>
+                  </template>
+                  <v-list-item-title v-html="feed.title"></v-list-item-title>
+                  <v-list-item-subtitle
+                    v-html="feed.subtitle"
+                  ></v-list-item-subtitle>
+                  <template v-slot:append>
+                    <span>3h ago</span>
+                  </template>
+                </v-list-item>
               </template>
-            </v-data-table>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+            </v-list>
+          </v-card-text>
+        </v-card>
+        <v-card flat border class="mb-3">
+          <v-card-title>Weekly Sales</v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <Doughnut
+              :data="weeklySales['data']"
+              :options="weeklySales['options']"
+              style="height: 300px"
+            />
+          </v-card-text>
+        </v-card>
+        <v-card flat border>
+          <v-card-title>Appointments</v-card-title>
+          <v-divider></v-divider>
+          <v-card-text class="py-0">
+            <timeline />
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+        <v-card flat border>
+          <v-card-title>Latest Projects</v-card-title>
+          <v-divider></v-divider>
+          <v-data-table :headers="header" :items="project" :items-per-page="6">
+            <template v-slot:item.status="{ item }">
+              <v-chip :color="getColor(item.raw.status)" small>
+                {{ item.raw.status }}
+              </v-chip>
+            </template>
+          </v-data-table>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>

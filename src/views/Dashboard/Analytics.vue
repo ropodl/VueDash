@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
-
+import { Bar, Radar } from "vue-chartjs";
+import "chart.js/auto";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
 
@@ -83,6 +84,100 @@ let languages = [
     userpercent: "13",
   },
 ];
+const device = {
+  data: {
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    datasets: [
+      {
+        label: "Data One",
+        backgroundColor: "#f87979",
+        data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+      tooltips: {
+        position: "average",
+        intersect: false,
+      },
+      hover: {
+        intersect: false,
+      },
+    },
+  },
+};
+const interests = {
+  data: {
+    labels: [
+      "Eating",
+      "Drinking",
+      "Sleeping",
+      "Designing",
+      "Coding",
+      "Cycling",
+      "Running",
+    ],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgba(179,181,198,0.2)",
+        borderColor: "rgba(179,181,198,1)",
+        pointBackgroundColor: "rgba(179,181,198,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(179,181,198,1)",
+        data: [65, 59, 90, 81, 56, 55, 40],
+      },
+      {
+        label: "My Second dataset",
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
+        pointBackgroundColor: "rgba(255,99,132,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(255,99,132,1)",
+        data: [28, 48, 40, 19, 96, 27, 100],
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+      tooltips: {
+        position: "average",
+        intersect: false,
+      },
+      hover: {
+        intersect: false,
+      },
+    },
+  },
+};
 let trafficheader = [
   {
     title: "Source",
@@ -237,7 +332,7 @@ onMounted(() => {
     map: "world_merc",
     selector: "#map",
     zoomButtons: false,
-    zoomOnScroll: true,
+    zoomOnScroll: false,
     showTooltip: false,
     regionStyle: {
       initial: {
@@ -343,27 +438,35 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card border flat>
+        <v-card border flat class="h-100">
           <v-card-title>Mobile / Desktop</v-card-title>
           <v-divider></v-divider>
-          <v-card-text>Bar chart is WIP</v-card-text>
+          <v-card-text>
+            <Bar
+              :data="device['data']"
+              :options="device['options']"
+              style="height: 426px"
+            />
+          </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
           <v-card-title>Interests</v-card-title>
           <v-divider></v-divider>
-          <v-card-text>Radar chart is WIP</v-card-text>
+          <v-card-text>
+            <Radar
+              :data="interests['data']"
+              :options="interests['options']"
+              style="height: 426px"
+            />
+          </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
           <v-card-title>Source / Medium</v-card-title>
           <v-divider></v-divider>
-          <v-card-text>
-            Radar chart is WIP.
-            <!-- <chartjs id="source" type="radar" :data="items" /> -->
-          </v-card-text>
           <v-divider></v-divider>
           <v-data-table :headers="sourceHeader" :items="source"></v-data-table>
         </v-card>

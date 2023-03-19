@@ -38,7 +38,8 @@ let revenue = {
     ],
   },
   options: {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: true,
@@ -76,7 +77,8 @@ let weeklySales = {
     ],
   },
   options: {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: true,
@@ -112,7 +114,8 @@ let sales = {
     ],
   },
   options: {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: true,

@@ -22,13 +22,15 @@ const footerlinks = [
   <v-footer class="border-t d-flex">
     <v-container>
       <v-row align="center">
-        <v-col cols="12" md="6" class="py-0">
+        <v-col cols="12" sm="6" md="6" class="py-0">
           <div>&copy; {{ new Date().getFullYear() }} - VueDash</div>
         </v-col>
-        <v-col cols="12" md="6" class="py-0">
+        <v-col cols="12" sm="6" md="6" class="py-0">
           <div class="d-flex">
             <v-spacer></v-spacer>
-            <v-btn size="small" :active="false"
+            <v-btn
+              size="small"
+              :active="false"
               variant="text"
               color="white"
               class="text-capitalize"

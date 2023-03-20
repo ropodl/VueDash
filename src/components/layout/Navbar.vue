@@ -30,7 +30,6 @@ import { useI18n } from "vue-i18n";
 const theme = useTheme();
 const { t, locale } = useI18n();
 // data
-let dark = ref(true);
 let drawer = ref(true);
 let languages = [
   {
@@ -127,16 +126,6 @@ const notifications = [
     routes: "/",
   },
 ];
-const switchlanguage = (lang) => {
-  console.log(lang);
-  locale.value = lang;
-  // console.log($i18n);
-  // i18n.locale.value = lang;
-  // import("../plugins/langs/" + lang + ".json").then((msgs) => {
-  //   $i18n.setLocaleMessage(lang, msgs);
-  //   $i18n.locale = lang;
-  // });
-};
 </script>
 <template>
   <v-app-bar class="border-b" density="compact">
@@ -226,41 +215,6 @@ const switchlanguage = (lang) => {
           >See more</v-btn
         >
       </v-card>
-    </v-menu>
-    <v-menu left offset-y transition="slide-y-transition" bottom>
-      <template v-slot:activator="{ props: menu }">
-        <v-tooltip slot="activator" bottom>
-          <template v-slot:activator="{ props: tooltip }">
-            <v-btn icon v-bind="{ ...tooltip, ...menu }">
-              <v-avatar size="25">
-                <v-img
-                  cover
-                  :src="
-                    $i18n.locale == 'en'
-                      ? 'https://appstack.bootlab.io/img/flags/us.png'
-                      : 'https://appstack.bootlab.io/img/flags/np.png'
-                  "
-                ></v-img>
-              </v-avatar>
-            </v-btn>
-          </template>
-          <span>Language</span>
-        </v-tooltip>
-      </template>
-      <v-list density="compact">
-        <v-list-item
-          v-for="language in languages"
-          :key="language.id"
-          @click="switchlanguage(language.lang)"
-        >
-          <template v-slot:prepend>
-            <v-avatar size="25">
-              <v-img cover :src="language.src"></v-img>
-            </v-avatar>
-          </template>
-          <v-list-item-title>{{ language.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
     </v-menu>
     <v-menu left offset-y transition="slide-y-transition" bottom>
       <template v-slot:activator="{ props: menu }">

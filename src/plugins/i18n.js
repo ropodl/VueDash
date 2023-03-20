@@ -1,15 +1,15 @@
 import { createI18n } from "vue-i18n";
 
-import en from "./langs/en.json";
+import us from "./langs/us.json";
 import np from "./langs/np.json";
 
 const i18n = createI18n({
-  locale: "en",
+  locale: "us",
   legacy: false,
   allowComposition: true,
   fallbackLocale: "np",
   messages: {
-    en,
+    us,
     np,
   },
 });

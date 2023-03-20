@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useTheme } from "vuetify";
 const theme = useTheme();
 let language = [
@@ -15,8 +15,15 @@ let language = [
   },
 ];
 let currentLanguage = ref("");
-const darkMode = () => {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+let isDarkMode = ref(false);
+onMounted(() => {
+  isDarkMode.value = localStorage.getItem("isDarkMode") === "true";
+  theme.global.name.value = isDarkMode.value ? "dark" : "light";
+});
+const changeColorMode = () => {
+  isDarkMode.value = localStorage.getItem("isDarkMode") !== "true";
+  localStorage.setItem("isDarkMode", isDarkMode.value);
+  theme.global.name.value = isDarkMode.value ? "dark" : "light";
 };
 </script>
 <template>
@@ -30,9 +37,9 @@ const darkMode = () => {
         <template v-slot:append>
           <v-list-item-action start>
             <v-switch
-              :model-value="theme.global.current.value.dark"
+              v-model="isDarkMode"
               hide-details
-              @change="darkMode"
+              @change="changeColorMode"
             ></v-switch>
           </v-list-item-action>
         </template>

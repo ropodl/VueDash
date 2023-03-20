@@ -127,12 +127,6 @@ const notifications = [
     routes: "/",
   },
 ];
-const darkmodemethod = () => {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
-  // dark.value = !dark.value;
-  localStorage.setItem("isDarkMode", dark.value);
-  // this.$vuetify.theme.dark = dark.value;
-};
 const switchlanguage = (lang) => {
   console.log(lang);
   locale.value = lang;
@@ -151,11 +145,16 @@ const switchlanguage = (lang) => {
       height="48"
       @click="drawer = !drawer"
     ></v-app-bar-nav-icon>
-    <v-btn class="text-capitalize" rounded="0" height="48">
-      <span class="text-primary"
-        >V<span class="hidden-sm-and-down">ue</span></span
-      >
-      <span>D<span class="hidden-sm-and-down">ash</span></span>
+    <v-btn
+      exact
+      :active="false"
+      class="text-capitalize"
+      rounded="0"
+      height="48"
+      :to="{ name: 'Home' }"
+    >
+      <span class="text-primary"> Vuetify </span>
+      <span>Dash</span>
     </v-btn>
     <v-spacer></v-spacer>
     <v-autocomplete
@@ -177,9 +176,6 @@ const switchlanguage = (lang) => {
       </template>
       <span>Message</span>
     </v-tooltip>
-    <v-btn icon class="hidden-sm-and-down" @click="darkmodemethod">
-      <v-icon color="white" :icon="mdiInvertColors"></v-icon>
-    </v-btn>
     <v-menu attach left offset-y transition="slide-y-transition" bottom>
       <template v-slot:activator="{ props: menu }">
         <v-tooltip bottom>

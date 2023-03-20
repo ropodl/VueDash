@@ -25,7 +25,7 @@ export default createVuetify({
     },
   },
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: "light",
     variations: {
       colors: ["primary", "secondary", "error", "info", "success", "warning"],
       lighten: 5,

@@ -3,7 +3,6 @@ import { ref } from "vue";
 import {
   mdiMagnify,
   mdiBell,
-  mdiInvertColors,
   mdiMessage,
   mdiAccountCircle,
   mdiGoogleAnalytics,
@@ -25,24 +24,12 @@ import {
   mdiCalendar,
   mdiShareVariant,
 } from "@mdi/js";
-import { useTheme } from "vuetify";
+import { useThemeMode } from "@/composable/isDark";
 import { useI18n } from "vue-i18n";
-const theme = useTheme();
+
 const { t, locale } = useI18n();
 // data
 let drawer = ref(true);
-let languages = [
-  {
-    text: "English",
-    lang: "en",
-    src: "https://appstack.bootlab.io/img/flags/us.png",
-  },
-  {
-    text: "Nepali",
-    lang: "np",
-    src: "https://appstack.bootlab.io/img/flags/np.png",
-  },
-];
 const profiledropdown = [
   {
     icon: mdiAccountCircle,
@@ -133,6 +120,7 @@ const notifications = [
       rounded="0"
       height="48"
       @click="drawer = !drawer"
+      :color="useThemeMode() ? 'white' : 'grey-darken-3'"
     ></v-app-bar-nav-icon>
     <v-btn
       exact
@@ -140,10 +128,10 @@ const notifications = [
       class="text-capitalize"
       rounded="0"
       height="48"
+      :color="useThemeMode() ? 'white' : 'grey-darken-3'"
       :to="{ name: 'Home' }"
     >
-      <span class="text-primary"> Vuetify </span>
-      <span>Dash</span>
+      Vuetify Dash
     </v-btn>
     <v-spacer></v-spacer>
     <v-autocomplete
@@ -156,28 +144,36 @@ const notifications = [
     <v-spacer></v-spacer>
     <v-tooltip bottom>
       <template v-slot:activator="{ on: tooltip }">
-        <v-btn icon class="hidden-sm-and-down" v-on="{ ...tooltip }">
+        <v-btn
+          icon
+          :color="useThemeMode() ? 'white' : 'grey-darken-3'"
+          class="hidden-sm-and-down"
+          v-on="{ ...tooltip }"
+        >
           <v-badge small color="success" :overlap="true">
             <template v-slot:badge>10</template>
-            <v-icon color="white" :icon="mdiMessage"></v-icon>
+            <v-icon :icon="mdiMessage"></v-icon>
           </v-badge>
         </v-btn>
       </template>
       <span>Message</span>
     </v-tooltip>
     <v-menu attach left offset-y transition="slide-y-transition" bottom>
-      <template v-slot:activator="{ props: menu }">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ props: tooltip }">
-            <v-btn icon v-bind="{ ...tooltip, ...menu }">
-              <v-badge small color="warning" :overlap="true">
-                <template v-slot:badge>{{ notifications.length }}</template>
-                <v-icon color="white" :icon="mdiBell"></v-icon>
-              </v-badge>
-            </v-btn>
-          </template>
-          <span>Notifications</span>
-        </v-tooltip>
+      <template v-slot:activator="{ props }">
+        <v-btn
+          icon
+          :color="useThemeMode() ? 'white' : 'grey-darken-3'"
+          v-bind="props"
+        >
+          <v-badge
+            small
+            color="warning"
+            :content="notifications.length"
+            :overlap="true"
+          >
+            <v-icon :icon="mdiBell"></v-icon>
+          </v-badge>
+        </v-btn>
       </template>
       <v-card width="400">
         <v-list density="compact" lines="three">
@@ -217,29 +213,25 @@ const notifications = [
       </v-card>
     </v-menu>
     <v-menu left offset-y transition="slide-y-transition" bottom>
-      <template v-slot:activator="{ props: menu }">
-        <v-tooltip slot="activator" bottom>
-          <template v-slot:activator="{ props: tooltip }">
-            <v-btn
-              height="48"
-              rounded="0"
-              text
-              v-bind="{ ...tooltip, ...menu }"
-            >
-              <v-avatar start rounded="0" size="30" class="mr-3">
-                <v-img src="https://ropodl.vercel.app/icon.png"></v-img>
-              </v-avatar>
-              <span class="text-capitalize text-white">ropodl</span>
-            </v-btn>
-          </template>
-          <span>More</span>
-        </v-tooltip>
+      <template v-slot:activator="{ props }">
+        <v-btn
+          height="48"
+          rounded="0"
+          text
+          :color="useThemeMode() ? 'white' : 'grey-darken-3'"
+          v-bind="props"
+        >
+          <v-avatar start rounded="0" size="30" class="mr-3">
+            <v-img src="https://ropodl.vercel.app/icon.png"></v-img>
+          </v-avatar>
+          <span class="text-capitalize">ropodl</span>
+        </v-btn>
       </template>
       <v-list density="compact">
-        <v-list-item router link v-for="dropdownitem in profiledropdown">
+        <v-list-item v-for="item in profiledropdown" :to="item['link']">
           <v-list-item-title>
-            <v-icon start :icon="dropdownitem['icon']"></v-icon>
-            {{ $t(dropdownitem.title) }}
+            <v-icon start :icon="item['icon']"></v-icon>
+            {{ t(item["title"]) }}
           </v-list-item-title>
         </v-list-item>
       </v-list>

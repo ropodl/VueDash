@@ -21,9 +21,11 @@ onMounted(() => {
   isDarkMode.value = localStorage.getItem("isDarkMode") === "true";
   theme.global.name.value = isDarkMode.value ? "dark" : "light";
   // language check
-  let language = localStorage.getItem("isLanguage") === "us" ? "us" : "np";
-  locale.value = language;
-  currentLanguage.value = language;
+  let language = localStorage.getItem("isLanguage")
+    ? localStorage.getItem("isLanguage") === "us"
+    : true;
+  locale.value = language ? "us" : "np";
+  currentLanguage.value = language ? "us" : "np";
 });
 const changeColorMode = () => {
   isDarkMode.value = localStorage.getItem("isDarkMode") !== "true";

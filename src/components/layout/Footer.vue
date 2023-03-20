@@ -37,7 +37,7 @@ const footerlinks = [
               v-for="link in footerlinks"
               :to="link['href']"
             >
-              {{ link.text }}
+              {{ link["text"] }}
             </v-btn>
           </div>
         </v-col>

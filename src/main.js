@@ -5,6 +5,11 @@ import { createApp, computed } from "vue";
 
 // Plugins
 import { registerPlugins } from "@/plugins";
+import { registerSW } from "virtual:pwa-register";
+
+registerSW({
+  onOfflineReady() {},
+});
 
 const app = createApp(App);
 
@@ -15,6 +20,4 @@ import { useTheme } from "vuetify";
 app.config.globalProperties.$isDark = computed(() => {
   return useTheme().global.current.value.dark;
 });
-//     this.lang = localStorage.getItem("lang") === "en"
-//     this.$i18n.locale = "en"
 app.mount("#app");

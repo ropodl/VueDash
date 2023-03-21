@@ -106,7 +106,6 @@ const profiledropdown = [
       class="position-relative"
       transition="slide-y-reverse-transition"
     >
-      <!-- transition="slide-y-reverse-transition" -->
       <template v-slot:activator="{ props }">
         <v-btn
           icon

@@ -19,13 +19,13 @@ const footerlinks = [
 ];
 </script>
 <template>
-  <v-footer class="border-t d-flex">
+  <v-app-bar density="compact" order="1" location="bottom" class="border-t d-flex">
     <v-container>
       <v-row align="center">
-        <v-col cols="12" sm="6" md="6" class="py-0">
+        <v-col cols="12" sm="6" class="py-0">
           <div>&copy; {{ new Date().getFullYear() }} - VueDash</div>
         </v-col>
-        <v-col cols="12" sm="6" md="6" class="py-0">
+        <v-col cols="12" sm="6" class="py-0">
           <div class="d-flex">
             <v-spacer></v-spacer>
             <v-btn
@@ -43,5 +43,5 @@ const footerlinks = [
         </v-col>
       </v-row>
     </v-container>
-  </v-footer>
+  </v-app-bar>
 </template>

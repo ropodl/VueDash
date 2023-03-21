@@ -15,11 +15,13 @@ const Footer = defineAsyncComponent(() =>
 </script>
 <template>
   <v-app>
-    <v-main>
+    <v-layout>
       <Navbar />
       <OfflineBanner v-if="!isOnline" />
-      <router-view></router-view>
+      <v-main>
+        <router-view></router-view>
+      </v-main>
       <Footer />
-    </v-main>
+    </v-layout>
   </v-app>
 </template>

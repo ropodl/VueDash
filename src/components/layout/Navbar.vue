@@ -26,8 +26,8 @@ import {
 } from "@mdi/js";
 import { useThemeMode } from "@/composable/isDark";
 import { useI18n } from "vue-i18n";
-
-const { t, locale } = useI18n();
+// composables
+const { t } = useI18n();
 // data
 let drawer = ref(true);
 const profiledropdown = [
@@ -115,7 +115,7 @@ const notifications = [
 ];
 </script>
 <template>
-  <v-app-bar class="border-b" density="compact">
+  <v-app-bar density="compact" class="border-b">
     <v-app-bar-nav-icon
       rounded="0"
       height="48"
@@ -237,8 +237,6 @@ const notifications = [
       </v-list>
     </v-menu>
   </v-app-bar>
-
-  <!-- mutation -->
   <v-navigation-drawer v-model="drawer">
     <v-list class="nav" density="compact">
       <template v-for="navitem in navitems">
@@ -304,14 +302,6 @@ const notifications = [
     </v-list>
   </v-navigation-drawer>
 </template>
-<style scoped>
-header.searchbar {
-  position: sticky !important;
-  top: 0 !important;
-  border-top: 0;
-  overflow: visible;
-}
-</style>
 <script>
 export default {
   data() {

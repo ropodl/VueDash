@@ -13,88 +13,15 @@ import {
   mdiStickerEmoji,
   mdiCircle,
   mdiReply,
-  mdiMore,
+  mdiAccount,
+  mdiMagnify,
+  mdiBellCancel,
+  mdiCloseCircle,
+  mdiPin,
 } from "@mdi/js";
 
 let tab = ref(0);
 let drawer = ref(false);
-let items = [
-  {
-    name: "Ashley Briggs",
-    image: "https://appstack.bootlab.io/img/avatars/avatar.jpg",
-    status: "online",
-    msgCount: 5,
-    message: [
-      {
-        text: "Hello there I am text",
-      },
-      {
-        sender: "me",
-        text: "Hi",
-      },
-    ],
-  },
-  {
-    name: "Tim Cooks",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-2.jpg",
-    status: "Do not Disturb",
-    msgCount: 0,
-  },
-  {
-    name: "John Doe",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-3.jpg",
-    status: "offline",
-    msgCount: 2,
-  },
-  {
-    name: "Jimmy Doe",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-4.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-  {
-    name: "Fillip Nas",
-    image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
-    status: "online",
-    msgCount: 0,
-  },
-];
 
 const getStatus = (status) => {
   if (status == "online") {
@@ -114,13 +41,8 @@ const test = (i) => {
   <v-container fluid class="chat-page pa-0">
     <v-row no-gutters>
       <v-col cols="12" md="4" lg="4">
-        <v-card
-          border
-          flat
-          rounded="0"
-          class="h-100 border-s-0 border-e-0 border-b-0 rounded-te-0 rounded-be-0"
-        >
-          <v-card-text>
+        <v-card flat rounded="0" class="h-100">
+          <v-card-text style="height: 64px">
             <v-text-field
               density="compact"
               hide-details
@@ -189,7 +111,7 @@ const test = (i) => {
         </v-card>
       </v-col>
       <v-col cols="12" md="8" lg="8">
-        <v-card border flat rounded="0" class="border-b-0 border-e-0">
+        <v-card flat rounded="0" class="border-s">
           <v-window v-model="tab">
             <v-window-item
               transition="none"
@@ -212,7 +134,6 @@ const test = (i) => {
                   <v-btn flat icon variant="text">
                     <v-icon :icon="mdiMessageVideo"></v-icon>
                   </v-btn>
-                  {{ drawer }}
                   <v-btn flat icon variant="text" @click="drawer = !drawer">
                     <v-icon :icon="mdiInformation"></v-icon>
                   </v-btn>
@@ -292,15 +213,95 @@ const test = (i) => {
       </v-col>
     </v-row>
   </v-container>
-  <v-navigation-drawer v-model="drawer" location="right">
+  <v-navigation-drawer v-model="drawer" order="10" location="right">
+    <v-card-text class="position-absolute d-flex w-100">
+      <v-spacer></v-spacer>
+      <v-btn icon variant="tonal" size="x-small" @click="drawer = false">
+        <v-icon :icon="mdiCloseCircle"></v-icon>
+      </v-btn>
+    </v-card-text>
     <v-card-text class="text-center">
       <v-avatar size="100">
         <v-img src="https://appstack.bootlab.io/img/avatars/avatar.jpg"></v-img>
       </v-avatar>
     </v-card-text>
-    <v-card-text>
-      {{ tab }}
+    <v-card-text class="text-center text-h6 font-weight-bold">
+      {{ items[tab].name }}
     </v-card-text>
+    <v-card-text class="d-flex align-center justify-space-between">
+      <v-btn
+        icon
+        stacked
+        class="text-capitalize"
+        variant="tonal"
+        size="x-small"
+        title="test"
+      >
+        <v-icon :icon="mdiAccount"></v-icon>
+        Profile
+      </v-btn>
+      <v-btn
+        icon
+        stacked
+        class="text-capitalize"
+        variant="tonal"
+        size="x-small"
+      >
+        <v-icon :icon="mdiBellCancel"></v-icon>
+        Mute
+      </v-btn>
+      <v-btn
+        icon
+        stacked
+        class="text-capitalize"
+        variant="tonal"
+        size="x-small"
+      >
+        <v-icon :icon="mdiMagnify"></v-icon>
+        Search
+      </v-btn>
+    </v-card-text>
+    <v-divider></v-divider>
+    <v-expansion-panels variant="accordion" multiple>
+      <v-expansion-panel rounded="0" elevation="0" content-class="pa-0">
+        <v-expansion-panel-title>Chat Info</v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-btn
+            block
+            height="50"
+            rounded="0"
+            variant="text"
+            class="text-capitalize"
+          >
+            <v-icon start :icon="mdiPin"></v-icon> View Pinned Messages
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+      <v-expansion-panel elevation="0">
+        <v-expansion-panel-title>Customize Chat</v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-btn block rounded="0" variant="text" class="text-capitalize">
+            Change Theme
+          </v-btn>
+          <v-btn block rounded="0" variant="text" class="text-capitalize">
+            Change Emoji
+          </v-btn>
+          <v-btn block rounded="0" variant="text" class="text-capitalize">
+            Edit Nicknames
+          </v-btn>
+          <v-btn block rounded="0" variant="text" class="text-capitalize">
+            Search in Conversation
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+      <v-expansion-panel elevation="0">
+        <v-expansion-panel-title>Test</v-expansion-panel-title>
+      </v-expansion-panel>
+      <v-expansion-panel elevation="0">
+        <v-expansion-panel-title>Test</v-expansion-panel-title>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <v-divider></v-divider>
   </v-navigation-drawer>
 </template>
 <style lang="scss">
@@ -309,11 +310,96 @@ const test = (i) => {
     width: 100% !important;
   }
   .chat-list-body {
-    height: calc(100vh - 175px);
+    height: calc(100vh - 162px);
     overflow-y: scroll;
   }
   .chat-body {
-    height: calc(100vh - 240px);
+    height: calc(100vh - 235px);
   }
 }
 </style>
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        {
+          name: "Ashley Briggs",
+          image: "https://appstack.bootlab.io/img/avatars/avatar.jpg",
+          status: "online",
+          msgCount: 5,
+          message: [
+            {
+              text: "Hello there I am text",
+            },
+            {
+              sender: "me",
+              text: "Hi",
+            },
+          ],
+        },
+        {
+          name: "Tim Cooks",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-2.jpg",
+          status: "Do not Disturb",
+          msgCount: 0,
+        },
+        {
+          name: "John Doe",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-3.jpg",
+          status: "offline",
+          msgCount: 2,
+        },
+        {
+          name: "Jimmy Doe",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-4.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+        {
+          name: "Fillip Nas",
+          image: "https://appstack.bootlab.io/img/avatars/avatar-5.jpg",
+          status: "online",
+          msgCount: 0,
+        },
+      ],
+    };
+  },
+};
+</script>

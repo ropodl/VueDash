@@ -57,65 +57,9 @@ const profiledropdown = [
     link: "/signin",
   },
 ];
-const notifications = [
-  {
-    header: "Notifications",
-  },
-  {
-    avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-    title: "Brunch this weekend?",
-    subtitle:
-      "<span class='text--primary'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
-    routes: "/",
-  },
-  {
-    divider: true,
-    inset: true,
-  },
-  {
-    avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-    title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-    subtitle:
-      "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
-    routes: "/",
-  },
-  {
-    divider: true,
-    inset: true,
-  },
-  {
-    avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-    title: "Oui oui",
-    subtitle:
-      "<span class='text--primary'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
-    routes: "/",
-  },
-  {
-    divider: true,
-    inset: true,
-  },
-  {
-    avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-    title: "Birthday gift",
-    subtitle:
-      "<span class='text--primary'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?",
-    routes: "/",
-  },
-  {
-    divider: true,
-    inset: true,
-  },
-  {
-    avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-    title: "Recipe to try",
-    subtitle:
-      "<span class='text--primary'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
-    routes: "/",
-  },
-];
 </script>
 <template>
-  <v-app-bar density="compact" class="border-b">
+  <v-app-bar absolute top height="49" class="border-b searchbar">
     <v-app-bar-nav-icon
       rounded="0"
       height="48"
@@ -142,26 +86,31 @@ const notifications = [
       hide-details
     ></v-autocomplete>
     <v-spacer></v-spacer>
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on: tooltip }">
-        <v-btn
-          icon
-          :color="useThemeMode() ? 'white' : 'grey-darken-3'"
-          class="hidden-sm-and-down"
-          v-on="{ ...tooltip }"
-        >
-          <v-badge small color="success" :overlap="true">
-            <template v-slot:badge>10</template>
-            <v-icon :icon="mdiMessage"></v-icon>
-          </v-badge>
-        </v-btn>
-      </template>
-      <span>Message</span>
-    </v-tooltip>
-    <v-menu attach left offset-y transition="slide-y-transition" bottom>
+    <v-btn
+      icon
+      height="49"
+      :active="false"
+      :color="useThemeMode() ? 'white' : 'grey-darken-3'"
+      class="hidden-sm-and-down"
+      to="/chat"
+      rounded="0"
+    >
+      <v-badge small color="success" :overlap="true">
+        <template v-slot:badge>7</template>
+        <v-icon :icon="mdiMessage"></v-icon>
+      </v-badge>
+    </v-btn>
+    <v-menu
+      location="bottom"
+      scroll-strategy="none"
+      class="position-relative"
+      transition="slide-y-reverse-transition"
+    >
+      <!-- transition="slide-y-reverse-transition" -->
       <template v-slot:activator="{ props }">
         <v-btn
           icon
+          rounded="0"
           :color="useThemeMode() ? 'white' : 'grey-darken-3'"
           v-bind="props"
         >
@@ -175,7 +124,7 @@ const notifications = [
           </v-badge>
         </v-btn>
       </template>
-      <v-card width="400">
+      <v-card border flat width="400" class="rounded-t-0">
         <v-list density="compact" lines="three">
           <template v-for="notification in notifications">
             <v-list-subheader
@@ -212,7 +161,12 @@ const notifications = [
         >
       </v-card>
     </v-menu>
-    <v-menu left offset-y transition="slide-y-transition" bottom>
+    <v-menu
+      location="bottom"
+      scroll-strategy="none"
+      class="position-relative"
+      transition="slide-y-transition"
+    >
       <template v-slot:activator="{ props }">
         <v-btn
           height="48"
@@ -227,18 +181,20 @@ const notifications = [
           <span class="text-capitalize">ropodl</span>
         </v-btn>
       </template>
-      <v-list density="compact">
-        <v-list-item v-for="item in profiledropdown" :to="item['link']">
-          <v-list-item-title>
-            <v-icon start :icon="item['icon']"></v-icon>
-            {{ t(item["title"]) }}
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
+      <v-card border class="rounded-t-0">
+        <v-list density="compact">
+          <v-list-item v-for="item in profiledropdown" :to="item['link']">
+            <v-list-item-title>
+              <v-icon start :icon="item['icon']"></v-icon>
+              {{ t(item["title"]) }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-card>
     </v-menu>
   </v-app-bar>
   <v-navigation-drawer v-model="drawer">
-    <v-list class="nav" density="compact">
+    <v-list class="nav overflow-visible" density="compact">
       <template v-for="navitem in navitems">
         <v-list-subheader v-if="navitem.subtitle">
           {{ t(navitem.subtitle) }}
@@ -302,6 +258,13 @@ const notifications = [
     </v-list>
   </v-navigation-drawer>
 </template>
+<style>
+header.searchbar {
+  top: 0 !important;
+  border-top: 0;
+  overflow: hidden;
+}
+</style>
 <script>
 export default {
   data() {
@@ -634,6 +597,62 @@ export default {
               ],
             },
           ],
+        },
+      ],
+      notifications: [
+        {
+          header: "Notifications",
+        },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+          title: "Brunch this weekend?",
+          subtitle:
+            "<span class='text--primary'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+          routes: "/",
+        },
+        {
+          divider: true,
+          inset: true,
+        },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+          subtitle:
+            "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
+          routes: "/",
+        },
+        {
+          divider: true,
+          inset: true,
+        },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+          title: "Oui oui",
+          subtitle:
+            "<span class='text--primary'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
+          routes: "/",
+        },
+        {
+          divider: true,
+          inset: true,
+        },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+          title: "Birthday gift",
+          subtitle:
+            "<span class='text--primary'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?",
+          routes: "/",
+        },
+        {
+          divider: true,
+          inset: true,
+        },
+        {
+          avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+          title: "Recipe to try",
+          subtitle:
+            "<span class='text--primary'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+          routes: "/",
         },
       ],
     };

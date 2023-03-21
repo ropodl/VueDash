@@ -1,4 +1,6 @@
 <script setup>
+import { useThemeMode } from "@/composable/isDark";
+import { useDark } from "@vueuse/core";
 const footerlinks = [
   {
     text: "Home",
@@ -19,7 +21,12 @@ const footerlinks = [
 ];
 </script>
 <template>
-  <v-app-bar density="compact" order="1" location="bottom" class="border-t d-flex">
+  <v-app-bar
+    density="compact"
+    order="1"
+    location="bottom"
+    class="border-t d-flex"
+  >
     <v-container>
       <v-row align="center">
         <v-col cols="12" sm="6" class="py-0">
@@ -32,7 +39,7 @@ const footerlinks = [
               size="small"
               :active="false"
               variant="text"
-              color="white"
+              :color="useThemeMode() ? 'white' : 'grey-darken-5'"
               class="text-capitalize"
               v-for="link in footerlinks"
               :to="link['href']"

@@ -43,7 +43,7 @@ const changeLanguage = () => {
       <v-list-item>
         <v-list-item-title>Dark Mode</v-list-item-title>
         <v-list-item-subtitle>
-          Automatically add home screen widgets when downloads complete
+          Simple to eyes but dark on day.
         </v-list-item-subtitle>
         <template v-slot:append>
           <v-list-item-action start>

@@ -18,7 +18,7 @@ const Footer = defineAsyncComponent(() =>
     <v-main>
       <Navbar />
       <OfflineBanner v-if="!isOnline" />
-      <router-view keep-alive class="mb-12"></router-view>
+      <router-view></router-view>
       <Footer />
     </v-main>
   </v-app>

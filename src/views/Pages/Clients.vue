@@ -1,27 +1,27 @@
 <script setup>
-const clientsheader = [
+const clientsHeader = [
+  // {
+  //   title: "#",
+  //   align: "center",
+  //   value: "photo",
+  // },
   {
-    text: "#",
-    align: "center",
-    value: "photo",
-  },
-  {
-    text: "Name",
+    title: "Name",
     align: "center",
     value: "name",
   },
   {
-    text: "Company",
+    title: "Company",
     align: "center",
     value: "company",
   },
   {
-    text: "Email",
+    title: "Email",
     align: "center",
     value: "email",
   },
   {
-    text: "status",
+    title: "status",
     align: "end",
     value: "status",
   },
@@ -123,14 +123,15 @@ const items = [
         <h1>Clients</h1>
       </v-col>
       <v-col cols="12" md="8">
-        <v-card>
+        <v-card border flat>
           <v-card-title>Clients</v-card-title>
           <v-divider></v-divider>
-          <v-data-table :headers="clientsheader" :items="clients">
+          <v-data-table :headers="clientsHeader" :items="clients">
             <template v-slot:item.photo="{ item }">
-              <v-avatar class="my-2">
-                <v-img :src="item.photo"></v-img>
-              </v-avatar>
+              k
+              <!-- <v-avatar class="my-2">
+                <v-img :src="item.raw.photo"></v-img>
+              </v-avatar> -->
             </template>
             <template v-slot:item.status="{ item }">
               <v-chip color="success" small>{{ item.status }}</v-chip>
@@ -139,7 +140,7 @@ const items = [
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card>
+        <v-card border flat>
           <v-card-title>Angelica Ramos</v-card-title>
           <v-divider></v-divider>
           <v-card-text class="d-flex justify-center">
@@ -157,45 +158,27 @@ const items = [
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </v-card-text>
           <v-card-text class="px-0 pb-0">
-            <v-simple-table>
-              <template v-slot:default>
-                <tbody>
-                  <tr v-for="desc in descs" :key="desc.id">
-                    <td>{{ desc.text }}</td>
-                    <td>{{ desc.detail }}</td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
+            <v-table>
+              <tbody>
+                <tr v-for="desc in descs" :key="desc.id">
+                  <td>{{ desc.text }}</td>
+                  <td>{{ desc.detail }}</td>
+                </tr>
+              </tbody>
+            </v-table>
           </v-card-text>
           <v-divider></v-divider>
-          <v-card-subtitle>Activity</v-card-subtitle>
+          <v-card-title>Activity</v-card-title>
+          <v-divider></v-divider>
           <v-card-text class="py-0">
             <v-timeline direction="vertical">
-              <v-timeline-item class="ma-0 pa-0" v-for="timeline in timelines">
-                <v-list>
+              <v-timeline-item v-for="timeline in timelines">
+                <v-list density="compact" lines="three">
                   <v-list-item>
-                    <v-list-item-title>
-                      {{ timeline["title"] }}
-                    </v-list-item-title>
-                    <v-list-item-subtitle>
-                      {{ timeline["text"] }}
-                    </v-list-item-subtitle>
+                    <v-list-item-title v-text="timeline['title']"></v-list-item-title>
+                    <v-list-item-subtitle v-text="timeline['text']"></v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
-                <!-- <v-card flat class="pa-0 ma-0">
-                  <v-card-title
-                    class="d-flex justify-space-between pl-0 py-0 ma-0"
-                  >
-                    <span class="body-1"> </span>
-                    <span class="overline">
-                      {{ timeline.time }}
-                    </span>
-                  </v-card-title>
-                  <v-card-text class="pl-0">
-                    {{ timeline.text }}
-                  </v-card-text>
-                </v-card> -->
               </v-timeline-item>
             </v-timeline>
           </v-card-text>

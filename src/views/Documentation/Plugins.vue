@@ -1,64 +1,66 @@
-<template>
-    <div class="plugins">
-        <v-container fluid>
-            <v-row>
-                <v-col cols="12" class="py-0">
-                    <h1>Plugins</h1>
-                </v-col>
-                <v-col cols="12">
-                    <v-card>
-                        <v-card-text>
-                            This template comes with multiple plugins for the demo pages, here is the list with the
-                            official documentation/website for each one.
-                        </v-card-text>
-                        <v-card-text class="pa-0">
-                            <v-simple-table>
-                                <template v-slot:default>
-                                    <thead>
-                                        <tr>
-                                            <th class="text-left">Name</th>
-                                            <th class="text-left">Documentation / Website</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="plugin in plugins" :key="plugin.name">
-                                            <td>{{ plugin.name }}</td>
-                                            <td>
-                                                <router-link :to='plugin.web'>
-                                                    {{ plugin.web }}
-                                                </router-link>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </template>
-                            </v-simple-table>
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
-</template>
-<script>
-    export default {
-        name: 'Plugins',
-        data() {
-            return {
-                plugins: [{
-                    name: 'Vue i18n',
-                    web: 'https://kazupon.github.io/vue-i18n/'
-                }, {
-                    name: 'Chart.js',
-                    web: 'https://www.chartjs.org/'
-                }, {
-                    name: 'ApexCharts',
-                    web: 'https://apexcharts.com/'
-                }]
-
-            }
-        }
-    }
+<script setup>
+const plugins = [
+  {
+    name: "Vuetify",
+    link: "https://vuetifyjs.com/en/introduction/why-vuetify/",
+  },
+  {
+    name: "Vue i18n",
+    link: "https://vue-i18n.intlify.dev/guide/",
+  },
+  {
+    name: "VueUse",
+    link: "https://vueuse.org/guide/",
+  },
+  {
+    name: "Chart.js",
+    link: "https://www.chartjs.org/",
+  },
+  {
+    name: "ApexCharts",
+    link: "https://apexcharts.com/",
+  },
+];
 </script>
-<style scoped>
-
-</style>
+<template>
+  <v-container>
+    <v-row>
+      <v-col cols="12" class="py-0">
+        <h1>Plugins</h1>
+      </v-col>
+      <v-col cols="12">
+        <v-card border flat>
+          <v-card-text>
+            Thanks to all these following libraries/plugins, etc. for their
+            respective code. We use these code to build VuetifyDash.
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-text class="pa-0">
+            <v-table>
+              <thead>
+                <tr>
+                  <th class="text-left">Name</th>
+                  <th class="text-left">Documentation / Website</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="plugin in plugins">
+                  <td>{{ plugin.name }}</td>
+                  <td>
+                    <a
+                      :href="plugin['link']"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {{ plugin.link }}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </v-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>

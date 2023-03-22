@@ -96,7 +96,12 @@ const elsewhere = [
                 </v-btn>
               </v-col>
               <v-col cols="6">
-                <v-btn block border class="text-capitalize">
+                <v-btn
+                  block
+                  border
+                  class="text-capitalize"
+                  :to="{ name: 'Chat' }"
+                >
                   <v-icon start :icon="mdiMessage"></v-icon>
                   Message
                 </v-btn>

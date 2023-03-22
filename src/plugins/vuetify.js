@@ -9,12 +9,14 @@ import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 import { createVuetify } from "vuetify";
 // Data Tables
 import { VDataTable } from "vuetify/labs/VDataTable";
+import { VVirtualScroll } from "vuetify/labs/VVirtualScroll";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   blueprint: md3,
   components: {
     VDataTable,
+    VVirtualScroll,
   },
   icons: {
     defaultSet: "mdi",

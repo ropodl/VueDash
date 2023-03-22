@@ -1,3 +1,8 @@
+<script setup>
+// import * as items from "@mdi/js";
+// let icons = Object.entries(items);
+// console.log(icons);
+</script>
 <template>
   <div class="mdi">
     <v-container fluid>
@@ -13,33 +18,19 @@
           </p>
         </v-col>
         <v-col cols="12">
-          <v-card>
-            <v-row>
-              <v-col
-                cols="12"
-                xs="12"
-                sm="12"
-                md="3"
-                lg="3"
-                xl="3"
-                v-for="mdicon in materialicons"
-                :key="mdicon"
-              >
-                <v-card flat>
-                  <v-card-text>
-                    <div class="mb-4 d-flex">
-                      <v-icon class="mx-auto">{{ mdicon }}</v-icon>
-                    </div>
-                    <div class="d-flex">
-                      <span class="mx-auto">
-                        {{ mdicon }}
-                      </span>
-                    </div>
-                  </v-card-text>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-card>
+          <!-- <v-virtual-scroll :items="items" height="300" item-height="50">
+            <template v-slot:default="{ item }">
+              <v-row>
+                <v-col cols="12" md="3">
+                  <v-card>
+                    <v-card-text>
+                      <v-icon :icon="item"></v-icon>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </template>
+          </v-virtual-scroll> -->
         </v-col>
       </v-row>
     </v-container>

@@ -1,3 +1,7 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("Email and Notification Settings");
+</script>
 <template>
   <v-card border flat>
     <v-card-title>Email and Notifications</v-card-title>

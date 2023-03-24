@@ -1,5 +1,7 @@
 <script setup>
 import { dependencies } from "../../../package.json";
+import { useTitle } from "@vueuse/core";
+useTitle("Introduction");
 </script>
 <template>
   <div class="introduction">

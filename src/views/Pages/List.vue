@@ -1,4 +1,6 @@
 <script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("Project List");
 let todos = [
   {
     id: "1",

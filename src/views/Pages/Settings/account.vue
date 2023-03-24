@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from "vue";
+import { useTitle } from "@vueuse/core";
 import { mdiClose, mdiCloudUpload, mdiHelpCircle, mdiOpenInNew } from "@mdi/js";
 
-let changePasswordDialog = ref(false)
+useTitle("Account Settings");
+
+let changePasswordDialog = ref(false);
 </script>
 
 <template>
@@ -122,7 +125,12 @@ let changePasswordDialog = ref(false)
               unlock sudo?
             </v-list-item-subtitle>
             <template v-slot:append>
-              <v-dialog v-model="changePasswordDialog" persistent width="400" scrim="black">
+              <v-dialog
+                v-model="changePasswordDialog"
+                persistent
+                width="400"
+                scrim="black"
+              >
                 <template v-slot:activator="{ props }">
                   <v-btn
                     border
@@ -138,7 +146,12 @@ let changePasswordDialog = ref(false)
                   <v-card-title class="d-flex">
                     Change Password
                     <v-spacer></v-spacer>
-                    <v-btn icon variant="tonal" size="x-small" @click="changePasswordDialog=false">
+                    <v-btn
+                      icon
+                      variant="tonal"
+                      size="x-small"
+                      @click="changePasswordDialog = false"
+                    >
                       <v-icon :icon="mdiClose"></v-icon>
                     </v-btn>
                   </v-card-title>

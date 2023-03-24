@@ -1,3 +1,7 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("Blank Page");
+</script>
 <template>
   <v-container>
     <v-row>

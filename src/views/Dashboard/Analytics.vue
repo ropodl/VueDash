@@ -1,9 +1,12 @@
 <script setup>
 import { onMounted } from "vue";
+import { useTitle } from "@vueuse/core";
 import { Bar, Radar } from "vue-chartjs";
 import "chart.js/auto";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
+
+useTitle("Analytics Dashboard");
 
 let carddetails = [
   {

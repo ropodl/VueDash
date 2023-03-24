@@ -85,7 +85,7 @@
         "formplugins": "Form Plugins",
         "advancedinputs": "Advanced Inputs",
         "editors": "Editors",
-        "validation": "validation",
+        "validation": "Validation",
         "wizard": "Wizard"
       },
       "datatable": {
@@ -98,7 +98,7 @@
       },
       "chart": {
         "chart": "Chart",
-        "chartjs": "chartjs",
+        "chartjs": "Chart Js",
         "apexcharts": "ApexCharts"
       },
       "notification": {

@@ -1,7 +1,11 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("404 Error Page");
+</script>
 <template>
   <v-container class="h-100">
     <v-row justify="center" class="h-100">
-      <v-col cols="12" md="4" class="h-100">
+      <v-col cols="12" md="5" class="h-100">
         <div class="d-flex align-center text-center h-100">
           <div>
             <div class="text-h1 font-weight-medium">404</div>

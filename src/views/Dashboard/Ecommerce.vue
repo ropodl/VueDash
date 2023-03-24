@@ -1,5 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
+import { useTitle } from "@vueuse/core";
+useTitle("Ecommerce Dashboard");
 
 const timeline = defineAsyncComponent(() => import("@/components/timeline"));
 

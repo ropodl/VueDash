@@ -1,5 +1,7 @@
 <script setup>
 // import * as items from "@mdi/js";
+import { useTitle } from "@vueuse/core";
+useTitle("Material Design Icon Example Page");
 // let icons = Object.entries(items);
 // console.log(icons);
 </script>
@@ -18,6 +20,11 @@
           </p>
         </v-col>
         <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              Currently removed to explore virtual scroller
+            </v-card-text>
+          </v-card>
           <!-- <v-virtual-scroll :items="items" height="300" item-height="50">
             <template v-slot:default="{ item }">
               <v-row>

@@ -1,4 +1,6 @@
 <script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("Plugins Page");
 const plugins = [
   {
     name: "Vuetify",

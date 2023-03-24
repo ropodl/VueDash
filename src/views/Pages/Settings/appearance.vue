@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { useTitle } from "@vueuse/core";
 import { useTheme } from "vuetify";
 import { useI18n } from "vue-i18n";
+useTitle("Appearance Settings");
 const theme = useTheme();
 const { t, locale } = useI18n();
 let language = [

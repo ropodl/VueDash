@@ -1,5 +1,7 @@
 <script setup>
+import { useTitle } from "@vueuse/core";
 import { mdiCheckboxMarkedCircle, mdiMessage, mdiPlusCircle } from "@mdi/js";
+useTitle("Profile Page");
 const skills = [
   {
     name: "HTML",

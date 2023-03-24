@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { useTitle } from "@vueuse/core";
 import {
   mdiImage,
   mdiFileGifBox,
@@ -19,7 +20,7 @@ import {
   mdiCloseCircle,
   mdiPin,
 } from "@mdi/js";
-
+useTitle("Chat Page");
 let tab = ref(0);
 let drawer = ref(false);
 

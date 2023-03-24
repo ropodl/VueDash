@@ -1,3 +1,8 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+
+useTitle("Privacy Settings");
+</script>
 <template>
   <v-card border flat>
     <v-card-title>Privacy</v-card-title>

@@ -1,3 +1,8 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+
+useTitle("Web Notifications");
+</script>
 <template>
   <v-card border flat>
     <v-card-title>Web Notifications</v-card-title>

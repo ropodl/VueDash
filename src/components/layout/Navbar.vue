@@ -193,7 +193,7 @@ const profiledropdown = [
     </v-menu>
   </v-app-bar>
   <v-navigation-drawer v-model="drawer">
-    <v-list class="nav overflow-visible" density="compact" >
+    <v-list class="nav overflow-visible" density="compact">
       <template v-for="navitem in navitems">
         <v-list-subheader v-if="navitem.subtitle">
           {{ t(navitem.subtitle) }}

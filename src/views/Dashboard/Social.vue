@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { useTitle } from "@vueuse/core";
 import {
   mdiCheckboxMarkedCircle,
   mdiClose,
@@ -13,6 +14,7 @@ import {
   mdiThumbUpOutline,
 } from "@mdi/js";
 import { useThemeMode } from "@/composable/isDark";
+useTitle("Social Dashboard");
 
 let dialog = ref(false);
 </script>

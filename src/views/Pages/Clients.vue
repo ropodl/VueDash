@@ -1,10 +1,7 @@
 <script setup>
+import { useTitle } from "@vueuse/core";
+useTitle("Clients Page");
 const clientsHeader = [
-  // {
-  //   title: "#",
-  //   align: "center",
-  //   value: "photo",
-  // },
   {
     title: "Name",
     align: "center",
@@ -175,8 +172,12 @@ const items = [
               <v-timeline-item v-for="timeline in timelines">
                 <v-list density="compact" lines="three">
                   <v-list-item>
-                    <v-list-item-title v-text="timeline['title']"></v-list-item-title>
-                    <v-list-item-subtitle v-text="timeline['text']"></v-list-item-subtitle>
+                    <v-list-item-title
+                      v-text="timeline['title']"
+                    ></v-list-item-title>
+                    <v-list-item-subtitle
+                      v-text="timeline['text']"
+                    ></v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-timeline-item>

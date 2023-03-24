@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { useTitle } from "@vueuse/core";
+useTitle("Changelogs Page");
 
 let commits = ref([]);
 

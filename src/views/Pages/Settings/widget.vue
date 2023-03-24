@@ -1,3 +1,8 @@
+<script setup>
+import { useTitle } from "@vueuse/core";
+
+useTitle("Widget Notifications");
+</script>
 <template>
   <v-card border flat>
     <v-card-title>Widgets</v-card-title>

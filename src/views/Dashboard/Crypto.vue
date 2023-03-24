@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted } from "vue";
+import { useTitle } from "@vueuse/core";
 // import axios from "axios";
+
+useTitle("Crypto Dashboard");
 
 let marketsheader = [
   {

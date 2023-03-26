@@ -4,6 +4,9 @@ import { useTitle } from "@vueuse/core";
 useTitle("Notifications Example Page");
 
 let snackbar = ref(false);
+let x = ref("center");
+let y = ref("bottom");
+let location = ref("");
 let type = "";
 let duration = "";
 let timeout = "6000";
@@ -11,7 +14,14 @@ let types = ["Primary", "Error", "Success", "Warning"];
 let durations = ["2.5s", "5s", "7.5s", "10s"];
 
 const showsnackbar = () => {
+  location.value = x.value + " " + y.value;
+  console.log(location.value);
   snackbar.value = true;
+};
+
+const getLocation = () => {
+  console.log("y", x);
+  console.log("y", y);
 };
 </script>
 <template>
@@ -23,9 +33,7 @@ const showsnackbar = () => {
       <v-col cols="12">
         <v-card border flat>
           <v-card-title>Snackbar Notifications</v-card-title>
-          <v-card-subtitle
-            >Simple JavaScript toast notifications</v-card-subtitle
-          >
+          <v-card-text> Simple JavaScript toast notifications</v-card-text>
           <v-form ref="form" @submit.prevent="showsnackbar">
             <v-row>
               <v-col cols="12" md="6" class="py-0">
@@ -68,15 +76,35 @@ const showsnackbar = () => {
                 </v-card-text>
               </v-col>
               <v-col cols="12" md="6" class="py-0">
-                <v-card-title class="pb-0">Position</v-card-title>
+                <v-card-title class="pb-0">Position X</v-card-title>
                 <v-card-text>
-                  <v-radio-group v-model="radios" :mandatory="false">
-                    <v-radio label="Top Right" value="tr"></v-radio>
-                    <v-radio label="Top Center" value="tc"></v-radio>
-                    <v-radio label="Top Left" value="tl"></v-radio>
-                    <v-radio label="Bottom Right" value="br"></v-radio>
-                    <v-radio label="Bottom Center" value="bc"></v-radio>
-                    <v-radio label="Bottom Left" value="bl"></v-radio>
+                  <v-radio-group v-model="x" hide-details density="compact">
+                    <v-radio
+                      density="compact"
+                      label="Right"
+                      value="right"
+                    ></v-radio>
+                    <v-radio
+                      density="compact"
+                      label="Center"
+                      value="center"
+                    ></v-radio>
+                    <v-radio
+                      density="compact"
+                      label="Left"
+                      value="left"
+                    ></v-radio>
+                  </v-radio-group>
+                </v-card-text>
+                <v-card-title>Position Y</v-card-title>
+                <v-card-text>
+                  <v-radio-group v-model="y" hide-details density="compact">
+                    <v-radio label="Top" value="top"></v-radio>
+                    <v-radio
+                      density="compact"
+                      label="Bottom"
+                      value="bottom"
+                    ></v-radio>
                   </v-radio-group>
                 </v-card-text>
               </v-col>
@@ -93,7 +121,11 @@ const showsnackbar = () => {
       </v-col>
     </v-row>
   </v-container>
-  <v-snackbar v-model="snackbar" multi-line :timeout="timeout">
+  <v-snackbar
+    v-model="snackbar"
+    :timeout="timeout"
+    :location="location"
+  >
     Hello world
   </v-snackbar>
 </template>

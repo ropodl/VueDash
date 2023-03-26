@@ -42,16 +42,19 @@ let languageHeader = [
   {
     title: "Language",
     align: "start",
+    sortable: false,
     key: "language",
   },
   {
     title: "Users",
     align: "start",
+    sortable: false,
     key: "users",
   },
   {
     title: "Users in %",
     align: "center",
+    sortable: false,
     key: "userpercent",
   },
 ];
@@ -184,22 +187,27 @@ const interests = {
 let trafficheader = [
   {
     title: "Source",
+    sortable: false,
     key: "source",
   },
   {
     title: "Users",
+    sortable: false,
     key: "users",
   },
   {
     title: "Sessions",
+    sortable: false,
     key: "sessions",
   },
   {
     title: "Bounce Rate",
+    sortable: false,
     key: "bounce",
   },
   {
     title: "Avg. Session Duration",
+    sortable: false,
     key: "duration",
   },
 ];

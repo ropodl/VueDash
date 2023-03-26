@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive, watch } from "vue";
 import {
   mdiMagnify,
   mdiBell,
@@ -26,8 +26,10 @@ import {
 } from "@mdi/js";
 import { useThemeMode } from "@/composable/isDark";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 // composables
 const { t } = useI18n();
+const router = useRouter();
 // data
 let drawer = ref(true);
 const profiledropdown = [
@@ -57,9 +59,25 @@ const profiledropdown = [
     link: "/signin",
   },
 ];
+// working on search
+let routes = reactive([]);
+
+const getAllRouteName = () => {
+  router.options.routes.forEach((element) => {
+    element.children.forEach((item) => {
+      if (item.children) {
+        item.children.forEach((subitems) => {
+          routes.push(subitems.name);
+        });
+      }
+      routes.push(item);
+    });
+  });
+  console.log(routes);
+};
 </script>
 <template>
-  <v-app-bar absolute top height="49" class="border-b searchbar">
+  <v-app-bar height="48" class="border-b searchbar">
     <v-app-bar-nav-icon
       rounded="0"
       height="48"
@@ -80,15 +98,16 @@ const profiledropdown = [
     <v-spacer></v-spacer>
     <v-autocomplete
       placeholder="Search..."
-      append-icon=""
+      append-inner-icon=""
       :prepend-inner-icon="mdiMagnify"
+      :items="routes"
       hide-no-data
       hide-details
     ></v-autocomplete>
     <v-spacer></v-spacer>
     <v-btn
       icon
-      height="49"
+      height="48"
       :active="false"
       :color="useThemeMode() ? 'white' : 'grey-darken-3'"
       class="hidden-sm-and-down"
@@ -192,6 +211,7 @@ const profiledropdown = [
       </v-card>
     </v-menu>
   </v-app-bar>
+  <!-- nav drawer -->
   <v-navigation-drawer v-model="drawer">
     <v-list class="nav overflow-visible" density="compact">
       <template v-for="navitem in navitems">

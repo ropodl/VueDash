@@ -11,9 +11,9 @@ useTitle("Introduction");
           <h1>Introduction</h1>
         </v-col>
         <v-col cols="12">
-          <v-card>
+          <v-card border flat class="mb-3">
             <v-card-title> Introduction </v-card-title>
-            <v-card-text class="text-body-1">
+            <v-card-text>
               <p>
                 Hello, I hope you find this template useful. VueDash has been
                 crafted on top of vuetify and uses modern web technologies such
@@ -33,12 +33,12 @@ useTitle("Introduction");
               </p>
             </v-card-text>
             <v-card-actions>
-              <v-btn color="primary" class="px-10">Get Started</v-btn>
+              <v-btn variant="flat" color="primary" class="px-10"
+                >Get Started</v-btn
+              >
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
+          <v-card border flat>
             <v-card-title>Contents</v-card-title>
             <v-card-text>
               Inside the zip-file you'll find the following directories and

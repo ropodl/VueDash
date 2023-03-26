@@ -58,12 +58,7 @@ const routes = [
             component: () => import("@/views/Pages/Settings/account"),
             alias: "/settings/",
           },
-          {
-            path: "/settings/password",
-            name: "Password Settings",
-            component: () => import("@/views/Pages/Settings/password"),
-            alias: "/settings/",
-          },
+
           {
             path: "/settings/privacy-safety",
             name: "Privacy Settings",
@@ -86,18 +81,6 @@ const routes = [
             path: "/settings/widgets",
             name: "Widget Settings",
             component: () => import("@/views/Pages/Settings/widget"),
-            alias: "/settings/",
-          },
-          {
-            path: "/settings/your-data",
-            name: "Data Settings",
-            component: () => import("@/views/Pages/Settings/data"),
-            alias: "/settings/",
-          },
-          {
-            path: "/settings/delete-account",
-            name: "Delete Account",
-            component: () => import("@/views/Pages/Settings/delete"),
             alias: "/settings/",
           },
         ],
@@ -355,6 +338,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 };
+  },
 });
 
 router.beforeResolve((to, from, next) => {

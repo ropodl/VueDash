@@ -126,24 +126,21 @@ let items = [
         <v-col cols="12" md="6">
           <v-card border flat>
             <v-card-title>Basic Buttons</v-card-title>
-            <v-card-subtitle>Default Bootstrap buttons style.</v-card-subtitle>
+
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
-                :color="basic.color"
+                :color="basic['color']"
               >
                 {{ basic.color }}</v-btn
               >
             </v-card-text>
             <v-divider></v-divider>
-            <v-card-title>Basic Buttons</v-card-title>
-            <v-card-subtitle>Default Bootstrap buttons style.</v-card-subtitle>
+            <v-card-title>Disabled Buttons</v-card-title>
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
                 :color="basic.color"
                 disabled
@@ -153,11 +150,9 @@ let items = [
             </v-card-text>
             <v-divider></v-divider>
             <v-card-title>Basic rounded Buttons</v-card-title>
-            <v-card-subtitle>Rounded Bootstrap buttons.</v-card-subtitle>
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
                 :color="basic.color"
                 rounded
@@ -167,11 +162,10 @@ let items = [
             </v-card-text>
             <v-divider></v-divider>
             <v-card-title>Basic rounded Buttons</v-card-title>
-            <v-card-subtitle>Rounded Bootstrap buttons.</v-card-subtitle>
+
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
                 :color="basic.color"
                 tile
@@ -181,34 +175,27 @@ let items = [
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
-          <v-card>
+        <v-col cols="12" md="6">
+          <v-card border flat>
             <v-card-title>Outline Buttons</v-card-title>
-            <v-card-subtitle>Buttons without background color.</v-card-subtitle>
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
-                :color="basic.color"
-                outlined
+                :color="basic['color']"
+                variant="outlined"
               >
-                {{ basic.color }}</v-btn
+                {{ basic["color"] }}</v-btn
               >
             </v-card-text>
             <v-divider></v-divider>
             <v-card-title>Disabled Outline Buttons</v-card-title>
-            <v-card-subtitle
-              >Buttons without background color with rounded
-              corners.</v-card-subtitle
-            >
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
-                :color="basic.color"
-                outlined
+                :color="basic['color']"
+                variant="outlined"
                 disabled
                 rounded
               >
@@ -217,11 +204,9 @@ let items = [
             </v-card-text>
             <v-divider></v-divider>
             <v-card-title>Outline Buttons</v-card-title>
-            <v-card-subtitle>Buttons without background color.</v-card-subtitle>
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
                 :color="basic.color"
                 outlined
@@ -231,14 +216,9 @@ let items = [
             </v-card-text>
             <v-divider></v-divider>
             <v-card-title>Outline Buttons</v-card-title>
-            <v-card-subtitle
-              >Buttons without background color with no
-              corners.</v-card-subtitle
-            >
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
                 :color="basic.color"
                 outlined
@@ -249,18 +229,14 @@ let items = [
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-card-title>Icon Buttons</v-card-title>
-            <v-card-subtitle
-              >Default Bootstrap buttons with icons.</v-card-subtitle
-            >
             <v-card-text>
               <v-btn
                 v-for="basic in basics"
-                :key="basic.id"
                 class="px-8 mb-2 mr-2"
-                :color="basic.color"
+                :color="basic['color']"
               >
                 <v-icon left>{{ basic.icon }}</v-icon>
                 {{ basic.color }}
@@ -427,12 +403,3 @@ let items = [
     </v-container>
   </div>
 </template>
-
-<script>
-export default {
-  name: "Buttons",
-  data() {
-    return {};
-  },
-};
-</script>

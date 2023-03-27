@@ -98,7 +98,7 @@ const addItem = (parent) => {
               @end="dragging = false"
             >
               <template #item="{ element }">
-                <v-card border flat class="mb-3">
+                <v-card border flat class="mb-3" style="cursor: grab">
                   <v-list-item>
                     <v-list-item-subtitle>
                       {{ element["title"] + " no: " + element["id"] }}
@@ -148,7 +148,7 @@ const addItem = (parent) => {
               @end="dragging = false"
             >
               <template #item="{ element }">
-                <v-card border flat class="mb-3">
+                <v-card border flat class="mb-3" style="cursor: grab">
                   <v-list-item>
                     <v-list-item-subtitle>
                       {{ element["title"] + " no: " + element["id"] }}
@@ -198,7 +198,7 @@ const addItem = (parent) => {
               @end="dragging = false"
             >
               <template #item="{ element }">
-                <v-card border flat class="mb-3">
+                <v-card border flat class="mb-3" style="cursor: grab">
                   <v-list-item>
                     <v-list-item-subtitle>
                       {{ element["title"] + " no: " + element["id"] }}

@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import draggable from "vuedraggable";
-import { mdiDotsHorizontal } from "@mdi/js";
+import { mdiDotsHorizontal, mdiDragVertical } from "@mdi/js";
 import { useTitle } from "@vueuse/core";
 useTitle("Tasks Page");
 
@@ -10,6 +10,39 @@ let list = reactive([
   { id: 0, name: "John" },
   { id: 1, name: "Joao" },
   { id: 2, name: "Jean" },
+]);
+let upcoming = reactive([
+  {
+    id: 0,
+    title: "This is a upcoming task",
+  },
+  { id: 1, title: "This is a upcoming task" },
+  {
+    id: 2,
+    title: "This is a upcoming task",
+  },
+]);
+let progress = reactive([
+  {
+    id: 0,
+    title: "This is a upcoming task",
+  },
+  { id: 1, title: "This is a upcoming task" },
+  {
+    id: 2,
+    title: "This is a upcoming task",
+  },
+]);
+let completed = reactive([
+  {
+    id: 0,
+    title: "This is a upcoming task",
+  },
+  { id: 1, title: "This is a upcoming task" },
+  {
+    id: 2,
+    title: "This is a upcoming task",
+  },
 ]);
 let dragging = false;
 let yest = reactive([]);
@@ -23,6 +56,13 @@ const add = () => {
 };
 const replace = () => {
   list = [{ name: "Edgard", id: id++ }];
+};
+
+const addItem = (parent) => {
+  parent.push({
+    id: parent.length,
+    title: "This is a upcoming task",
+  });
 };
 </script>
 <template>
@@ -46,6 +86,39 @@ const replace = () => {
               </template>
             </v-list-item>
           </v-list>
+          <v-divider></v-divider>
+          <v-card-text class="pb-0">
+            <draggable
+              :list="upcoming"
+              item-key="name"
+              class="list-group"
+              ghost-class="ghost"
+              :move="checkMove"
+              @start="dragging = true"
+              @end="dragging = false"
+            >
+              <template #item="{ element }">
+                <v-card border flat class="mb-3">
+                  <v-list-item>
+                    <v-list-item-subtitle>
+                      {{ element["title"] + " no: " + element["id"] }}
+                    </v-list-item-subtitle>
+                  </v-list-item>
+                </v-card>
+              </template>
+            </draggable>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-btn
+              block
+              variant="flat"
+              rounded="large"
+              @click="addItem(upcoming)"
+            >
+              Add Items
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -64,10 +137,9 @@ const replace = () => {
             </v-list-item>
           </v-list>
           <v-divider></v-divider>
-          <v-card-text>
+          <v-card-text class="pb-0">
             <draggable
-              :list="list"
-              :disabled="!enabled"
+              :list="progress"
               item-key="name"
               class="list-group"
               ghost-class="ghost"
@@ -75,19 +147,28 @@ const replace = () => {
               @start="dragging = true"
               @end="dragging = false"
             >
-              <!-- <div
-              class="list-group-item"
-              :class="{ 'not-draggable': !enabled }"
-            >
-              {{ element.name }}
-            </div> -->
               <template #item="{ element }">
                 <v-card border flat class="mb-3">
-                  <v-card-text>{{ element.name }}</v-card-text>
+                  <v-list-item>
+                    <v-list-item-subtitle>
+                      {{ element["title"] + " no: " + element["id"] }}
+                    </v-list-item-subtitle>
+                  </v-list-item>
                 </v-card>
               </template>
             </draggable>
           </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-btn
+              block
+              variant="flat"
+              rounded="large"
+              @click="addItem(progress)"
+            >
+              Add Items
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -105,8 +186,46 @@ const replace = () => {
               </template>
             </v-list-item>
           </v-list>
+          <v-divider></v-divider>
+          <v-card-text class="pb-0">
+            <draggable
+              :list="completed"
+              item-key="name"
+              class="list-group"
+              ghost-class="ghost"
+              :move="checkMove"
+              @start="dragging = true"
+              @end="dragging = false"
+            >
+              <template #item="{ element }">
+                <v-card border flat class="mb-3">
+                  <v-list-item>
+                    <v-list-item-subtitle>
+                      {{ element["title"] + " no: " + element["id"] }}
+                    </v-list-item-subtitle>
+                  </v-list-item>
+                </v-card>
+              </template>
+            </draggable>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-btn
+              block
+              variant="flat"
+              rounded="large"
+              @click="addItem(completed)"
+            >
+              Add Items
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
+<style lang="scss">
+.ghost {
+  border: 1px solid rgb(var(--v-theme-primary)) !important;
+}
+</style>

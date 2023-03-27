@@ -9,11 +9,10 @@ let commits = ref([]);
 onMounted(() => {
   axios
     .get(
-      "https://api.github.com/repos/ropodl/vueDash/commits?per_page=20&sha=master"
+      "https://api.github.com/repos/ropodl/vueDash/commits?per_page=10&sha=master"
     )
     .then((res) => {
       commits.value = res.data;
-      console.log(commits);
     });
 });
 </script>

@@ -22,6 +22,10 @@ const plugins = [
     name: "ApexCharts",
     link: "https://apexcharts.com/",
   },
+  {
+    name: "Vue Draggable",
+    link: "https://sortablejs.github.io/vue.draggable.next/",
+  },
 ];
 </script>
 <template>

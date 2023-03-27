@@ -123,7 +123,7 @@ const getAllRouteName = () => {
       location="bottom"
       scroll-strategy="none"
       class="position-relative"
-      transition="slide-y-reverse-transition"
+      transition="slide-y-transition"
     >
       <template v-slot:activator="{ props }">
         <v-btn
@@ -142,7 +142,7 @@ const getAllRouteName = () => {
           </v-badge>
         </v-btn>
       </template>
-      <v-card border flat width="400" class="rounded-t-0">
+      <v-card border flat width="400" class="rounded-t-0 border-t-0">
         <v-list density="compact" lines="three">
           <template v-for="notification in notifications">
             <v-list-subheader

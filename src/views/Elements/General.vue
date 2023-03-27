@@ -65,23 +65,30 @@ let badges = [
         <v-card border flat title="Breadcrumb" class="mb-3">
           <v-card-text class="px-0">
             <v-breadcrumbs density="compact" :items="items"></v-breadcrumbs>
-            <v-breadcrumbs density="compact" :items="items" divider="-"></v-breadcrumbs>
+            <v-breadcrumbs
+              density="compact"
+              :items="items"
+              divider="-"
+            ></v-breadcrumbs>
           </v-card-text>
         </v-card>
         <v-card border flat title="Images" class="mb-3">
           <v-card-text class="d-flex justify-space-between">
             <v-avatar size="150">
               <v-img
+                eager
                 src="https://appstack.bootlab.io/img/avatars/avatar.jpg"
               ></v-img>
             </v-avatar>
             <v-avatar size="150" style="border: 5px solid #3d3d3d">
               <v-img
+                eager
                 src="https://appstack.bootlab.io/img/avatars/avatar.jpg"
               ></v-img>
             </v-avatar>
             <v-avatar rounded="0" size="150">
               <v-img
+                eager
                 src="https://appstack.bootlab.io/img/avatars/avatar.jpg"
               ></v-img>
             </v-avatar>

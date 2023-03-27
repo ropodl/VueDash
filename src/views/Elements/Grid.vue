@@ -9,9 +9,12 @@ useTitle("Grid Example Page");
         <h1>Grid</h1>
       </v-col>
       <v-col cols="12">
-        <v-card border flat>
-          <v-card-title>Grid system</v-card-title>
-          <v-card-subtitle>Powerful mobile-first flex grid</v-card-subtitle>
+        <v-card
+          border
+          flat
+          title="Grid system"
+          subtitle="Powerful mobile-first flex grid"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="12" md="12">

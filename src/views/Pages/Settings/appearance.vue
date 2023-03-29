@@ -28,8 +28,7 @@ onMounted(() => {
   locale.value = language ? "us" : "np";
   currentLanguage.value = language ? "us" : "np";
   // primary color check (not working currently, more research needed)
-  let color = localStorage.getItem("isPrimaryColor") ?? "#d64937"; //default color #2d2d2d
-  console.log(color);
+  let color = localStorage.getItem("isPrimaryColor") ?? "#d64937";
   theme.global.current.value.colors.primary = color;
 });
 const changeColorMode = () => {
@@ -43,7 +42,6 @@ const changeLanguage = () => {
 };
 const changePrimaryColor = () => {
   theme.global.current.value.colors.primary = primaryColor.value;
-  console.log(primaryColor);
 };
 </script>
 <template>

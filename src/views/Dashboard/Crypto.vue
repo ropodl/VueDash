@@ -260,8 +260,6 @@ const topPaneCall = async () => {
     .then((response) => {
       loading.value = false;
       cryptoData = response.data;
-      console.log(cryptoData);
-      topPaneData = response.data;
     });
 };
 
@@ -275,25 +273,7 @@ const getColor = (percent) => {
       <v-col cols="12" class="py-0">
         <h1>Welcome back, John Doe!</h1>
       </v-col>
-      <v-col cols="12" md="3" v-for="(data, i) in topPaneData">
-        <v-card flat border v-if="i < 4">
-          <v-card-title>
-            <!-- {{ data.currency }} -->
-            {{ data["symbol"] }}
-            <!-- <span class="body-1 error--text">{{ data.change }}%</span> -->
-          </v-card-title>
-          <!-- <v-card-text class="pb-0">
-            <div class="font-weight-light mr-3">
-              Market Cap: {{ data.market_cap }}
-            </div>
-            <div>Price/Unit: ${{ data.price }}</div>
-          </v-card-text> -->
-          <v-card-text class="pt-0">
-            Volume: {{ data["volume"] }} BTC
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="5">
+      <v-col cols="12" md="6">
         <v-card flat border>
           <v-card-title>Markets</v-card-title>
           <v-divider></v-divider>
@@ -304,7 +284,7 @@ const getColor = (percent) => {
               :items="cryptoData"
             >
               <template v-slot:item.priceChange="{ item }">
-                {{ item.raw.priceChange.parseInt() }}
+                {{ item.raw.priceChange }}
                 <span
                   class="ml-1"
                   :class="getColor(item.raw.priceChangePercent)"
@@ -314,13 +294,10 @@ const getColor = (percent) => {
                 </span>
               </template>
             </v-data-table>
-            <!-- <template v-slot:item.tech="{ item }">
-              <v-chip color="error" small>{{ item.tech }}</v-chip>
-            </template> -->
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" md="7">
+      <v-col cols="12" md="6">
         <v-card flat border>
           <v-card-title>LTC / BTC</v-card-title>
           <v-divider></v-divider>

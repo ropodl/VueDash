@@ -78,12 +78,6 @@ const getColor = (progress) => {
                 </v-card-text>
               </div>
             </v-img>
-            <v-progress-linear
-              :color="getColor(todo['progress'])"
-              height="6"
-              :model-value="todo['progress']"
-              striped
-            ></v-progress-linear>
           </template>
           <v-card-title>{{ todo["title"] }}</v-card-title>
           <v-card-text class="pt-0">

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, watch } from "vue";
+import { ref, reactive } from "vue";
 import {
   mdiMagnify,
   mdiBell,
@@ -27,9 +27,11 @@ import {
 import { useThemeMode } from "@/composable/isDark";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import { useFullscreen } from "@vueuse/core";
 // composables
 const { t } = useI18n();
 const router = useRouter();
+const { isFullscreen, enter, exit, toggle } = useFullscreen();
 // data
 let drawer = ref(true);
 const profiledropdown = [
@@ -84,6 +86,10 @@ const getAllRouteName = () => {
       @click="drawer = !drawer"
       :color="useThemeMode() ? 'white' : 'grey-darken-3'"
     ></v-app-bar-nav-icon>
+    <v-btn>
+      go full
+      {{ isFullscreen }}
+    </v-btn>
     <v-btn
       exact
       :active="false"

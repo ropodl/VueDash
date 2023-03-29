@@ -212,7 +212,7 @@ const getAllRouteName = () => {
     </v-menu>
   </v-app-bar>
   <!-- nav drawer -->
-  <v-navigation-drawer v-model="drawer">
+  <v-navigation-drawer v-model="drawer" absolute>
     <v-list class="nav overflow-visible" density="compact">
       <template v-for="navitem in navitems">
         <v-list-subheader v-if="navitem.subtitle">

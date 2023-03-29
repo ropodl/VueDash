@@ -1,156 +1,25 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useTitle } from "@vueuse/core";
-// import axios from "axios";
+import axios from "axios";
 
 useTitle("Crypto Dashboard");
 
-let marketsheader = [
+const markets = [
   {
-    title: "Coin",
+    title: "Symbol",
     sortable: false,
-    key: "coin",
-  },
-  {
-    title: "Price",
-    sortable: false,
-    key: "price",
+    key: "symbol",
   },
   {
     title: "Volume",
     sortable: false,
-    key: "vol",
+    key: "volume",
   },
   {
     title: "Change",
     sortable: false,
-    key: "change",
-  },
-];
-let markets = [
-  {
-    coin: "ETH",
-    price: "0.03863405",
-    vol: "1379.634",
-    change: "+1.52",
-  },
-  {
-    coin: "XRP",
-    price: "0.00009313",
-    vol: "270.805",
-    change: "-3.30",
-  },
-  {
-    coin: "XMR",
-    price: "0.01292315",
-    vol: "203.531",
-    change: "+ 6.10",
-  },
-  {
-    coin: "DASH",
-    price: "0.02088992",
-    vol: "84.034",
-    change: "- 3.17",
-  },
-  {
-    coin: "LTC",
-    price: "0.00821501",
-    vol: "80.566",
-    change: "+ 3.00",
-  },
-  {
-    coin: "STR",
-    price: "0.00002948",
-    vol: "58.981",
-    change: "+ 2.58",
-  },
-  {
-    coin: "DOGE",
-    price: "0.00000061",
-    vol: "46.849",
-    change: "- 1.61",
-  },
-  {
-    coin: "REP",
-    price: "0.00223510",
-    vol: "37.038",
-    change: "+ 0.54",
-  },
-  {
-    coin: "EOS",
-    price: "0.00069000",
-    vol: "35.040",
-    change: "- 5.84",
-  },
-  {
-    coin: "DGB",
-    price: "0.00000277",
-    vol: "34.840",
-    change: "+ 0.36",
-  },
-  {
-    coin: "ZEC",
-    price: "0.01505000",
-    vol: "32.326",
-    change: "- 4.24",
-  },
-  {
-    coin: "BURST",
-    price: "0.00000098",
-    vol: "25.590",
-    change: "- 15.52",
-  },
-  {
-    coin: "MAID",
-    price: "0.00003724",
-    vol: "20.556",
-    change: "- 2.33",
-  },
-  {
-    coin: "ETC",
-    price: "0.00132249",
-    vol: "19.633",
-    change: "+ 4.19",
-  },
-  {
-    coin: "STRAT",
-    price: "0.00028587",
-    vol: "17.557",
-    change: "+ 4.40",
-  },
-];
-let carddetails = [
-  {
-    id: "1",
-    title: "HSR/BTC",
-    change: "-5.28",
-    price: "0.001416",
-    currency: "16.61",
-    vol: "2,692.47",
-  },
-  {
-    id: "2",
-    title: "BNB/BTC",
-    change: "+2.61",
-    price: "0.00022004",
-    currency: "2.58",
-    vol: "842.52",
-  },
-  {
-    id: "3",
-    title: "POWR/BTC",
-    change: "-7.27",
-    price: "0.00005806",
-    currency: "0.68",
-    vol: "393.03",
-  },
-  {
-    id: "4",
-    title: "TRX/BTC",
-    change: "-4.98",
-    price: "0.00000229",
-    currency: "0.04",
-    vol: "6,836.31",
+    key: "priceChange",
   },
 ];
 let sellorderheader = [
@@ -213,7 +82,7 @@ let buyorder = [
     sum: "1.26329659",
   },
 ];
-let topPaneData = null;
+let topPaneData = ref("");
 let seriesData = [
   {
     x: new Date(2016, 1, 1),
@@ -379,15 +248,25 @@ let options = {
     },
   ],
 };
+// New remove old
+let cryptoData = reactive([]);
+let loading = ref(true);
 onMounted(() => {
-  // topPaneCall();
+  topPaneCall();
 });
 const topPaneCall = async () => {
   await axios
-    .get(
-      "https://api.nomics.com/v1/currencies/ticker?key=demo-26240835858194712a4f8cc0dc635c7a&ids=BTC,ETH,XRP,DASH&interval=1d,30d&convert=USD&per-page=100&page=1"
-    )
-    .then((response) => (topPaneData = response.data));
+    .get("https://data.binance.com/api/v3/ticker/24hr")
+    .then((response) => {
+      loading.value = false;
+      cryptoData = response.data;
+      console.log(cryptoData);
+      topPaneData = response.data;
+    });
+};
+
+const getColor = (percent) => {
+  return percent.includes("-") ? "text-error" : "text-success";
 };
 </script>
 <template>
@@ -396,20 +275,21 @@ const topPaneCall = async () => {
       <v-col cols="12" class="py-0">
         <h1>Welcome back, John Doe!</h1>
       </v-col>
-      <v-col cols="12" md="3" v-for="data in topPaneData">
-        <v-card flat border>
+      <v-col cols="12" md="3" v-for="(data, i) in topPaneData">
+        <v-card flat border v-if="i < 4">
           <v-card-title>
-            {{ data.currency }} ({{ data.name }})
-            <span class="body-1 error--text">{{ data.change }}%</span>
+            <!-- {{ data.currency }} -->
+            {{ data["symbol"] }}
+            <!-- <span class="body-1 error--text">{{ data.change }}%</span> -->
           </v-card-title>
-          <v-card-text class="pb-0">
+          <!-- <v-card-text class="pb-0">
             <div class="font-weight-light mr-3">
               Market Cap: {{ data.market_cap }}
             </div>
             <div>Price/Unit: ${{ data.price }}</div>
-          </v-card-text>
+          </v-card-text> -->
           <v-card-text class="pt-0">
-            Volume: {{ data["1d"].volume }} BTC
+            Volume: {{ data["volume"] }} BTC
           </v-card-text>
         </v-card>
       </v-col>
@@ -418,11 +298,25 @@ const topPaneCall = async () => {
           <v-card-title>Markets</v-card-title>
           <v-divider></v-divider>
           <v-card-text class="pa-0">
-            <v-data-table :headers="marketsheader" :items="markets">
-              <template v-slot:item.tech="{ item }">
-                <v-chip color="error" small>{{ item.tech }}</v-chip>
+            <v-data-table
+              :loading="loading"
+              :headers="markets"
+              :items="cryptoData"
+            >
+              <template v-slot:item.priceChange="{ item }">
+                {{ item.raw.priceChange.parseInt() }}
+                <span
+                  class="ml-1"
+                  :class="getColor(item.raw.priceChangePercent)"
+                >
+                  {{ item.raw.priceChangePercent.includes("-") ? "" : "+" }}
+                  {{ item.raw.priceChangePercent }}
+                </span>
               </template>
             </v-data-table>
+            <!-- <template v-slot:item.tech="{ item }">
+              <v-chip color="error" small>{{ item.tech }}</v-chip>
+            </template> -->
           </v-card-text>
         </v-card>
       </v-col>

@@ -1,10 +1,11 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useTitle } from "@vueuse/core";
 import { Bar, Radar } from "vue-chartjs";
 import "chart.js/auto";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
+import * as Vibrant from "node-vibrant";
 
 useTitle("Analytics Dashboard");
 
@@ -377,12 +378,57 @@ onMounted(() => {
     },
   });
 });
+
+const colors = ref([
+  {
+    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
+    palette: null,
+  },
+  {
+    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
+    palette: null,
+  },
+  {
+    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
+    palette: null,
+  },
+]);
+
+const extractColors = (image, index) => {
+  new Vibrant(image) // pass an options object to set the quantizer option
+    .getPalette()
+    .then((palette) => {
+      colors.value[index].palette = palette;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
 </script>
 <template>
   <v-container>
     <v-row>
       <v-col cols="12" class="py-0">
         <h1>Welcome back, John Doe!</h1>
+      </v-col>
+      <v-col cols="12">
+        test
+        <v-row>
+          <v-col cols="12" md="4" v-for="(color, index) in colors" :key="index">
+            <img
+              :src="color.url"
+              style="width: 100%"
+              alt="My Image"
+              @load="extractColors(color.url, index)"
+              ref="image"
+            />
+            <div v-if="color.palette">
+              <div v-for="(paletteColor, name) in color.palette" :key="name">
+                {{ name }}: {{ paletteColor.hex }}
+              </div>
+            </div>
+          </v-col>
+        </v-row>
       </v-col>
       <v-col cols="12" md="6">
         <v-row>

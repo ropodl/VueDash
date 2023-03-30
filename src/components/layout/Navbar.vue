@@ -23,6 +23,7 @@ import {
   mdiMapMarker,
   mdiCalendar,
   mdiShareVariant,
+  mdiLock,
 } from "@mdi/js";
 import { useThemeMode } from "@/composable/isDark";
 import { useI18n } from "vue-i18n";
@@ -56,6 +57,11 @@ const profiledropdown = [
     link: "/introduction",
   },
   {
+    icon: mdiLock,
+    title: "Lock screen",
+    link: "/lock-screen",
+  },
+  {
     icon: mdiPower,
     title: "appbar.profiledropdown.signout",
     link: "/signin",
@@ -86,10 +92,10 @@ const getAllRouteName = () => {
       @click="drawer = !drawer"
       :color="useThemeMode() ? 'white' : 'grey-darken-3'"
     ></v-app-bar-nav-icon>
-    <v-btn>
+    <!-- <v-btn>
       go full
       {{ isFullscreen }}
-    </v-btn>
+    </v-btn> -->
     <v-btn
       exact
       :active="false"

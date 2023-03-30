@@ -307,6 +307,11 @@ const routes = [
     component: () => import("@/layouts/NoNav"),
     children: [
       {
+        path: "/lock-screen",
+        name: "LockScreen",
+        component: () => import("@/views/Auth/LockScreen"),
+      },
+      {
         path: "/signin",
         name: "SignIn",
         component: () => import("@/views/Auth/SignIn"),

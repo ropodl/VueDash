@@ -205,8 +205,8 @@ const getAllRouteName = () => {
           :color="useThemeMode() ? 'white' : 'grey-darken-3'"
           v-bind="props"
         >
-          <v-avatar start rounded="0" size="30" class="mr-3">
-            <v-img src="https://ropodl.vercel.app/ai.jpg"></v-img>
+          <v-avatar start size="30" class="mr-3">
+            <v-img src="https://ropodl.vercel.app/image/ai.jpg"></v-img>
           </v-avatar>
           <span class="text-capitalize">ropodl</span>
         </v-btn>

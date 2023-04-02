@@ -206,7 +206,7 @@ const getAllRouteName = () => {
           v-bind="props"
         >
           <v-avatar start rounded="0" size="30" class="mr-3">
-            <v-img src="https://ropodl.vercel.app/icon.png"></v-img>
+            <v-img src="https://ropodl.vercel.app/ai.jpg"></v-img>
           </v-avatar>
           <span class="text-capitalize">ropodl</span>
         </v-btn>

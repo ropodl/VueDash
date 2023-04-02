@@ -411,25 +411,6 @@ const extractColors = (image, index) => {
       <v-col cols="12" class="py-0">
         <h1>Welcome back, John Doe!</h1>
       </v-col>
-      <v-col cols="12">
-        test
-        <v-row>
-          <v-col cols="12" md="4" v-for="(color, index) in colors" :key="index">
-            <img
-              :src="color.url"
-              style="width: 100%"
-              alt="My Image"
-              @load="extractColors(color.url, index)"
-              ref="image"
-            />
-            <div v-if="color.palette">
-              <div v-for="(paletteColor, name) in color.palette" :key="name">
-                {{ name }}: {{ paletteColor.hex }}
-              </div>
-            </div>
-          </v-col>
-        </v-row>
-      </v-col>
       <v-col cols="12" md="6">
         <v-row>
           <v-col cols="12" sm="6" v-for="carddetail in carddetails">

@@ -25,7 +25,7 @@ let dialog = ref(false);
         <h1>Welcome back, John Doe!</h1>
       </v-col>
       <v-col cols="12" md="8">
-        <v-card flat border>
+        <v-card flat border v-for="i in 5" class="mb-3">
           <v-list class="pt-0">
             <v-list-item lines="three" class="pb-0">
               <template #prepend>
@@ -235,95 +235,30 @@ let dialog = ref(false);
           <v-card-title>Following</v-card-title>
           <v-divider></v-divider>
           <v-list>
-            <v-list-item>
-              <template v-slot:prepend>
-                <v-avatar>
-                  <v-img
-                    cover
-                    src="https://appstack.bootlab.io/img/avatars/avatar-2.jpg"
-                  ></v-img>
-                </v-avatar>
-              </template>
-              <v-list-item-title>Steve Jobs</v-list-item-title>
-              <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
-              <template v-slot:append>
-                <v-btn variant="tonal" size="small" class="text-capitalize"
-                  >Unfollow</v-btn
-                >
-              </template>
-            </v-list-item>
-            <v-divider class="my-1"></v-divider>
-            <v-list-item>
-              <template v-slot:prepend>
-                <v-avatar>
-                  <v-img
-                    cover
-                    src="https://appstack.bootlab.io/img/avatars/avatar.jpg"
-                  ></v-img>
-                </v-avatar>
-              </template>
-              <v-list-item-title>Steve Jobs</v-list-item-title>
-              <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
-              <template v-slot:append>
-                <v-btn variant="tonal" size="small" class="text-capitalize"
-                  >Unfollow</v-btn
-                >
-              </template>
-            </v-list-item>
-            <v-divider class="my-1"></v-divider>
-            <v-list-item>
-              <template v-slot:prepend>
-                <v-avatar>
-                  <v-img
-                    cover
-                    src="https://appstack.bootlab.io/img/avatars/avatar-3.jpg"
-                  ></v-img>
-                </v-avatar>
-              </template>
-              <v-list-item-title>Steve Jobs</v-list-item-title>
-              <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
-              <template v-slot:append>
-                <v-btn variant="tonal" size="small" class="text-capitalize"
-                  >Unfollow</v-btn
-                >
-              </template>
-            </v-list-item>
-            <v-divider class="my-1"></v-divider>
-            <v-list-item>
-              <template v-slot:prepend>
-                <v-avatar>
-                  <v-img
-                    cover
-                    src="https://appstack.bootlab.io/img/avatars/avatar-4.jpg"
-                  ></v-img>
-                </v-avatar>
-              </template>
-              <v-list-item-title>Steve Jobs</v-list-item-title>
-              <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
-              <template v-slot:append>
-                <v-btn variant="tonal" size="small" class="text-capitalize"
-                  >Unfollow</v-btn
-                >
-              </template>
-            </v-list-item>
-            <v-divider class="my-1"></v-divider>
-            <v-list-item>
-              <template v-slot:prepend>
-                <v-avatar>
-                  <v-img
-                    cover
-                    src="https://appstack.bootlab.io/img/avatars/avatar-5.jpg"
-                  ></v-img>
-                </v-avatar>
-              </template>
-              <v-list-item-title>Steve Jobs</v-list-item-title>
-              <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
-              <template v-slot:append>
-                <v-btn variant="tonal" size="small" class="text-capitalize"
-                  >Unfollow</v-btn
-                >
-              </template>
-            </v-list-item>
+            <template v-for="i in 5">
+              <v-list-item>
+                <template v-slot:prepend>
+                  <v-avatar>
+                    <v-img
+                      cover
+                      :src="
+                        'https://appstack.bootlab.io/img/avatars/avatar' +
+                        [i == 1 ? '' : '-' + i] +
+                        '.jpg'
+                      "
+                    ></v-img>
+                  </v-avatar>
+                </template>
+                <v-list-item-title>Steve Jobs</v-list-item-title>
+                <v-list-item-subtitle> UI/UX Designer </v-list-item-subtitle>
+                <template v-slot:append>
+                  <v-btn variant="tonal" size="small" class="text-capitalize"
+                    >Unfollow</v-btn
+                  >
+                </template>
+              </v-list-item>
+              <v-divider class="my-1" v-if="i < 5"></v-divider>
+            </template>
           </v-list>
         </v-card>
       </v-col>

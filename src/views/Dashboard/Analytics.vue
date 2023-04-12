@@ -5,7 +5,6 @@ import { Bar, Radar } from "vue-chartjs";
 import "chart.js/auto";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
-import * as Vibrant from "node-vibrant";
 
 useTitle("Analytics Dashboard");
 
@@ -378,32 +377,6 @@ onMounted(() => {
     },
   });
 });
-
-const colors = ref([
-  {
-    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
-    palette: null,
-  },
-  {
-    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
-    palette: null,
-  },
-  {
-    url: "https://lokeshdhakar.com/projects/color-thief/image-1.e59bc3bd.jpg",
-    palette: null,
-  },
-]);
-
-const extractColors = (image, index) => {
-  new Vibrant(image) // pass an options object to set the quantizer option
-    .getPalette()
-    .then((palette) => {
-      colors.value[index].palette = palette;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
 </script>
 <template>
   <v-container>

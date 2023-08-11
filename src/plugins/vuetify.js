@@ -1,7 +1,7 @@
 // Styles
-import "vuetify/styles";
 import { md3 } from "vuetify/blueprints";
 import colors from "vuetify/lib/util/colors";
+import "vuetify/styles";
 // Icons
 import { fa } from "vuetify/iconsets/fa";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
@@ -9,14 +9,13 @@ import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 import { createVuetify } from "vuetify";
 // Data Tables
 import { VDataTable } from "vuetify/labs/VDataTable";
-import { VVirtualScroll } from "vuetify/labs/VVirtualScroll";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   blueprint: md3,
   components: {
     VDataTable,
-    VVirtualScroll,
+    // VVirtualScroll,
   },
   icons: {
     defaultSet: "mdi",

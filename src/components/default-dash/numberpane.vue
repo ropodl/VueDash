@@ -34,13 +34,12 @@ let carddetails = [
   <v-row>
     <v-col cols="12" sm="6" lg="3" v-for="carddetail in carddetails">
       <v-card flat border class="py-4">
-        <v-icon :class="[carddetail.class]" style="">{{
-          carddetail.icon
-        }}</v-icon>
-        <v-card-title
-          class="text-h4 font-weight-bold"
-          v-text="carddetail['title']"
-        ></v-card-title>
+        <v-icon :class="[carddetail.class]" style="">
+          {{ carddetail.icon }}
+        </v-icon>
+        <v-card-title class="text-h4 font-weight-bold">
+          {{ carddetail["title"] }}
+        </v-card-title>
         <v-card-title v-text="carddetail['text']"> </v-card-title>
         <v-card-text class="py-0">
           <v-chip

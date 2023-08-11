@@ -1,34 +1,34 @@
 <script setup>
-import { ref, reactive } from "vue";
-import {
-  mdiMagnify,
-  mdiBell,
-  mdiMessage,
-  mdiAccountCircle,
-  mdiGoogleAnalytics,
-  mdiCog,
-  mdiHelpCircle,
-  mdiPower,
-  mdiViewDashboard,
-  mdiBookOpenPageVariant,
-  mdiAccountGroup,
-  mdiAccountBoxMultiple,
-  mdiLayers,
-  mdiHeart,
-  mdiFormTextbox,
-  mdiTable,
-  mdiFormTextarea,
-  mdiTableLarge,
-  mdiChartArc,
-  mdiMapMarker,
-  mdiCalendar,
-  mdiShareVariant,
-  mdiLock,
-} from "@mdi/js";
 import { useThemeMode } from "@/composable/isDark";
+import {
+  mdiAccountBoxMultiple,
+  mdiAccountCircle,
+  mdiAccountGroup,
+  mdiBell,
+  mdiBookOpenPageVariant,
+  mdiCalendar,
+  mdiChartArc,
+  mdiCog,
+  mdiFormTextarea,
+  mdiFormTextbox,
+  mdiGoogleAnalytics,
+  mdiHeart,
+  mdiHelpCircle,
+  mdiLayers,
+  mdiLock,
+  mdiMagnify,
+  mdiMapMarker,
+  mdiMessage,
+  mdiPower,
+  mdiShareVariant,
+  mdiTable,
+  mdiTableLarge,
+  mdiViewDashboard,
+} from "@mdi/js";
+import { useFullscreen } from "@vueuse/core";
+import { reactive, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
-import { useFullscreen } from "@vueuse/core";
 // composables
 const { t } = useI18n();
 const router = useRouter();
@@ -154,8 +154,8 @@ const getAllRouteName = () => {
           </v-badge>
         </v-btn>
       </template>
-      <v-card border flat width="400" class="rounded-t-0 border-t-0">
-        <v-list density="compact" lines="three">
+      <v-card flat width="400" class="rounded-t-0 border-t-0">
+        <v-list density="compact" lines="three" style="height: 400px">
           <template v-for="notification in notifications">
             <v-list-subheader
               v-if="notification.header"
@@ -208,10 +208,10 @@ const getAllRouteName = () => {
           <v-avatar start size="30" class="mr-3">
             <v-img src="https://ropodl.vercel.app/image/ai.jpg"></v-img>
           </v-avatar>
-          <span class="text-capitalize">ropodl</span>
+          <span class="text-lowercase">ropodl</span>
         </v-btn>
       </template>
-      <v-card border class="rounded-t-0">
+      <v-card class="rounded-t-0">
         <v-list density="compact">
           <v-list-item v-for="item in profiledropdown" :to="item['link']">
             <v-list-item-title>

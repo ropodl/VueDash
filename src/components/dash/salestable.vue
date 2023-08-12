@@ -103,7 +103,7 @@ const getColor = (status) => {
 <template>
   <v-data-table :headers="header" :items="project" :items-per-page="-1">
     <template v-slot:item.status="{ item }">
-      <v-chip :color="getColor(item.raw.status)" small>
+      <v-chip rounded="xl" :color="getColor(item.raw.status)" small>
         {{ item.raw.status }}
       </v-chip>
     </template>

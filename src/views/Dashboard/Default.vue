@@ -1,18 +1,21 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
-import colors from "vuetify/lib/util/colors";
 import { useTitle } from "@vueuse/core";
-import { Bar, Doughnut, Line } from "vue-chartjs";
 import "chart.js/auto";
+import { defineAsyncComponent } from "vue";
+import { Bar, Doughnut, Line } from "vue-chartjs";
+import colors from "vuetify/lib/util/colors";
 
 useTitle("Default Dashboard");
 
 // components
 const numberpane = defineAsyncComponent(() =>
-  import("@/components/default-dash/numberpane")
+  import("@/components/dash/numberpane")
 );
-// const calendar = defineAsyncComponent(() => import("@/components/calendar"));
+const feed = defineAsyncComponent(() => import("@/components/dash/dailyfeed"));
 const timeline = defineAsyncComponent(() => import("@/components/timeline"));
+const salestable = defineAsyncComponent(() =>
+  import("@/components/dash/salestable")
+);
 // data
 let revenue = {
   data: {
@@ -128,98 +131,7 @@ let sales = {
     },
   },
 };
-let header = [
-  {
-    title: "Name",
-    align: "start",
-    key: "name",
-  },
-  {
-    title: "Start Date",
-    align: "center",
-    key: "startdate",
-  },
-  {
-    title: "End Date",
-    align: "center",
-    key: "enddate",
-  },
-  {
-    title: "Status",
-    align: "center",
-    key: "status",
-  },
-  {
-    title: "Assignee",
-    align: "center",
-    key: "assignee",
-  },
-];
-let project = [
-  {
-    name: "Project Apollo",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Done",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Fireball",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "In Progress",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Hades",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Cancelled",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Nitro",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Pending",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Pheonix",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Done",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Romeo",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Done",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Wombat",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Done",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project X",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "In Progress",
-    assignee: "Carl Jenkins",
-  },
-  {
-    name: "Project Zirco",
-    startdate: "01/01/2018",
-    enddate: "31/06/2018",
-    status: "Done",
-    assignee: "Carl Jenkins",
-  },
-];
+
 let items = [
   {
     title: "Action",
@@ -268,13 +180,6 @@ let dailyfeed = [
       '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
   },
 ];
-// methods
-const getColor = (status) => {
-  if (status == "Done") return "success";
-  else if (status == "Pending") return "primary";
-  else if (status == "Cancelled") return "error";
-  else if (status == "In Progress") return "warning";
-};
 </script>
 <template>
   <v-container>
@@ -319,34 +224,7 @@ const getColor = (status) => {
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-        <v-card flat border class="mb-3">
-          <v-card-title class="d-flex">
-            Daily Feed <v-spacer></v-spacer>
-            <v-chip color="info">Today</v-chip>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text class="pa-0">
-            <v-list density="compact" lines="three">
-              <template v-for="feed in dailyfeed">
-                <v-divider v-if="feed.divider"></v-divider>
-                <v-list-item v-else :key="feed.title">
-                  <template v-slot:prepend>
-                    <v-avatar size="60">
-                      <v-img :src="feed.avatar"></v-img>
-                    </v-avatar>
-                  </template>
-                  <v-list-item-title v-html="feed.title"></v-list-item-title>
-                  <v-list-item-subtitle
-                    v-html="feed.subtitle"
-                  ></v-list-item-subtitle>
-                  <template v-slot:append>
-                    <span>3h ago</span>
-                  </template>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card-text>
-        </v-card>
+        <feed />
         <v-card flat border class="mb-3">
           <v-card-title>Weekly Sales</v-card-title>
           <v-divider></v-divider>
@@ -372,13 +250,7 @@ const getColor = (status) => {
         <v-card flat border>
           <v-card-title>Latest Projects</v-card-title>
           <v-divider></v-divider>
-          <v-data-table :headers="header" :items="project" :items-per-page="6">
-            <template v-slot:item.status="{ item }">
-              <v-chip :color="getColor(item.raw.status)" small>
-                {{ item.raw.status }}
-              </v-chip>
-            </template>
-          </v-data-table>
+          <salestable />
         </v-card>
       </v-col>
     </v-row>

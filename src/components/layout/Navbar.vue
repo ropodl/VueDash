@@ -289,13 +289,13 @@ const getAllRouteName = () => {
     </v-list>
   </v-navigation-drawer>
 </template>
-<style>
+<!-- <style>
 header.searchbar {
   top: 0 !important;
   border-top: 0;
   overflow: hidden;
 }
-</style>
+</style> -->
 <script>
 export default {
   data() {

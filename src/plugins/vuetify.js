@@ -8,13 +8,13 @@ import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 // Composables
 import { createVuetify } from "vuetify";
 // Data Tables
-import { VDataTable } from "vuetify/labs/VDataTable";
+import * as labsComponents from "vuetify/labs/components";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   blueprint: md3,
   components: {
-    VDataTable,
+    ...labsComponents,
     // VVirtualScroll,
   },
   icons: {

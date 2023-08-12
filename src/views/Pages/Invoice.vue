@@ -2,10 +2,14 @@
 import { mdiPrinter } from "@mdi/js";
 import { useTitle } from "@vueuse/core";
 useTitle("Invoice Page");
+
+const print = () => {
+  window.print();
+};
 </script>
 <template>
   <v-container>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="12" class="py-0">
         <h1>Invoice</h1>
       </v-col>
@@ -20,7 +24,7 @@ useTitle("Invoice Page");
                 VuetifyDash.
               </v-list-item-subtitle>
               <template #append>
-                <v-btn icon flat size="small">
+                <v-btn icon flat size="small" @click="print">
                   <v-icon :icon="mdiPrinter"></v-icon>
                 </v-btn>
               </template>
@@ -59,7 +63,7 @@ useTitle("Invoice Page");
             </v-col>
           </v-row>
           <v-divider></v-divider>
-          <v-table>
+          <v-table density="comfortable">
             <thead>
               <tr>
                 <th class="text-left">Description</th>

@@ -1,6 +1,6 @@
 <script setup>
-import { useTitle } from "@vueuse/core";
 import { mdiBell } from "@mdi/js";
+import { useTitle } from "@vueuse/core";
 useTitle("Alerts Example Page");
 
 let defaultalerts = [
@@ -48,7 +48,7 @@ let defaultalerts = [
       </v-col>
       <v-col cols="12" md="6">
         <v-card border flat>
-          <v-card-title>Icon alerts</v-card-title>
+          <v-card-title>Icon Type alerts</v-card-title>
           <v-card-subtitle
             >Alerts with icon and background color.</v-card-subtitle
           >
@@ -56,7 +56,7 @@ let defaultalerts = [
             <v-alert
               v-for="defaultalert in defaultalerts"
               :color="defaultalert.color"
-              :icon="mdiBell"
+              :type="defaultalert.color"
               dismissible
               class="mb-3"
             >
@@ -91,7 +91,7 @@ let defaultalerts = [
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
-        <v-card>
+        <v-card border flat>
           <v-card-title>Dense alerts</v-card-title>
           <v-card-subtitle
             >Alerts with contextual outline color but dense.</v-card-subtitle
@@ -111,7 +111,7 @@ let defaultalerts = [
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
-        <v-card>
+        <v-card border flat>
           <v-card-title>Alerts with additional content</v-card-title>
           <v-card-subtitle>Alerts with large contents.</v-card-subtitle>
           <v-card-text>
@@ -134,13 +134,12 @@ let defaultalerts = [
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
-        <v-card>
+        <v-card border flat>
           <v-card-title>Alerts with buttons</v-card-title>
           <v-card-subtitle>Alerts with actions.</v-card-subtitle>
           <v-card-text>
             <v-alert
               v-for="defaultalert in defaultalerts"
-              :key="defaultalert.id"
               :color="defaultalert.color"
               outlined
               dismissible

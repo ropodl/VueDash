@@ -1,9 +1,10 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
 import { useTitle } from "@vueuse/core";
+import { defineAsyncComponent } from "vue";
 useTitle("Ecommerce Dashboard");
 
 const timeline = defineAsyncComponent(() => import("@/components/timeline"));
+const salestable = defineAsyncComponent(() => import("@/components/dash/salestable"));
 
 let carddetails = [
   {
@@ -173,11 +174,11 @@ let salesrevenedata = {
           </v-card-text>
           <v-card-text class="pa-0">
             <v-progress-linear
-              :color="carddetail.color"
-              height="6"
-              :model-value="carddetail.percentage"
-              rounded
+              rounded="0"
               striped
+              height="6"
+              :color="carddetail.color"
+              :model-value="carddetail.percentage"
             >
             </v-progress-linear>
           </v-card-text>
@@ -185,7 +186,7 @@ let salesrevenedata = {
       </v-col>
       <v-col cols="12" md="4">
         <v-card border flat>
-          <v-card-title>Sales by State</v-card-title>
+          <v-card-title>Top Sales by Country</v-card-title>
           <v-divider></v-divider>
           <v-card-text>Insert Map jokes here</v-card-text>
         </v-card>
@@ -219,11 +220,7 @@ let salesrevenedata = {
         <v-card border flat>
           <v-card-title>Top Selling Products</v-card-title>
           <v-divider></v-divider>
-          <v-data-table :headers="topsellingheader" :items="sales">
-            <template v-slot:item.tech="{ item }">
-              <v-chip color="error" small>{{ item.raw.tech }}</v-chip>
-            </template>
-          </v-data-table>
+          <salestable/>
         </v-card>
       </v-col>
     </v-row>

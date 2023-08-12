@@ -1,10 +1,10 @@
 <script setup>
-import { onMounted, ref } from "vue";
 import { useTitle } from "@vueuse/core";
-import { Bar, Radar } from "vue-chartjs";
 import "chart.js/auto";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world-merc.js";
+import { onMounted } from "vue";
+import { Bar, Radar } from "vue-chartjs";
 
 useTitle("Analytics Dashboard");
 
@@ -38,6 +38,7 @@ let carddetails = [
     color: "success",
   },
 ];
+
 let languageHeader = [
   {
     title: "Language",
@@ -58,6 +59,7 @@ let languageHeader = [
     key: "userpercent",
   },
 ];
+
 let languages = [
   {
     language: "en-us",
@@ -90,6 +92,7 @@ let languages = [
     userpercent: "13",
   },
 ];
+
 const device = {
   data: {
     labels: [
@@ -132,6 +135,7 @@ const device = {
     },
   },
 };
+
 const interests = {
   data: {
     labels: [
@@ -184,6 +188,7 @@ const interests = {
     },
   },
 };
+
 let trafficheader = [
   {
     title: "Source",
@@ -211,6 +216,7 @@ let trafficheader = [
     key: "duration",
   },
 ];
+
 let traffic = [
   {
     source: "Google",
@@ -269,6 +275,7 @@ let traffic = [
     duration: "00:08:05",
   },
 ];
+
 let sourceHeader = [
   {
     title: "Source",
@@ -286,6 +293,7 @@ let sourceHeader = [
     key: "value",
   },
 ];
+
 let source = [
   {
     source: "Direct",
@@ -296,41 +304,7 @@ let source = [
   { source: "E-mail", revenue: "$ 541", value: "+24%" },
   { source: "Other", revenue: "$ 1465", value: "+11%" },
 ];
-let sourceData = {
-  labels: [
-    "Eating",
-    "Drinking",
-    "Sleeping",
-    "Designing",
-    "Coding",
-    "Cycling",
-    "Running",
-  ],
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [65, 59, 90, 81, 56, 55, 40],
-      fill: true,
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgb(255, 99, 132)",
-      pointBackgroundColor: "rgb(255, 99, 132)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(255, 99, 132)",
-    },
-    {
-      label: "My Second Dataset",
-      data: [28, 48, 40, 19, 96, 27, 100],
-      fill: true,
-      backgroundColor: "rgba(54, 162, 235, 0.2)",
-      borderColor: "rgb(54, 162, 235)",
-      pointBackgroundColor: "rgb(54, 162, 235)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(54, 162, 235)",
-    },
-  ],
-};
+
 var markers = [
   { name: "Egypt", coords: [26.8206, 30.8025] },
   { name: "Russia", coords: [61.524, 105.3188] },
@@ -338,6 +312,7 @@ var markers = [
   { name: "Greenland", coords: [71.7069, -42.6043] },
   { name: "Brazil", coords: [-14.235, -51.9253] },
 ];
+
 onMounted(() => {
   jsVectorMap({
     map: "world_merc",

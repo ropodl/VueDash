@@ -1,10 +1,12 @@
 <script setup>
-import { onMounted, ref, reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 let windowSize = reactive({
   x: 0,
   y: 0,
 });
+
 let currentTab = ref("Appearance");
+
 let tabs = [
   {
     title: "Appearance",
@@ -43,9 +45,11 @@ let tabs = [
   //   link: "/settings/delete-account",
   // },
 ];
+
 onMounted(() => {
   onResize();
 });
+
 const onResize = () => {
   windowSize.x = window.innerWidth;
   windowSize.y = window.innerHeight;
@@ -63,7 +67,7 @@ const onResize = () => {
             v-model="currentTab"
             :direction="windowSize.x >= 700 ? 'vertical' : 'horizontal'"
           >
-            <v-tab
+            <v-tab rounded="0"
               class="text-capitalize"
               v-for="tab in tabs"
               :value="tab['title']"

@@ -37,7 +37,7 @@ let dialog = ref(false);
               </template>
               <v-list-item-title class="d-flex align-center font-weight-bold">
                 Asley Briggs <v-spacer></v-spacer>
-                <span class="text-overline text-capitalize">5m ago</span>
+                <span class="text-overline text-lowercase">5m ago</span>
               </v-list-item-title>
               <v-list-item-subtitle
                 class="mb-3"
@@ -49,7 +49,7 @@ let dialog = ref(false);
                 eveniet molestiae placeat animi veniam possimus.
               </v-list-item-subtitle>
               <v-list-item-title class="mb-3">
-                <v-row>
+                <v-row dense>
                   <v-col cols="12" md="6">
                     <v-card flat>
                       <v-img

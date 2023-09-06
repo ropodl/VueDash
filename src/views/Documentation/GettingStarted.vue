@@ -20,7 +20,7 @@
               directory.
             </p>
             <p>
-              <kbd>npm install</kbd>
+              <pre>npm install</pre>
             </p>
             <p>
               Now you're ready to modify the source files and generate new dist/

@@ -4,7 +4,6 @@ let series = [
   {
     name: "candle",
     data: [
-      
       {
         x: new Date(1538821800000),
         y: [6625.95, 6626, 6611.66, 6617.58],
@@ -158,10 +157,10 @@ let chartOptions = {
     height: 350,
     type: "candlestick",
   },
-  title: {
-    text: "CandleStick Chart - Category X-axis",
-    align: "left",
-  },
+  // title: {
+  //   text: "CandleStick Chart - Category X-axis",
+  //   align: "left",
+  // },
   annotations: {
     xaxis: [
       {

@@ -1,6 +1,7 @@
 <script setup>
 import { dependencies } from "../../../package.json";
 import { useTitle } from "@vueuse/core";
+
 useTitle("Introduction");
 </script>
 <template>
@@ -33,7 +34,7 @@ useTitle("Introduction");
               </p>
             </v-card-text>
             <v-card-actions>
-              <v-btn variant="flat" color="primary" class="px-10"
+              <v-btn variant="flat" color="primary" class="px-10" to="/getting-started"
                 >Get Started</v-btn
               >
             </v-card-actions>

@@ -1,25 +1,25 @@
 <script setup>
-import { ref } from "vue";
-import { useTitle } from "@vueuse/core";
 import {
-  mdiImage,
-  mdiFileGifBox,
-  mdiEmoticonHappyOutline,
+  mdiAccount,
+  mdiBellCancel,
+  mdiCircle,
+  mdiCloseCircle,
   mdiDotsHorizontal,
+  mdiEmoticonHappyOutline,
+  mdiFileGifBox,
+  mdiImage,
   mdiInformation,
+  mdiMagnify,
   mdiMessageVideo,
   mdiPhone,
-  mdiPlusCircle,
-  mdiThumbUp,
-  mdiStickerEmoji,
-  mdiCircle,
-  mdiReply,
-  mdiAccount,
-  mdiMagnify,
-  mdiBellCancel,
-  mdiCloseCircle,
   mdiPin,
+  mdiPlusCircle,
+  mdiReply,
+  mdiStickerEmoji,
+  mdiThumbUp,
 } from "@mdi/js";
+import { useTitle } from "@vueuse/core";
+import { ref } from "vue";
 useTitle("Chat Page");
 let tab = ref(0);
 let drawer = ref(false);
@@ -43,11 +43,12 @@ const test = (i) => {
     <v-row no-gutters>
       <v-col cols="12" md="4" lg="4">
         <v-card flat rounded="0" class="h-100">
-          <v-card-text style="height: 64px">
+          <v-card-text class="pa-0 d-flex align-center" style="height: 64px;">
             <v-text-field
-              density="compact"
+              flat
               hide-details
-              placeholder="Search"
+              variant="solo"
+              placeholder="Search..."
             ></v-text-field>
           </v-card-text>
           <v-divider></v-divider>
@@ -58,10 +59,16 @@ const test = (i) => {
                 mandatory
                 v-for="(item, i) in items"
                 :value="i"
+                rounded="0"
                 height="auto"
                 class="text-capitalize px-0"
               >
-                <v-list density="compact" bg-color="transparent" class="w-100">
+                <v-list
+                  density="compact"
+                  bg-color="transparent"
+                  rounded="0"
+                  class="w-100"
+                >
                   <v-hover v-slot="{ isHovering, props }">
                     <v-list-item v-bind="props">
                       <template #prepend>
@@ -115,7 +122,7 @@ const test = (i) => {
         <v-card flat rounded="0" class="border-s">
           <v-window v-model="tab">
             <v-window-item
-              transition="none"
+              transition="none" reverse-transition="none"
               v-for="(item, i) in items"
               :value="i"
             >
@@ -195,7 +202,9 @@ const test = (i) => {
                     <v-icon :icon="mdiFileGifBox"></v-icon>
                   </v-btn>
                   <v-text-field
+                    flat
                     hide-details
+                    variant="solo"
                     color="white"
                     class="mx-3 border-0"
                     density="compact"

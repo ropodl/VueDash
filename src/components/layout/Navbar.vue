@@ -69,20 +69,6 @@ const profiledropdown = [
 ];
 // working on search
 let routes = reactive([]);
-
-const getAllRouteName = () => {
-  router.options.routes.forEach((element) => {
-    element.children.forEach((item) => {
-      if (item.children) {
-        item.children.forEach((subitems) => {
-          routes.push(subitems.name);
-        });
-      }
-      routes.push(item);
-    });
-  });
-  console.log(routes);
-};
 </script>
 <template>
   <v-app-bar height="48" class="border-b searchbar">
@@ -289,13 +275,6 @@ const getAllRouteName = () => {
     </v-list>
   </v-navigation-drawer>
 </template>
-<!-- <style>
-header.searchbar {
-  top: 0 !important;
-  border-top: 0;
-  overflow: hidden;
-}
-</style> -->
 <script>
 export default {
   data() {

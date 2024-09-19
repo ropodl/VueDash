@@ -413,10 +413,10 @@ onMounted(() => {
                 <v-progress-linear
                   color="primary"
                   height="20"
-                  :model-value="item.raw['userpercent']"
+                  :model-value="item.userpercent"
                   rounded
                 >
-                  {{ item.raw.userpercent }}%
+                  {{ item.userpercent }}%
                 </v-progress-linear>
               </template>
             </v-data-table>
